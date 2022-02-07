@@ -1,0 +1,60 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\babel@toc {ngerman}{}
+\babel@toc {english}{}
+\babel@toc {english}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Declaration}{iv}{chapter*.1}%
+\babel@toc {english}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Preface}{vii}{chapter*.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Abstract}{viii}{chapter*.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Kurzfassung}{ix}{chapter*.5}%
+\babel@toc {ngerman}{}
+\babel@toc {english}{}
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {2}Writing a Thesis}{2}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {3}Working with La\-TeX\xspace }{3}{chapter.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {4}Figures, Tables, Source Code}{4}{chapter.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Mathematical Elements}{5}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Using Literature}{6}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Narrative Citations}{6}{section.6.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}Narrative Citations within Parentheses}{6}{section.6.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.3}Parenthetical Citations}{6}{section.6.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Printing the Manuscript}{7}{chapter.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {8}Closing Remarks}{8}{chapter.8}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Technical Details}{9}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}Supplementary Materials}{10}{appendix.B}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.1}PDF Files}{10}{section.B.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Path: \nolinkurl {/}}{10}{section.B.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.2}Media Files}{10}{section.B.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Path: \nolinkurl {/media}}{10}{section.B.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.3}Online Sources (PDF Captures)}{10}{section.B.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Path: \nolinkurl {/online-sources}}{10}{section.B.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {C}Questionnaire}{11}{appendix.C}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {D}La\-TeX\xspace Source Code}{12}{appendix.D}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{References}{13}{appendix*.6}%

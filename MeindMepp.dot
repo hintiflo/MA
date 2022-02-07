@@ -1,0 +1,11 @@
+digraph g 
+{
+    FW -> MA [dir=back];
+    subgraph clusterGVE {
+        {rank=same Regelung; MA; SWQuality;}
+        MA -> Regelung [constraint=false];
+        MA -> SWQuality;
+        color=invis;
+    };
+    MA -> FPGA;
+}
