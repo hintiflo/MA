@@ -13,8 +13,41 @@ https://de.wikipedia.org/wiki/Test-Harnisch
   Valgrind on embedded
 
 
+*	FW fürs Octane
+*	testcases innheralb eines Tesmodus, bleiben so Teil vom eigetl Code: laut Dietmar nicht nötig, siehe unten
+*	testHooks?
+	
+	
+	
+* Beratung mit Dietmar Millinger, 02.12.2021, bezügl Unit-testing eines FW-Pojektes ohne OS
+	3 Teil-Tests: OS (), IO-Modul, upstream-Kommunikation
+		!!! race-conditions bei der Übertragung ISR->main (Übergang von asynchron auf synchron)
+			Mit Modultest, der die Funktion ordentlich stresst
+
+		Algorthomen per Modultests abtesten: bekannte inputs/outputs
+		
+		USB-Testen: zB 100 mal Befehl senden und schauen, ob er ankommt
+
+		Modultests nicht in den production-code reincompilieren, sondern in einr KOPIE des production-codes einfügen, trifft NIE aufm Master-branch auf
+		
+		im engültigen Code nur etwas Diagnose & Kalibrierung
+	
+* StaudeckerBesprechnung, 07.12.2021
+	Hybridisch verkoppeln von
+		experomenteller Messung
+		-> Winkel ist der Flache Ausgang
+		
+		flache Vorsteuerung Ausrechnen: inverse der Übertragungsfunkt auf urspüngliche Signal draufklatschne, Skriopt Relgelung2 Satz 8.1	
+		
+	Analytsich
+		Annahme eines starren Körpers:
+		RRTK-Skript	(2.12) ...sys 2ter Ordnung
+		
+
+	Eventuell Strom messen um zittern zu ermessen
+
 * Charakterisierung der Galvo-Trägheiten und Massnahmen zum gegenwirken
-* REQ: intern extern, nach Modulen sortiert, mit Bildern fürd Rampen-Signale und ab ind D-Arbeit
+* REQ: intern, extern, nach Modulen sortiert, mit Bildern fürd Rampen-Signale und ab ind D-Arbeit
 	mit tags a la
 		URxx	User Requirement - Generelle Benutzer-/Systemanforderung
 		NRxx	Non-Requirements 
@@ -47,7 +80,7 @@ https://de.wikipedia.org/wiki/Test-Harnisch
 * Debug/Test-Setup: local -> gitlab <-> Pi > DUT -> Relaisboard -> Pi
 					Relaisboard -> osci (4CH und 16DIs)
 					osci -> Pi
-
+* !!! uC - eigener Mode fuer unit-Testing !!!
 
 * Dokumente: Req, Dev-Spec, Test-Spec (Cases), Konzept-Papier (FSM, Trigger-Struktur, protocol, precision/accuracy), HW-Req/Spec, Anf-Doc das zum OCT eh schon existiert, Testprotokolle, Coveragen und call-graphs oder dependency graphs ausm CLANG und gCov heraus
 *	gcov!

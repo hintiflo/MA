@@ -1,7 +1,7 @@
 \chapter{Kurzfassung}
 
 \begin{german}
-An dieser Stelle steht eine Zusammenfassung der Arbeit, Umfang
-max.\ 1 Seite. 
-...
+Die Firma RECENDT GmbH entwickelt und baut OCT-Systeme (optical coherence tomography), f{\"u}r die im Rahmen dieser Diplomarbeit ein Teil der Steuerung entworfen werden soll. Zur 2-dimensionalen Messung mit OCT-Systemen kommen Galvanometer-Scanner im X/Y-Betrieb zum Einsatz. Das sind hochdynamische Drehantriebe f{\"U}r optische Anwendungen, die mit einer Rate von rund 500Hz etwa 20\textdegree vor- und r{\"u}ckw{\"a}rts rotieren k{\"o}nnen. Sie tragen mitrotierende Spiegel um den optischen Pfad in 2 Dimensionen auszulenken und somit fl{\"a}chige Scans zu erm{\"o}glichen. \\
+
+Die ausgew{\"a}hlten Galvo-Modelle ben{\"o}tigen Steuersignale zur Erzeugung der Scan-Muster. Typischerweise sind dies zwei synchrone Rampen-Signale, eines schnell, eines langsam. Aufgabe ist es nun, auf bestehender Mikrocontroller-Hardware einen Signalgenerator zu programmieren. Dieser soll sowohl Rampen-Signale als auch arbitr{\"a}r gew{\"a}hlte Signalformen erzeugen k{\"o}nnen. Dies beinhaltet FW-Module f{\"u}r die Digital-Analog-Wandler, Trigger-Einheit f{\"u}r das Timing sowie Synchronisation der Kan{\"a}le. Weiters ist die USB-Kommunikation per SCPI-Protokoll zu programmieren. Die Anbindung an eine {\"u}bergeordnete Steuerung des OCT-Systems erfolgt per USB. Die handels{\"u}blichen Galvo-Scanner besitzen mechanische Tr{\"a}gheiten, die bei Scan-Raten ab 800Hz kein maximale Auslenkung mehr erlauben. Deshalb w{\"u}rde bei hohen Geschwindgkeiten der optische Messbereich eingeschr{\"a}nkt werden. Um auch bei h{\"o}heren Scan-Raten volle Auslenkungen zu erreichen, soll versucht werden, mit adaptierten Steuersignalen die Tr{\"a}gheiten auszugleichen. \\
 \end{german}

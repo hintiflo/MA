@@ -1,0 +1,48 @@
+\documentclass{article}
+
+
+
+\begin{document}
+
+\subsubsection*{ Ziel: Board-Level-Simulation um }
+\begin{itemize}
+	\item SNR in analog-Pfaden zu verbessern
+	\item Supply-rails entrauschen
+	\item EMV abschätzen
+	\item Schwingneigung detektieren
+	\item Crosstalk abschätzen
+\end{itemize}
+
+\subsubsection*{Motivation} ein OPV-Board funktionierte mit einem TL071, zeigte mit OPA657 jedoch massive Schingneigung $\rightarrow$ die parasitäre Impedanz des Feedback-Pfads war das Problem und konnt durch vias innerhalb der Schleife gelöst werden
+
+\subsubsection*{NonPlusUltra}
+	Co-Simulation der Spice-Modelle mit den Feldgleichungen des PCBs, aus KiCAD heraus exportiert
+
+
+\subsubsection*{mögliche Varianten}
+\begin{enumerate}
+\item
+	modellierte Komponenten per ngspice cosimuliert mit PCB-Geometrie per EM-FieldSolver (FTDT in opemEMS/meep, oder FIT in mafia). stepwise mit Austausch der IO-Daten zw. spice/FieldSolver in jedem Simulationsschritt. Erfordert open-source solver um Datentausch per Simulationsschritt zu ermöglichen.
+	
+\item
+	EM-Solver erzeugt aus der PCB-Geometrie alle Parasiten als R, L und C, diese gehen wieder zurück ins SPICE.
+	
+\item	IBIS-GUI $\leftrightarrow$ KiCAD für EMV
+\end{enumerate}
+
+\subsubsection*{Kandidaten}
+\begin{itemize}
+\item ngspice: \\
+	+ opensource \\
+	- kann keine encrypted models simulieren \\
+
+\item LTSpice: \\
+	+ nimmt encrypteds von LT und analogDev \\
+	- nicht stepwise zu betreiben \\
+
+\item openEMS, FTDT
+\item meep, FTDT
+\item MAFIA, FIT
+\end{itemize}
+
+\end{document}

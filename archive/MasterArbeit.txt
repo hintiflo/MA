@@ -1,0 +1,46 @@
+
+	* OpenSource-HIL
+	
+	* oder etwas beim Ostermann/Huemer Mario
+	
+	* TestSequencer, opensource SW zum durchführen von Testläufen
+
+Recherche
+	besteht das ganze schon?
+	was besteht in Teilen, kann übernommen werden?
+	IDE:	CPP, C, GTK++, python, 
+	Ziel:	Linux, Microprocessor, Win10, oder verteilt
+
+TestGenerator
+	erhält Set aus möglichen inputs für DUT
+	Berechnet Mächtigkeit aller möglichen Kombinationen
+	generiert exhaustiv alle möglichen Kombis als Matrix/Tensor von TestCases
+	läst User entscheiden, welche Cases umzusetzen sind
+	jeder TC erhält eine Duration: Dauer oder bis Event
+	inputs: bool, int, float, string, SCPI, CAN, RS232, Pulse/Sine/Ramp/Sweep
+	opt: erwartete Resultate des DUTs zu jedem TC aufnehmen
+
+TestSequencer
+
+	SW, GUI+Core um Testläufe durchzuführen
+
+	Sequencer erhält ein Set an testCases von Generator und arbeitet diese ab.
+	Besteht aus FSM + GUI
+
+		 _______________ ___________
+		|		|		|			|
+		| Start | Pause	| idle		|
+		|_______|_______| armed		|
+		|		|		| running	|
+		| Arm	| Stop	| failed	|
+		|_______|_______|___________|
+
+	* Kontrolle per Touch, Remote, Trigger-Inputs oder Auto
+	* steuert arbiträre HW um DUT anzuregen
+	* steuert Messwertakquisition, zB Oszi, Digitizer, DIOs oder Multimeter
+	* rudimentäre Sicherheitsfunktionen, abschalten bei Alarmdetektion
+	* Linux-basiert, oder FW
+	* möglichst keine proprietären Kern-Komponenten
+	opt: Untertützung, proprietären Komponenten einzubinden
+	opt:	Akquisition von Messdaten
+	opt:	Messdaten mit erwarteten Res in gtest-Manier vergleichen

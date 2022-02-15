@@ -17,44 +17,98 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {2}Writing a Thesis}{2}{chapter.2}%
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Working with La\-TeX\xspace }{3}{chapter.3}%
+\contentsline {section}{\numberline {1.2}Optical coherence tomography}{1}{section.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Figures, Tables, Source Code}{4}{chapter.4}%
+\contentsline {section}{\numberline {1.3}Galvanometer-Scanners}{2}{section.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Mathematical Elements}{5}{chapter.5}%
+\contentsline {section}{\numberline {1.4}Control of Galvanometer-Scanners}{3}{section.1.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Using Literature}{6}{chapter.6}%
+\contentsline {subsection}{\numberline {1.4.1}optional: adapted steering curves}{4}{subsection.1.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Narrative Citations}{6}{section.6.1}%
+\contentsline {chapter}{\numberline {2}Theory}{5}{chapter.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Narrative Citations within Parentheses}{6}{section.6.2}%
+\contentsline {section}{\numberline {2.1}Code Quality}{5}{section.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Parenthetical Citations}{6}{section.6.3}%
+\contentsline {subsection}{\numberline {2.1.1}Coverage metrics}{5}{subsection.2.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Printing the Manuscript}{7}{chapter.7}%
+\contentsline {subsection}{\numberline {2.1.2}Reviews}{5}{subsection.2.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {8}Closing Remarks}{8}{chapter.8}%
+\contentsline {subsection}{\numberline {2.1.3}Laod/Fault tests}{5}{subsection.2.1.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Technical Details}{9}{appendix.A}%
+\contentsline {subsection}{\numberline {2.1.4}PM and ReqEng}{5}{subsection.2.1.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {B}Supplementary Materials}{10}{appendix.B}%
+\contentsline {section}{\numberline {2.2}Theory - CI/CD}{5}{section.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.1}PDF Files}{10}{section.B.1}%
+\contentsline {subsection}{\numberline {2.2.1}CI/CD with open source on BareMetal}{5}{subsection.2.2.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Path: \nolinkurl {/}}{10}{section.B.1}%
+\contentsline {subsection}{\numberline {2.2.2}reliable USB-Connectivity}{5}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.2}Media Files}{10}{section.B.2}%
+\contentsline {section}{\numberline {2.3}Theory - Galvos}{5}{section.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Path: \nolinkurl {/media}}{10}{section.B.2}%
+\contentsline {subsection}{\numberline {2.3.1}sensitive steering of Galvos}{5}{subsection.2.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {B.3}Online Sources (PDF Captures)}{10}{section.B.3}%
+\contentsline {chapter}{\numberline {3}Hardware}{6}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Path: \nolinkurl {/online-sources}}{10}{section.B.3}%
+\contentsline {section}{\numberline {3.1}STM32F4}{6}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {C}Questionnaire}{11}{appendix.C}%
+\contentsline {section}{\numberline {3.2}Wandler, Level-Shifter, HighSider}{6}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {D}La\-TeX\xspace Source Code}{12}{appendix.D}%
+\contentsline {chapter}{\numberline {4}Software tools}{7}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{References}{13}{appendix*.6}%
+\contentsline {section}{\numberline {4.1}CubeIDE}{7}{section.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}gcov}{7}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}valgrind}{7}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.4}gitlab}{7}{section.4.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.5}runner}{7}{section.4.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.6}HIL-Setup}{7}{section.4.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Requirements}{8}{chapter.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}FW-REQ}{8}{section.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}TCs}{8}{section.5.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {6}Implementation}{9}{chapter.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.1}Konzepte}{9}{section.6.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6.2}FSM und Trigger-Diagramme}{9}{section.6.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {7}Results}{10}{chapter.7}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.1}Test-Res}{10}{section.7.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.2}Coverages}{10}{section.7.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.3}Review-remakrs}{10}{section.7.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {7.4}Gavlo-Performance}{10}{section.7.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {A}Technical Details}{11}{appendix.A}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {B}Supplementary Materials}{12}{appendix.B}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.1}PDF Files}{12}{section.B.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Path: \nolinkurl {/}}{12}{section.B.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.2}Media Files}{12}{section.B.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Path: \nolinkurl {/media}}{12}{section.B.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {B.3}Online Sources (PDF Captures)}{12}{section.B.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {paragraph}{Path: \nolinkurl {/online-sources}}{12}{section.B.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {C}Questionnaire}{13}{appendix.C}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {D}La\-TeX\xspace Source Code}{14}{appendix.D}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{References}{15}{appendix*.8}%

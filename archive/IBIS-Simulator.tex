@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[left=25mm,top=25mm,bottom=15mm,right=25mm]{geometry}
+
+\begin{document}
+\pagestyle{empty}
+\subsubsection*{GUI für einen IBIS-Simulator inkl. parasitären PCB-Eigenschaften}
+
+\begin{itemize}
+	\item um SNR in Analog-Pfaden zu verbessern
+	\item Signalqualität bei AD-Wandlung zu erhöhen
+	% \item Supply-rails entrauschen
+	\item EMV abschätzen zu können
+	\item Schwingneigung detektieren
+	\item Crosstalk abschätzen
+\end{itemize}
+
+\subsubsection*{Motivation} 
+\begin{enumerate} 
+\item Halbleiter-Hersteller bieten für viele Komponenten verschlüsselte Modelle zur Simulation an, die mit deren eigenen Simulatoren untersucht werden können, jedoch nicht in Kombination mit (verschlüsselten) Komponenten anderer Hersteller. IBIS-Modelle sind jedoch niemals verschlüsselt und würden so die Simulation von Komponenten unterschiedlicher Hersteller in ein und der selben Schaltung ermöglichen. Weiters sind Modelle von Prozessoren weithin ausschliesslich als IBIS-Modelle verfügbar. Als Basis für die Simulation existieren open-source-Kandidaten wie ngspice und GNUCAP. \\
+Notwendig wäre die Programmierung einer graphischen Oberfläche, die den Simulator ansteuert, die Verhaltens-Eigenschaften von IBIS-Modelle in spice übersetzt und an den Simulator weitergibt, die Ergebnisse entgegen nimmt und visualisiert. Alle bisher existierenden Lösungen sind proprietär und hoch kostspielig, deshalb soll das Programm unter einer geeigneten open-source Lizenz veröffentlicht werden.
+% sind rein 'behavioral', stellen also lediglich das Verahlten dar und enthalten keinen verschlüsselungswürdiges intellectual property des Herstellers, deshalb sind dies immer zugänglich für Simulation:
+\item Während des Designs ein OPV-Boards funktionierte mit einem niederfrequenten OPV, zeigte mit einem hochfrequenten OPV jedoch massive Schwingneigung $\rightarrow$ die parasitäre Impedanz des Feedback-Pfads im PCB-design war das Problem und konnt durch Durchkontaktierungen innerhalb der Schleife gelöst werden. Diese Effekte sollen durch Simulation der parasitären Eigenschaften schon vor der Fertigung realer Hardware entdeckt werden.
+\end{enumerate}
+
+\subsubsection*{Konzept}
+\begin{enumerate}
+\item GUI, die den Simulator ansteuert, numerische Ergebnisse zurükliest und graphisch in Diagrammen darstellt, bzw. Kennwerte ausrechnet. 
+\item npspice oder GNU-CAP als Simulator-Basis für Spice-Modelle
+\item Sub-Modul, dass IBIS-Modelle importiert und in Simulator-kompatible Modelle konvertiert.
+\item (optional) parasitäre Eigenschaften der PCB-Geometrie per Abschätzung von Leitungswiderständen, Koppelkapazitäten und indukt. Schleifen modellieren und in die Simulation einbinden.
+\item (optional) parasitäre Eigenschaften der PCB-Geometrie per EM-Field-Solver modelleiren und in die Simulation einbinden.
+% \item	IBIS-GUI $\leftrightarrow$ KiCAD für EMV
+% \item	Prozessor-IOs nur per IBIS modelliert, deshalb: Kombination aus Spice-Models,
+% \item	IBIS und PCB mit lumped parasitics.
+% \item	IBIS-Umsetzung in spice,
+% \item	Schematic (aus KiCAD heraus)
+% \item	Abschätzungen der pcb-parasitics RLCs
+% \item	ein standalone Tool, dass das vereinigt
+\item GUI und alle Sub-Module in einer gängigen Programmiersprache implementieren
+\item Veröffentlichung des Programms unter open-source-Lizenz
+\item Lauffähig sowohl unter Windows als auch Linux-Derivaten
+\end{enumerate}
+
+
+% \subsubsection*{Kandidaten}
+% \begin{itemize}
+% \item ngspice: \\
+	% + opensource \\
+	% - kann keine encrypted models simulieren \\
+% \item LTSpice: \\
+	% + nimmt encrypteds von LT und analogDev \\
+	% - nicht stepwise zu betreiben \\
+% \item openEMS, FTDT
+% \item meep, FTDT
+% \item MAFIA, FIT
+% \end{itemize}
+
+\end{document}
