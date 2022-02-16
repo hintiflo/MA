@@ -1,0 +1,5 @@
+Vorschläge von Ramler, Winterer:
+    Software-Test für Embedded Systems : ein Praxishandbuch für Entwickler, Tester und technische Projektleiter; Grünfelder, Stephan, dpunkt-Verl., 2013
+    Software-Qualität : Testen, Analysieren und Verifizieren von Software; Liggesmeyer, Peter, Hanser Spektrum Akad. Verl., 2009
+    Software-Qualität; Hoffmann, Dirk W., Springer Berlin Heidelberg, 2013
+    Basiswissen Softwaretest : Aus- und Weiterbildung zum Certified Tester ; Foundation Level nach ISTQB-Standard; Spillner, Andreas, Linz, Tilo, dpunkt-Verl., 20??
