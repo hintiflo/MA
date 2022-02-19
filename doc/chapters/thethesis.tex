@@ -2,10 +2,59 @@
 \label{cha:Fundamentals}
 	% Fundamentals
 	\section{Code Quality}
+	\subsection{Motivation}
+As computers and microcontrollers are introduced into ever increasing application areas, the correct and reliable function of the software runing them becomes more important. A significantly increasing proportion of the development costs falling towards software, compared to hardware, suggests, to consider also the financial efforts put into testing and verification of said software. As the lifespan of software is significantly longer than the corresponding hardware, this seems to be a sensible investment. Nonetheless, reducing the costs for software development is also particularly economical. Investigating the dynamics of development costs leads to the result, that, the later in a project lifecycle, the higher the expenses. This means, that the largest portion of money is spent in the last phase, the maintenance of software, that is already in the market! This is a direct consequence of low quality standards applied to the product. More detailed expressed, errors are induced in the implementation, persist unnoticed through testing and verification. Finally, this erros appear as faults in operation at the customer site. Furthermore, if the project suffers from lazy documentation, insufficient structure, identifying these errors and correctiong them becomes consuming in time, cost and resources. This phenomenom is further escalated with the increasing complexity of todays software. An even worse phenomenon can arise: Insufficient understanding of a faulty piece of software at hand, can lead to introducing even more errors with additional code, that is actually intended to fix a bug. Especially when poor structuring masks hidden dependencies between modules. A general rule oh thumb here is: The earlier an error arises, for example in the phase of gathering requirements, the more extensive changes are necessary. In other words: The earlier an errors is induced and the later it is discovered, the more expensive are its consequences. 
+
+But these problems have suitable solutions at hand. It is not compulsive to plunge money, hours and employee motivation on unnecessary maintenance. Employing the right methods, implemented software can become reliable, easy to change, inexpensive to maintain and allow a more intuitive understanding. Distinguischable into two categories, these methods are either analytical or constructive. Widespread examples are functional decomposition, object-oriented development, structured design, structured analysis or the use of the unified modeling language (UML).
+
+\textcolor{gray}{  functionally decomposing and object-oriented software development methods are particularly widespread. Examples are Structured Analysis (SA) /DeMarco 85/, Structured Design (SD) and the Unified Modeling Language (UML) /Booch et al. 98/. A comprehensive description of the development methods for software is contained in /Balzert 00/.}
+Best practice is to employ a combination of constructive and analytical methods. Constructive means alone can assist in preventing errors in the intended product, but not guarantee their absence. Analytical means are capable of demonstrating the absence of errors, but not their prevention, so a large amount of preventable errors might emerge, when only analytical means are put to use. The combined use advisable would be, to employ constructive methods during every phase of a development project, and assessing the intermediate products with analytical methods by the end of each phase. This process is called the 'principle of integrated quality assurance' (cite: Liggesmeyer). If the predefined criteria for sufficient quality are not met by intermediate results, they are not transferred to the next phase and the recent phase has to further developed, until all hard criteria are met. This concept assists the development team in the early detection of errors and their removal at reasonable effort. Ideally all errors induced in a development phase are detected and eliminated by the end of the same phase. This should further help in minimizing the number of errors in a product over several phases.
+The described process makes it evident, that testing only a finished product is no sufficient means of ensuring high quality. Already the first intermediate result has to be investigated for deviations from the quality goals and measures have to taken for correction at an early stage. Also an interaction between constructive and analytical quality measures is required. While constructive methods are advised during the implementation activities of a phase, it should be followed by the corresponding analysis.
+\textcolor{gray}{The interlocking of design and test steps is also possible in development processes that do not provide for any explicit phases (e.g. extreme programming). }
+A key factor in ensuring the intended quality lies in the early definition of these quality goals. It constitutes not of defining the requirements, but the specification of the desired quality features. This has to happen even before the phase of requirement-definition, as the requirements themself are affecte by aformentioned quality goals. On the other hand, testing results against quality features is also of central importance. The typical approach of every devloper is, to call a written program with a few sets of inputs and observe the program for expected, or divergent behaviour. This already constitutes for an informal danymic test. Inspecting the code after, implementing it, for structural errors is the informal equivalent of a static analysis. As these informal methods are widespread among programmers, employing formal processes of testing is rather disregarded among programmers, as well as the knowledge about their effectiveness. Ideally, testing is aimed at generating reproducible results, while following well defined procedures.
+
+In the course of this chapter, techniques, tools, and procedures are discussed, to ensure software quality from an analytical point of view. Testing techniques are the main focus here. Additionally to the class od danymic tests, static analysis as well as formal methods are discussed. While object-oriented techniques for design, programming and analysis are state-of-the-art among server- and desktop-applications, embedded projects still are not generally written, employing OOP-methods. Nevertheless, either object-oriented and ebedded aspects are discussed with regards to testing and quality assurance. Further aspects of embedded projets often are certain levels of security and reliability to be guaranteed by the software. So these apsects are discussed in an upcoming \TODO{chapter/subsection}.
+
+Depending on the type of examination, supportive software-tools are necessary and will therfore be discussed. Certain techniques, like inspection and reviews are dedicated to be done wiht support ing tools, apart from editors for reading the code. Nontheless, both kinds of examination require organizational measures to be carried, defining responsibilities and procedures. The correct execution of these measures constitute the organizational framework of testing.
+
+While hardware quality assurance often results in quantitative results, same is not the case for software, atl east not to the same extent as for hardware. But processes exist for both worlds, to ensure systematic development, as well as quality assurance. Developers of systems integrating both hardware and software have to be aware of their differences. Also, strictly separating the quality measures for software and hardware is not an advisible way to go. The quality properties have to be specified and verified for the complete system and not just its separate modules. The test results of individual modules, usually, can not be superimposed, but the correct behaviour of the whole system has to be demonstrated. \BLUE{Therefore, the deviating aspects of hardware and software quality assurance have to be examined.}
+	
+	\subsection{Terminology and definitions of terms}
+	\subsubsection{Quality, quality requirement, quality feature, quality measure}
+		\begin{itemize}
+		\item For the term 'quality', the definition according to DIN 55350 is used: The ability of a unit, or device, to fulfill defined and derived quality requirements.
+		\item Quality requirements again, describes the aggregate of all single requirements regarding a unit or device.
+		\item A quality feature describes concrete properties of a unit or device, relevant for the definition and assessment of the quality. While it does not make quantitative statements, or allowed values of a property, so to say, it very well may have a hierarchical structure: One quality feature, being composed of several detailed sub-features. A differentiation into functional and non-functional features is advised. Also features may have different importance for the customer and the manufacturer. Overarching all these aspects, features may interfere with eachother in an opposing manner. As a consequence, maximizing the overall level of quality, regarding every aspect, is not a feasable goal. The sensible goal is to find a trade-off between interfering features, and achieve a sufficient level of quality for all relevant aspects. Typical features, regarding software developmant include: Safety, security, reliability, dependability, availability, robustness, efficiency regarding memory and runtime, adaptability portability, and testability.
+		\item Finally, the quality measure defines the quantitative aspects of a quality feature. These are measures, that allow conclusions to be drawn about the characteristics of certain quality feature. Foe example, the \TODO{ ~ref{} } MTTF (mean time to failure), is a widespread measure for reliability.
+		\end{itemize}
+
+	\subsubsection{error, failure, fault}
+	\begin{itemize}
+		\item Error, the root cause of a device or unit to fail, may originate from human mistakes or from its operation outside the specification.
+		\item Failure, or defect is the incorrect state of a unit, either on the hard- or software-side. It may cause a fault, but not necessarily.
+		\item Fault is the incorrect behaviour of the unit, or it's complete cease of service, observalbe by the user.
+		\item \TODO{Die drei Begriffe aufpaepeln mit deifitione  laut Leveson/Millinger}
+		\item Whereas these three terms have differnt definitions in varying publications, the afformentioned declarations seem to be best suited for devices containing substantiable amount of software.
+		\end{itemize}
+	
+	\subsubsection{correctness}
+		Correctness is the binary feature of a unit or device, loosely described as 'the absence of failures'. \TODO{da is noch mher beim Liggesmayer}
+	\subsubsection{completeness}
+		Completeness describes, that all functionalities, given in teh specification are implemented. This includes normal intended operation, as well as the handling of error-states.
+	\subsubsection{security}
+	\subsubsection{Reliability}
+	\subsubsection{Availability}
+	\subsubsection{Robustness}
+
+
 	\subsection{Coverage metrics}
+	
 	\subsection{Reviews}
+	
 	\subsection{Load/Fault tests}
+	
 	\subsection{PM and ReqEng}
+	
 	\subsection{V-Model?}
 
 	\section{Realtime and Reliability}
