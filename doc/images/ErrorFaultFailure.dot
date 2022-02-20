@@ -1,0 +1,5 @@
+digraph {
+	rankdir = LR
+	node [shape = record, style=rounded]
+	Error -> Fault -> Failure
+}

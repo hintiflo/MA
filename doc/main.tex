@@ -34,8 +34,11 @@
 \advisor{Langer, Rankl, Zorin} % optional
 %\strictlicense % restrictive license instead of Creative Commons (discouraged!)
 \definecolor{gray}{gray}{.80}
+\newcommand{\GREY}[1]{\textcolor{gray}{#1}}
 \newcommand{\TODO}[1]{\textcolor{red}{\textbf{To-Do:} #1}}
 \newcommand{\BLUE}[1]{\textcolor{blue}{#1}}
+\newcommand \bild[4]{\begin{figure}[#1]	\centering	\includegraphics[width=\textwidth]{pics/#2}	\caption{#3}	\label{#4}	\end{figure}}
+\newcommand \bildGr[5]{\begin{figure}[#1]	\centering	\includegraphics[width=#5]{pics/#2}	\caption{#3}	\label{#4}	\end{figure}}
 
 \begin{document}
 \frontmatter                                   % Front part (roman page numbers)
@@ -52,6 +55,175 @@
 %%%-----------------------------------------------------------------------------
 
 \include{chapters/introduction}
+% thethesis.tex
+\chapter{Fundamentals}
+\label{cha:Fundamentals}
+	% Fundamentals
+	\section{Code Quality}
+	\subsection{Motivation}
+As computers and microcontrollers are introduced into ever increasing application areas, the correct and reliable function of the software runing them becomes more important. A significantly increasing proportion of the development costs falling towards software, compared to hardware, suggests, to consider also the financial efforts put into testing and verification of said software. As the lifespan of software is significantly longer than the corresponding hardware, this seems to be a sensible investment. Nonetheless, reducing the costs for software development is also particularly economical. Investigating the dynamics of development costs leads to the result, that, the later in a project lifecycle, the higher the expenses. This means, that the largest portion of money is spent in the last phase, the maintenance of software, that is already in the market! This is a direct consequence of low quality standards applied to the product. More detailed expressed, errors are induced in the implementation, persist unnoticed through testing and verification. Finally, this erros appear as faults in operation at the customer site. Furthermore, if the project suffers from lazy documentation, insufficient structure, identifying these errors and correctiong them becomes consuming in time, cost and resources. This phenomenom is further escalated with the increasing complexity of todays software. An even worse phenomenon can arise: Insufficient understanding of a faulty piece of software at hand, can lead to introducing even more errors with additional code, that is actually intended to fix a bug. Especially when poor structuring masks hidden dependencies between modules. A general rule oh thumb here is: The earlier an error arises, for example in the phase of gathering requirements, the more extensive changes are necessary. In other words: The earlier an errors is induced and the later it is discovered, the more expensive are its consequences. 
+
+But these problems have suitable solutions at hand. It is not compulsive to plunge money, hours and employee motivation on unnecessary maintenance. Employing the right methods, implemented software can become reliable, easy to change, inexpensive to maintain and allow a more intuitive understanding. Distinguischable into two categories, these methods are either analytical or constructive. Widespread examples are functional decomposition, object-oriented development, structured design, structured analysis or the use of the unified modeling language (\TODO{UML}).
+
+% \textcolor{gray}{  functionally decomposing and object-oriented software development methods are particularly widespread. Examples are Structured Analysis (SA) /DeMarco 85/, Structured Design (SD) and the Unified Modeling Language (UML) /Booch et al. 98/. A comprehensive description of the development methods for software is contained in /Balzert 00/.}
+Best practice is to employ a combination of constructive and analytical methods. Constructive means alone can assist in preventing errors in the intended product, but not guarantee their absence. Analytical means are capable of demonstrating the absence of errors, but not their prevention, so a large amount of preventable errors might emerge, when only analytical means are put to use. The combined use advisable would be, to employ constructive methods during every phase of a development project, and assessing the intermediate products with analytical methods by the end of each phase. This process is called the 'principle of integrated quality assurance' (cite: Liggesmeyer). If the predefined criteria for sufficient quality are not met by intermediate results, they are not transferred to the next phase and the recent phase has to further developed, until all hard criteria are met. This concept assists the development team in the early detection of errors and their removal at reasonable effort. Ideally all errors induced in a development phase are detected and eliminated by the end of the same phase. This should further help in minimizing the number of errors in a product over several phases.
+The described process makes it evident, that testing only a finished product is no sufficient means of ensuring high quality. Already the first intermediate result has to be investigated for deviations from the quality goals and measures have to taken for correction at an early stage. Also an interaction between constructive and analytical quality measures is required. While constructive methods are advised during the implementation activities of a phase, it should be followed by the corresponding analysis.
+% \textcolor{gray}{The interlocking of design and test steps is also possible in development processes that do not provide for any explicit phases (e.g. extreme programming). }
+A key factor in ensuring the intended quality lies in the early definition of these quality goals. It constitutes not of defining the requirements, but the specification of the desired quality features. This has to happen even before the phase of requirement-definition, as the requirements themself are affecte by aformentioned quality goals. On the other hand, testing results against quality features is also of central importance. The typical approach of every devloper is, to call a written program with a few sets of inputs and observe the program for expected, or divergent behaviour. This already constitutes for an informal danymic test. Inspecting the code after, implementing it, for structural errors is the informal equivalent of a static analysis. As these informal methods are widespread among programmers, employing formal processes of testing is rather disregarded among programmers, as well as the knowledge about their effectiveness. Ideally, testing is aimed at generating reproducible results, while following well defined procedures.
+
+In the course of this chapter, techniques, tools, and procedures are discussed, to ensure software quality from an analytical point of view. Testing techniques are the main focus here. Additionally to the class od danymic tests, static analysis as well as formal methods are discussed. While object-oriented techniques for design, programming and analysis are state-of-the-art among server- and desktop-applications, embedded projects still are not generally written, employing OOP-methods. Nevertheless, either object-oriented and ebedded aspects are discussed with regards to testing and quality assurance. Further aspects of embedded projets often are certain levels of security and reliability to be guaranteed by the software. So these apsects are discussed in an upcoming \TODO{chapter/subsection}.
+
+Depending on the type of examination, supportive software-tools are necessary and will therfore be discussed. Certain techniques, like inspection and reviews are dedicated to be done wiht support ing tools, apart from editors for reading the code. Nontheless, both kinds of examination require organizational measures to be carried, defining responsibilities and procedures. The correct execution of these measures constitute the organizational framework of testing.
+
+While hardware quality assurance often results in quantitative results, same is not the case for software, atl east not to the same extent as for hardware. But processes exist for both worlds, to ensure systematic development, as well as quality assurance. Developers of systems integrating both hardware and software have to be aware of their differences. Also, strictly separating the quality measures for software and hardware is not an advisible way to go. The quality properties have to be specified and verified for the complete system and not just its separate modules. The test results of individual modules, usually, can not be superimposed, but the correct behaviour of the whole system has to be demonstrated. \BLUE{Therefore, the deviating aspects of hardware and software quality assurance have to be examined.}
+	
+	\subsection{Terminology and definitions of terms}
+	\subsubsection{Quality, Quality requirements, Quality features, Quality measures}
+		\begin{itemize}
+		\item {\bf Quality}, according to DIN 55350, is defined as: The ability of a unit, or device, to fulfill defined and derived quality requirements.
+		\item {\bf Quality requirements} describes the aggregate of all single requirements regarding a unit or device.
+		\item {\bf Quality features} describe concrete properties of a unit or device, relevant for the definition and assessment of the quality. While it does not make quantitative statements, or allowed values of a property, so to say, it very well may have a hierarchical structure: One quality feature, being composed of several detailed sub-features. A differentiation into functional and non-functional features is advised. Also features may have different importance for the customer and the manufacturer. Overarching all these aspects, features may interfere with eachother in an opposing manner. As a consequence, maximizing the overall level of quality, regarding every aspect, is not a feasable goal. The sensible goal is to find a trade-off between interfering features, and achieve a sufficient level of quality for all relevant aspects. Typical features, regarding software developmant include: Safety, security, reliability, dependability, availability, robustness, efficiency regarding memory and runtime, adaptability portability, and testability.
+		\item {\bf Quality measures} define the quantitative aspects of a quality feature. These are measures, that allow conclusions to be drawn about the characteristics of certain quality features. For example, the MTTF (mean time to failure), is a widespread measure for reliability.
+		\end{itemize}
+	
+	\bildGr{b!}{../images/ErrorFaultFailure.pdf}{Causal chain}{ErrorFaultFailure}{0.5\textwidth}
+
+	\subsubsection{Error, Failure, Fault}
+	\begin{minipage}{\linewidth}
+	\begin{itemize}
+		\item {\bf Error}, the root cause of a device or unit to fail, may originate from operation outside the specification, or from human mistakes in the design.
+		\item {\bf Failure}, or defect is the incorrect internal state of a unit, and is the result of an error. It exists either on the hard- or software-side and is the cause of a fault, but not necessarily.
+		\item {\bf Fault} is the incorrect behaviour of the unit, or it's complete cease of service, observable by the user. It is caused by a failure.
+		\item These definitions are in accordance with \TODO{cite:[Kopetz/Millinger]} and have causal dependencies, depicted in Fig.~\ref{ErrorFaultFailure}.
+		\item While an error can be classified by its persistence, being permanent or transient; Failures and Faults are classified more detailed into consistent/inconsistent, permanent/transient and benign/malign, among other categories.
+	\end{itemize}
+	\end{minipage}
+	
+	\subsubsection{Correctness}
+		{\bf Correctness} is the binary feature of a unit or device, loosely described as 'the absence of failures'. A more specific description would be, that a correct software operates consistent to its specification. This implies, that no conclusion about correctness is possible, whithout an existing specification.
+	\subsubsection{Completeness}
+		{\bf Completeness} describes, that all functionalities, given in the specification are implemented. This includes normal intended operation, as well as the handling of error-states. It is a neccessary, but not a sufficient criterion for correctness.
+	\subsubsection{Testability}
+	{\bf Testability} describes the property of a unit, to include functionality dedicated only to facilitate the verification of said unit. Supporting concepts include the \\
+	% \begin{minipage}{\linewidth}
+	\begin{itemize}
+		\item Partitioning of the whole unit into modules, that are testable in isolation. These modules should have little to no side-effects with eachother. 
+		\item A dedicated debug-unit, making the actual state of the unit observable from outside further asists Testability. 
+		\item Another concept is, to specify only as much input space as is necessary, resulting in fewer necessary test-cases to ensure a high coverage.
+	\end{itemize}
+	% \end{minipage}
+
+	The aggregate of these concepts is called {\bf design-for-testability}.
+	Generally, time-triggered units support testability to a higher degree, than event-triggered systems.
+	\subsubsection{Safety and Security}
+	% \begin{minipage}{\linewidth}
+	\begin{itemize}
+		\item {\bf Safety} means, that a unit is fit for its intended purpose and provides reliable operation within a specified load- and fault-hypothesis.
+		\item {\bf Security}, though, is the resistance of unit against malicious and deliberate misusage.
+	\end{itemize}
+	% \end{minipage}
+	\subsubsection{Reliability}
+	{\bf Reliability} is a dynamic property, giving the probability, that a unit is operational after given time {\bf t}.
+		\begin{align*}
+		\textrm{Reliability ...} \quad R(t) & = e^{-\lambda (t-t_o) }\\
+		\textrm{failure rate ...}  \quad \lambda & = \frac{1}{MTTF} 
+		\end{align*}
+	An exponential function, decaying from 100\% at time = t0, where a unit was known to be operating. $\lambda$ is the failure rate with dimension 'failures/h'
+	
+	\subsubsection{Maintainability}
+	{\bf Maintainability} is the probabilty, that a system is repaired and functioning again within a given time after a failure. Note that this includes also the time required to detect the error.
+	A quantified measure for it is the mean-time-to-repair (MTTR).
+	\subsubsection{Availability}
+	{\bf Availability} combines Reliability and Maintainability into a measure, giving the percentage of time, a unit is operational, providing full functionality.
+		\begin{align*}
+	\textrm{Availability ...} \quad A & = \frac{MTTF}{MTTF + MTTR}
+		\end{align*}
+	It is apparent, that a low time-to-repair and a high time-to-failure leads to high Availability.
+	\subsubsection{\GREY{Robustness}}
+	\subsubsection{Dependability}
+	{\bf Dependability} finally, is composed of sufficiently fullfiled levels of \\
+		% \begin{minipage}{\linewidth}
+		\begin{itemize}
+			\item Reliability
+			\item Availability
+			\item Maintainability
+			\item Safety
+		\end{itemize}
+		% \end{minipage}
+	...assembled into the common acronym {\bf R.A.M.S.}
+	
+	\subsubsection{load-hypothesis, fault-hypothesis}
+	
+	\subsection{Coverage metrics}
+	
+	\subsection{Reviews}
+	
+	\subsection{Load/Fault tests}
+	
+	\subsection{PM and ReqEng}
+	
+	\subsection{V-Model?}
+
+	\section{Realtime and Reliability}
+	\subsection{soft/firm/hard}
+	\subsection{Jitter}
+	\subsection{Timing}
+	\subsubsection{Deadline}
+	\subsubsection{Laxity}
+	\subsubsection{Execution time}
+	\subsection{Load/Fault Hypothesis}
+
+	\section{Theory - CI/CD}
+	\subsection{CI/CD with open source on BareMetal}
+	\subsection{reliable USB-Connectivity}
+	% \subsection{prepared for utilisation of complete Processor}
+	% \section{Theory - Galvos}
+	% \subsection{sensitive steering of Galvos}
+	
+	\chapter{Requirements}
+	\label{cha:Requirements}
+		Allgemeine REQs an FW, RT (und evtl design-for-testability)
+
+	\chapter{Implementation}
+	\label{cha:Implementation}
+		\subsection{Concept}
+		\subsubsection{FSM}
+		\subsubsection{Trigger-Diagramme}
+
+		\section{Hardware}
+			\subsection{STM32F4}
+			\subsection{Wandler, Level-Shifter, HighSider}
+
+		\section{Software tools}
+			\subsection{CubeIDE}
+			\subsection{gcov}
+			\subsection{valgrind}
+			\subsection{gitlab}
+			\subsection{runner}
+			\subsection{HIL-Setup}
+			
+		\section{Firmware-Requirements}
+			\subsection{FW-REQ}
+			\subsection{load-hypothesis, fault-hypothesis}
+			\subsection{Traceability-Matrix}
+			Linking Requirements by there tags, to the SW-modules, where they are fulfilled
+			\subsection{TCs}
+			\subsection{Unit-Tests}
+			\subsection{Module-Tests}
+			\subsection{Integration-Tests}
+			\subsection{Load/Fault Tests}
+			
+		
+	\chapter{Results}
+	\label{cha:Results}
+		% Results
+		\section{Test-Res}
+		\section{Coverages}
+		\section{Review-remakrs}
+		\section{Gavlo-Performance}
+	% thethesis.tex
+
+
 \include{chapters/thethesis}
 % \include{chapters/figures}
 % \include{chapters/mathematics}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.8.2)  19 FEB 2022 11:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.8.2)  20 FEB 2022 23:03
 entering extended mode
 **./main.tex
 (main.tex
@@ -1463,24 +1463,24 @@ apters/introduction.aux)
 (back/appendix_c.aux) (back/appendix_d.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 40.
-LaTeX Font Info:    ... okay on input line 40.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 43.
+LaTeX Font Info:    ... okay on input line 43.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1516,7 +1516,7 @@ LaTeX Font Info:    ... okay on input line 40.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package csquotes Info: Redefining character " on input line 40.
+Package csquotes Info: Redefining character " on input line 43.
 (C:\bin\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count516
@@ -1531,7 +1531,7 @@ Package csquotes Info: Redefining character " on input line 40.
 \makeMPintoPDFobject=\count521
 \everyMPtoPDFconversion=\toks52
 )
-Package hyperref Info: Link coloring OFF on input line 40.
+Package hyperref Info: Link coloring OFF on input line 43.
  (C:\bin\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 
@@ -1544,9 +1544,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count522
 )
-LaTeX Info: Redefining \ref on input line 40.
-LaTeX Info: Redefining \pageref on input line 40.
-LaTeX Info: Redefining \nameref on input line 40.
+LaTeX Info: Redefining \ref on input line 43.
+LaTeX Info: Redefining \pageref on input line 43.
+LaTeX Info: Redefining \nameref on input line 43.
  (main.out) (main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
@@ -1651,49 +1651,49 @@ Package biblatex Warning: citation 'WikiReliquienschrein2020' was not found at
 all in the .bbl, bibliography labels cannot be generated, please correct the ci
 tation.
 
-Package biblatex Info: Reference section=0 on input line 40.
-Package biblatex Info: Reference segment=0 on input line 40.
-Package hyperref Info: Option `pageanchor' set `false' on input line 42.
-Package csquotes Info: Redefining character " on input line 42.
+Package biblatex Info: Reference section=0 on input line 43.
+Package biblatex Info: Reference segment=0 on input line 43.
+Package hyperref Info: Option `pageanchor' set `false' on input line 45.
+Package csquotes Info: Redefining character " on input line 45.
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 4
-2.
+5.
 (C:\bin\MiKTeX\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
-2.
+5.
  (C:\bin\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<ot1.cmap>>
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
-2.
+5.
  (C:\bin\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<oml.cmap>>
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-42.
+45.
 
 (C:\bin\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )<<oms.cmap>><<omx.cmap>>
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 42.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+(Font)              <6> on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
 
 
 (C:\bin\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
 
 
 (C:\bin\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images//logo.pdf, id=255, 269.93045pt x 269.93045pt>
+<images//logo.pdf, id=259, 269.93045pt x 269.93045pt>
 File: images//logo.pdf Graphic file (type pdf)
 <use images//logo.pdf>
-Package pdftex.def Info: images//logo.pdf  used on input line 42.
+Package pdftex.def Info: images//logo.pdf  used on input line 45.
 (pdftex.def)             Requested size: 85.35805pt x 85.35826pt.
  [1
 
@@ -1702,14 +1702,14 @@ Package pdftex.def Info: images//logo.pdf  used on input line 42.
 {C:/Users/r.hif/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./images//logo.
 pdf>] [2]
 LaTeX Font Info:    Trying to load font information for TS1+lmss on input line 
-42.
+45.
 
 (C:\bin\MiKTeX\tex/latex/lm\ts1lmss.fd
 File: ts1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-Package csquotes Info: Redefining character " on input line 42.
+Package csquotes Info: Redefining character " on input line 45.
  [3]
-Package hyperref Info: Option `pageanchor' set `true' on input line 42.
+Package hyperref Info: Option `pageanchor' set `true' on input line 45.
  [4
 
 ] (main.toc
@@ -1724,17 +1724,17 @@ Overfull \hbox (0.1675pt too wide) detected at line 12
 Package tocbasic Info: Using my definition of `\numberline' on input line 14.
 Package tocbasic Info: Using my definition of `\numberline' on input line 18.
 Package tocbasic Info: Using my definition of `\numberline' on input line 30.
-Package tocbasic Info: Using my definition of `\numberline' on input line 86.
-Package tocbasic Info: Using my definition of `\numberline' on input line 88.
+Package tocbasic Info: Using my definition of `\numberline' on input line 94.
+Package tocbasic Info: Using my definition of `\numberline' on input line 96.
 [5
 
 ]
-Package tocbasic Info: Using my definition of `\numberline' on input line 132.
 Package tocbasic Info: Using my definition of `\numberline' on input line 142.
-Package tocbasic Info: Using my definition of `\numberline' on input line 144.
-Package tocbasic Info: Using my definition of `\numberline' on input line 158.
-Package tocbasic Info: Using my definition of `\numberline' on input line 160.
-Package tocbasic Info: Using my definition of `\numberline' on input line 162.
+Package tocbasic Info: Using my definition of `\numberline' on input line 152.
+Package tocbasic Info: Using my definition of `\numberline' on input line 154.
+Package tocbasic Info: Using my definition of `\numberline' on input line 168.
+Package tocbasic Info: Using my definition of `\numberline' on input line 170.
+Package tocbasic Info: Using my definition of `\numberline' on input line 172.
 )
 \tf@toc=\write6
 \openout6 = `main.toc'.
@@ -1790,12 +1790,12 @@ Chapter 1.
 
 
 ] [2]
-<images/DetailGalvoOn.jpg, id=381, 3276.24pt x 2457.18pt>
+<images/DetailGalvoOn.jpg, id=386, 3276.24pt x 2457.18pt>
 File: images/DetailGalvoOn.jpg Graphic file (type jpg)
 <use images/DetailGalvoOn.jpg>
 Package pdftex.def Info: images/DetailGalvoOn.jpg  used on input line 19.
 (pdftex.def)             Requested size: 415.41025pt x 311.53348pt.
-<images/DutTop02.jpg, id=382, 2577.63pt x 2640.86626pt>
+<images/DutTop02.jpg, id=387, 2577.63pt x 2640.86626pt>
 File: images/DutTop02.jpg Graphic file (type jpg)
 <use images/DutTop02.jpg>
 Package pdftex.def Info: images/DutTop02.jpg  used on input line 20.
@@ -1804,7 +1804,7 @@ Package pdftex.def Info: images/DutTop02.jpg  used on input line 20.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/GalvoRamps01.png, id=384, 741.52031pt x 317.68687pt>
+<images/GalvoRamps01.png, id=389, 741.52031pt x 317.68687pt>
 File: images/GalvoRamps01.png Graphic file (type png)
 <use images/GalvoRamps01.png>
 Package pdftex.def Info: images/GalvoRamps01.png  used on input line 24.
@@ -1814,44 +1814,60 @@ Package pdftex.def Info: images/GalvoRamps01.png  used on input line 24.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
-Overfull \hbox (0.14082pt too wide) in paragraph at lines 30--54
+Overfull \hbox (0.14082pt too wide) in paragraph at lines 30--57
 \T1/lmr/m/n/10.95 ...fliegt wohl raus []\T1/lmr/bx/n/10.95 To-Do: \T1/lmr/m/n/1
 0.95 Mod-ell ausm Pa-per per flach-heits-basierter Reglung auf Steuer-
  []
 
 [4 <./images/DutTop02.jpg>] [5 <./images/GalvoRamps01.png>]
-\openout2 = `chapters/thethesis.aux'.
-
-
-(chapters/thethesis.tex
 Chapter 2.
 [6
 
 
 
+] [7]
+<pics/../images/ErrorFaultFailure.pdf, id=417, 315.1775pt x 117.43875pt>
+File: pics/../images/ErrorFaultFailure.pdf Graphic file (type pdf)
+<use pics/../images/ErrorFaultFailure.pdf>
+Package pdftex.def Info: pics/../images/ErrorFaultFailure.pdf  used on input li
+ne 89.
+(pdftex.def)             Requested size: 207.70512pt x 77.39333pt.
+ [8]
+Underfull \hbox (badness 10000) in paragraph at lines 107--110
 
-] [7] [8] [9] [10]
+ []
+
+[9 <./pics/../images/ErrorFaultFailure.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 144--147
+
+ []
+
+[10] [11]
 Chapter 3.
-[11
+[12
 
 ]
 Chapter 4.
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 82.
+(hyperref)                than one, level fixed on input line 189.
 
-[12
+[13
 
-] [13]
+] [14]
 Chapter 5.
-) [14
+[15
 
 ]
+\openout2 = `chapters/thethesis.aux'.
+
+ (chapters/thethesis.tex)
 \openout2 = `back/appendix_a.aux'.
 
  (back/appendix_a.tex
 Appendix A.
-) [15
+) [16
+
 
 
 
@@ -1862,10 +1878,10 @@ Appendix A.
  (back/appendix_b.tex
 Appendix B.
 
-LaTeX Warning: Citation 'WikiReliquienschrein2020' on page 16 undefined on inpu
+LaTeX Warning: Citation 'WikiReliquienschrein2020' on page 17 undefined on inpu
 t line 26.
 
-) [16
+) [17
 
 
 
@@ -1875,7 +1891,7 @@ t line 26.
 
  (back/appendix_c.tex
 Appendix C.
-) [17
+) [18
 
 
 
@@ -1885,16 +1901,16 @@ Appendix C.
 
  (back/appendix_d.tex
 Appendix D.
-) [18
+) [19
 
 
 
 
 ]
 
-LaTeX Warning: Empty bibliography on input line 76.
+LaTeX Warning: Empty bibliography on input line 248.
 
-[19
+[20
 
 
 
@@ -1905,11 +1921,8 @@ hapters/introduction.aux) (chapters/thethesis.aux) (back/appendix_a.aux)
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 244D3D104F408AA5EF988F5976077592;7914.
+(rerunfilecheck)             Checksum: 6F771FA627B8467FFAF06E47A6D77BAC;8125.
 
 Package biblatex Warning: Please (re)run Biber on the file:
 (biblatex)                main
@@ -1920,23 +1933,27 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40089 strings out of 479334
- 737557 string characters out of 2871717
- 1696139 words of memory out of 3000000
- 56567 multiletter control sequences out of 15000+200000
- 458644 words of font info for 62 fonts, out of 3000000 for 9000
+ 40112 strings out of 479334
+ 738000 string characters out of 2871717
+ 1696314 words of memory out of 3000000
+ 56581 multiletter control sequences out of 15000+200000
+ 464624 words of font info for 64 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
  132i,12n,145p,2922b,7035s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/bin/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/bin/MiKTeX/fonts/enc/dvip
-s/lm/lm-ts1.enc}{C:/bin/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C:/bin/MiKTeX/font
-s/type1/public/lm/lmbx10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:
-/bin/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/bin/MiKTeX/fonts/type1/public/
-lm/lmss10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/bin/MiKTeX/fo
-nts/type1/public/lm/lmss17.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmssbx10.pf
-b><C:/bin/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on main.pdf (28 pages, 3323300 bytes).
+{C:/bin/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/bin/MiKTeX/fonts/enc/dvip
+s/lm/lm-rm.enc}{C:/bin/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/bin/MiKTeX/f
+onts/enc/dvips/lm/lm-ts1.enc}{C:/bin/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C:/bi
+n/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/
+lmmi10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/bin/MiKTeX/fonts/
+type1/public/lm/lmmi8.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/bi
+n/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lm
+ri10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/bin/MiKTeX/fonts/t
+ype1/public/lm/lmss12.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/b
+in/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/bin/MiKTeX/fonts/type1/public/
+lm/lmsy10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmsy8.pfb>
+Output written on main.pdf (29 pages, 3362958 bytes).
 PDF statistics:
- 515 PDF objects out of 1000 (max. 8388607)
- 91 named destinations out of 1000 (max. 500000)
- 541 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 560 PDF objects out of 1000 (max. 8388607)
+ 94 named destinations out of 1000 (max. 500000)
+ 554 words of extra memory for PDF output out of 10000 (max. 10000000)
 
