@@ -1,0 +1,12 @@
+digraph blocktane
+{
+	rankdir = LR;
+	node[shape=record, style=rounded]
+
+	GalvoD [label = "Galvanomter-Drivers"]
+
+	PC -> OCTane [label = USB]
+	OCTane -> GalvoD [label = "analogue"]
+
+
+}

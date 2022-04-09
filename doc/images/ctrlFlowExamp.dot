@@ -1,0 +1,26 @@
+digraph ctrlFlowExamp
+{
+
+	in
+	assign1	[label = "assign var1"]
+	while
+	out
+	increase	[label = "increase counter"]
+	if
+	assign2	[label = "assign var2"]
+	return
+
+
+	in -> assign1
+	assign1 -> while
+	while -> if
+	while -> out
+	if -> assign2
+	if -> increase
+	increase -> while
+	assign2 -> return
+	# assign2 -> assign3
+	# assign3 -> return
+	return -> out
+
+}
