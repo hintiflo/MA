@@ -1,0 +1,188 @@
+\chapter{Fundamentals - code quality and real-time}
+\label{cha:Fundamentals}
+	\section{Motivation}
+As the areas of applications for microcontrollers, as well as the complexity of their software continues to grow, also the demands towards correct and reliable function of those systems, increase accordingly. This causes the efforts, put into software-development, to usually surpass efforts for the corresponding hardware. As the software's lifespan also surpasses that of the hardware, these efforts becomes a sensible investment. On the other hand, to obtain the most value from that software-product, it has to fulfil certain quality measures. Neglecting these quality aspects would lead to an unjustifiable amount of work necessary for maintenance, when the product is already in service. Investigating the dynamics of software development efforts leads to the result, that, the later in a project lifecycle, changes become necessary,the higher the expenses. More detailed expressed, errors are induced in the implementation, persist unnoticed through testing and verification. Finally, this errors appear as faults in operation at the customer site. Furthermore, if the project suffers from lazy documentation, insufficient structure, identifying these errors and correcting them becomes consuming in time, cost and resources. This phenomenon is further escalated with the increasing complexity of nowadays software. An even worse phenomenon can arise: Insufficient understanding of a faulty piece of software at hand, can lead to introducing even more errors with additional code, that is actually intended to fix a bug. Especially when poor structuring masks hidden dependencies between modules. A general rule of thumb is: The earlier an error originates, for example in the phase of gathering requirements, the more extensive changes are necessary, later on. In other words: The earlier an error is induced and the later it is discovered, the more expensive are its consequences. Achieving a sufficient quality level from the beginning of the project, can significantly reduce a waste of money, hours and enthusiasm on unnecessary maintenance and also substantially reduce the customers disapproval.
+
+But these problems have suitable solutions at hand. It is not compulsive to plunge money, hours and employee motivation on unnecessary maintenance. Employing the right methods, implemented software can become reliable, easy to change, inexpensive to maintain and allow a more intuitive understanding. Distinguishable into two categories, these methods are either analytical or constructive.
+Best practice is to employ a circular combination of constructive and analytical methods. Constructive means alone can assist in preventing errors in the intended product, but not guarantee their absence. Analytical means are capable of demonstrating the absence of errors, but not their prevention, so a large amount of preventable errors might emerge, when only analytical means are put to use. The combined use advisable would be, to employ constructive methods during every phase of a development project, and assessing the intermediate results with analytical methods by the end of each phase. This process is called the 'principle of integrated quality assurance' \cite{Liggesmeyer2002}. If these intermediate results do not meet the arranged quality criteria, the current state of the project is not passed on to the next phase, but the current phase has to be extended. This implies, that the current state of the product requires further development, until all necessary criteria are met. This phase- and quality driven conduct, supports the development team in detection of errors at an early point and their removal at reasonable effort. Ideally all errors induced in a development phase are detected and eliminated by the end of the same phase. This should further help in minimizing the number of errors in a product over several phases. 
+
+The described process makes it evident, that testing only a finished product is no sufficient way of ensuring high quality. Already the first intermediate result has to be investigated for deviations from the quality goals and measures have to taken for correction at an early stage. Also an integration of constructive and analytical quality measures is required. While constructive methods are advised during the implementation activities of a phase, it should be followed by the corresponding analysis.
+
+A key factor in ensuring the intended quality lies in the early definition of these quality goals. It constitutes not of defining the requirements, but the specification of the desired quality features. This has to happen even before the phase of requirement-definition, as the requirements themself are affected by aforementioned quality goals. On the other hand, testing results against quality features is also of central importance. The typical approach of every developer is, to call a written program with a few sets of inputs and observe the program for expected, or divergent behaviour. This already constitutes for an informal dynamic test. Inspecting the code after, implementing it, for structural errors is the informal equivalent of a static analysis. As these informal methods are widespread among programmers, employing formal processes of testing is rather disregarded among programmers, as well as the knowledge about their effectiveness. Ideally, testing is aimed at generating reproducible results, while following well defined procedures.
+
+While hardware quality assurance often results in quantitative results, same is not the case for software, at least not to the same extent as for hardware. But processes exist for both worlds, to ensure systematic development, as well as quality assurance. Developers of systems integrating both hardware and software have to be aware of their differences. Also, strictly separating the quality measures for software and hardware is not an advisable way to go. The quality properties have to be specified and verified for the complete system and not just its separate modules. The test results of individual modules, usually, can not be superimposed, but the correct behaviour of the whole system has to be demonstrated. Therefore, the deviating aspects of hardware and software quality assurance have to be regarded.
+	
+	\section{Terminology and definitions of terms}
+	To clarify regularly used terms, here are definitions in accordance with either \cite{Kopetz1997} or \cite{Liggesmeyer2002}
+	\subsection{Quality, quality requirements, quality features, quality measures}
+		\begin{itemize}
+		\item Quality, according to the standard 'DIN 55350 - Concepts for quality management', is defined as: The ability of a unit, or device, to fulfil defined and derived quality requirements.
+		\item Quality requirements describe the aggregate of all single requirements regarding a unit or device.
+		\item Quality features describe concrete properties of a unit or device, relevant for the definition and assessment of the quality. While it does not make quantitative statements, or allowed values of a property, so to say, it very well may have a hierarchical structure: One quality feature, being composed of several detailed sub-features. A differentiation into functional and non-functional features is advised. Also features may have different importance for the customer and the manufacturer. Overarching all these aspects, features may interfere with each other in an opposing manner. As a consequence, maximizing the overall level of quality, regarding every aspect, is not a feasible goal. The sensible goal is to find a trade-off between interfering features, and achieve a sufficient level of quality for all relevant aspects. Typical features, regarding software development include: Safety, security, reliability, dependability, availability, robustness, efficiency regarding memory and runtime, adaptability portability, and testability.
+		\item {Quality measures} define the quantitative aspects of a quality feature. These are measures, that allow conclusions to be drawn about the characteristics of certain quality features. For example, the MTTF (mean time to failure), is a widespread measure for reliability.
+		\end{itemize}
+	
+	\bildGr{b!}{ErrorFaultFailure.pdf}{Causal chain}{ErrorFaultFailure}{0.5\textwidth}
+
+	\subsection{Error, failure, fault}
+	\begin{minipage}{\linewidth}
+	\begin{itemize}
+		\item {Error}, the root cause of a device or unit to fail, may originate from operation outside the specification, or from human mistakes in the design.
+		\item {Failure}, or defect is the incorrect internal state of a unit, and is the result of an error. It exists either on the hard- or software-side and is the cause of a fault, but not necessarily.
+		\item {Fault} is the incorrect behaviour of the unit, or it's complete cease of service, observable by the user. It is caused by a failure.
+		\item These definitions are in accordance with \cite{Liggesmeyer2002} and \cite{Kopetz1997} and have causal dependencies, depicted in Fig.~\ref{ErrorFaultFailure}.
+		\item While an error can be classified by its persistence, being permanent or transient, failures and faults are classified more detailed into consistent/inconsistent, permanent/transient and benign/malign, among other categories.
+	\end{itemize}
+	\end{minipage}
+	
+	\subsection{Correctness}
+		{Correctness} is the binary feature of a unit or device, loosely described as 'the absence of failures'. A more specific description would be, that a correct software operates consistent to its specification. This implies, that no conclusion about correctness is possible, without an existing specification.
+	\subsection{Completeness}
+		{Completeness} describes, that all functionalities, given in the specification are implemented. This includes normal intended operation, as well as the handling of error-states. It is a necessary, but not a sufficient criterion for correctness.
+	\subsection{Testability}
+	{Testability} describes the property of a unit, to include functionality dedicated only to facilitate the verification of said unit. Supporting concepts include the \\
+	% \begin{minipage}{\linewidth}
+	\begin{itemize}
+		\item Partitioning of the whole unit into modules, that are testable in isolation. These modules should have little to no side-effects with each other. 
+		\item A dedicated debug-unit, making the actual state of the unit observable from outside further assists Testability. 
+		\item Another concept is, to specify only as much input space as is necessary, resulting in fewer necessary test-cases to ensure a high coverage.
+	\end{itemize}
+	% \end{minipage}
+
+	The aggregate of these concepts is called {\bf design-for-testability}.
+	Generally, time-triggered units support testability to a higher degree, than event-triggered systems.
+	\subsection{Safety and security}
+	% \begin{minipage}{\linewidth}
+	\begin{itemize}
+		\item {\bf Safety} means, that a unit is fit for its intended purpose and provides reliable operation within a specified load- and fault-hypothesis.
+		\item {\bf Security}, though, is the resistance of unit against malicious and deliberate misusage.
+	\end{itemize}
+	% \end{minipage}
+	\subsection{Reliability}
+	{Reliability} is a dynamic property, giving the probability, that a unit is operational after given time {\bf t}.
+		\begin{align*}
+		\textrm{Reliability ...} \quad R(t) & = e^{-\lambda (t-t_o) }\\
+		\textrm{failure rate ...}  \quad \lambda & = \frac{1}{MTTF} 
+		\end{align*}
+	An exponential function, decaying from 100\% at time = t0, where a unit was known to be operating. $\lambda$ is the failure rate with dimension 'failures/h'
+	
+	\subsection{Maintainability}
+	{Maintainability} is the probability, that a system is repaired and functioning again within a given time after a failure. Note that this includes also the time required to detect the error.
+	A quantified measure for it is the mean-time-to-repair (MTTR).
+	\subsection{Availability}
+	{Availability} combines reliability and maintainability into a measure, giving the percentage of time, a unit is operational, providing full functionality.
+		\begin{align*}
+	\textrm{Availability ...} \quad A & = \frac{MTTF}{MTTF + MTTR}
+		\end{align*}
+	It is apparent, that a low time-to-repair and a high time-to-failure leads to high availability.
+	\subsection{Robustness}
+		Robustness is actually a property of the specification and requirements. While correctness rates, how far the implemented software complies with the specification, it correct software still might fail in critical situations, that are not covered in the specification. Therefore, to achieve robustness, the specifications have to be examined and ensured, that all critical situations are covered and the expected behaviour of the device under these conditions is defined.
+	\subsection{Dependability}
+	{Dependability} finally, is composed of sufficiently fulfilled levels of \\
+		% \begin{minipage}{\linewidth}
+		\begin{itemize}
+			\item Reliability
+			\item Availability
+			\item Maintainability
+			\item Safety
+		\end{itemize}
+		% \end{minipage}
+	...assembled into the common acronym {\bf R.A.M.S.}
+	
+	% \subsection{load-hypothesis, fault-hypothesis}
+		% \TODO{Erklärung} 
+		
+	% \subsection{bare metal-Systems}
+		% \TODO{Erklärung} 
+	
+	% \section{Code Quality}
+
+	\section{Function-oriented testing}
+
+	This chapter establishes methods to design test-cases, to verify a given piece of software against its specification. The first method, named 'equivalence partitioning', assists in reducing all possible inputs to an examined unit, down to a sufficient set of inputs, while the second method 'state based testing' aims to sufficiently cover code, whose behaviour relies heavily on its own condition and history. Both are best suited in a white-box scenario, that means, that the inner structure of the examined software must be known to the tester, for example in form of the not compiled source-code. Equivalence class partitioning might be employed in a black-box scenario, where only a specification is present, but the consequential flaws of such an approach will become apparent in the following chapter.
+
+	\subsection{Equivalence class partitioning}
+	This method is applied most beneficial on a unit- or module level testing. The input- and output spaces of various functions might allow an extreme amount of values, testing them all would lead to unacceptable amount of test-cases and would prevent their execution in a feasible time. Then again, many of those possible inputs would take the same paths through the examined module, in other words, excite the module to the same behaviour. Such a sub-set of inputs forms a common class, a so called 'equivalent class', that can ideally by represented by one input and therefore one test-case. A distinction of cases inside a module would form separate paths for the information to take, therefore form different behaviours of the module itself. Each of those distinctions call for a separate equivalence class and their own test-case. The aggregate of test-cases to cover all possible paths through a unit, or to trigger all possible kinds of behaviour of a unit, form a sufficient set for function-oriented testing. This method, that applies the ancient concept of 'divide and conquer', partitions a unit into low levels of complexity, that can be represented by one single equivalent test-case, thus giving it the name 'equivalence partitioning'.
+
+	Equivalence classes should initially be derived from the software's specification and can be distinguished into input- and output-classes. While forming a specific output-class it shall be noted, that an according choice of input values has to be defined, presumably exciting the tested unit to the desired or specified output values. \\
+	An equivalence class, representing valid input or output values is hence called 'valid equivalence class'. For input or output values, that are specified as invalid, or not specified at all, according 'valid equivalence classes' must be formed as well, to test a units capability in handling those exceptional situations and possibly reveal errors inside a unit. This differentiation in types of test-classes is illustrated in Tab. ~\ref{EquiClasses}.
+	
+	\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{c c}
+		
+						& port-wise  \\
+		validity-wise	& \begin{tabular}{|c | c|} \hline
+						valid input class 	& valid output class   \\  \hline
+						invalid input class 	& invalid output class \\ \hline
+							\end{tabular}		\\ % \hline 
+		\end{tabular}
+			\caption{distinguishing equivalence classes}
+			\label{EquiClasses}
+	\end{center}
+	\end{table}
+	While output classes are much less common in everyday programming, their importance shall not be neglected: Identical inputs might very well result in different outputs, depending on varying side-effects, that have influence on the inspected unit. This has to be accounted in separate equivalence classes for expected outputs.
+	
+	Following this first steps of partitioning, the resulting classes shall further be separated into sub-classes that take into account distinction of cases within a module, where data might travel several different paths or branches of the source code. This step is only possible in a white-box-scenario, as it affords direct inspection of the source-code. While demanding additional effort, this allows to examine also rather hidden corners of the source-code, that otherwise might go unnoticed and possibly mask hidden errors.
+
+	Some examples demonstrate the correct application of the described method:
+	
+
+	\begin{itemize}
+		\item valid/invalid input classes: \\
+			input is specified as a floating point number between 0 and 20 volts \\
+			$\rightarrow$ valid class: 0.00 $\le$ 'test-value' $\le$ 20.00 \\
+			$\rightarrow$ invalid class: 0.00 > $test-value$ and \\
+			$\rightarrow$ invalid class: <test-value> > 20.00 \\
+		\item output class: \\
+			output is specified for given input filenames as: 0 if file exists, -1 if file does not exist. \\
+			$\rightarrow$ valid class: Filename of an existing file\\
+			$\rightarrow$ invalid class:  Filename of an inexistent file\\
+			$\rightarrow$ invalid class:  String with a malformed file-path \\
+		\item dedicated allowed values: \\
+			addressed module can be chosen from TriggerA, TriggerB, or TriggerC. \\
+			$\rightarrow$ valid class: TriggerB \\
+			$\rightarrow$ invalid class:  TriggerK \\
+			$\rightarrow$ invalid class:  Trucker \\
+		% \item in-source:
+			% Aus einer bekannten IF-Schleife werden zwei TCs
+	\end{itemize}
+
+	A visual explanation of the first example is given in Fig. ~\ref{EquivPart01}
+	\bildGr{h!}{EquivPart01}{basic equivalence partitions}{EquivPart01}{\textwidth}
+	
+	\subsection{Boundary value analysis} %  (Grenzwertanalyse, Ligges)
+	Until now it might seem, that test-values can be chosen randomly from gathered classes, which is often a sufficient case. But a closely related method called 'boundary value analysis' refines the selection of test-values. From a set of integers between 10 and 100, with a known code structure to be free from case distinctions, the representative test-value can truly be chosen randomly as 15, 60, or 78. In more complex numerical structures, like floating-point numbers, overarching '0' and negative numbers as input space, a single value becomes insufficient. It is then advisable to deliberately choose values close to the bounding values of a function and in the given case also values close to the '0'.
+	Further explanation of choosing useful values will be given on a slight variation of the first equivalent classes-example: Assumed is a function specified for floating point input values in the range of $\pm$ 10V. 
+			\bildGr{h!}{eqPart02}{equivalent class for composite numerical input}{eqPart02}{0.5\textwidth}
+	The given set, visualized in ~\ref{eqPart02} \TODO{saubere Grafik wie ~\ref{EquivPart01}} , has obvious bounding values of +10 and -10, giving the first to test-values. Small values deviating from $\pm$ 10V are also values to test for. Furthermore, '0' and small values deviating from 0 in positive and negative direction will reveal the units stability, in case, the input is used as a divisor. \\
+	\begin{itemize}[label={}]
+		\item	$\rightarrow$ valid classes: +10V, +9.99V, -10V, -9.99V, 0V, +0.01V, -0.01V \\
+		\item	$\rightarrow$ invalid classes: +10.01V, -10.01V \\
+	\end{itemize}
+	Every value has to applied via a separate testcase, to alleviate which values cause problems, in case of failing tests. \\
+	Boundary value analysis and equivalence class partitioning are closely related and often mentioned in unison, nevertheless, their separate description in this chapter is intended to specify their different applications.
+		
+	\subsection{State based testing}
+
+	% Darauf hat PlagAware angeschlagen, engl Präs vom Ligges:
+	% technodocbox.com/C_and_CPP/94907983-Software-quality-assurance-dynamic-test.html
+	
+
+	
+	\section{Coverage metrics}
+	
+	This chapter describes dynamic testing techniques that assess the completeness of the test based on the coverage of the software source code. Coverage describes the amount of source code, that is executed during testing of the examined software. Therefore, they are referred to as structure-oriented testing techniques. The techniques described are based on the control structure or the control flow of the software to be tested. For this reason one speaks of control flow-oriented, structure-oriented test techniques. This group of test techniques is of great practical importance. This applies in particular to their use in module testing, the so-called 'testing on a small scale'. The group of control flow oriented testing techniques is well supported by test tool vendors. In addition, there are accepted minimum criteria in the field of control flow-oriented tests that should be considered in terms of an adequate test. A as minimal, the so-called branch coverage test is a necessary acceptance test procedure. In particularly critical areas of application, relevant standards require more extensive tests, for example a so-called condition coverage test. Certain control-flow-oriented test techniques are of such a fundamental nature that an examination that does not use these techniques, particularly in the module test, must be rated as insufficient.	
+	
+
+	\subsection{Properties and goals }
+
+	Because control flow-oriented test techniques belong to the group of structure-oriented test techniques, they have their respective advantages and disadvantages. Test completeness is assessed based on coverage of the control structure or control flow. A corresponding specification is required for the assessment of the expenditure. Like all structure-oriented test techniques, control flow-oriented test techniques do not define any rules for the generation of test cases. It is only important that the test cases cause corresponding coverage in the structure. This degree of freedom in test case generation is extremely important, as it allows other test case generation techniques to be combined with structure-oriented testing techniques.
+
+	The most important area of application of the control flow-oriented test techniques is the unit test. Control flow-oriented test techniques can still have a certain importance in integration testing, while they are not used in system testing. Control flow oriented testing techniques look at the structure of the code. In particular, aspects of the processing logic that are represented in the software as instructions, branches, conditions, loops or paths are considered. The disadvantage is that this approach is blind to omission errors in the software. Unrealized but specified functions are only recognized by chance, there is no code to test for these functions.
+
+	The test basis is the so-called control flow graph. The control flow graph can be created for any program implemented in an imperative programming language. For this reason, the control flow-oriented test techniques can be applied equally to all programs created in an imperative language via the representation of a software module to be tested as a control flow graph. Tools to support control flow-oriented testing techniques usually generate control flow graphs, as portrayed in fig. ~\ref{ctrlFlowExamp}, and use them to represent the test results.
+	
+	\bildGr{h!}{ctrlFlowExamp}{exemplatory control flow graph of a looped function }{ctrlFlowExamp}{0.5\textwidth}
+
+	\TODO{ Probekapitel geht bis hier }

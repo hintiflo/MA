@@ -19,6 +19,36 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{keithleyHistory}{book}{}
+      \name{author}{1}{}{%
+        {{hash=5e70c252d984dbc0023eaafb5870be31}{%
+           family={Keithley},
+           familyi={K\bibinitperiod},
+           given={Joseph\bibnamedelima F.},
+           giveni={J\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, USA}%
+      }
+      \list{publisher}{1}{%
+        {IEEE Press}%
+      }
+      \strng{namehash}{5e70c252d984dbc0023eaafb5870be31}
+      \strng{fullhash}{5e70c252d984dbc0023eaafb5870be31}
+      \strng{bibnamehash}{5e70c252d984dbc0023eaafb5870be31}
+      \strng{authorbibnamehash}{5e70c252d984dbc0023eaafb5870be31}
+      \strng{authornamehash}{5e70c252d984dbc0023eaafb5870be31}
+      \strng{authorfullhash}{5e70c252d984dbc0023eaafb5870be31}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0-7803-1193-0}
+      \field{langid}{english}
+      \field{title}{The Story of Electrical and Magnetic Measurements From 500 BC to the 1940s}
+      \field{year}{1999}
+      \field{dateera}{ce}
+    \endentry
     \entry{Kopetz1997}{book}{}
       \name{author}{1}{}{%
         {{hash=44b9df2303234ba39ec62a0c8f1fe5b9}{%
@@ -71,28 +101,8 @@
       \field{title}{Software-Qualität - testen, analysieren und verifizieren von Software}
       \field{year}{2002}
     \endentry
-    \entry{WikiReliquienschrein2020}{online}{}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{labeltitlesource}{title}
-      \field{day}{20}
-      \field{langid}{ngerman}
-      \field{month}{10}
-      \field{title}{Reliquienschrein}
-      \field{urlday}{12}
-      \field{urlmonth}{5}
-      \field{urlyear}{2021}
-      \field{year}{2020}
-      \field{dateera}{ce}
-      \field{urldateera}{ce}
-      \verb{urlraw}
-      \verb https://de.wikipedia.org/wiki/Reliquienschrein
-      \endverb
-      \verb{url}
-      \verb https://de.wikipedia.org/wiki/Reliquienschrein
-      \endverb
-    \endentry
   \enddatalist
+  \missing{WikiReliquienschrein2020}
 \endrefsection
 \endinput
 

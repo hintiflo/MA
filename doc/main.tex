@@ -26,7 +26,7 @@
 % Title page entries
 %%%-----------------------------------------------------------------------------
 
-\title{OCTane - Applying software quality-measures to bare-metal firmware}
+\title{ Applying software quality-measures to bare-metal firmware}
 \author{Florian Hinterleitner}
 \programname{embedded systems design}
 \programtype{Fachhochschul-Masterstudiengang}
@@ -59,384 +59,9 @@
 \include{chapters/introduction}
 % \TODO{"vom Allgemeinen zum Speziellen"}
 % thethesis.tex
-\chapter{Fundamentals - Code Quality and Real-time}
-\label{cha:Fundamentals}
-	% Fundamentals
-	% \section{Code Quality}
-	\section{Motivation}
-As the areas of applications for microcontrollers, as well as the complexity of their software continues to grow, also the demands towards correct and reliable function of those systems, increase accordingly. This causes the efforts, put into software-development, to usually surpass efforts for the corresponding hardware. As the software's lifespan also surpasses that of the hardware, these efforts becomes a sensible investment. On the other hand, to obtain the most value from that software-product, it has to fulfil certain quality measures. Neglecting these quality aspects would lead to an unjustifiable amount of work necessary for maintenance, when the product is already in service. Investigating the dynamics of software development efforts leads to the result, that, the later in a project lifecycle, changes become necessary,the higher the expenses. More detailed expressed, errors are induced in the implementation, persist unnoticed through testing and verification. Finally, this errors appear as faults in operation at the customer site. Furthermore, if the project suffers from lazy documentation, insufficient structure, identifying these errors and correcting them becomes consuming in time, cost and resources. This phenomenon is further escalated with the increasing complexity of nowadays software. An even worse phenomenon can arise: Insufficient understanding of a faulty piece of software at hand, can lead to introducing even more errors with additional code, that is actually intended to fix a bug. Especially when poor structuring masks hidden dependencies between modules. A general rule of thumb is: The earlier an error originates, for example in the phase of gathering requirements, the more extensive changes are necessary, later on. In other words: The earlier an error is induced and the later it is discovered, the more expensive are its consequences. Achieving a sufficient quality level from the beginning of the project, can significantly reduce a waste of money, hours and enthusiasm on unnecessary maintenance and also substantially reduce the customers disapproval.
+\include{chapters/fundamentals}
+% \include{chapters/_fundamentals}
 
-But these problems have suitable solutions at hand. It is not compulsive to plunge money, hours and employee motivation on unnecessary maintenance. Employing the right methods, implemented software can become reliable, easy to change, inexpensive to maintain and allow a more intuitive understanding. Distinguishable into two categories, these methods are either analytical or constructive.
-Best practice is to employ a circular combination of constructive and analytical methods. Constructive means alone can assist in preventing errors in the intended product, but not guarantee their absence. Analytical means are capable of demonstrating the absence of errors, but not their prevention, so a large amount of preventable errors might emerge, when only analytical means are put to use. The combined use advisable would be, to employ constructive methods during every phase of a development project, and assessing the intermediate results with analytical methods by the end of each phase. This process is called the 'principle of integrated quality assurance' \cite{Liggesmeyer2002}. If these intermediate results do not meet the arranged quality criteria, the current state of the project is not passed on to the next phase, but the current phase has to be extended. This implies, that the current state of the product requires further development, until all necessary criteria are met. This phase- and quality driven conduct, supports the development team in detection of errors at an early point and their removal at reasonable effort. Ideally all errors induced in a development phase are detected and eliminated by the end of the same phase. This should further help in minimizing the number of errors in a product over several phases. 
-
-The described process makes it evident, that testing only a finished product is no sufficient way of ensuring high quality. Already the first intermediate result has to be investigated for deviations from the quality goals and measures have to taken for correction at an early stage. Also an integration of constructive and analytical quality measures is required. While constructive methods are advised during the implementation activities of a phase, it should be followed by the corresponding analysis.
-
-A key factor in ensuring the intended quality lies in the early definition of these quality goals. It constitutes not of defining the requirements, but the specification of the desired quality features. This has to happen even before the phase of requirement-definition, as the requirements themself are affected by aforementioned quality goals. On the other hand, testing results against quality features is also of central importance. The typical approach of every developer is, to call a written program with a few sets of inputs and observe the program for expected, or divergent behaviour. This already constitutes for an informal dynamic test. Inspecting the code after, implementing it, for structural errors is the informal equivalent of a static analysis. As these informal methods are widespread among programmers, employing formal processes of testing is rather disregarded among programmers, as well as the knowledge about their effectiveness. Ideally, testing is aimed at generating reproducible results, while following well defined procedures.
-
-While hardware quality assurance often results in quantitative results, same is not the case for software, at least not to the same extent as for hardware. But processes exist for both worlds, to ensure systematic development, as well as quality assurance. Developers of systems integrating both hardware and software have to be aware of their differences. Also, strictly separating the quality measures for software and hardware is not an advisable way to go. The quality properties have to be specified and verified for the complete system and not just its separate modules. The test results of individual modules, usually, can not be superimposed, but the correct behaviour of the whole system has to be demonstrated. Therefore, the deviating aspects of hardware and software quality assurance have to be regarded.
-	
-	\section{Terminology and definitions of terms}
-	To clarify regularly used terms, here are definitions in accordance with either \cite{Kopetz1997} or \cite{Liggesmeyer2002}
-	\subsection{Quality, Quality requirements, Quality features, Quality measures}
-		\begin{itemize}
-		\item Quality, according to the standard 'DIN 55350 - Concepts for quality management', is defined as: The ability of a unit, or device, to fulfil defined and derived quality requirements.
-		\item Quality requirements describes the aggregate of all single requirements regarding a unit or device.
-		\item Quality features describe concrete properties of a unit or device, relevant for the definition and assessment of the quality. While it does not make quantitative statements, or allowed values of a property, so to say, it very well may have a hierarchical structure: One quality feature, being composed of several detailed sub-features. A differentiation into functional and non-functional features is advised. Also features may have different importance for the customer and the manufacturer. Overarching all these aspects, features may interfere with each other in an opposing manner. As a consequence, maximizing the overall level of quality, regarding every aspect, is not a feasible goal. The sensible goal is to find a trade-off between interfering features, and achieve a sufficient level of quality for all relevant aspects. Typical features, regarding software development include: Safety, security, reliability, dependability, availability, robustness, efficiency regarding memory and runtime, adaptability portability, and testability.
-		\item {Quality measures} define the quantitative aspects of a quality feature. These are measures, that allow conclusions to be drawn about the characteristics of certain quality features. For example, the MTTF (mean time to failure), is a widespread measure for reliability.
-		\end{itemize}
-	
-	\bildGr{b!}{ErrorFaultFailure.pdf}{Causal chain}{ErrorFaultFailure}{0.5\textwidth}
-
-	\subsection{Error, Failure, Fault}
-	\begin{minipage}{\linewidth}
-	\begin{itemize}
-		\item {Error}, the root cause of a device or unit to fail, may originate from operation outside the specification, or from human mistakes in the design.
-		\item {Failure}, or defect is the incorrect internal state of a unit, and is the result of an error. It exists either on the hard- or software-side and is the cause of a fault, but not necessarily.
-		\item {Fault} is the incorrect behaviour of the unit, or it's complete cease of service, observable by the user. It is caused by a failure.
-		\item These definitions are in accordance with \cite{Liggesmeyer2002} and \cite{Kopetz1997} and have causal dependencies, depicted in Fig.~\ref{ErrorFaultFailure}.
-		\item While an error can be classified by its persistence, being permanent or transient; Failures and Faults are classified more detailed into consistent/inconsistent, permanent/transient and benign/malign, among other categories.
-	\end{itemize}
-	\end{minipage}
-	
-	\subsection{Correctness}
-		{Correctness} is the binary feature of a unit or device, loosely described as 'the absence of failures'. A more specific description would be, that a correct software operates consistent to its specification. This implies, that no conclusion about correctness is possible, without an existing specification.
-	\subsection{Completeness}
-		{Completeness} describes, that all functionalities, given in the specification are implemented. This includes normal intended operation, as well as the handling of error-states. It is a necessary, but not a sufficient criterion for correctness.
-	\subsection{Testability}
-	{Testability} describes the property of a unit, to include functionality dedicated only to facilitate the verification of said unit. Supporting concepts include the \\
-	% \begin{minipage}{\linewidth}
-	\begin{itemize}
-		\item Partitioning of the whole unit into modules, that are testable in isolation. These modules should have little to no side-effects with each other. 
-		\item A dedicated debug-unit, making the actual state of the unit observable from outside further assists Testability. 
-		\item Another concept is, to specify only as much input space as is necessary, resulting in fewer necessary test-cases to ensure a high coverage.
-	\end{itemize}
-	% \end{minipage}
-
-	The aggregate of these concepts is called {\bf design-for-testability}.
-	Generally, time-triggered units support testability to a higher degree, than event-triggered systems.
-	\subsection{Safety and Security}
-	% \begin{minipage}{\linewidth}
-	\begin{itemize}
-		\item {\bf Safety} means, that a unit is fit for its intended purpose and provides reliable operation within a specified load- and fault-hypothesis.
-		\item {\bf Security}, though, is the resistance of unit against malicious and deliberate misusage.
-	\end{itemize}
-	% \end{minipage}
-	\subsection{Reliability}
-	{Reliability} is a dynamic property, giving the probability, that a unit is operational after given time {\bf t}.
-		\begin{align*}
-		\textrm{Reliability ...} \quad R(t) & = e^{-\lambda (t-t_o) }\\
-		\textrm{failure rate ...}  \quad \lambda & = \frac{1}{MTTF} 
-		\end{align*}
-	An exponential function, decaying from 100\% at time = t0, where a unit was known to be operating. $\lambda$ is the failure rate with dimension 'failures/h'
-	
-	\subsection{Maintainability}
-	{Maintainability} is the probability, that a system is repaired and functioning again within a given time after a failure. Note that this includes also the time required to detect the error.
-	A quantified measure for it is the mean-time-to-repair (MTTR).
-	\subsection{Availability}
-	{Availability} combines Reliability and Maintainability into a measure, giving the percentage of time, a unit is operational, providing full functionality.
-		\begin{align*}
-	\textrm{Availability ...} \quad A & = \frac{MTTF}{MTTF + MTTR}
-		\end{align*}
-	It is apparent, that a low time-to-repair and a high time-to-failure leads to high Availability.
-	\subsection{Robustness}
-		Robustness is actually a property of the specification and requirements. While correctness rates, how far the implemented software complies with the specification, it correct software still might fail in critical situations, that are not covered in the specification. Therefore, to achieve robustness, the specifications have to be examined and ensured, that all critical situations are covered and the expected behaviour of the device under these conditions is defined.
-	\subsection{Dependability}
-	{Dependability} finally, is composed of sufficiently fulfilled levels of \\
-		% \begin{minipage}{\linewidth}
-		\begin{itemize}
-			\item Reliability
-			\item Availability
-			\item Maintainability
-			\item Safety
-		\end{itemize}
-		% \end{minipage}
-	...assembled into the common acronym {\bf R.A.M.S.}
-	
-	% \subsection{load-hypothesis, fault-hypothesis}
-		% \TODO{Erklärung} 
-		
-	% \subsection{bare metal-Systems}
-		% \TODO{Erklärung} 
-	
-
-	\section{Function-oriented Testing}
-
-	This chapter establishes methods to design test-cases, to verify a given piece of software against its specification. The first method, named 'equivalence partitioning', assists in reducing all possible inputs to an examined unit, down to a sufficient set of inputs, while the second method 'State based testing' aims to sufficiently cover code, whose behaviour relies heavily on its own condition and history. Both are best suited in a white-box scenario, that means, that the inner structure of the examined software must be known to the tester, for example in form of the not compiled source-code. Equivalence class partitioning might be employed in a black-box scenario, where only a specification is present, but the consequential flaws of such an approach will become apparent in the following chapter.
-
-	\subsection{Equivalence class partitioning}
-	This method is applied most beneficial on a unit- or module level testing. The input- and output spaces of various functions might allow an extreme amount of values, testing them all would lead to unacceptable amount of test-cases and would prevent their execution in a feasible time. Then again, many of those possible inputs would take the same paths through the examined module, in other words, excite the module to the same behaviour. Such a sub-set of inputs forms a common class, a so called 'equivalent class', that can ideally by represented by one input and therefore one test-case. A distinction of cases inside a module would form separate paths for the information to take, therefore form different behaviours of the module itself. Each of those distinctions call for a separate equivalence class and their own test-case. The aggregate of test-cases to cover all possible paths through a unit, or to trigger all possible kinds of behaviour of a unit, form a sufficient set for function-oriented testing. This method, that applies the ancient concept of 'divide and conquer', partitions a unit into low levels of complexity, that can be represented by one single equivalent test-case, thus giving it the name 'equivalence partitioning'.
-
-	Equivalence classes should initially be derived from the software's specification and can be distinguished into input- and output-classes, \GREY{ depending of what was specified}. While forming a specific output-class it shall be noted, that an according choice of input values has to be defined, presumably exciting the tested unit to the desired or specified output values. \\
-	An equivalence class, representing valid input or output values is hence called 'valid equivalence class'. For input or output values, that are specified as invalid, or not specified at all, according 'valid equivalence classes' must be formed as well, to test a units capability in handling those exceptional situations and possibly reveal errors inside a unit. This differentiation in types of test-classes is illustrated in Tab. ~\ref{EquiClasses}.
-	
-	\begin{table}[h!]
-	\begin{center}
-		\begin{tabular}{c c}
-		
-						& port-wise  \\
-		validity-wise	& \begin{tabular}{|c | c|} \hline
-						valid input class 	& valid output class   \\  \hline
-						invalid input class 	& invalid output class \\ \hline
-							\end{tabular}		\\ % \hline 
-		\end{tabular}
-			\caption{distinguishing equivalence classes}
-			\label{EquiClasses}
-	\end{center}
-	\end{table}
-	While output classes are much less common in everyday programming, their importance shall not be neglected: Identical inputs might very well result in different outputs, depending on varying side-effects, that have influence on the inspected unit. This has to be accounted in separate equivalence classes for expected outputs.
-	
-	Following this first steps of partitioning, the resulting classes shall further be separated into sub-classes that take into account distinction of cases within a module, where data might travel several different paths or branches of the source code. This step is only possible in a white-box-scenario, as it affords direct inspection of the source-code. While demanding additional effort, this allows to examine also rather hidden corners of the source-code, that otherwise might go unnoticed and possibly mask hidden errors.
-
-	Some examples demonstrate the correct application of the described method:
-	
-
-	\begin{itemize}
-		\item valid/invalid input classes: \\
-			input is specified as a floating point number between 0 and 20 Volts \\
-			$\rightarrow$ valid class: 0.00 $\le$ 'test-value' $\le$ 20.00 \\
-			$\rightarrow$ invalid class: 0.00 > $test-value$ and \\
-			$\rightarrow$ invalid class: <test-value> > 20.00 \\
-		\item output class: \\
-			output is specified for given input filenames as: 0 if file exists, -1 if file does not exist. \\
-			$\rightarrow$ valid class: Filename of an existing file\\
-			$\rightarrow$ invalid class:  Filename of an inexistent file\\
-			$\rightarrow$ invalid class:  String with a malformed file-path \\
-		\item dedicated allowed values: \\
-			addressed module can be chosen from TriggerA, TriggerB, or TriggerC. \\
-			$\rightarrow$ valid class: TriggerB \\
-			$\rightarrow$ invalid class:  TriggerK \\
-			$\rightarrow$ invalid class:  Trucker \\
-		% \item in-source:
-			% Aus einer bekannten IF-Schleife werden zwei TCs
-	\end{itemize}
-
-	A visual explanation of the first example is given in Fig. ~\ref{EquivPart01}
-	\bildGr{h!}{EquivPart01}{basic equivalence partitions}{EquivPart01}{\textwidth}
-	
-	\subsection{Boundary value analysis} %  (Grenzwertanalyse, Ligges)
-	Until now it might seem, that test-values can be chosen randomly from gathered classes, which is often a sufficient case. But a closely related method called 'Boundary value analysis' refines the selection of test-values. From a set of integers between 10 and 100, with a known code structure to be free from case distinctions, the representative test-value can truly be chosen randomly as 15, 60, or 78. In more complex numerical structures, like floating-point numbers, overarching '0' and negative numbers as input space, a single value becomes insufficient. It is then advisable to deliberately choose values close to the bounding values of a function and in the given case also values close to the '0'.
-	Further explanation of choosing useful values will be given on a slight variation of the first equivalent classes-example: Assumed is a function specified for floating point input values in the range of $\pm$ 10V. 
-			\bildGr{h!}{eqPart02}{equivalent class for composite numerical input}{eqPart02}{0.5\textwidth}
-	The given set, visualized in ~\ref{eqPart02}, has obvious bounding values of +10 and -10, giving the first to test-values. Small values deviating from $\pm$ 10V are also values to test for. Furthermore, '0' and small values deviating from 0 in positive and negative direction will reveal the units stability, in case, the input is used as a divisor. \TODO{saubere Grafik wie ~\ref{EquivPart01}} \\
-	\begin{itemize}[label={}]
-		\item	$\rightarrow$ valid classes: +10V, +9.99V, -10V, -9.99V, 0V, +0.01V, -0.01V \\
-		\item	$\rightarrow$ invalid classes: +10.01V, -10.01V \\
-	\end{itemize}
-	Every value has to applied via a separate testcase, to alleviate which values cause problems, in case of failing tests. \\
-	Boundary value analysis and equivalence class partitioning are closely related and often mentioned in unison, nevertheless, their separate description in this chapter is intended to specify their different applications.
-		
-	\subsection{State based testing}
-
-	% Darauf hat PlagAware angeschlagen, engl Präs vom Ligges:
-	% technodocbox.com/C_and_CPP/94907983-Software-quality-assurance-dynamic-test.html
-	
-
-	
-	\section{Coverage metrics}
-	
-	This chapter describes dynamic testing techniques that assess the completeness of the test based on the coverage of the software source code. Coverage describes the amount of source code, that is executed during testing of the examined software. Therefore, they are referred to as structure-oriented testing techniques. The techniques described are based on the control structure or the control flow of the software to be tested. For this reason one speaks of control flow-oriented, structure-oriented test techniques. This group of test techniques is of great practical importance. This applies in particular to their use in module testing, the so-called 'testing on a small scale'. The group of control flow oriented testing techniques is well supported by test tool vendors. In addition, there are accepted minimum criteria in the field of control flow-oriented tests that should be considered in terms of an adequate test. A as minimal, the so-called branch coverage test is a necessary acceptance test procedure. In particularly critical areas of application, relevant standards require more extensive tests, for example a so-called condition coverage test. Certain control-flow-oriented test techniques are of such a fundamental nature that an examination that does not use these techniques, particularly in the module test, must be rated as insufficient.	
-	
-
-	\subsection{Properties and goals }
-
-	Because control flow-oriented test techniques belong to the group of structure-oriented test techniques, they have their respective advantages and disadvantages. Test completeness is assessed based on coverage of the control structure or control flow. A corresponding specification is required for the assessment of the expenditure. Like all structure-oriented test techniques, control flow-oriented test techniques do not define any rules for the generation of test cases. It is only important that the test cases cause corresponding coverage in the structure. This degree of freedom in test case generation is extremely important, as it allows other test case generation techniques to be combined with structure-oriented testing techniques.
-
-	The most important area of application of the control flow-oriented test techniques is the unit test. Control flow-oriented test techniques can still have a certain importance in integration testing, while they are not used in system testing. Control flow oriented testing techniques look at the structure of the code. In particular, aspects of the processing logic that are represented in the software as instructions, branches, conditions, loops or paths are considered. The disadvantage is that this approach is blind to omission errors in the software. Unrealized but specified functions are only recognized by chance, there is no code to test for these functions.
-
-	The test basis is the so-called control flow graph % (see 7.3.2.1).
-	The control flow graph can be created for any program implemented in an imperative programming language. For this reason, the control flow-oriented test techniques can be applied equally to all programs created in an imperative language via the representation of a software module to be tested as a control flow graph. Tools to support control flow-oriented testing techniques usually generate control flow graphs, as portrayed in fig. ~\ref{ctrlFlowExamp}, and use them to represent the test results.
-	
-	\bildGr{h!}{ctrlFlowExamp}{exemplatory control flow graph of a looped function }{ctrlFlowExamp}{0.5\textwidth}
-
-	\TODO{ Günther: bitte bis hier durchlesen }
-	% nicht von Jasmin gelesen ...
-	
-	\subsection{statement coverage test}
-	% Characteristics and Objectives of Statement Coverage Testing
-	The statement coverage test is the simplest control flow oriented test method. It is also referred to as the $C_0$ test for short. The aim of statement coverage is to execute all statements of the program to be tested at least once, i.e. to cover all nodes of the control flow graph. The degree of statement coverage achieved is defined as a test measure. It is the ratio of the executed instructions to the total number of instructions in the test object.
-		\begin{align*}
-		C_0 = \frac{\textrm{number of executed statements}}{\textrm{number of statements}}
-		\end{align*}
-	If all statements of the module to be tested have been executed at least once by the entered test data, then complete statement coverage is achieved. The strategy of executing all statements that a programmer has assembled into a program at least once with test data is immediately obvious. It ensures that there are no instructions in the software under test that have never been executed. On the one hand, the execution of a statement is certainly a necessary criterion that must be met in order to find an error contained in the statement. On the other hand, this is not a sufficient criterion, as the occurrence of the error effect can be dependent to the execution with certain input data. 
-	% Suppose a software module contains the erroneous decision (x > 5). The correct decision should be (x 5). The erroneous decision can be made with any value of x except the value 5 without erroneous behavior occurring. The erroneous and the correct decision behave identically for all values with the exception of the value 5. Consequently, simply executing the faulty point does not guarantee that a fault will occur and that the fault will be recognized.
-	
-	Even if the misconduct has occurred, it cannot be guaranteed that it will be recognized by the testing person. The erroneous situation must propagate to an externally observable point. The statement coverage test tries to fulfil the necessary criterion of the execution of potentially faulty parts of the software. The execution of all instructions is part of almost all important test procedures, which also take other aspects into account. As an independent test procedure, the statement coverage test takes a subordinate position and is directly supported by only a few tools. The statement coverage test offers the possibility of detecting non-executable statements, so-called 'dead code'. The statement coverage measure can be used to quantify the achieved test coverage. Statement coverage testing is rarely the main function of testing tools. It occurs as a by-product of tools supporting branch coverage testing and other testing tools. The statement coverage test is considered to be too weak a criterion for meaningful test execution. It is of minor practical importance.
-
-	The minimum criterion of the control flow-oriented test techniques is the so-called branch coverage test, which contains the statement coverage test. It is therefore not advisable to use the applications coverage test alone as a structure-oriented test completeness criterion.
-
-	\subsection{branch coverage test}
-	Branch coverage testing is a more rigorous testing technique than statement coverage testing. The statement coverage test is fully contained, or: subsumed, in the branch coverage test. The branch coverage test is generally considered to be the minimum criterion in the area of control flow-oriented testing. It is also referred to as the $C_1$ test for short.
-		\begin{align*}
-		C_1 = \frac{\textrm{number of executed branches}}{\textrm{number of branches}}
-		\end{align*}
-	The goal of branch coverage testing is to execute all branches of the program under test. This requires running through all edges of the control flow graph. The ratio of the number of executed branches to the number of branches present in the software under test is usually used as a simple measure for branch coverage. The central position of the branch coverage test is particularly illustrated by its position within the test procedure. As a necessary test technique, it is subsumed by most other test procedures \TODO{(Bild mit Test-Arten)}. The branch coverage test forms the largest common subset of all of these testing techniques. The branch coverage test provides the ability to detect non-executable program branches. This is the case when no test data can be generated that causes the execution of a branch that has not yet been run through. Software parts that are run through particularly often can be identified and specifically optimized. \\
-	In some cases it may be difficult to run all branches of the program for various reasons. Often unexecuted branches would be executable but the test cases are difficult to generate, for example, because operating system states or file constellations cannot be created with justifiable effort, or the test cases are difficult to derive from the program itself. In principle, branches can also not be executable. This would be a design error that resulted in an unnecessary branch. \\
-
-	As with the statement coverage test, it also applies to the branch coverage test, that software with a coverage rate of 100% does not necessarily have to be error-free. Neither combinations of branches nor complex decisions are taken into account. Also, loops are not tested sufficiently. A single pass through the loop body of blocking loops and a repeat of non-blocking loops is sufficient for branch coverage. In connection with the testing of loops, it is particularly critical that an arbitrary chosen number of loop repetitions is executed to test their correct behaviour. More powerful control flow-oriented test techniques provide extensions at these points and try to check loops more appropriately, take account of the dependencies between branches or analyze composite decisions more closely. \\
-
-	The simple branch coverage measure proves to be problematic. Since all branches are weighted equally without considering dependencies between them, there is no linear relationship between the achieved coverage rate and the ratio between the number of test cases required. The uncritical use of the simple coverage measure leads to an overestimation of the test activities carried out, since the coverage rate is always greater than the number of test cases carried out so far in relation to the total number of test cases with complete coverage of all branches. \\
-
-	The reason is that each test case executes a sequence of branches, some of which generally do not belong to just one path, but are part of multiple paths and thus multiple test cases. The test cases performed at the beginning of the test already cover a large number of these branches. A relatively high coverage rate is achieved after a few test runs. The remaining test cases also cover these branches, but only increase the coverage rate by executing the branches not contained in the already tested paths. A relatively large number of test cases are therefore required at the end of the test in order to achieve a small increase in the coverage rate. \\
-
-	One approach to solving this problem considers the execution dependencies between branches as a criterion for influencing the degree of coverage. A branch is not considered if it is executed whenever another branch is executed. The branches that do not have this property are called primitive or essential. Since the execution of the primitive branches ensures the execution of all non-primitive branches due to the dependency described, it is sufficient to use only the primitive branches for the calculation of the coverage measure.
-	\begin{align*}
-		C_{primitive} = \frac{\textrm{number of executed primitive branches}}{\textrm{number of primitive branches}}
-	\end{align*}
-	C\textsubscript{primitive} gives a more linear relationship between coverage and number of test cases than the simple measure of coverage. 
-	% \GREY{In addition, only some of the branches have to be instrumented, which correspondingly reduces the effort caused by the instrumentation.} \\
-
-	The branch coverage test is the minimum criterion of structure-oriented software testing, a superset of the statement coveage and even prescribed by various safety standards. \\
-	A variety of supporting tools for different programming languages exist for the branch coverage test. Such tools usually work instrumentally. The tool analyses the control structure of the software module present in the source code, locates branches and inserts additional instructions (counters) allowing to trace the control flow. If branches are not represented by corresponding statements in the program text, e.g. B. if the optional else construct of a branch is not used, a corresponding statement is generated by the tool. This so-called instrumented version of the DUT is compiled and the generated executable program is executed with test data. The information collected by the added instructions during the test runs can then be evaluated. Additional test cases must be created for branches that are not run through. In addition, the tool can display the degree of branch coverage achieved. Some tools offer the possibility of displaying the branches executed by the test case entered last, which is used in particular to check the control flow, and keep overall statistics to identify branches that have not been executed and program parts that have been run through particularly frequently. \\
-	Because of the importance of branch coverage testing as a necessary test criterion and the excellent availability of appropriate testing tools, the use this technique is highly advisable. Whoever, this should be done with tool support, as carrying out structure-oriented tests by hand becomes unnecessary cumbersome.
-
-	\subsection{Condition Coverage Test}
-
-	The condition coverage test considers the logical structure of decisions of the software under test. Different forms exist, the weakest of which - the simple condition coverage test - does not subsume the statement and branch coverage test! The so-called multiple condition coverage test subsumes branch coverage, but has other weaknesses that will be discussed in more detail below. The minimal multiple condition coverage test and the so-called modified condition/decision coverage test represent a feasible middle ground.
-
-	The basic idea of condition coverage tests is the thorough examination of composite decisions of the software under test. For a complete branch coverage test it is sufficient that the evaluation of all decisions delivers the value true and false once. This strategy does not take into account the often complicated structure of the decisions, which often contain nested logical links of partial decisions on several levels.
-
-	In the general case, it cannot be guaranteed that the simple condition coverage test subsumes the branch coverage test. Whether the branch coverage test is subsumed determines the way decisions are evaluated. If compound decisions are implemented by the compiler in such a way that they are incompletely evaluated when the software is run, the branch coverage test is included in the simple condition coverage test. This way of evaluating decisions is the standard case. Since in this case composite decisions are only checked until the truth value of the overall decision is known, this form of decision evaluation reduces the execution time.
-
-	In a full evaluation of the decisions, the branch coverage test is not included in the simple condition coverage test. Some compilers offer the choice of whether decisions should be fully or partially evaluated. Since branch coverage testing is considered a necessary testing technique, and it is certainly unacceptable if the fulfillment of necessary criteria depends on the compiler used or its settings, the simple condition coverage test must usually be considered insufficient.
-
-	\subsection{Condition/Decision Coverage Test}
-
-	The condition/decision coverage test guarantees full branch coverage testing in addition to simple condition coverage. It explicitly requires branch coverage to be established in addition to Condition coverage. Since the simple condition coverage test already ensures this in the case of an incomplete evaluation of decisions, this technique is only relevant in the case of a complete evaluation of decisions. % Executing test cases 5 and 12 according to Table 3-5 results in complete condition/decision coverage, since the partial decisions A, B, C and D and the overall decision are each evaluated as true and false. Tab. 3-5 shows that this is possible without the combined ?partial decisions (A || B) and (C || D) being checked against both truth values. The partial decision (A || B) has the value true in both test cases. The conditional/decision coverage test checks atomic sub-decisions and overall decisions. However, he largely ignores the logical structure of complicated decisions on several levels. The condition/decision coverage test does not contain any requirements for the test of composite partial decisions below the overall decision.
-
-
-	\subsection{Minimum Multiple Condition Coverage Test}
-	The minimum multiple condition coverage test requires that, in addition to the atomic sub-decisions and the overall decision, all composite sub-decisions are also checked against true and false. This technique subsumes the condition/decision coverage test. Since decisions can be hierarchically structured, it makes sense to take this structure into account when testing. The minimum multiple condition coverage test requires that all decisions - regardless of whether they are atomic or not, are tested against both truth values. This form of condition coverage takes the structure of decisions into account better than the techniques presented above, since all nesting levels of a complicated decision are considered equally.
-
-	% With a complete evaluation ...
-	% If the decision was erroneously ((A && B) | | (C && D)), this test case would have run differently. The sub-decisions A, C, (A && B) and (C && D) would have been evaluated incorrectly. The sub-decisions B and D would not have been evaluated. The overall decision is wrong. You get the same result but in a different way. The evaluation of the decision is aborted at other points, which offers a chance to detect the errors.
-	% Tab. 3-8 shows the test cases and truth values of the minimal multiple condition coverage test with complete evaluation of the decisions of ZaehleZchn.
-	% Tab. 3-9 assumes an incomplete decision evaluation. Considering e.g. E.g. decision b) of ZaehleZchn, in the case of an evaluation from left to right, the partial decision furthest to the right is only evaluated if the evaluation of the other decisions gave the wrong value. The reason for this behaviour is the OR linkage of the partial decisions. Since an OR link already yields the value true if one of the linked partial decisions is true, the evaluation is terminated when a true partial decision is discovered. The rightmost atomic sub-decision can only be evaluated incorrectly if all other atomic sub-decisions have also been evaluated incorrectly. This means that the OR-linked overall condition also gives the value false. The requirement to cover all atomic parts| decisions consequently leads to incomplete decision evaluation| Iuation also to cover the non-atomic partial decisions and the overall decision.
-
-	The requirement to cover all partial decisions makes sense, since it must apply to every atomic or non-atomic decision that it can assume both truth values. If no test cases can be generated for a partial decision that would cause it to assume a truth value that has not yet been tested, then it is invariant. In this case, the decision can be equivalently transformed so that the corresponding partial decision is omitted. The invariant partial decisions correspond to the non-executable branches of the branch coverage test or the non-executable statements of the statement coverage test. They can be removed and indicate a software error.
-
-	On the one hand, the minimal multiple condition coverage test subsumes the branch coverage test. He considers the logical structure of decisions and identifies invariant partial decisions. On the other hand, it is only partially able to recognize erroneous logical operators, especially in the case of the complete evaluation of decisions.
-
-	\subsection{Modified Condition/Decision coverage test}
-
-	The modified condition/decision coverage test requires test cases that demonstrate that each atomic sub-decision can affect the truth value of the overall decision independently of the other sub-decisions. In other words, the technology aims to test the logic of composite decisions as comprehensively as possible with a reasonable test effort. The relationship between the number of atomic sub-decisions of a decision and the number of required test cases is linear. At least n+1 test cases are required to test a decision with n sub-decisions.
-
-
-
-	The modified condition/decision coverage test subsumes the minimum multiple condition coverage test. In the incomplete evaluation of decisions, the branch coverage test at the object code level and the minimal multiple condition coverage test at the source code level correspond to each other.
-
-	% Extensions of the modified condition/decision coverage test have been proposed for coupled sub-decisions /Chilenski, Miller 94/. These are required because certain ?truth value combinations may not be generated. An example of a decision with coupled partial decisions is ((Zchn == A) | | (Zchn == E) | | (Zchn == I) | | (Zchn == O) | | (Zchn == U)) of Operation CountInc. It is not possible to change the truth value of a sub-decision completely independently of the values of the other sub-decisions because all sub-decisions refer to the value of the same variable. Changing the truth value of a partial decision can, but does not necessarily have to, have an impact on the truth values of the other partial decisions. Such atomic partial decisions are called weakly coupled. In the given example it is not possible to get more than one partial decision to be true at the same time. This can lead to difficulties in generating the test cases required for a full modified constraint/decision coverage test. However, the test can often be carried out regardless of the coupled conditions.
-
-	% In addition to the weakly coupled atomic partial decisions described, there are so-called strongly coupled atomic partial decisions. These always change their truth value if the truth value of one of the coupled partial decisions changes. ?For the implementation of a modified condition/decision coverage test for strongly coupled atomic sub-decisions /Chilenski, Miller 94/ propose appropriate extensions of the procedure.
-
-	\subsubsection{Multiple Condition Coverage Test}
-
-	The multiple condition coverage test requires the testing of all truth value combinations of the atomic sub-decisions. This approach undoubtedly yields a very comprehensive test of composite decisions. In addition, when all possible combinations are taken into account, it is ensured that both truth values are taken into account for the overall decision, regardless of the linking logic of composite decisions. The multiple condition coverage test therefore in any case subsumes the branch coverage test and all other condition coverage testing techniques. The disadvantage is its high testing effort. A decision made up of n sub-decisions always requires $2^n$ test cases. This is referred to as exponential growth of the test effort. Such an exponential growth in the number of test cases - and thus the test effort - is usually unacceptable, except for a very small amount of sub-divisions. 
-
-	% In the case of an incomplete evaluation of decisions, not all 16 test cases exist. Only the seven situations given in Tab. 3-16 can be created. In principle, of course, test data can be generated for the 16 combinations of truth values. However, there is no way to use a test tool to register situations other than the seven given in Tab. 3-16 if the evaluation of decisions is incomplete. A possibly possible switchover of the compiler to a complete evaluation of decisions should not be used, since the test item should show as few differences as possible to the later released and delivered software. If an incomplete evaluation of decisions is provided there, it should not be any different for the test candidate. ?In addition, it happens that certain combinations of truth values cannot be produced due to coupled partial decisions. Of the 32 (25) truth value combinations of the decision ((Zchn == 4â?T) || Zchn == â?~Eâ?T) | | (Zchn == T') | | (Zchn ==â?~0') | | (Zchn == â?~Uâ?T)) of the operation ZaehleZchn only six can be produced (Table 3-17). This does not indicate an error in the program logic, but is only natural in terms of the properties of the variable used in the decision. This makes it difficult to define a meaningful test measure. The objective of test measures is to obtain a quantitative statement about the degree of the test. The quotient of the number of tested objects (instructions, branches, atomic partial decisions) and the number of objects that are assumed to be testable are usually formed here. Since some of the required tests often cannot be carried out in the multiple condition coverage test, a simple measure of the form described is not permitted.
-
-	% 3.4.7 Issues
-
-	% The type of evaluation of decisions has a significant influence on the possible test cases of the condition coverage tests. In principle, there is a significant difference between whether decisions are fully or partially reviewed. In addition, there are many possibilities for the incomplete examination of decisions. In the above examples, an incomplete left-to-right evaluation was implicitly assumed. But that is by no means the only possibility. So e.g. B. Optimizing compilers for efficiency reasons significantly redesign compound decision. ?Because microprocessors do not have the ability to evaluate complicated decisions, the compiler converts them into nested structures with atomic decisions. In this way, branches arise in the object code for the atomic partial decisions, which can serve to register condition coverages. Appropriate tools insert statements at these points that register during test execution if the branch is run through. Adding these statements is called instrumentation. The condition coverage achieved can therefore be registered in the object code in a simple manner.
-
-	% In the incomplete decision evaluation assumed here from left to right, the logical AND operation of the Boolean expressions is converted by the compiler into a structure in the object code, the form of which is described by the source code representation given in the example. Two problems arise:
-
-	% If BooleVar already yields the truth value false, BooleProc(x) is no longer evaluated due to the nesting structure. This procedure is correct because only the truth value of the overall decision has to be determined and it is already clear that this has the truth value false. The multiple condition coverage test can therefore not always be implemented in the object code, since partial decisions are often not evaluated. There is no way to register specific combinations of truth values of atomic partial decisions.
-
-	% An explicit evaluation of partial decisions is forbidden, since Boolean expressions can also contain function calls. If their planned call sequence is changed, incorrect reactions in the case of memory-bound functions are the result. There is also a risk that z. B. due to index errors in fields runtime errors ?occur. In any case, the instrumented software behaves differently than the non-instrumented version, which is unacceptable.
-
-	% Several approaches are conceivable to solve the problem:
-
-	% One possibility is the implementation of control constructs with compound decisions in nested structures of elementary decisions at the source code level, which can then be instrumented. This causes an extensive change in the control structure of the examinee. In addition, the method assumes that the type of evaluation of decisions by the compiler is known.
-
-	% Another possibility is to only evaluate those Boolean expressions that would also be evaluated in the non-instrumented version of the test item. The truth values of the expressions can be assigned to additional Boolean variables. These variables are used analogous to the decisions of the original program to control the further control flow. This leaves the control constructs largely in their original state. Assumptions about how complex decisions are implemented in nested structures of atomic sub-decisions at the object code level are still necessary.
-
-	% A better way to solve the problem is to directly instrument within the decisions using a Boolean function. This form of instrumentation does not require any assumptions about how complicated decisions are implemented in nested structures of atomic sub-decisions at the object code level. It leaves the control structure completely unaffected. No additional Boolean variables are required, and the decisions only need to be slightly modified. Each atomic and non-atomic sub-decision is replaced by a call to a Boolean function that has the sub-decision as its current parameter. The function registers the logical value of its current parameter and returns it as the function value. The structure of the decision remains unchanged. Therefore, the compiler translates the instrumented version analogously to the non-instrumented version of the decision. The evaluation and registration of the truth value of partial decisions takes place at runtime in a completely equivalent way to the non-instrumented version of the program.
-
-	% 3.4.8 Evaluation of the condition coverage test
-
-	The condition coverage tests are particularly interesting as testing techniques when there is complicated processing logic that leads to complicated decisions. In terms of the best compromise between performance and testing effort, the minimum multiple condition coverage test and the modified condition/decision coverage test are recommended.
-
-	% ... nicht von Jasmin gelesen
-	\subsection{Techniques for testing loops}
-
-	% 3.5.1 Characteristics and Objectives
-
-	Loops often cause an extremely high number of program paths, theoretically one for each repetition, if a counting variable is involved. The execution of these paths is not feasible in this case. A solution to this problem is provided through structured path tests and boundary interior coverage methods. These approaches divide paths into 'equivalence classes' and only execute appropriate proxies from those classes of paths. The two techniques are closely related, the boundary interior test is a special case of the structured path test. On the one hand, the techniques in the primary literature are not described with sufficient precision, so that in the case of complicated loop structures it is not entirely clear which requirements have to be met. On the other hand, the aim of these techniques is to define a test criterion for loops that can be carried out with reasonable effort and that complies with certain rules. Thus, one will require that a full branch coverage test be achieved as a constraint, because we are looking for a testing technique that sits between the branch coverage test and the path coverage test. Depending on the underlying definition of the process, there are loop structures for which one of the requirements mentioned is not met. The structured path test as a third method has both reasonable execution effort, as well as sufficient coverage.
-
-
-	\subsubsection{Structured path test and boundary interior path test}
-
-	The number of different paths of a software module can become extremely high in the presence of loops, one for each repetition. However, this does not apply to every type of loop. Counting loops with a constant number of repetitions do not pose a problem in this respect. It makes sense to define constraints for testing those paths that loop through. This is done by combining paths from a certain number of loop runs into classes, which are considered to be sufficiently tested by selecting a test path of the class. The boundary-interior approach according to \TODO{Howden75} distinguishes test cases into 'boundary tests', where a loop is entered, but not iterated. The 'interior test' on the other hand enters the loop and also iterates it at least one time. A more general look at Howdens definition reveals the distinction into 'no loop execution', 'one-time loop execution' and 'multiple loop execution'. It shall be pointed out, that pre-checked loops remain untouched by cases of the first type.
-
-
-	% In testing, it is assumed that a complete set of tests must test alternative paths through the top level of a program, alternative paths through loops, and alternative boundary tests of loops. A boundary test of a loop is a test which causes the loop to be entered but not iterated. An interior ?Control flow-oriented, structure-oriented tests
-
-	% Alternatively, the structured path test 
-	% \TODO{modified boundary interior ausm Ligges 120...123}
-
-	\subsubsection{Modified boundary interior test technique}
-
-	Following, a modified boundary interior test technique is suggested:
-
-	\begin{enumerate}
-		\item Requirement for test cases neglecting loops: All executable paths that do not enter rejecting loops and do not repeat non-rejecting loops must be tested.
-		\item Requirements for test cases considering loops:
-		\item For each rejecting loop, all executable partial paths are to be tested that
-			\begin{itemize}
-				\item execute the loop body exactly once and do not differ only in the iteration of nested loops.
-				\item Paths that only have differences outside of the rejection loop under consideration do not have to be distinguished.
-			\end{itemize}
-			\begin{itemize}
-				\item For each rejecting and each non-rejecting loop, all executable subpaths are to be tested that execute the loop body at least twice and the first two executions of the loop body differ not only in the iteration of nested loops.
-				\item Paths that only have differences outside the loop under consideration or inside the loop from the third pass do not have to be differentiated.
-			\end{itemize}
-		\item The rules mentioned are to be applied separately for each loop.
-		\item If branches are not tested, corresponding additional test cases are required.
-	\end{enumerate}
-
-	The first requirement ensures a path coverage test with the omission of loops. This can usually be done for reasonably designed modules with a reasonable amount of effort. The requirements listed furthermore essentially correspond to those of the boundary interior test for dealing with loops. By considering a single loop at a time and ignoring the control structures surrounding it and neglecting paths that result from nested loops, a reduction in the number of test cases is achieved. The last requirement ensures branch coverage regardless of the reachability of certain paths.
-
-	The modified boundary interior test technique strives to reduce the test effort by considering the software to be tested in a modular way. For the areas outside of loops, test cases are required separately from the increase in complexity caused by loops. Each loop is considered individually, and nested loops are also ignored. However, this does not mean that each loop has to be tested individually. And finally, the branch coverage test is ensured by a corresponding explicit requirement.	
-	% A relatively complicated section of a control flow graph is shown in Fig. 3-10. It represents a sequence of a selection, a non-rejecting loop, and a rejection loop. Nested within the rejection loop is a sequence of a selection and a rejection loop. In Tab. 3-20 the paths to be traversed for a modified boundary interior test are given as a sequence of the node numbers from Fig. 3-10. Alternatives are separated by a vertical bar; i.e. H. (n; | n,) means that exactly one of the alternatives n, or n, must be at this point of the path. A superscript indicates repetitions; i.e. H. (n;n,);i20 means that the sequence (n;n,) can appear at this position as often as you like and can also disappear. The relevant sections of the paths are highlighted in bold in Tab. 3-20. Figures 3-11 to 3-14 represent them graphically. It can be seen in the figures that it is possible to combine paths. Only the parts of the paths highlighted in bold are relevant for the test. The non-highlighted parts of the paths can be pronounced arbitrarily. It is therefore advisable to use these according to the requirements of other test paths. So e.g. For example, the partial paths according to Fig. 3-12 c and Fig. 3-12 d can be combined. This reduces the testing effort, since several required tests can be carried out with one test case. However, it is not guaranteed that this path, which repeats the non-rejecting loop and then executes the body of the rejecting loop exactly once, according to Fig. 3-12 d, can be executed at all. However, based on Figs. 3-11 to 3-14, it is easy to see that there are alternative possible combinations. The sub-test path according to Fig. 3-12 c can be combined with all sub-test paths of Fig. 3-12 d to Fig. 3-14 K. Such combinations, e.g. B. Fig. 3-12 c with Fig. 3-12 d, Fig. 3-13 h with Fig. 3-14 j and Fig. 3-13 i with Fig. 3-14 k, a reduction to eight test cases can be achieved will. If branches are not executed due to non-executable sub-test paths, additional test paths must be selected in order to achieve full branch coverage.
-
-
-	When testing loops, also the maximum number of loop iterations shall be tested as well as exceeding the maximum number of iterations. In contrast to a small number of loop iterations, a large number of iterations is not necessarily considered appropriately by the boundary interior test, since interior tests can be aborted after the second loop iteration. Choosing a high number of repetitions is, however, entirely possible in interior tests. This is strongly recommend.
-
-	The modified boundary interior test can very easily be generalized to a modified structured path test (with parameter k) by transferring the above requirements from k=2 to values greater than 2.
-	% A comparative study/Howden 78a, b, c/ based on six programs in Algol, Cobol, PL/1, Fortran and PL360 with a total of 28 errors has resulted in a quota of 12 detected errors for the structured path test. This is a twofold higher success rate than the branch coverage test. 18 errors were detected using the path coverage test. While the branch coverage test led to the detection of all errors in only one of the six programs, all errors in three programs were detected with the help of the structured path test.
-
-	Since the boundary interior test is a special case of the structured path test, a similar performance can be expected.
-
-
-	% \subsection{application to RT / bare metal-Systems}
-	% \subsection{start time}
-	% \subsection{Deadline}
-	% \subsection{execution time}
-	% \subsection{Laxity}
-	
-	% \subsection{Reviews}
-	
-	% \subsection{Load/Fault tests}
-	
-	% \subsection{PM and ReqEng}
-	
-	% \subsection{V-Model?}
-
-	% \section{Real-time and Reliability}
-	% \subsection{soft/firm/hard}
-	% \subsection{Jitter}
-	% \subsection{Timing}
-	% \subsubsection{Deadline}
-	% \subsubsection{Laxity}
-	% \subsubsection{Execution time}
-	% \subsection{Load/Fault Hypothesis}
-
-	% \section{Theory - CI/CD}
-	% \subsection{CI/CD with open source on BareMetal}
-	% \subsection{reliable USB-Connectivity}
-	% \subsection{prepared for utilisation of complete Processor}
-	% \section{Theory - Galvos}
-	% \subsection{sensitive steering of Galvos}
 	
 	\chapter{Requirements}
 	\label{cha:Requirements}
@@ -448,10 +73,23 @@ While hardware quality assurance often results in quantitative results, same is 
 		\subsubsection{FSM}
 		\subsubsection{Trigger-Diagramme}
 		\subsubsection{Timer usage}
-			3 Timers necessary, old concept: double frequency and on modulo 2 will be decided if PinSet and DACwrite, or PinClear
-			new conspt: output compare Timer etiher the advanceds from the F4 for TrigB and C with separate ISRs to set and clear
-						OR three GP-Triggers with dedicated output lines, that are set/reset by Timer itself (PSC, ARR and pulse)
-						$\rightarrow$ see schematic wich Trigger has wich line and Graph against according Timers!
+			\begin{itemize} \setlength\itemsep{1px}
+			\item 3 capture compare timers for signal-generation
+			\item 1 timer basic for kex debouncing 
+			\item 1 timer basic for reading timeouts
+			\item 1 timer basic for flashing LEDs
+			\end{itemize}
+			% 3 Timers necessary, old concept: double frequency and on modulo 2 will be decided if PinSet and DACwrite, or PinClear
+			% new conspt: output compare Timer etiher the advanceds from the F4 for TrigB and C with separate ISRs to set and clear
+						% OR three GP-Triggers with dedicated output lines, that are set/reset by Timer itself (PSC, ARR and pulse)
+						% $\rightarrow$ see schematic wich Trigger has wich line and Graph against according Timers!
+		\subsubsection{Debug-Unit}
+		A debug-unit, offering eight digital outputs via set.. and rst.. - functions, was established. Fig. ~\ref{dbgUnitLogic} shows a 'ladder' setting and resetting all debug-Pins upon initialization of the module.
+		
+			\bildGr{b!}{dbgUnitLogic.png}{dbgUnitLogic}{dbgUnitLogic}{0.5\textwidth}
+
+		
+		
 		\section{Hardware}
 			\subsection{STM32F4}
 			\subsection{Wandler, Level-Shifter, HighSider}
@@ -461,7 +99,7 @@ While hardware quality assurance often results in quantitative results, same is 
 			\subsection{gcov}
 			\subsection{valgrind}
 			\subsection{wavedrom}
-			\subsection{WireShark}
+			\subsection{WireShark/USBPcap}
 			\subsection{gitlab}
 			\subsection{runner}
 			\subsection{HIL-Setup}
@@ -495,7 +133,6 @@ While hardware quality assurance often results in quantitative results, same is 
 	\label{cha:Conclusion}
 
 
-\include{chapters/thethesis}
 % \include{chapters/figures}
 % \include{chapters/mathematics}
 % \include{chapters/literature}
@@ -514,6 +151,8 @@ While hardware quality assurance often results in quantitative results, same is 
 %%%-----------------------------------------------------------------------------
 \backmatter                           % Back part (bibliography, glossary, etc.)
 %%%-----------------------------------------------------------------------------
+
+\include{back/_abbrev}
 
 \MakeBibliography % References
 

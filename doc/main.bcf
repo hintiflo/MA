@@ -2379,12 +2379,12 @@
     <bcf:datasource type="file" datatype="bibtex">references.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">Liggesmeyer2002</bcf:citekey>
-    <bcf:citekey order="2">Kopetz1997</bcf:citekey>
-    <bcf:citekey order="3">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="1">keithleyHistory</bcf:citekey>
+    <bcf:citekey order="2">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="3">Kopetz1997</bcf:citekey>
     <bcf:citekey order="4">Liggesmeyer2002</bcf:citekey>
-    <bcf:citekey order="5">Kopetz1997</bcf:citekey>
-    <bcf:citekey order="6">WikiReliquienschrein2020</bcf:citekey>
+    <bcf:citekey order="5">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="6">Kopetz1997</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

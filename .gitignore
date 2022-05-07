@@ -1,4 +1,4 @@
-archive/*
+archive/
 doc/*.aux
 doc/*.log
 doc/*.dvi
