@@ -7,3 +7,6 @@ doc/main.pdf
 
 ## Author
 Florian Hinterleitner
+
+## Sources
+only on company server
