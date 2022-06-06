@@ -1,6 +1,6 @@
 	% nicht von Jasmin gelesen ...
 	
-	\subsection{statement coverage test}
+	\subsection{Statement Coverage Test}
 	% Characteristics and Objectives of Statement Coverage Testing
 	The statement coverage test is the simplest control flow oriented test method. It is also referred to as the $C_0$ test for short. The aim of statement coverage is to execute all statements of the program to be tested at least once, i.e. to cover all nodes of the control flow graph. The degree of statement coverage achieved is defined as a test measure. It is the ratio of the executed instructions to the total number of instructions in the test object.
 		\begin{align*}
@@ -13,7 +13,7 @@
 
 	The minimum criterion of the control flow-oriented test techniques is the so-called branch coverage test, which contains the statement coverage test. It is therefore not advisable to use the applications coverage test alone as a structure-oriented test completeness criterion.
 
-	\subsection{branch coverage test}
+	\subsection{Branch Coverage Test}
 	Branch coverage testing is a more rigorous testing technique than statement coverage testing. The statement coverage test is fully contained, or: subsumed, in the branch coverage test. The branch coverage test is generally considered to be the minimum criterion in the area of control flow-oriented testing. It is also referred to as the $C_1$ test for short.
 		\begin{align*}
 		C_1 = \frac{\textrm{number of executed branches}}{\textrm{number of branches}}
@@ -106,14 +106,14 @@
 	The condition coverage tests are particularly interesting as testing techniques when there is complicated processing logic that leads to complicated decisions. In terms of the best compromise between performance and testing effort, the minimum multiple condition coverage test and the modified condition/decision coverage test are recommended.
 
 	% ... nicht von Jasmin gelesen
-	\subsection{Techniques for testing loops}
+	\subsection{Techniques for Testing Loops}
 
 	% 3.5.1 Characteristics and Objectives
 
 	Loops often cause an extremely high number of program paths, theoretically one for each repetition, if a counting variable is involved. The execution of these paths is not feasible in this case. A solution to this problem is provided through structured path tests and boundary interior coverage methods. These approaches divide paths into 'equivalence classes' and only execute appropriate proxies from those classes of paths. The two techniques are closely related, the boundary interior test is a special case of the structured path test. On the one hand, the techniques in the primary literature are not described with sufficient precision, so that in the case of complicated loop structures it is not entirely clear which requirements have to be met. On the other hand, the aim of these techniques is to define a test criterion for loops that can be carried out with reasonable effort and that complies with certain rules. Thus, one will require that a full branch coverage test be achieved as a constraint, because we are looking for a testing technique that sits between the branch coverage test and the path coverage test. Depending on the underlying definition of the process, there are loop structures for which one of the requirements mentioned is not met. The structured path test as a third method has both reasonable execution effort, as well as sufficient coverage.
 
 
-	\subsubsection{Structured path test and boundary interior path test}
+	\subsubsection{Structured Path Test and Boundary Interior Path Test}
 
 	The number of different paths of a software module can become extremely high in the presence of loops, one for each repetition. However, this does not apply to every type of loop. Counting loops with a constant number of repetitions do not pose a problem in this respect. It makes sense to define constraints for testing those paths that loop through. This is done by combining paths from a certain number of loop runs into classes, which are considered to be sufficiently tested by selecting a test path of the class. The boundary-interior approach according to \TODO{Howden75} distinguishes test cases into 'boundary tests', where a loop is entered, but not iterated. The 'interior test' on the other hand enters the loop and also iterates it at least one time. A more general look at Howdens definition reveals the distinction into 'no loop execution', 'one-time loop execution' and 'multiple loop execution'. It shall be pointed out, that pre-checked loops remain untouched by cases of the first type.
 
@@ -123,7 +123,7 @@
 	% Alternatively, the structured path test 
 	% \TODO{modified boundary interior ausm Ligges 120...123}
 
-	\subsubsection{Modified boundary interior test technique}
+	\subsubsection{Modified Boundary Interior Test Technique}
 
 	Following, a modified boundary interior test technique is suggested:
 
@@ -157,10 +157,10 @@
 	Since the boundary interior test is a special case of the structured path test, a similar performance can be expected.
 
 
-	% \subsection{application to RT / bare metal-Systems}
-	% \subsection{start time}
+	% \subsection{Application to RT / Bare Metal-Systems}
+	% \subsection{Start Time}
 	% \subsection{Deadline}
-	% \subsection{execution time}
+	% \subsection{Execution Time}
 	% \subsection{Laxity}
 	
 	% \subsection{Reviews}
@@ -172,7 +172,7 @@
 	% \subsection{V-Model?}
 
 	% \section{Real-time and Reliability}
-	% \subsection{soft/firm/hard}
+	% \subsection{Soft/Firm/Hard}
 	% \subsection{Jitter}
 	% \subsection{Timing}
 	% \subsubsection{Deadline}
@@ -181,8 +181,8 @@
 	% \subsection{Load/Fault Hypothesis}
 
 	% \section{Theory - CI/CD}
-	% \subsection{CI/CD with open source on BareMetal}
-	% \subsection{reliable USB-Connectivity}
-	% \subsection{prepared for utilisation of complete Processor}
+	% \subsection{CI/CD with Open Source on BareMetal}
+	% \subsection{Reliable USB-Connectivity}
+	% \subsection{Prepared for Utilisation of complete Processor}
 	% \section{Theory - Galvos}
 	% \subsection{sensitive steering of Galvos}

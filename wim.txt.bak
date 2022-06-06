@@ -1,0 +1,318 @@
+python OscScreenGrabLAN.py png 10.40.49.7
+
+C:\bin\MiKTeX\miktex\bin\x64\biber.exe main
+
+	https://electronics.stackexchange.com/questions/53827/using-ccm-core-coupled-memory-in-stm32f4xx
+	https://www.mikrocontroller.net/articles/Aufl%C3%B6sung_und_Genauigkeit#Eichen,_Kalibrieren,_Justieren
+	https://forum.digikey.com/t/utilizing-the-build-analyzer-in-stm32cubeide/3882
+	http://denyadzi.github.io/blog/2014/12/28/stm32f4-168-mhz-speedup/
+	https://community.st.com/s/question/0D50X00009XkeyfSAB/stm32f407-accessing-internal-flash
+	https://medium.com/theteammavericks/programming-flash-rom-in-stm32-f5b7d6dcba4f
+	https://controllerstech.com/flash-programming-in-stm32/
+
+	https://www.embedded.com/fixed-point-math-in-c/
+	https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/
+
+	https://www.pdqlogic.com/
+	http://eeblog.co.uk/2018/11/29/swo-with-cubemx-using-st-link-clones/
+	https://www.youtube.com/watch?v=JqrUAzjJ0tw
+	https://stackoverflow.com/questions/55731546/stm32f4-discovery-etmembedded-trace-macrocell-and-instrumentation-trace-macroc
+	https://www.google.com/search?client=firefox-b-d&q=openocd+itm
+	https://stackoverflow.com/questions/50075076/show-cortex-m4-swo-log-with-openocd
+	https://github.com/orbcode/orbuculum
+	https://www.google.com/search?q=Black+Magic+Debug+Probe&source=lmns&bih=1159&biw=658&client=firefox-b-d&hl=de&sa=X&ved=2ahUKEwjyx5z8h_n3AhUtOewKHUPIC2cQ_AUoAHoECAEQAA
+	https://www.google.com/search?client=firefox-b-d&q=etm+trace+adapter
+
+
+
+https://www.betasolutions.co.nz/blog/firmware-design-patterns-in-embedded-systems
+https://embeddedartistry.com/fieldatlas/design-pattern-catalogue/
+
+https://github.com/littlefs-project/littlefs
+http://allsoftwaresucks.blogspot.com/2015/05/gcov-is-amazing-yet-undocumented.html
+https://controllerstech.com/stm32-gpio-output-config-using-registers/
+https://github.com/mnemocron?tab=repositories
+https://github.com/eDeviser/lwgl
+https://mcuoneclipse.com/2014/12/26/code-coverage-for-embedded-target-with-eclipse-gcc-and-gcov/comment-page-1/?unapproved=342881&moderation-hash=b3e1c3b6ebdb961ec8a0dac7a9e6d965#comment-342881
+https://github.com/reeteshranjan/libgcov-embedded/blob/master/port/libgcc/libgcov-driver.c
+https://github.com/ErichStyger/mcuoneclipse/blob/master/Examples/KDS/FRDM-K64F120M/FRDM-K64F_Coverage/Sources/main.c
+https://sysprogs.com/w/live-non-intrusive-debugging-of-real-time-arm-targets/
+https://www.youtube.com/watch?v=nDSu3qoul3M
+http://simply-embedded.blogspot.com/2014/07/code-coverage-embedded-target-simple.html
+
+https://community.st.com/s/question/0D50X00009Xke4LSAR/stm32-f0-hal-160-usb-cdc-usage-receiving-data
+https://stackoverflow.com/questions/25932299/stm32-rising-and-falling-button-interrupt-detection
+https://mikrocontroller.bplaced.net/wordpress/?page_id=11
+https://mikrocontroller.bplaced.net/wordpress/?page_id=380
+https://www.mikrocontroller.net/topic/350952?goto=new#new
+http://stefanfrings.de/stm32/stm32f1.html
+https://www.youtube.com/watch?v=0p9qzqtlpUc
+https://www.youtube.com/watch?v=txnViYePocg
+https://github.com/kcuzner?tab=repositories&q=usb&type=&language=&sort=
+https://medium.com/@pasindusandima/stm32-usb-virtual-com-port-vcp-bc7cb1bd5f5
+http://stm32f4-discovery.net/2015/08/hal-library-21-multi-purpose-usb-library-for-stm32fxxx/
+https://www.reddit.com/r/embedded/comments/lzrvl1/what_are_some_good_usb_libraries_for_stm32/
+https://ask.wireshark.org/question/36/how-to-capture-usb-packets-please/
+https://www.st.com/content/st_com/en/support/learning/stm32-education/stm32-moocs/STM32-USB-training.html
+https://www.youtube.com/watch?v=h9T0RTu9Muc&list=PLnMKNibPkDnFFRBVD206EfnnHhQZI4Hxa&index=9
+https://github.com/hathach/tinyusb
+https://github.com/kcuzner/CMSIS-DAP/tree/master/shared/USBStack/SRC
+https://controllerstech.com/send-and-receive-data-to-pc-without-uart-stm32-usb-com/
+https://deepbluembedded.com/stm32-dac-sine-wave-generation-stm32-dac-dma-timer-example/
+https://community.st.com/s/question/0D50X00009Xkfd1SAB/read-data-from-pc-to-stm32-via-usb-cdc
+https://www.elektronikpraxis.vogel.de/einfacheres-ethernet-design-ethernet-phys-auswaehlen-a-1032310/
+https://electronics.stackexchange.com/questions/305423/how-do-i-set-systick-to-1-ms
+https://gist.github.com/iwalpola/6c36c9573fd322a268ce890a118571ca
+https://stackoverflow.com/questions/58836403/problem-with-using-scanf-function-under-stm32
+https://stackoverflow.com/questions/22865622/atoi-vs-atol-vs-strtol-vs-strtoul-vs-sscanf
+https://www.tutorialspoint.com/c_standard_library/c_function_strtoul.htm
+
+
+
+
+
+rxUSB, holy code:
+	https://community.st.com/s/question/0D53W00000fnLyYSAU/cdcreceivefs-is-undefinded-in-code-generated-by-the-cubemx-plugin
+
+Besprechung mit Josef am 16.02.2022
+	Forschungsfrage (wird auch Arbeitstitl): kannund wie appliziert Code-Quality auf Firmware?
+		"vom allgemeinan aufs spezielle"	
+		quility and realtime
+		Theory -> fundamentsal
+			auf RT beziehen
+		Requirements: chapter, aber nur allgmeeine, keine aufs COTane bezogen	
+			3,4,5,6 -> ein Kapitel Implemeation 
+
+	josef.langer@fh-hagenberg.at
+
+https://www.mikrocontroller.net/articles/STM32_f%C3%BCr_Einsteiger#Taktzeitberechnung_und_%C3%9Cberwachung
+
+screen can be used as a Terminal for serial ports - e.g. screen /dev/ttyS0 19200
+
+* Bücher
+	https://books.google.at/books?id=-eoerZI2fYIC&pg=PR10&hl=de&source=gbs_selected_pages&cad=2#v=onepage&q&f=false
+	https://www.rebuy.de/i,2058067/buecher/software-qualitaet-testen-analysieren-und-verifizieren-von-software-peter-liggesmeyer
+	https://ieeexplore.ieee.org/abstract/document/393507
+
+https://www.elektroniknet.de/embedded/entwicklungstools/cmsis-vereinheitlich-peripherie-programmierung.29620.html
+https://dev.to/younup/cmake-on-stm32-the-beginning-3766
+https://de.wikipedia.org/wiki/NuttX
+https://www.testbytes.net/blog/test-harness/
+https://de.wikipedia.org/wiki/Nicht-blockierende_Synchronisation
+https://datarespons.com/pros-cons-using-stm32cubemx-code-generation-tool-insead-manually-writing-drivers-arm-cortex-m-microcontroller/
+https://de.wikipedia.org/wiki/Test-Harnisch
+https://de.wikipedia.org/wiki/Liste_von_Modultest-Software#C
+	https://electronics.stackexchange.com/questions/516131/stm32f4-discovery-adc-trigger-using-timer-2-and-dma-cmsis-core
+	https://electronics.stackexchange.com/questions/350088/stm32f407-lan8720a-lwip-freertos-no-received-ethernet-frames
+* PC Lint
+  Valgrind on embedded
+
+
+*	FW fürs Octane
+*	testcases innheralb eines Tesmodus, bleiben so Teil vom eigetl Code: laut Dietmar nicht nötig, siehe unten
+*	testHooks?
+*	Resource oder State Management innerhalb der FW (zB UART nur einschalten, wenn alle Pins dazu frei sind)	
+	
+	
+* Beratung mit Dietmar Millinger, 02.12.2021, bezügl Unit-testing eines FW-Pojektes ohne OS
+	3 Teil-Tests: OS (), IO-Modul, upstream-Kommunikation
+		!!! race-conditions bei der Übertragung ISR->main (Übergang von asynchron auf synchron)
+			Mit Modultest, der die Funktion ordentlich stresst
+
+		Algorthomen per Modultests abtesten: bekannte inputs/outputs
+		
+		USB-Testen: zB 100 mal Befehl senden und schauen, ob er ankommt
+
+		Modultests nicht in den production-code reincompilieren, sondern in einr KOPIE des production-codes einfügen, trifft NIE aufm Master-branch auf
+		https://de.wikipedia.org/wiki/Liste_von_Modultest-Software#C
+		
+		im engültigen Code nur etwas Diagnose & Kalibrierung
+	
+* StaudeckerBesprechnung, 07.12.2021
+	Hybridisch verkoppeln von
+		experimenteller Messung
+		-> Winkel ist der Flache Ausgang
+		
+		flache Vorsteuerung Ausrechnen: inverse der Übertragungsfunkt auf urspüngliche Signal draufklatschne, Skriopt Relgelung2 Satz 8.1	
+		
+	Analytsich
+		Annahme eines starren Körpers:
+		RRTK-Skript	(2.12) ...sys 2ter Ordnung
+		
+
+	Eventuell Strom messen um zittern zu ermessen
+
+* Charakterisierung der Galvo-Trägheiten und Massnahmen zum gegenwirken
+* REQ: intern, extern, nach Modulen sortiert, mit Bildern fürd Rampen-Signale und ab ind D-Arbeit
+	mit tags a la
+		URxx	User Requirement - Generelle Benutzer-/Systemanforderung
+		NRxx	Non-Requirements 
+			NRxx ... the Device does not know of absolut time in terms of actual date, hour or minute
+		
+		RGxx	Requirement GPIO - Anforderung für den Master
+		RUxx	Requirement USB - Anforderung für die Slaves
+			RU01    | <rs01_acc>  | usbSlave.c    |
+				Device must accept commands via USB in SCPI-format (specified in Chap ..), ASCII-Strings, terminated with '\n' dec(), hex() and up to 100bytes of length (excluding the terminator)
+			RU02    | <rs02_rep> | usbSlave.c    |
+				Device must answer queries, all cmds with a '?' dec() hex() as last data sign, with a meanigfull*) reply message within xx ms, unless Device is in realtime mode*)
+			RU03	zu beginn jeder Action eine Nachricht,  within xx ms, bei langen Actions am Ende auch eine acc a la 'vektor geschrieben', 'C-scanned'
+		TODI_xx	To Discuss, Punkte die mit Kunden/Entwicklerteam zu besprechen sind
+		
+		Coverage-REQ
+
+* Kalibration der Analog-Ausgänge: händisch auf 0V, +10V und -10V, per FW auf digit/Volt
+* gcov und CLANG auf den Code loslassen
+* Flaschehälse/Engpässe in der FW ermitteln
+* Schedule Zeichnen, auch wenn pathologisch, nur zum zeigen, daß man bedacht hat
+* i-state, h-state definieren
+* Comm	(siehe Tilen MAJERLE)
+	* USB->main via NBW (non blocking write nach Millinger/Kopetz)
+	* Ethernet-Anbindung
+	* incl Last-Hypothese, also max. Msg-rate SCPIs/sec
+	* incl Fehler-Hypothese?
+	* USBpcap oder Kabelhai
+* Debug Unit via ein paar gpio pins für timing
+* SelfDiagnose: State, FailState(fault-error-failure), VL timing-Pins dort einbauen
+* Debug/Test-Setup: local -> gitlab <-> Pi > DUT -> Relaisboard -> Pi
+					Relaisboard -> osci (4CH und 16DIs)
+					osci -> Pi
+* !!! uC - eigener Mode fuer unit-Testing !!!
+
+* Dokumente: Req, Dev-Spec, Test-Spec (Cases), Konzept-Papier (FSM, Trigger-Struktur, protocol, precision/accuracy), HW-Req/Spec, Anf-Doc das zum OCT eh schon existiert, Testprotokolle, Coveragen und call-graphs oder dependency graphs ausm CLANG und gCov heraus
+*	gcov!
+		
+*	controll flow graph
+			clang++ -emit-llvm -S prog.cpp -o prog.ll
+			opt --dot-cfg prog.ll
+			
+			
+*	callgraph
+			$ clang++ -S -emit-llvm main1.cpp -o - | opt -analyze -dot-callgraph
+			$ dot -Tpng -ocallgraph.png callgraph.dot
+	
+ODER: Anbindung eines FPGAs um schneller Signale zu erzeugen, RAM per AXI oder Wishbone lesen
+
+	Christian fragen!
+	
+
+Charakterisierung der Galvos und Massnahmen zum gegenwirken
+
+	
+	FW
+		Error Handlicng / structured exception handling, Fehlerspeicher
+		
+		Aufgaben/Taks darstellen als Transactions nach Millinger
+		
+		USB-comm via RingBuffer mit non-blocking write
+		
+		Prio0: DAC-write
+		Prio1: USB-interr
+		Prio2: main-loop
+
+		Stubs/Mocks/Shunts für ext HW
+		
+CI/CD:
+	gitlab triggert einen runner
+
+	entweder:
+		VM oder buildserver mit Debian, dort einen GitlabRunner mit CrossC
+		oder Docker mitn Crosscompiler
+		
+	und Raspberry+HW auch ein Gitlab runner
+
+	https://docs.gitlab.com/ee/topics/build_your_application.html
+	https://docs.gitlab.com/runner/install/index.html
+	https://medium.com/devops-with-valentine/use-your-raspberry-pi-to-run-gitlab-ci-jobs-8cc29fa49dbe
+	https://github.com/features/packages
+	https://docs.gitlab.com/ee/ci/docker/
+
+https://github.com/ThrowTheSwitch/CMock/blob/master/docs/CMock_Summary.md		
+		
+DOC
+	% keine rethorischen Fragen!
+	% Galvos ... colloquial!
+	% II. Motivation -> C. Motivation als Teil der Einleitung
+	% Verzehnfachung der Frequenz .. kann entfallen, das kennt man
+	% s = jw, Betragsbildung fehlt
+	% Danksagung ohne akad. Titel, kein blabla, sondern ein Fliess-Satz
+	% Refernzeirungen: Section, Table, Figure immer mit großbuchstben beginnen
+	% Im Bodediagramm Abb.6 hast du den Amplitudengang auch logarithmisch gezeichnet. Das ist nicht üblich.
+	% Der Phasengang eines Systems 2.O geht auf -180°. Bei dir auf +180°. Kann das stimmen?
+	% In deiner „Konklusion“, ich würde nicht sagen, dass das Steuersignal mit der inversen multipliziert wird. Sondern man berechnet das Steuersignal so, dass der Ausgang einer Sollkurve folgt. Nachdem das alles mit Sollgrößen passiert hat man auch kein Problem mit Rauschen. Auch die physikalischen Grenzen bei der Stellgröße hat man somit selbst in der Hand.
+
+
+CI/CD:
+	gitlab triggert einen runner
+
+	entweder:
+		VM oder buildserver mit Debian, dort einen GitlabRunner mit CrossC
+		oder Docker mitn Crosscompiler
+		
+	und Raspberry+HW auch ein Gitlab runner
+
+	https://docs.gitlab.com/ee/topics/build_your_application.html
+	https://docs.gitlab.com/runner/install/index.html
+	https://medium.com/devops-with-valentine/use-your-raspberry-pi-to-run-gitlab-ci-jobs-8cc29fa49dbe
+	https://github.com/features/packages
+	https://docs.gitlab.com/ee/ci/docker/
+
+https://github.com/ThrowTheSwitch/CMock/blob/master/docs/CMock_Summary.md
+
+https://www.testbytes.net/blog/test-harness/
+https://de.wikipedia.org/wiki/Test-Harnisch
+
+
+DRS	
+	https://docs.google.com/document/d/1qCRBlmqj5Z9V7Yu9tlRmKCh2869QmjOHM97UmYg1R90/edit#
+	https://trello.com/b/gDhlDnnC/stroboskop
+		Validierung mit WireShark, Oszi und Opto-Detektor
+
+TCs	
+	Unit
+	Integ
+	Load
+	Fault
+	end2end
+
+RTOS
+	https://docs.zephyrproject.org/latest/boards/index.html#boards
+	https://micro.ros.org/docs/concepts/rtos/comparison/
+	https://docs.zephyrproject.org/latest/reference/kernel/other/atomic.html
+
+CI/CD
+	https://stackoverflow.com/questions/47281209/what-is-gitlab-runner
+	https://www.atlassian.com/de/continuous-delivery/continuous-integration/git-hooks
+	https://opensource.com/life/16/8/how-construct-your-own-git-server-part-6
+	https://www.stupid-projects.com/devops-for-embedded-part-3/
+	https://www.stupid-projects.com/devops-for-embedded-part-1/
+	https://www.stupid-projects.com/devops-for-embedded-part-2/
+	https://community.st.com/s/question/0D50X0000BbN8Gk/how-do-i-build-stm32cubeide-projects-using-the-command-line-and-a-continuous-integration-engine
+	https://community.st.com/s/question/0D53W00000aIJFQ/build-server-vendors-cicd-for-stm32
+	https://github.com/lpodkalicki/stm32-toolchain-docker
+	https://www.vipinajayakumar.com/continuous-integration-of-latex-projects-with-gitlab-pages.html
+	https://tex.stackexchange.com/questions/459484/compiling-latex-files-automatically-with-gitlab-ci
+
+coverage/clang-tree
+
+
+
+
+https://rawats.medium.com/using-raspberry-pi-for-embedded-systems-development-part-1-2d32c42acb5c
+https://blog.podkalicki.com/how-to-compile-and-burn-the-code-to-stm32-chip-on-linux-ubuntu/
+
+openOCD 
+		https://firmlyembedded.co.za/programming-an-stm32-with-a-st-link-and-raspberry-pi/
+		https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi/compiling-openocd
+		https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi
+		https://www.mikrocontroller.net/topic/502996#6398475
+	sudo apt-get update
+	sudo apt-get install git autoconf libtool make pkg-config libusb-1.0-0 libusb-1.0-0-dev
+	git clone http://openocd.zylin.com/openocd
+	cd openocd
+	./bootstrap
+	./configure --enable-sysfsgpio --enable-bcm2835gpio
+	make
+	sudo make install
+
+VL hilft das: sudo apt-get install binutils-arm-none-eabi
+oder das:	https://www.raspberry-pi-geek.com/Archive/2017/22/STM32-Development-with-CubeMX-and-Eclipse

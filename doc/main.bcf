@@ -2385,6 +2385,8 @@
     <bcf:citekey order="4">Liggesmeyer2002</bcf:citekey>
     <bcf:citekey order="5">Liggesmeyer2002</bcf:citekey>
     <bcf:citekey order="6">Kopetz1997</bcf:citekey>
+    <bcf:citekey order="7">Tian2005</bcf:citekey>
+    <bcf:citekey order="8">Liggesmeyer2002</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

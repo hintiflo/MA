@@ -101,8 +101,32 @@
       \field{title}{Software-Qualität - testen, analysieren und verifizieren von Software}
       \field{year}{2002}
     \endentry
+    \entry{Tian2005}{book}{}
+      \name{author}{1}{}{%
+        {{hash=55b69da9efba91e7499f0b32772d6651}{%
+           family={Tian},
+           familyi={T\bibinitperiod},
+           given={Jeff},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{55b69da9efba91e7499f0b32772d6651}
+      \strng{fullhash}{55b69da9efba91e7499f0b32772d6651}
+      \strng{bibnamehash}{55b69da9efba91e7499f0b32772d6651}
+      \strng{authorbibnamehash}{55b69da9efba91e7499f0b32772d6651}
+      \strng{authornamehash}{55b69da9efba91e7499f0b32772d6651}
+      \strng{authorfullhash}{55b69da9efba91e7499f0b32772d6651}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-471-71345-6}
+      \field{title}{Software quality engineering - testing, quality assurance, and quantifiable improvement}
+      \field{year}{2005}
+    \endentry
   \enddatalist
-  \missing{WikiReliquienschrein2020}
 \endrefsection
 \endinput
 

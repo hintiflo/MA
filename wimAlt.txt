@@ -1,0 +1,284 @@
+### todos
+ v Clock Config vom 411er Projekt abkupfern
+ v Trigger Schwingung testen, war nix
+ + Dokumentation von gesamter Elektronik, FW, Protokoll, REQ, Impl, Testing in eines zusammenfassen: "OCTane_intern"}
+ x High-Sider testen, aufgschoben, nicht mehr im FLOIM
+ v arm-none-eabi-size 
+
+* komplett blankes F407 Cube-Project nur mit USB
+* ST-Forum fragen
+* E+E fragen
+* MaJerle Bib testen
+* uC.net Anleitung probieren
+
+ 
+C:\Program Files\STM32CubeIDE_1.0.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-arm-embedded.7-2018-q2-update.win32_1.0.0.201904081647\tools\bin\arm-none-eabi-size.exe
+C:\Program Files\STM32CubeIDE_1.0.2\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.7-2018-q2-update.win32_1.0.0.201904181610\tools\bin\arm-none-eabi-size.exe
+
+NSS Pins also GPOs definieren?
+	SPI, NSS ... F303 hat aut-CS, F103 nicht!	
+	https://www.mikrocontroller.net/topic/176834#1701376
+
+
+### ref docs, scpi
+ 		% \url{	https://www.icselect.com/serial_relays.html#} \\
+		% \url{https://redpitaya.readthedocs.io/en/latest/appsFeatures/remoteControl/remoteControl.html#list-of-supported-scpi-commands} \\
+		% \url{http://rfmw.em.keysight.com/spdhelpfiles/aps/webhelp/DE/Content/__F_Using%20the%20Power%20System/50%20-%20Programming%20Output%20Protection.htm} \\
+		% \url{http://rfmw.em.keysight.com/bihelpfiles/Trueform/webhelp/US/Content/__I_SCPI/00%20scpi_introduction.htm} \\
+		
+### ref docs, FSM
+		https://stackoverflow.com/questions/50165534/finite-state-machines-in-c
+
+
+### ref docs, IRQ
+		https://community.st.com/s/question/0D50X00009nMpOXSA0/proper-way-to-share-values-between-isrs-and-main-loop
+
+SPI, NSS ... F4 hat keinen automatischen CS, einfach per SetPin setzen/löschen!	
+	https://www.mikrocontroller.net/topic/176834#1701376
+
+			  /**SPI1 GPIO Configuration
+			  PA4     ------> SPI1_NSS
+			  PA5     ------> SPI1_SCK
+			  PA6     ------> SPI1_MISO
+			  PA7     ------> SPI1_MOSI
+			/**SPI2 GPIO Configuration
+			PB12     ------> SPI2_NSS
+			PB13     ------> SPI2_SCK
+			PB14     ------> SPI2_MISO
+			PB15     ------> SPI2_MOSI
+			*/
+
+	INTRODUCTION
+	Product Context
+	Operating Environment
+	Design and Implementation Constraints
+	User Documentation
+	REQUIREMENTS
+	External Interface Requirements
+	User Interfaces
+	Hardware Interfaces
+	Software Interfaces
+	Communications Interfaces
+	Performance Requirements
+	Security
+	Usability
+	Other Requirements
+
+Appendix A. 	Analysis Models
+		List any attached / referenced documentation such as data flow diagrams, class diagrams, state-transition diagrams, entity-relationship diagrams, etc. 
+		ANALYSIS MODELS
+		DOCUMENT NAME	DESCRIPTION	LOCATION
+Appendix B. 	Issues List
+		Detail any unresolved issues.
+		ISSUES LIST
+		ISSUE ID	ISSUE DESCRIPTION	STATUS
+
+
+
+https://embeddedgurus.com/stack-overflow/2010/01/a-tutorial-on-lookup-tables-in-c/
+
+	https://community.st.com/s/question/0D50X00009XkXSh/anyone-ever-get-the-stm32f4-virtual-com-port-working-wwindows-10
+	https://community.st.com/s/question/0D50X0000BOvcxISQR/possible-stm32-usb-virtual-com-port-driver-bug-on-windows-10
+	https://community.st.com/s/question/0D50X00009XkgVtSAJ/how-set-usbcdc-virtual-com-port-baudrate
+	https://community.st.com/s/question/0D50X00009XkgllSAB/cubemx-usb-cdc-library
+	https://community.st.com/s/question/0D50X00009XkeYC/usb-initialisation-and-deinitialisation
+
+
+	http://stefanfrings.de/stm32/stm32f1.html
+	http://stefanfrings.de/stm32/stm32f3.html
+	
+	https://stackoverflow.com/questions/4989123/three-dimensional-character-array-in-c
+	https://www.programiz.com/c-programming/c-multi-dimensional-arrays
+
+	
+	https://www.youtube.com/watch?v=AeaglOYphfc
+	https://community.st.com/s/topic/0TO0X000000BSqSWAW/stm32-mcus
+	http://forum.espruino.com/conversations/290299/
+	https://www.mikrocontroller.net/topic/373582
+	https://community.st.com/s/question/0D50X00009XkZb1SAF/stm32-winusb-driver-autobinding-get-it-here
+	https://www.avrfreaks.net/forum/usb-cdc-issues-windows-10
+	https://community.st.com/s/question/0D50X0000BUhYkV/usb-cdc-problems-on-windows-10
+
+	https://forums.ni.com/t5/Instrument-Control-GPIB-Serial/Connect-STM32-via-USB-using-virtual-COM-port/td-p/3750838?profile.language=en
+
+		for (i = 0; i < inLen+1; i++) {			inBufUSB[i] = *(inBuf + i);		}
+		
+		
+	case CDC_SET_LINE_CODING:
+	  tempbuf[0]=pbuf[0];
+	  tempbuf[1]=pbuf[1];
+	  tempbuf[2]=pbuf[2];
+	  tempbuf[3]=pbuf[3];
+	  tempbuf[4]=pbuf[4];
+	  tempbuf[5]=pbuf[5];
+	  tempbuf[6]=pbuf[6];
+	  break;
+	case CDC_GET_LINE_CODING:
+	  pbuf[0]=tempbuf[0];
+	  pbuf[1]=tempbuf[1];
+	  pbuf[2]=tempbuf[2];
+	  pbuf[3]=tempbuf[3];
+	  pbuf[4]=tempbuf[4];
+	  pbuf[5]=tempbuf[5];
+	  pbuf[6]=tempbuf[6];
+	  break;
+
+HW dürfte Funken, weil mit STM32F429_USB_VCP ist der Port konnetkierbar
+
+
+	obs	USB Identifier genau auf die Werte ausm AutoConf zurücksetzen, neues CubeMX Projekt machen und mit Beyoundcomp matchen
+		#define USBD_MANUFACTURER_STRING     "STMicroelectronics"
+		#define USBD_PRODUCT_STRING_FS     "STM32 Virtual ComPort"
+		https://github.com/Ant1882/STM32F429-Tracealyzer-Demo/blob/master/429-DISCO-Tracealyzer/Src/main.c
+*	https://www.mikrocontroller.net/articles/USB-Tutorial_mit_STM32
+*	https://community.st.com/s/question/0D50X00009XkgFW/stm32f4-discovery-board-and-vcp-usb-driversapplication
+*	https://community.st.com/s/question/0D50X00009Xkecg/stm32f4discovery-not-detected-as-vcp
+*	https://community.st.com/s/question/0D50X00009XkYSE/stm32f7-usb-cdc-vcp-unable-to-open-serial-port
+*	https://community.st.com/s/question/0D50X00009Xke3ESAR/usb-vcp-windows-10
+*	https://github.com/Ant1882/STM32F429-Tracealyzer-Demo/commit/4cf6591b3bdff098292349874f8c0c8df7802986
+*	https://community.st.com/s/question/0D50X00009fDToTSAW/stm32f405-and-hal-usbcdc-strange-behavior-comport-error-usbdmaxstrdescsiz
+*	https://community.st.com/s/feed/0D50X00009XkYSESA3
+*	https://github.com/MaJerle/stm32f429/tree/master/24-STM32F429_USB_VCP
+
+
+DCD_DevDisconnect 
+https://www.mikrocontroller.net/articles/USB-Tutorial_mit_STM32#Deskriptoren_f.C3.BCr_CDC
+
+https://community.st.com/s/question/0D50X0000BmlPBbSQM/i-have-a-problem-with-usb-working-properly-usb-cdc-virtual-com-port-with-cubemx-hal-after-disconnecting-the-usb-cable-and-connecting-again
+https://stackoverflow.com/questions/54939948/stm32-usb-cdc-after-hardware-reset
+https://stackoverflow.com/questions/20195175/stm32f107-usb-re-enumerate
+
+inspiration:	https://git.fs.lmu.de/hendrik/stm32-dds/tree/08e4f02a42fb8915734bb76dffdac3864102c212/lib/scpi-parser
+
+https://www.block-net.de/Programmierung/cpp/fsm/fsm.html
+https://plantuml.com/
+https://plantuml.com/de/timing-diagram
+https://plantuml.com/de/state-diagram
+
+ + HAL: IO direction setzen als Funktion
+ + Buttons als User-Interface berücksichtigen 
+	also, Kabel vom Board-weg und als Knopf auf der frontplatte rausgeführt
+
+	Testprozedur USB -> Gue
+	OCTane: powerdown routine mit resets aller HWs, abschalten aller Relais
+			FastIOs auf 0, goodbye msg am USB und USB-reset.
+	
+
+
+stead
+HW-Ideen:
+	https://www.mikrocontroller.net/topic/482259?goto=5997109#5997109
+	https://www.mikrocontroller.net/topic/416419#new
+
+Die USB Buchse wird mit PA11 (D-) und PA12 (D+) verbunden. Es ist nicht n??, den Modus (in, out, alternative) und Typ dieser Pins zu konfigurieren.
+	-> CDC_Transmit
+
+
+An D+ geh??ein 1,5 kO Pull-Up Widerstand auf 3,3 V, welcher dem Host Computer signalisiert, dass ein Ger?angeschlossen wurde. Manche Boards schalten den Widerstand mit einen I/O Pin ein. Dadurch kann man den Host Computer dazu bringen, das USB Ger?erneut zu erkennen, ohne das Kabel abstecken zu m??n. 
+
+
+https://community.st.com/s/question/0D50X00009XkXwy/stm32f0-spi-read-and-write
+
+https://stm32f4-discovery.net/2014/04/library-05-spi-for-stm32f4xx/
+
+AD5543:
+	f_CLK_max	50MHz
+	MSB
+	16Bit
+	t_settle	500ns
+
+IRQs	https://www.youtube.com/watch?v=rsMlbkZM-aE
+
+SPI, 16Bit:
+	https://www.mikrocontroller.net/topic/414289
+
+SPI, NSS ... F303 hat aut-CS, F103 nicht!	
+	https://www.mikrocontroller.net/topic/176834#1701376
+
+https://www.mikrocontroller.net/topic/388479
+https://microtechnics.ru/en/stm32cube-and-usb-virtual-com-port-2/
+https://microtechnics.ru/en/stm32-i-usb-mass-storage-sd-card/
+https://stackoverflow.com/questions/33549084/stm32cubemx-usb-cdc-vcp
+
+
+https://istarc.wordpress.com/2014/12/12/stm32f4-gitlab/
+
+https://community.st.com/s/question/0D50X0000BHzYTz/how-to-setup-gitlab-ci-for-stm32cubemx
+https://stackoverflow.com/questions/1433204/how-do-i-use-extern-to-share-variables-between-source-files
+https://stackoverflow.com/questions/42404549/how-to-avoid-using-extern-to-share-an-instance-between-many-files-in-c
+
+### EXTI activate
+ + [IRG samples](https://www.mikrocontroller.net/attachment/354101/main.c)
+ + [IRQ](https://community.st.com/s/question/0D50X00009XkhEfSAJ/how-to-configure-gpio-interrupt-with-cubemx)
+ + [IRQ](https://community.st.com/s/question/0D50X00009XkhHRSAZ/stm32f4-user-push-button-interrupt-issue)
+ + [IRQ](https://www.google.com/search?client=firefox-b-d&ei=1ze8XqXMOdGAaaz3qtgE&q=stm32f4+external+interrupt+example&oq=stm32F4+ext+interrupt&gs_lcp=CgZwc3ktYWIQAxgAMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yCAgAEAgQBxAeMggIABAIEAcQHjIICAAQCBAHEB46BAgAEEc6CAgAEAcQChAeUNy-BFjlzARg5NgEaABwAXgAgAGXAYgBwQSSAQMxLjSYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab)
+ + [IRQ](https://community.st.com/s/question/0D50X00009Xkhah/stm32f4-external-interrupts-not-working)
+
+
+### Trigger Speeds at 168MHz
+ + TIM2 -> PSC = 40;   	TIM2 -> ARR = 10000;  		-> 17.08 ms, 58.54 Hz
+ + TIM2 -> PSC = 4;  	TIM2 -> ARR = 10000;        -> 2.083 ms, 480.05 Hz
+ + TIM2 -> PSC = 4;   	TIM2 -> ARR = 1000;         -> 208.5 us, 4.799kHz
+   rTIM2_Init(2,		800);			// Trig A	-> 100.4us, 9.96kHz
+   rTIM2_Init(2,		1000);			// Trig A	-> 125us
+ + TIM2 -> PSC = 4;   	TIM2 -> ARR = 100;         -> 21 us, 47.33kHz
+ + TIM4 -> PSC = 16000  	TIM4 -> ARR = 100;         -> 67.3ms
+ + trigA_max_count	= 100; -> 51 rises
+ + trigA_max_count	= 21;	-> 11 rises
+
+### GPIO function template
+
+	static void 	rHAL_set<>_on	(  				) {	HAL_GPIO_WritePin (GPIOx, <>_Pin, 1);	};
+	static void 	rHAL_set<>_as_out( 				) {		};	// GPIOx->MODER |= GPIO_MODER_MODERy_0;		From input to output
+	static void 	rHAL_set<>_as_in(  				) {		};	//	GPIOx->MODER &= ~(GPIO_MODER_MODERy);	From output to input
+	static void 	rHAL_set<>_off	(  				) {	HAL_GPIO_WritePin (GPIOx, <>_Pin, 0);	};
+	static void		rHAL_set<>		( uint8_t state ) {	HAL_GPIO_WritePin (GPIOx, <>_Pin, state);	};
+	static void 	rHAL_toggle<>	(  				) {	HAL_GPIO_TogglePin(GPIOx, <>_Pin);	};
+	static uint8_t	rHAL_get<>		( 				) {	return HAL_GPIO_ReadPin  (GPIOx, <>_Pin); };
+
+### HAL todos
+ +  imp'd	SPI 1 write and chipselects
+ +  imp'd	SPI 2 write and chipselects
+ +  imp'd	debug_mode_Pin GPIOB
+ +  imp'd	Trigger 1 high GPIOA TRIG_1_Pin digital IO, HighSpeed low
+ +  imp'd	Trigger 2 high GPIOB TRIG_2_Pin digital IO, HighSpeed low
+ +  imp'd	Trigger 3 high GPIOB TRIG_3_Pin digital IO, HighSpeed low
+ +  imp'd	Trigger 4 high GPIOB TRIG_4_Pin digital IO, HighSpeed low
+ +  imp'd	Trigger 5 high GPIOA TRIG_5_Pin digital IO, HighSpeed low
+ +  imp'd	Trigger 6 high GPIOA TRIG_6_Pin digital IO, HighSpeed low
+ +  imp'd	Trigger 7 high GPIOA TRIG_7_Pin digital IO, HighSpeed low
+ +  imp'd	Trigger 8 high GPIOA TRIG_8_Pin digital IO, HighSpeed low
+ +  imp'd	Relais, SLD high GPIOD GPIO_4_Pin digital out, LowSpeed low
+ +  imp'd	Relais, AIM high GPIOD GPIO_3_Pin digital out, LowSpeed low
+ +  imp'd	Relais, CAM high GPIOD GPIO_2_Pin digital out, LowSpeed low
+ +  imp'd	Relais, Gal high GPIOD GPIO_1_Pin digital out, LowSpeed low
+ +  imp'd	Relais, 4 high GPIOD GPIO_5_Pin digital out, LowSpeed low
+ +  imp'd	Relais, 3 high GPIOD GPIO_6_Pin digital out, LowSpeed low
+ +  imp'd	Relais, 2 high GPIOD GPIO_7_Pin digital out, LowSpeed low
+ +  imp'd	Relais, 1 high GPIOD GPIO_8_Pin digital out, LowSpeed low
+ +  imp'd	State LED, 1 low GPIOD STATE_1_Pin digital out, LowSpeed low
+ +  imp'd	State LED, 2 low GPIOD STATE_2_Pin digital out, LowSpeed low
+ +  imp'd	State LED, 3 low GPIOD STATE_3_Pin digital out, LowSpeed low
+ +  imp'd	State LED, 4 low GPIOD STATE_4_Pin digital out, LowSpeed low
+ +  imp'd	PushButton, 1 mid GPIOD BUTT_1_Pin digital in, LowSpeed n.a.
+ +  imp'd	PushButton, 2 mid GPIOD BUTT_2_Pin digital in, LowSpeed n.a.
+ +  imp'd	PushButton, 3 mid GPIOD BUTT_3_Pin digital in, LowSpeed n.a.
+ +  imp'd	PushButton, 4 mid GPIOD BUTT_4_Pin digital in, LowSpeed n.a.
+ +  Analog in 1 low GPIOC ADC_1_Pin analog In n.a.
+ +  Analog in 2 low GPIOC ADC_2_Pin analog In n.a.
+ +  Analog in 3 low GPIOC ADC_3_Pin analog In n.a.
+ +  Analog in 4 low GPIOC ADC_4_Pin analog In n.a.
+ +  USB high - USB_FS_DM USB Data- n.a.
+ +  USB high - USB_FS_DP USB Data+ n.a.
+ +  USB high - USB_FS_ID USB ident. n.a.
+ +  Port 3
+ +  Port 4
+ +  Port 5
+ +  USART
+ +  I2C
+ + 	VBUS_FS_Pin GPIO_PIN_9
+ + 	VBUS_FS_GPIO_Port GPIOA
+ + 	OTG_FS_DM_Pin GPIO_PIN_11
+ + 	OTG_FS_DM_GPIO_Port GPIOA
+ + 	OTG_FS_DP_Pin GPIO_PIN_12
+ + 	OTG_FS_DP_GPIO_Port GPIOA

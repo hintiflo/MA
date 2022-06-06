@@ -1,0 +1,24 @@
+* Definitioen wörtlich zitieren
+
+* Überschriften: alle Nomen groß schreiben
+
+* Sätze umbrechen, aufteilen
+
+* Ich beschreieb zu oft was etwas nocht ist, anstatt, was es wirloch ist
+	It constitutes of the specification, not of defining the requirements.
+
+Fundamentslas 2.1
+
+
+
+
+
+'Struktur' bedeutet: mehr Absätze, itemize-Listen
+
+	
+the way to go is to combine the quality measure for hard and software. und eine Argumentation nachschiessen
+
+statt Liggesmayr Definition übersetzen, besser die anglischen Definition finden und "" einbauen
+
+
+

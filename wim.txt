@@ -1,12 +1,107 @@
-https://dev.to/younup/cmake-on-stm32-the-beginning-3766
-https://www.testbytes.net/blog/test-harness/
-https://de.wikipedia.org/wiki/Test-Harnisch
-https://ieeexplore.ieee.org/abstract/document/393507
-https://de.wikipedia.org/wiki/Nicht-blockierende_Synchronisation
+python OscScreenGrabLAN.py png 10.40.49.7
+
+C:\bin\MiKTeX\miktex\bin\x64\biber.exe main
+
+	https://electronics.stackexchange.com/questions/53827/using-ccm-core-coupled-memory-in-stm32f4xx
+	https://www.mikrocontroller.net/articles/Aufl%C3%B6sung_und_Genauigkeit#Eichen,_Kalibrieren,_Justieren
+	https://forum.digikey.com/t/utilizing-the-build-analyzer-in-stm32cubeide/3882
+	http://denyadzi.github.io/blog/2014/12/28/stm32f4-168-mhz-speedup/
+	https://community.st.com/s/question/0D50X00009XkeyfSAB/stm32f407-accessing-internal-flash
+	https://medium.com/theteammavericks/programming-flash-rom-in-stm32-f5b7d6dcba4f
+	https://controllerstech.com/flash-programming-in-stm32/
+
+	https://www.embedded.com/fixed-point-math-in-c/
+	https://embeddedartistry.com/blog/2018/07/12/simple-fixed-point-conversion-in-c/
+
+	https://www.pdqlogic.com/
+	http://eeblog.co.uk/2018/11/29/swo-with-cubemx-using-st-link-clones/
+	https://www.youtube.com/watch?v=JqrUAzjJ0tw
+	https://stackoverflow.com/questions/55731546/stm32f4-discovery-etmembedded-trace-macrocell-and-instrumentation-trace-macroc
+	https://www.google.com/search?client=firefox-b-d&q=openocd+itm
+	https://stackoverflow.com/questions/50075076/show-cortex-m4-swo-log-with-openocd
+	https://github.com/orbcode/orbuculum
+	https://www.google.com/search?q=Black+Magic+Debug+Probe&source=lmns&bih=1159&biw=658&client=firefox-b-d&hl=de&sa=X&ved=2ahUKEwjyx5z8h_n3AhUtOewKHUPIC2cQ_AUoAHoECAEQAA
+	https://www.google.com/search?client=firefox-b-d&q=etm+trace+adapter
+
+
+
+https://www.betasolutions.co.nz/blog/firmware-design-patterns-in-embedded-systems
+https://embeddedartistry.com/fieldatlas/design-pattern-catalogue/
+
+https://github.com/littlefs-project/littlefs
+http://allsoftwaresucks.blogspot.com/2015/05/gcov-is-amazing-yet-undocumented.html
+https://controllerstech.com/stm32-gpio-output-config-using-registers/
+https://github.com/mnemocron?tab=repositories
+https://github.com/eDeviser/lwgl
+https://mcuoneclipse.com/2014/12/26/code-coverage-for-embedded-target-with-eclipse-gcc-and-gcov/comment-page-1/?unapproved=342881&moderation-hash=b3e1c3b6ebdb961ec8a0dac7a9e6d965#comment-342881
+https://github.com/reeteshranjan/libgcov-embedded/blob/master/port/libgcc/libgcov-driver.c
+https://github.com/ErichStyger/mcuoneclipse/blob/master/Examples/KDS/FRDM-K64F120M/FRDM-K64F_Coverage/Sources/main.c
+https://sysprogs.com/w/live-non-intrusive-debugging-of-real-time-arm-targets/
+https://www.youtube.com/watch?v=nDSu3qoul3M
+http://simply-embedded.blogspot.com/2014/07/code-coverage-embedded-target-simple.html
+
+https://community.st.com/s/question/0D50X00009Xke4LSAR/stm32-f0-hal-160-usb-cdc-usage-receiving-data
+https://stackoverflow.com/questions/25932299/stm32-rising-and-falling-button-interrupt-detection
+https://mikrocontroller.bplaced.net/wordpress/?page_id=11
+https://mikrocontroller.bplaced.net/wordpress/?page_id=380
+https://www.mikrocontroller.net/topic/350952?goto=new#new
+http://stefanfrings.de/stm32/stm32f1.html
+https://www.youtube.com/watch?v=0p9qzqtlpUc
+https://www.youtube.com/watch?v=txnViYePocg
+https://github.com/kcuzner?tab=repositories&q=usb&type=&language=&sort=
+https://medium.com/@pasindusandima/stm32-usb-virtual-com-port-vcp-bc7cb1bd5f5
+http://stm32f4-discovery.net/2015/08/hal-library-21-multi-purpose-usb-library-for-stm32fxxx/
+https://www.reddit.com/r/embedded/comments/lzrvl1/what_are_some_good_usb_libraries_for_stm32/
+https://ask.wireshark.org/question/36/how-to-capture-usb-packets-please/
+https://www.st.com/content/st_com/en/support/learning/stm32-education/stm32-moocs/STM32-USB-training.html
+https://www.youtube.com/watch?v=h9T0RTu9Muc&list=PLnMKNibPkDnFFRBVD206EfnnHhQZI4Hxa&index=9
+https://github.com/hathach/tinyusb
+https://github.com/kcuzner/CMSIS-DAP/tree/master/shared/USBStack/SRC
+https://controllerstech.com/send-and-receive-data-to-pc-without-uart-stm32-usb-com/
+https://deepbluembedded.com/stm32-dac-sine-wave-generation-stm32-dac-dma-timer-example/
+https://community.st.com/s/question/0D50X00009Xkfd1SAB/read-data-from-pc-to-stm32-via-usb-cdc
+https://www.elektronikpraxis.vogel.de/einfacheres-ethernet-design-ethernet-phys-auswaehlen-a-1032310/
+https://electronics.stackexchange.com/questions/305423/how-do-i-set-systick-to-1-ms
+https://gist.github.com/iwalpola/6c36c9573fd322a268ce890a118571ca
+https://stackoverflow.com/questions/58836403/problem-with-using-scanf-function-under-stm32
+https://stackoverflow.com/questions/22865622/atoi-vs-atol-vs-strtol-vs-strtoul-vs-sscanf
+https://www.tutorialspoint.com/c_standard_library/c_function_strtoul.htm
+
+
+
+
+
+rxUSB, holy code:
+	https://community.st.com/s/question/0D53W00000fnLyYSAU/cdcreceivefs-is-undefinded-in-code-generated-by-the-cubemx-plugin
+
+Besprechung mit Josef am 16.02.2022
+	Forschungsfrage (wird auch Arbeitstitl): kannund wie appliziert Code-Quality auf Firmware?
+		"vom allgemeinan aufs spezielle"	
+		quility and realtime
+		Theory -> fundamentsal
+			auf RT beziehen
+		Requirements: chapter, aber nur allgmeeine, keine aufs COTane bezogen	
+			3,4,5,6 -> ein Kapitel Implemeation 
+
+	josef.langer@fh-hagenberg.at
+
+https://www.mikrocontroller.net/articles/STM32_f%C3%BCr_Einsteiger#Taktzeitberechnung_und_%C3%9Cberwachung
+
+screen can be used as a Terminal for serial ports - e.g. screen /dev/ttyS0 19200
+
+* Bücher
+	https://books.google.at/books?id=-eoerZI2fYIC&pg=PR10&hl=de&source=gbs_selected_pages&cad=2#v=onepage&q&f=false
+	https://www.rebuy.de/i,2058067/buecher/software-qualitaet-testen-analysieren-und-verifizieren-von-software-peter-liggesmeyer
+	https://ieeexplore.ieee.org/abstract/document/393507
+
 https://www.elektroniknet.de/embedded/entwicklungstools/cmsis-vereinheitlich-peripherie-programmierung.29620.html
+https://dev.to/younup/cmake-on-stm32-the-beginning-3766
+https://de.wikipedia.org/wiki/NuttX
+https://www.testbytes.net/blog/test-harness/
+https://de.wikipedia.org/wiki/Nicht-blockierende_Synchronisation
 https://datarespons.com/pros-cons-using-stm32cubemx-code-generation-tool-insead-manually-writing-drivers-arm-cortex-m-microcontroller/
 https://de.wikipedia.org/wiki/Test-Harnisch
-
+https://de.wikipedia.org/wiki/Liste_von_Modultest-Software#C
 	https://electronics.stackexchange.com/questions/516131/stm32f4-discovery-adc-trigger-using-timer-2-and-dma-cmsis-core
 	https://electronics.stackexchange.com/questions/350088/stm32f407-lan8720a-lwip-freertos-no-received-ethernet-frames
 * PC Lint
@@ -16,7 +111,7 @@ https://de.wikipedia.org/wiki/Test-Harnisch
 *	FW fürs Octane
 *	testcases innheralb eines Tesmodus, bleiben so Teil vom eigetl Code: laut Dietmar nicht nötig, siehe unten
 *	testHooks?
-	
+*	Resource oder State Management innerhalb der FW (zB UART nur einschalten, wenn alle Pins dazu frei sind)	
 	
 	
 * Beratung mit Dietmar Millinger, 02.12.2021, bezügl Unit-testing eines FW-Pojektes ohne OS
@@ -29,12 +124,13 @@ https://de.wikipedia.org/wiki/Test-Harnisch
 		USB-Testen: zB 100 mal Befehl senden und schauen, ob er ankommt
 
 		Modultests nicht in den production-code reincompilieren, sondern in einr KOPIE des production-codes einfügen, trifft NIE aufm Master-branch auf
+		https://de.wikipedia.org/wiki/Liste_von_Modultest-Software#C
 		
 		im engültigen Code nur etwas Diagnose & Kalibrierung
 	
 * StaudeckerBesprechnung, 07.12.2021
 	Hybridisch verkoppeln von
-		experomenteller Messung
+		experimenteller Messung
 		-> Winkel ist der Flache Ausgang
 		
 		flache Vorsteuerung Ausrechnen: inverse der Übertragungsfunkt auf urspüngliche Signal draufklatschne, Skriopt Relgelung2 Satz 8.1	
@@ -51,8 +147,8 @@ https://de.wikipedia.org/wiki/Test-Harnisch
 	mit tags a la
 		URxx	User Requirement - Generelle Benutzer-/Systemanforderung
 		NRxx	Non-Requirements 
-			NRxx ... the Device does no know of absolut time in terms of actual date, hour or minute
-			
+			NRxx ... the Device does not know of absolut time in terms of actual date, hour or minute
+		
 		RGxx	Requirement GPIO - Anforderung für den Master
 		RUxx	Requirement USB - Anforderung für die Slaves
 			RU01    | <rs01_acc>  | usbSlave.c    |
@@ -101,10 +197,6 @@ ODER: Anbindung eines FPGAs um schneller Signale zu erzeugen, RAM per AXI oder W
 
 Charakterisierung der Galvos und Massnahmen zum gegenwirken
 
-ODER: Anbindung eines FPGAs um schneller Signale zu erzeugen
-
-	Christian fragen!
-
 	
 	FW
 		Error Handlicng / structured exception handling, Fehlerspeicher
@@ -117,7 +209,8 @@ ODER: Anbindung eines FPGAs um schneller Signale zu erzeugen
 		Prio1: USB-interr
 		Prio2: main-loop
 
-
+		Stubs/Mocks/Shunts für ext HW
+		
 CI/CD:
 	gitlab triggert einen runner
 

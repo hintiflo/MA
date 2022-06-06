@@ -1,0 +1,95 @@
+Inbetriebnahme
+	TODO
+		Analog-Supply das BGA & das TSSOP - Borad vergleichen
+		BJTs am m016 auflöten
+		Testpads am DAC-Bord anbohren
+
+
+	m012, v001, sn02
+		* USB-Supply funkt -> rgibt 3,0V am uC
+		* Debug-Supply funkt nicht -> ergibt 5V am uC, 3 & 5V am Debug stecker vertauscht!!!!
+		* erster Flash: download successfully :-)
+		* 3,3V Supply funk mit 3.0V
+		* BOOT1 = 0, BOOT0 = 0
+		* Supply 12V auf 5V funkt
+		* LEDs blinken
+		
+		
+	
+		Port Pin Mapping auf LEDs, Buttons, HF.IOs?
+		STATE_1	PD12
+		STATE_2	PD13
+		STATE_3	PD14
+		STATE_4	PD15
+		
+		TRIG_1	PA15	Output
+		TRIG_5	PA0		Output
+		TRIG_6	PA1		Input
+		
+		
+		* Stauts LEDs hell genug -> Vorwid passt
+		STATE_1	ok
+        STATE_2	ok
+        STATE_3	ok
+        STATE_4	ok
+		
+		* TRIG_1	statisch ok (4.82V)
+		
+	Issues:
+		* Supply über DEBUG saugt viel mehr (-> Rückfluss in 12V Kreis?)
+		* Start LAbelling at 0 or 1?
+		* PB3 = Trig_2 = SWO-Debug Problem?
+		* PA0 = TRIG_5 = RESET State Problem?
+		* RS232 & I2C Pinouts beschriften
+		* Anchor-Pads für WE-M3 Steine ans PCB-Ende
+		* Spannungreg auf 5.3V Dimensen
+		* am Debug Stecker 5 & 3.3V vertauscht
+		* 3v3 hat in real 3.0V
+		* 5V hat 4.7V
+		* Port 3 und Nachbar: Stecker tauschen, sodass gleiches Pinning wie West-Supply/West Signal!! 
+		* 5V Stecker für Nebenverbrauhcer, zB als East-Supply
+		* Evlt Relais aufs Hauptboard
+		* mehr TestPads mit Bohrungen, passend zu Tastspitzen
+		* ALLE relevanten Leitungen mit Label versehen -> Benamselung in SCh&PCB
+		* zu testende Funktionen währed Design schon ins tex-File -> Testkatalog
+		* m012: alle Bauteile nach oben für billigere Bestückung
+		* m016: Relais entfernen, alles SMDs nach oben
+
+		
+		
+
+TestCode:
+
+uint16_t ramp[] = {0x0000, 0x0000, 0x0000, 0x5678, 0x9ABC,0xFFFF};
+const uint16_t ramp_size =    1 ;
+
+
+  HAL_GPIO_WritePin(GPIOC, EN_1_Pin, 1);
+  HAL_GPIO_WritePin(GPIOC, EN_2_Pin, 0);
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  while (1)
+  {
+
+	  	  HAL_SPI_Transmit(&hspi1, (uint8_t *) ramp, ramp_size , 100);
+	        HAL_Delay(200);
+	  	  HAL_GPIO_WritePin(GPIOA, TRIG_5_Pin, 0);
+	  	  HAL_GPIO_WritePin(GPIOD, STATE_4_Pin, 0);
+	        HAL_Delay(200);
+	  	  HAL_GPIO_WritePin(GPIOD, STATE_3_Pin, 0);
+	        HAL_Delay(200);
+	  	  HAL_GPIO_WritePin(GPIOD, STATE_2_Pin, 0);
+	        HAL_Delay(200);
+	  	  HAL_GPIO_WritePin(GPIOD, STATE_1_Pin, 0);
+	        HAL_Delay(200);
+	  	  HAL_GPIO_WritePin(GPIOA, TRIG_5_Pin, 1);
+	  	  HAL_GPIO_WritePin(GPIOD, STATE_4_Pin, 1);
+	        HAL_Delay(200);
+	  	  HAL_GPIO_WritePin(GPIOD, STATE_3_Pin, 1);
+	        HAL_Delay(200);
+	  	  HAL_GPIO_WritePin(GPIOD, STATE_2_Pin, 1);
+	        HAL_Delay(200);
+	  	  HAL_GPIO_WritePin(GPIOD, STATE_1_Pin, 1);
+
+	  	  /* USER CODE END WHILE */
