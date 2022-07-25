@@ -93,92 +93,98 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.3}Traceability-Matrix}{36}{subsection.3.2.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.4}TCs}{37}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.4}V-Model}{37}{subsection.3.2.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.5}Code coverage}{38}{subsection.3.2.5}%
+\contentsline {subsection}{\numberline {3.2.5}Test-cases}{37}{subsection.3.2.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {3.2.6}Unit-Tests}{38}{subsection.3.2.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.7}Module-Tests}{38}{subsection.3.2.7}%
+\contentsline {subsection}{\numberline {3.2.7}Integration-Tests}{38}{subsection.3.2.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.8}Integration-Tests}{38}{subsection.3.2.8}%
+\contentsline {subsection}{\numberline {3.2.8}System-Tests}{39}{subsection.3.2.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2.9}Load/Fault Tests}{38}{subsection.3.2.9}%
+\contentsline {subsection}{\numberline {3.2.9}Load/Fault Tests}{39}{subsection.3.2.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Concept}{39}{chapter.4}%
+\contentsline {subsection}{\numberline {3.2.10}Code Coverage}{39}{subsection.3.2.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}FSM}{39}{section.4.1}%
+\contentsline {chapter}{\numberline {4}Concept}{40}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Modules of the Firmware}{40}{section.4.2}%
+\contentsline {section}{\numberline {4.1} system architecture }{40}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Triggers and Voltage - Outputs}{40}{figure.caption.59}%
+\contentsline {section}{\numberline {4.2}FSM}{41}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.2.1}Standard operation procedures (SOP)}{40}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Modules of the Firmware}{42}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Implementation}{42}{chapter.5}%
+\contentsline {subsubsection}{Triggers and Voltage - Outputs}{42}{figure.caption.61}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Trigger-Diagramme}{42}{section.5.1}%
+\contentsline {subsection}{\numberline {4.3.1}Standard operation procedures (SOP)}{42}{subsection.4.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Timer usage}{42}{section.5.2}%
+\contentsline {section}{\numberline {4.4} Measuring code coverage on a bare-metal sys }{43}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Trigger-Lines and Timers}{42}{section.5.2}%
+\contentsline {chapter}{\numberline {5}Implementation}{44}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Debug-Unit}{42}{section.5.2}%
+\contentsline {section}{\numberline {5.1}Trigger-Diagramme}{44}{section.5.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.3}Hardware}{42}{section.5.3}%
+\contentsline {section}{\numberline {5.2}Timer usage}{44}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.1}STM32F4}{42}{subsection.5.3.1}%
+\contentsline {subsubsection}{Trigger-Lines and Timers}{44}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.2}Wandler, Level-Shifter, HighSider}{42}{subsection.5.3.2}%
+\contentsline {subsubsection}{Debug-Unit}{44}{section.5.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.3.3}Connection of Galvos and Triggers}{42}{subsection.5.3.3}%
+\contentsline {section}{\numberline {5.3}Hardware}{44}{section.5.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.4}\leavevmode {\color {gray}Software tools}}{43}{section.5.4}%
+\contentsline {subsection}{\numberline {5.3.1}STM32F4}{44}{subsection.5.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.1}\leavevmode {\color {gray}CubeIDE}}{43}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.3.2}Wandler, Level-Shifter, HighSider}{44}{subsection.5.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.2}\leavevmode {\color {gray}Gcov}}{43}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.3.3}Connection of Galvos and Triggers}{44}{subsection.5.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.4.3}\leavevmode {\color {gray}python tools, OpenOCD}}{43}{subsection.5.4.3}%
+\contentsline {section}{\numberline {5.4}\leavevmode {\color {gray}Software tools}}{45}{section.5.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Results}{45}{chapter.6}%
+\contentsline {subsection}{\numberline {5.4.1}\leavevmode {\color {gray}CubeIDE}}{45}{subsection.5.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.1}Measurements}{45}{section.6.1}%
+\contentsline {subsection}{\numberline {5.4.2}\leavevmode {\color {gray}Gcov}}{45}{subsection.5.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {6.1.1}Oszi, Debug-Unit und Opto-Detektoren}{45}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {5.4.3}\leavevmode {\color {gray}python tools, OpenOCD}}{45}{subsection.5.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.2}Test-Res}{45}{section.6.2}%
+\contentsline {chapter}{\numberline {6}Results}{47}{chapter.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.3}Test-Cases}{45}{section.6.3}%
+\contentsline {section}{\numberline {6.1}Measurements}{47}{section.6.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.4}Code Coverage}{45}{section.6.4}%
+\contentsline {subsection}{\numberline {6.1.1}Oszi, Debug-Unit und Opto-Detektoren}{47}{subsection.6.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.5}Code Review}{45}{section.6.5}%
+\contentsline {section}{\numberline {6.2}Test-Res}{47}{section.6.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.6}Coverages}{45}{section.6.6}%
+\contentsline {section}{\numberline {6.3}Test-Cases}{47}{section.6.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.7}Review Remarks}{45}{section.6.7}%
+\contentsline {section}{\numberline {6.4}Code Coverage}{47}{section.6.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.8}Gavlo-Performance}{45}{section.6.8}%
+\contentsline {section}{\numberline {6.5}Code Review}{47}{section.6.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.9}Project-status}{45}{section.6.9}%
+\contentsline {section}{\numberline {6.6}Coverages}{47}{section.6.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {6.10} ... }{45}{section.6.10}%
+\contentsline {section}{\numberline {6.7}Review Remarks}{47}{section.6.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {7}Conclusion}{46}{chapter.7}%
+\contentsline {section}{\numberline {6.8}Gavlo-Performance}{47}{section.6.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {A}Supplementary Materials}{47}{appendix.A}%
+\contentsline {section}{\numberline {6.9}Project-status}{47}{section.6.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.1}PDF Files}{47}{section.A.1}%
+\contentsline {section}{\numberline {6.10} ... }{47}{section.6.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Path: \nolinkurl {/}}{47}{section.A.1}%
+\contentsline {chapter}{\numberline {7}Conclusion}{48}{chapter.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.2}Media Files}{47}{section.A.2}%
+\contentsline {chapter}{\numberline {A}Supplementary Materials}{49}{appendix.A}%
 \defcounter {refsection}{0}\relax 
-\contentsline {paragraph}{Path: \nolinkurl {/media}}{47}{section.A.2}%
+\contentsline {section}{\numberline {A.1}PDF Files}{49}{section.A.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {A.3}Abbreviations and Acronyms}{48}{section.A.3}%
+\contentsline {paragraph}{Path: \nolinkurl {/}}{49}{section.A.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{References}{49}{appendix*.68}%
+\contentsline {section}{\numberline {A.2}Media Files}{49}{section.A.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Literature}{49}{section*.69}%
+\contentsline {paragraph}{Path: \nolinkurl {/media}}{49}{section.A.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {A.3}Abbreviations and Acronyms}{50}{section.A.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{References}{51}{appendix*.71}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{Literature}{51}{section*.72}%

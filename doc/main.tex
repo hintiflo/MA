@@ -59,7 +59,8 @@
 	\label{cha:Requirements}
 		% Allgemeine REQs an FW, RT (und evtl design-for-testability)
 		% \section{Firmware-Requirements}
-		Two meetings, including all stakeholders of the PCTane, resulted in all requirements towards the OCTane and especially the firmware running on it. As these are imposed by the stakeholders, or, in other words, by the users of the OCTane, they are called 'user requirements',
+		\TODO{Formulieren}
+		Two meetings, including all stakeholders of the OCTane, resulted in all requirements towards the OCTane and especially the firmware running on it. As these are imposed by the stakeholders, or, in other words, by the users of the OCTane, they are called 'user requirements'. Accompanying tags in the form 'RU-xx' allow for tracing relations between a requirement and according test-cases or points of implementation inside the source-code.
 			\section{User requirements}
 				\input{src/_REQS.tex}
 		\pagebreak
@@ -88,7 +89,8 @@
 			\subsection{Load-Hypothesis, Fault-Hypothesis}
 			\subsection{Traceability-Matrix}
 			Linking Requirements by there tags, to the SW-modules, where they are fulfilled
-			\subsection{TCs}
+			\subsection{V-Model}
+			\subsection{Test-cases}
 			Automated test-cases are the primary method to ensure code-quality, because they allow for the assessment of functionalities against requirements and produce according documentation of conducted tests. Furthermore, they help identifying  errors in case of failures and secure implemented functionalities during future adaptions. To demonstrate a complete assessment of the firmware, for every existing user-requirement, at least one test-case is necessary. For practical reasons, these cases must be implemented as python-scripts, running on a proxy host-device, controlling the device under test via USB. The first practical aspect, being, that the resulting test-data are directly available on a device with capable processing power and high memory capacity, facilitating the automated generation of test-reports. The python programming language provides the package 'pytest-html', allowing for the automated generation of test-reports in HTML-format. Every test-case has to be simple enough, to render verification of the test-code itself unnecessary. A test-case, so complex, that i would require a superordinate test-case, indicates, that said test-case should be split into several cases of lesser respective complexity. Fig. ~\ref{testCaseExample} contains an exemplary test-case, assessing the devices correct reply to an identification query. \TODO{Quelle: scpi document}
 			
 			\bildGr{h!}{testCaseExample}{testCaseExample}{testCaseExample}{0.75\textwidth}
@@ -102,19 +104,42 @@
 			
 			\bildGr{h!}{reportExample}{reportExample}{reportExample}{0.75\textwidth}
 			
-			
-			
-			Apart from this method of fully automated testing, 
-			
-			\subsection{Code coverage}
-			
+			In case of commands resulting in digital, analogue or serial output-signals, these signals shall be automatically measured as part of a test-case. Automated measurement is required if performable with justifiable effort and available measurement instruments. Apart from this method of fully automated testing, few requirements demand assessment in a manual fashion. For example, oscillograms of the resulting analogue signals require evaluation buy the eye of a skilled engineer. Automation of this process via spectral analysis or automated comparison with reference signals would require unjustifiable effort, compared to an evaluation via visual inspection. \\
+			Test-cases, usually, belong to one of the following classes, \TODO{according to the V-Model}:
 			\subsection{Unit-Tests}
-			\subsection{Module-Tests}
+			Unit-tests are test-cases that evaluate the correctness of single functions, methods or procedures. A single variable, array or data-set also constitutes such a unit, if the contained data demands deliberate assessment via a test-case. Viable inputs exist in the form of binary values with separate cases for 'true' and 'false'. In case of numerical input, be they of integer or floating-point nature, the boundary-value and equivalence-class methods deliver suitable input values. For inputs in text form, all specified valid texts, and at least one invalid text form a set of useful input values. \cite{jorgensen13}
 			\subsection{Integration-Tests}
+			The next level of tests concern the interactions between units and their correct cooperation to form correctly working modules and sub-systems. A major focus in integration testing lies on the verification of units and modules to ensure their correct interaction. As this aspect is of a lesser concern during unit-testing, integration-testing is an established branch of verification in its own right. Furthermore, side-effects of units, which are hardly a concern during unit-testing, are important aspects during integration-testing. Testing and demonstrating seamless interoperability and collaboration of modules are the prime objectives. \cite{SpilSoft2005} % \TODO{welche inputs? Oder: beschreibung der integrations-Art nach ISTQB S. 56} Similar to a unit-test for text-driven functions, an integration test has to contain all possible valid inputs and at least one invalid. 
+			The strategy of integration, happening during implementation has significant influence on the design of suitable integration-tests. 
+			\begin{itemize} \setlength\itemsep{1px}
+			\item Top-down integration approaches the code under test from its entry point and external interfaces, non-existing sub-systems require replacement through stubs delivering dummy-data.
+			\item Bottom-up integration builds modules and subs-systems based upon existing low-level functions, while non-existing higher-ranking systems require replacement through test-drivers delivering dummy-commands.
+			\item Ad hoc integration is the least formal integration-strategy, where components undergo integration directly after integration, regardless of their level or rank within the complete system. The effort in planning integration is negligible, while non-existing components demand higher effort for their replacements. Furthermore, the lack of a thoroughly planned integration phase might diffuse into the resulting software exhibiting an erratic and patchy structure.
+			\item Backbone integration \cite{Beizer90}
+			\BLUE{
+			A skeleton or backbone is built and components are gradually integrated into it 
+			Advantage: Components can be integrated in any order.
+			Disadvantage: A possibly labor-intensive skeleton or backbone is required.
+			}
+			\end{itemize} 
+			
+			\subsection{System-Tests}
+			% https://de.wikipedia.org/wiki/Heisenbug
+			TODO{kann ma den da reinschummeln?}
+			\cite{Beizer95}
 			\subsection{Load/Fault Tests}
+			
 
+			\subsection{Code Coverage}
+			Code Coverage is an accompanying metric to test-cases, indicating their accuracy of assessment. Fig ~\ref{gcovReportDebugUnit01} depicts an extract of the coverage report of one submodule and ~\ref{gcovReport01} contains a composite report about code coverage over the whole firmware-project.
+			
+			\bildGr{h!}{gcovReportDebugUnit01}{gcovReportDebugUnit01}{gcovReportDebugUnit01}{0.75\textwidth}
+			\bildGr{h!}{gcovReport01}{gcovReport01}{gcovReport01}{0.75\textwidth}
+			
 	\chapter{Concept}
 	\label{cha:Concept}
+		\section{ system architecture }
+			Modules-Skizze + HW-Graph und ein meta-graph der diese verbindet.
 		\section{FSM}
 
 		\begin{figure}[H]
@@ -128,7 +153,7 @@
 		\section{Modules of the Firmware}
 		\begin{figure}[H]
 			\center
-			\includegraphics[width=0.75\textwidth]{src/_FW-Modules.pdf}
+			\includegraphics[width=\textwidth]{src/_FW-Modules.pdf}
 			\caption{Modular structure}
 			\label{fig:_FW-Modules}
 		\end{figure}
@@ -145,6 +170,12 @@
 			\input{src/_SOPs.tex}
 		}
 
+		\section{ Measuring code coverage on a bare-metal sys }
+		
+		\bildGr{h!}{coverageFlow}{coverageFlow}{coverageFlow}{0.75\textwidth}
+		
+		
+		
 	\chapter{Implementation}
 	\label{cha:Implementation}
 		\section{Trigger-Diagramme}

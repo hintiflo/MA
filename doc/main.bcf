@@ -2393,6 +2393,10 @@
     <bcf:citekey order="12">Chilenski2001</bcf:citekey>
     <bcf:citekey order="13">Howden1975MethodologyFT</bcf:citekey>
     <bcf:citekey order="14">Howden1978AnEO</bcf:citekey>
+    <bcf:citekey order="15">jorgensen13</bcf:citekey>
+    <bcf:citekey order="16">SpilSoft2005</bcf:citekey>
+    <bcf:citekey order="17">Beizer90</bcf:citekey>
+    <bcf:citekey order="18">Beizer95</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

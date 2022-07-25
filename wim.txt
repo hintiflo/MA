@@ -1,7 +1,40 @@
-python OscScreenGrabLAN.py png 10.40.49.7
 
+Mastr-Präsentationen vom Haputttermin Folienzahl
+	~15min
+	1) 12
+	2) 13
+	3) 13
+
+	4) 25
+	5) 15
+	6) 13
+
+	7) 13	./cyclictest -m -S -p98 -i113 -h50 -l10000000
+	8) 20
+	9) 
+
+Langer-Prüfung: RTOS-Übersicht, Register/Contextwechsel, race conditions, prio-inversion
+				Jede Frage mit einer Skizze beantworten und diese dann erklären, Allgemein-> Detail
+
+python OscScreenGrabLAN.py png 10.40.49.7
 C:\bin\MiKTeX\miktex\bin\x64\biber.exe main
 
+	arm-none-eabi-gcc
+	ssh-keygen
+	cat id_rsa.pub
+	git clone git@git.biz-up.at:r.hif/octane-bare.git
+
+
+https://www.cde.at/
+https://controllerstech.com/flash-programming-in-stm32/
+https://medium.com/theteammavericks/programming-flash-rom-in-stm32-f5b7d6dcba4f
+http://micromouseusa.com/?p=1556
+
+	
+
+	!!! MCDC: https://www.verifysoft.com/en_evals.html unbedingt Linux-demo holen und TESTEN !!!
+
+	https://github.com/cortexm/pyswd
 	https://electronics.stackexchange.com/questions/53827/using-ccm-core-coupled-memory-in-stm32f4xx
 	https://www.mikrocontroller.net/articles/Aufl%C3%B6sung_und_Genauigkeit#Eichen,_Kalibrieren,_Justieren
 	https://forum.digikey.com/t/utilizing-the-build-analyzer-in-stm32cubeide/3882
@@ -27,6 +60,8 @@ C:\bin\MiKTeX\miktex\bin\x64\biber.exe main
 
 https://www.betasolutions.co.nz/blog/firmware-design-patterns-in-embedded-systems
 https://embeddedartistry.com/fieldatlas/design-pattern-catalogue/
+
+https://github.com/ChristianRinn/bare_metal_stm32f103c8
 
 https://github.com/littlefs-project/littlefs
 http://allsoftwaresucks.blogspot.com/2015/05/gcov-is-amazing-yet-undocumented.html
@@ -173,7 +208,7 @@ https://de.wikipedia.org/wiki/Liste_von_Modultest-Software#C
 	* USBpcap oder Kabelhai
 * Debug Unit via ein paar gpio pins für timing
 * SelfDiagnose: State, FailState(fault-error-failure), VL timing-Pins dort einbauen
-* Debug/Test-Setup: local -> gitlab <-> Pi > DUT -> Relaisboard -> Pi
+* Debug/Test-Setup: local -> gitlab <-> Pi -> DUT -> Relaisboard -> Pi
 					Relaisboard -> osci (4CH und 16DIs)
 					osci -> Pi
 * !!! uC - eigener Mode fuer unit-Testing !!!
@@ -194,8 +229,8 @@ ODER: Anbindung eines FPGAs um schneller Signale zu erzeugen, RAM per AXI oder W
 
 	Christian fragen!
 	
-
 Charakterisierung der Galvos und Massnahmen zum gegenwirken
+
 
 	
 	FW
@@ -283,9 +318,9 @@ CI/CD
 	https://stackoverflow.com/questions/47281209/what-is-gitlab-runner
 	https://www.atlassian.com/de/continuous-delivery/continuous-integration/git-hooks
 	https://opensource.com/life/16/8/how-construct-your-own-git-server-part-6
-	https://www.stupid-projects.com/devops-for-embedded-part-3/
-	https://www.stupid-projects.com/devops-for-embedded-part-1/
-	https://www.stupid-projects.com/devops-for-embedded-part-2/
+	https://www.stupid-projects.com/posts/devops-for-embedded-part-1/
+	https://www.stupid-projects.com/posts/devops-for-embedded-part-2/
+	https://www.stupid-projects.com/posts/devops-for-embedded-part-3/
 	https://community.st.com/s/question/0D50X0000BbN8Gk/how-do-i-build-stm32cubeide-projects-using-the-command-line-and-a-continuous-integration-engine
 	https://community.st.com/s/question/0D53W00000aIJFQ/build-server-vendors-cicd-for-stm32
 	https://github.com/lpodkalicki/stm32-toolchain-docker

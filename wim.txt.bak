@@ -294,7 +294,10 @@ CI/CD
 
 coverage/clang-tree
 
-
+Latex
+	C:\bin\MiKTeX\biber\bin\windows-x64\biber main
+	erzeugt bbl file aus references.bib, dann 2..3mal pdflatexen
+	https://dblp.org/rec/books/daglib/0013739.html?view=bibtex
 
 
 https://rawats.medium.com/using-raspberry-pi-for-embedded-systems-development-part-1-2d32c42acb5c

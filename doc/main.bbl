@@ -19,6 +19,65 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{Beizer95}{book}{}
+      \name{author}{1}{}{%
+        {{hash=40b371da86c2ce0dc19684b2a3d7f3bb}{%
+           family={Beizer},
+           familyi={B\bibinitperiod},
+           given={Boris},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Verlag John Wiley}%
+        {Sons, Inc}%
+      }
+      \strng{namehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{fullhash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{bibnamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{authorbibnamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{authornamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{authorfullhash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \field{extraname}{1}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{1}
+      \field{isbn}{0471120944}
+      \field{note}{MR: referenziert aus Binder1999 (u.a. im Hinblick auf data flow testing strategies)}
+      \field{title}{Black-Box Testing: Techniques for Functional Testing of Software and Systems}
+      \field{year}{1995}
+      \keyw{black-box functional testing}
+    \endentry
+    \entry{Beizer90}{book}{}
+      \name{author}{1}{}{%
+        {{hash=40b371da86c2ce0dc19684b2a3d7f3bb}{%
+           family={Beizer},
+           familyi={B\bibinitperiod},
+           given={Boris},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {USA}%
+      }
+      \list{publisher}{1}{%
+        {Van Nostrand Reinhold Co.}%
+      }
+      \strng{namehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{fullhash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{bibnamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{authorbibnamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{authornamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \strng{authorfullhash}{40b371da86c2ce0dc19684b2a3d7f3bb}
+      \field{extraname}{2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{0442206720}
+      \field{title}{Software Testing Techniques (2nd Ed.)}
+      \field{year}{1990}
+    \endentry
     \entry{Chilenski2001}{article}{}
       \name{author}{1}{}{%
         {{hash=6de8af212ad62f884e49350189201c2f}{%
@@ -125,6 +184,33 @@
       \field{pages}{554\bibrangedash 560}
       \range{pages}{7}
     \endentry
+    \entry{jorgensen13}{book}{}
+      \name{author}{1}{}{%
+        {{hash=fc8a879d4ab610fc75daf9f9a84c15f4}{%
+           family={Jorgensen},
+           familyi={J\bibinitperiod},
+           given={Paul\bibnamedelima C.},
+           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Auerbach Publications}%
+      }
+      \strng{namehash}{fc8a879d4ab610fc75daf9f9a84c15f4}
+      \strng{fullhash}{fc8a879d4ab610fc75daf9f9a84c15f4}
+      \strng{bibnamehash}{fc8a879d4ab610fc75daf9f9a84c15f4}
+      \strng{authorbibnamehash}{fc8a879d4ab610fc75daf9f9a84c15f4}
+      \strng{authornamehash}{fc8a879d4ab610fc75daf9f9a84c15f4}
+      \strng{authorfullhash}{fc8a879d4ab610fc75daf9f9a84c15f4}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{Fourth}
+      \field{isbn}{9780367358495}
+      \field{title}{Software Testing: a Craftsman's Approach}
+      \field{year}{2013}
+      \keyw{cyclomatic graph.theory programming testing textbook}
+    \endentry
     \entry{keithleyHistory}{book}{}
       \name{author}{1}{}{%
         {{hash=5e70c252d984dbc0023eaafb5870be31}{%
@@ -206,6 +292,45 @@
       \field{isbn}{978-3-8274-1118-1}
       \field{title}{Software-Qualität - testen, analysieren und verifizieren von Software}
       \field{year}{2002}
+    \endentry
+    \entry{SpilSoft2005}{book}{}
+      \name{author}{3}{}{%
+        {{hash=58e3123e6a8cd02bbdaa0e86c09a9b61}{%
+           family={Spillner},
+           familyi={S\bibinitperiod},
+           given={Andreas},
+           giveni={A\bibinitperiod}}}%
+        {{hash=1179c3246fee23f1879c2285201a2e76}{%
+           family={Linz},
+           familyi={L\bibinitperiod},
+           given={Tilo},
+           giveni={T\bibinitperiod}}}%
+        {{hash=08a96ba723dfc52f4f37f3ab4726bf6a}{%
+           family={Schaefer},
+           familyi={S\bibinitperiod},
+           given={Hans},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {dpunkt.}%
+      }
+      \strng{namehash}{0c48d9d93e65d6c28e2d925aeaa69fd1}
+      \strng{fullhash}{0c48d9d93e65d6c28e2d925aeaa69fd1}
+      \strng{bibnamehash}{0c48d9d93e65d6c28e2d925aeaa69fd1}
+      \strng{authorbibnamehash}{0c48d9d93e65d6c28e2d925aeaa69fd1}
+      \strng{authornamehash}{0c48d9d93e65d6c28e2d925aeaa69fd1}
+      \strng{authorfullhash}{0c48d9d93e65d6c28e2d925aeaa69fd1}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{3-89864-363-8}
+      \field{title}{Software testing foundations}
+      \field{year}{2005}
+      \keyw{Datenverarbeitung engineering Test Software Testwerkzeuge}
     \endentry
     \entry{Tian2005}{book}{}
       \name{author}{1}{}{%

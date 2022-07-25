@@ -1,0 +1,32 @@
+digraph coverageFlow
+{
+	rankdir = LR;
+	node[shape = record, style="rounded, filled", fillcolor=lightyellow]
+	gcc [label="gcc5.3 --coverage"]
+
+
+	STLink	[label="ST-Link \n with SWD-IF"]
+	// STLink2	[label="ST-Link \n with SWD-IF"]
+	Oct	 	[label="HW with \n STM32F4"]
+	gcov	 [label="gCov \n    .gcda\n    .gcno\n  .c"]
+	gcovr	 [label="gCovr \n    .gcda\n    .gcno\n  .c"]
+
+	Horst [label = "Host-PC with\n SWD-Console"]
+	
+	gcc->STLink	[label="USB"]
+	// [label=""]
+
+	STLink ->Oct
+	Oct -> STLink2	[label="ITM"]
+	STLink2	-> Horst [label = "USB"]
+	Horst -> hex2binPy [label = "copy\npaste"]
+	hex2binPy->gcdaFile
+	gcdaFile -> gcov -> lcov
+	gcdaFile -> gcovr [style = dashed]
+	gcovr -> htmlReport [style = dashed]
+	lcov -> htmlReport
+	
+	{rank = same; gcc; gcdaFile}
+	// rank[same;gcc;gcdaFile];
+}
+

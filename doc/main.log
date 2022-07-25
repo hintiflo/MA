@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.8.2)  25 JUL 2022 02:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.8.2)  26 JUL 2022 00:02
 entering extended mode
 **./main.tex
 (main.tex
@@ -304,7 +304,7 @@ File: pgfcalendar.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 
 Package hagenberg-thesis Warning: 
 **************************************************************** 
-NOTE: 'hagenberg-thesis' is 634 days old - pls. check for updates 
+NOTE: 'hagenberg-thesis' is 635 days old - pls. check for updates 
 at https://github.com/Digital-Media/HagenbergThesis 
 **************************************************************** 
  on input line 100.
@@ -1375,7 +1375,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
 (C:\bin\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images//logo.pdf, id=284, 269.93045pt x 269.93045pt>
+<images//logo.pdf, id=296, 269.93045pt x 269.93045pt>
 File: images//logo.pdf Graphic file (type pdf)
 <use images//logo.pdf>
 Package pdftex.def Info: images//logo.pdf  used on input line 45.
@@ -1412,12 +1412,12 @@ Package tocbasic Info: Using my definition of `\numberline' on input line 84.
 [5
 
 ]
-Package tocbasic Info: Using my definition of `\numberline' on input line 108.
-Package tocbasic Info: Using my definition of `\numberline' on input line 118.
-Package tocbasic Info: Using my definition of `\numberline' on input line 144.
-Package tocbasic Info: Using my definition of `\numberline' on input line 168.
-Package tocbasic Info: Using my definition of `\numberline' on input line 170.
-Package tocbasic Info: Using my definition of `\numberline' on input line 182.
+Package tocbasic Info: Using my definition of `\numberline' on input line 110.
+Package tocbasic Info: Using my definition of `\numberline' on input line 124.
+Package tocbasic Info: Using my definition of `\numberline' on input line 150.
+Package tocbasic Info: Using my definition of `\numberline' on input line 174.
+Package tocbasic Info: Using my definition of `\numberline' on input line 176.
+Package tocbasic Info: Using my definition of `\numberline' on input line 188.
 )
 \tf@toc=\write5
 \openout5 = `main.toc'.
@@ -1472,7 +1472,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  (chapters/introduction.tex
 Chapter 1.
-<images/OCT_Principles_TD_OCT.JPG, id=407, 752.8125pt x 600.74437pt>
+<images/OCT_Principles_TD_OCT.JPG, id=422, 752.8125pt x 600.74437pt>
 File: images/OCT_Principles_TD_OCT.JPG Graphic file (type jpg)
 <use images/OCT_Principles_TD_OCT.JPG>
 Package pdftex.def Info: images/OCT_Principles_TD_OCT.JPG  used on input line 1
@@ -1485,7 +1485,7 @@ Package pdftex.def Info: images/OCT_Principles_TD_OCT.JPG  used on input line 1
 
 
 ] [2 <./images/OCT_Principles_TD_OCT.JPG>]
-<images/DetailGalvoOn.jpg, id=419, 3276.24pt x 2457.18pt>
+<images/DetailGalvoOn.jpg, id=434, 3276.24pt x 2457.18pt>
 File: images/DetailGalvoOn.jpg Graphic file (type jpg)
 <use images/DetailGalvoOn.jpg>
 Package pdftex.def Info: images/DetailGalvoOn.jpg  used on input line 24.
@@ -1494,7 +1494,7 @@ Package pdftex.def Info: images/DetailGalvoOn.jpg  used on input line 24.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/GalvoRamps01.png, id=420, 741.52031pt x 317.68687pt>
+<images/GalvoRamps01.png, id=435, 741.52031pt x 317.68687pt>
 File: images/GalvoRamps01.png Graphic file (type png)
 <use images/GalvoRamps01.png>
 Package pdftex.def Info: images/GalvoRamps01.png  used on input line 28.
@@ -1502,7 +1502,7 @@ Package pdftex.def Info: images/GalvoRamps01.png  used on input line 28.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/blocktane.pdf, id=424, 482.80376pt x 117.43875pt>
+<images/blocktane.pdf, id=439, 482.80376pt x 117.43875pt>
 File: images/blocktane.pdf Graphic file (type pdf)
 <use images/blocktane.pdf>
 Package pdftex.def Info: images/blocktane.pdf  used on input line 31.
@@ -1528,7 +1528,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--15
  []
 
 [7]
-<images/ErrorFaultFailure.pdf, id=465, 315.1775pt x 117.43875pt>
+<images/ErrorFaultFailure.pdf, id=480, 315.1775pt x 117.43875pt>
 File: images/ErrorFaultFailure.pdf Graphic file (type pdf)
 <use images/ErrorFaultFailure.pdf>
 Package pdftex.def Info: images/ErrorFaultFailure.pdf  used on input line 33.
@@ -1558,12 +1558,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--157
 
  []
 
-<images/EquivPart01.pdf, id=506, 462.52798pt x 90.3375pt>
+<images/EquivPart01.pdf, id=521, 462.52798pt x 90.3375pt>
 File: images/EquivPart01.pdf Graphic file (type pdf)
 <use images/EquivPart01.pdf>
 Package pdftex.def Info: images/EquivPart01.pdf  used on input line 160.
 (pdftex.def)             Requested size: 415.41025pt x 81.13895pt.
-<images/eqPart02.png, id=507, 439.4016pt x 125.268pt>
+<images/eqPart02.png, id=522, 439.4016pt x 125.268pt>
 File: images/eqPart02.png Graphic file (type png)
 <use images/eqPart02.png>
 Package pdftex.def Info: images/eqPart02.png  used on input line 165.
@@ -1598,7 +1598,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 201--202
 
  []
 
-<images/CoverageSubsumption.pdf, id=556, 573.14125pt x 414.54875pt>
+<images/CoverageSubsumption.pdf, id=571, 573.14125pt x 414.54875pt>
 File: images/CoverageSubsumption.pdf Graphic file (type pdf)
 <use images/CoverageSubsumption.pdf>
 Package pdftex.def Info: images/CoverageSubsumption.pdf  used on input line 203
@@ -1678,7 +1678,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 241--243
 
  []
 
-<images/ctrlFlowExamp.pdf, id=581, 296.10625pt x 496.85625pt>
+<images/ctrlFlowExamp.pdf, id=596, 296.10625pt x 496.85625pt>
 File: images/ctrlFlowExamp.pdf Graphic file (type pdf)
 <use images/ctrlFlowExamp.pdf>
 Package pdftex.def Info: images/ctrlFlowExamp.pdf  used on input line 244.
@@ -1707,7 +1707,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 274--275
  []
 
 [18]
-<images/compDecision01.png, id=607, 641.39626pt x 130.98938pt>
+<images/compDecision01.png, id=622, 641.39626pt x 130.98938pt>
 File: images/compDecision01.png Graphic file (type png)
 <use images/compDecision01.png>
 Package pdftex.def Info: images/compDecision01.png  used on input line 282.
@@ -1727,13 +1727,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 304--305
 
  []
 
-<images/compDeciMutualEx.png, id=619, 1466.47874pt x 48.18pt>
+<images/compDeciMutualEx.png, id=634, 1466.47874pt x 48.18pt>
 File: images/compDeciMutualEx.png Graphic file (type png)
 <use images/compDeciMutualEx.png>
 Package pdftex.def Info: images/compDeciMutualEx.png  used on input line 362.
 (pdftex.def)             Requested size: 415.41025pt x 13.64761pt.
 [20] [21 <./images/compDeciMutualEx.png>] [22]
-<images/loopBounderyInterior.png, id=640, 227.34938pt x 164.86594pt>
+<images/loopBounderyInterior.png, id=655, 227.34938pt x 164.86594pt>
 File: images/loopBounderyInterior.png Graphic file (type png)
 <use images/loopBounderyInterior.png>
 Package pdftex.def Info: images/loopBounderyInterior.png  used on input line 40
@@ -1744,7 +1744,7 @@ Package pdftex.def Info: images/loopBounderyInterior.png  used on input line 40
 LaTeX Warning: Reference `' on page 23 undefined on input line 416.
 
 [23 <./images/loopBounderyInterior.png>]
-<images/modBounderyInterior.png, id=652, 471.26062pt x 371.13657pt>
+<images/modBounderyInterior.png, id=667, 471.26062pt x 371.13657pt>
 File: images/modBounderyInterior.png Graphic file (type png)
 <use images/modBounderyInterior.png>
 Package pdftex.def Info: images/modBounderyInterior.png  used on input line 431
@@ -1757,7 +1757,7 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 13--13
 [][]
  []
 
-<src/_rampProperties.pdf, id=662, 722.7pt x 433.62pt>
+<src/_rampProperties.pdf, id=677, 722.7pt x 433.62pt>
 File: src/_rampProperties.pdf Graphic file (type pdf)
 <use src/_rampProperties.pdf>
 Package pdftex.def Info: src/_rampProperties.pdf  used on input line 15.
@@ -1766,7 +1766,7 @@ Package pdftex.def Info: src/_rampProperties.pdf  used on input line 15.
 
 
 
- <./src/_rampProperties.pdf>]
+]
 Overfull \hbox (35.38107pt too wide) in paragraph at lines 41--41
 [][]
  []
@@ -1781,13 +1781,14 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 50--50
 [][]
  []
 
-(src/_userParameters.tex
+[27 <./src/_rampProperties.pdf>] (src/_userParameters.tex
 LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <5> on input line 4.
- [27])
+)
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
 3.
- (C:\bin\MiKTeX\tex/latex/lm\t1lmtt.fd
+
+(C:\bin\MiKTeX\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 Overfull \hbox (35.38107pt too wide) in paragraph at lines 63--63
@@ -1799,12 +1800,12 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 66--66
 [][]
  []
 
-
+[28]
 Overfull \hbox (35.38107pt too wide) in paragraph at lines 69--69
 [][]
  []
 
-[28]
+
 Overfull \hbox (35.38107pt too wide) in paragraph at lines 72--72
 [][]
  []
@@ -1881,17 +1882,17 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 121--121
  []
 
 [30]
-<src/_rampAssymetry0perc.pdf, id=757, 722.7pt x 216.81pt>
+<src/_rampAssymetry0perc.pdf, id=772, 722.7pt x 216.81pt>
 File: src/_rampAssymetry0perc.pdf Graphic file (type pdf)
 <use src/_rampAssymetry0perc.pdf>
 Package pdftex.def Info: src/_rampAssymetry0perc.pdf  used on input line 123.
 (pdftex.def)             Requested size: 394.63846pt x 118.39233pt.
-<src/_rampAssymetry50perc.pdf, id=758, 722.7pt x 216.81pt>
+<src/_rampAssymetry50perc.pdf, id=773, 722.7pt x 216.81pt>
 File: src/_rampAssymetry50perc.pdf Graphic file (type pdf)
 <use src/_rampAssymetry50perc.pdf>
 Package pdftex.def Info: src/_rampAssymetry50perc.pdf  used on input line 126.
 (pdftex.def)             Requested size: 394.63846pt x 118.39233pt.
-<src/_rampAssymetry100perc.pdf, id=759, 722.7pt x 216.81pt>
+<src/_rampAssymetry100perc.pdf, id=774, 722.7pt x 216.81pt>
 File: src/_rampAssymetry100perc.pdf Graphic file (type pdf)
 <use src/_rampAssymetry100perc.pdf>
 Package pdftex.def Info: src/_rampAssymetry100perc.pdf  used on input line 129.
@@ -1930,7 +1931,7 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 147--147
 [][]
  []
 
-<src/_TrigSequence.jpg, id=855, 1702.36pt x 1220.56pt>
+<src/_TrigSequence.jpg, id=870, 1702.36pt x 1220.56pt>
 File: src/_TrigSequence.jpg Graphic file (type jpg)
 <use src/_TrigSequence.jpg>
 Package pdftex.def Info: src/_TrigSequence.jpg  used on input line 149.
@@ -2084,74 +2085,93 @@ Underfull \vbox (badness 10000) detected at line 17
  []
 
 ) [36]
-<images/testCaseExample.png, id=894, 656.4525pt x 119.69719pt>
+<images/testCaseExample.png, id=909, 656.4525pt x 119.69719pt>
 File: images/testCaseExample.png Graphic file (type png)
 <use images/testCaseExample.png>
-Package pdftex.def Info: images/testCaseExample.png  used on input line 94.
+Package pdftex.def Info: images/testCaseExample.png  used on input line 96.
 (pdftex.def)             Requested size: 311.55768pt x 56.80925pt.
-<images/reportExample.png, id=896, 732.48656pt x 134.75343pt>
+<images/reportExample.png, id=911, 732.48656pt x 134.75343pt>
 File: images/reportExample.png Graphic file (type png)
 <use images/reportExample.png>
-Package pdftex.def Info: images/reportExample.png  used on input line 103.
+Package pdftex.def Info: images/reportExample.png  used on input line 105.
 (pdftex.def)             Requested size: 311.55768pt x 57.3157pt.
  [37 <./images/testCaseExample.png> <./images/reportExample.png>]
 [38]
+<images/gcovReportDebugUnit01.png, id=932, 804.75656pt x 692.5875pt>
+File: images/gcovReportDebugUnit01.png Graphic file (type png)
+<use images/gcovReportDebugUnit01.png>
+Package pdftex.def Info: images/gcovReportDebugUnit01.png  used on input line 1
+36.
+(pdftex.def)             Requested size: 311.55768pt x 268.1318pt.
+<images/gcovReport01.png, id=933, 676.02562pt x 189.70876pt>
+File: images/gcovReport01.png Graphic file (type png)
+<use images/gcovReport01.png>
+Package pdftex.def Info: images/gcovReport01.png  used on input line 137.
+(pdftex.def)             Requested size: 311.55768pt x 87.43207pt.
+ [39 <./images/gcovReportDebugUnit01.png> <./images/gcovReport01.png>]
 Chapter 4.
-<src/_mainFSM_neato.pdf, id=908, 425.59pt x 501.875pt>
+<src/_mainFSM_neato.pdf, id=941, 425.59pt x 501.875pt>
 File: src/_mainFSM_neato.pdf Graphic file (type pdf)
 <use src/_mainFSM_neato.pdf>
-Package pdftex.def Info: src/_mainFSM_neato.pdf  used on input line 118.
+Package pdftex.def Info: src/_mainFSM_neato.pdf  used on input line 147.
 (pdftex.def)             Requested size: 311.55768pt x 367.4225pt.
-<src/_FW-Modules.pdf, id=909, 668.4975pt x 377.41pt>
+[40
+
+]
+<src/_FW-Modules.pdf, id=946, 668.4975pt x 377.41pt>
 File: src/_FW-Modules.pdf Graphic file (type pdf)
 <use src/_FW-Modules.pdf>
-Package pdftex.def Info: src/_FW-Modules.pdf  used on input line 127.
-(pdftex.def)             Requested size: 311.55768pt x 175.89694pt.
-[39
-
- <./src/_mainFSM_neato.pdf>] (src/_SOPs.tex
+Package pdftex.def Info: src/_FW-Modules.pdf  used on input line 156.
+(pdftex.def)             Requested size: 415.41025pt x 234.5331pt.
+ [41 <./src/_mainFSM_neato.pdf>] (src/_SOPs.tex
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-) [40 <./src/_FW-Modules.pdf>] [41]
+)
+<images/coverageFlow.png, id=969, 1211.52625pt x 310.15875pt>
+File: images/coverageFlow.png Graphic file (type png)
+<use images/coverageFlow.png>
+Package pdftex.def Info: images/coverageFlow.png  used on input line 175.
+(pdftex.def)             Requested size: 311.55768pt x 79.7591pt.
+ [42 <./src/_FW-Modules.pdf>] [43 <./images/coverageFlow.png>]
 Chapter 5.
-<images/dbgUnitLogic.png, id=962, 487.8225pt x 649.67719pt>
+<images/dbgUnitLogic.png, id=1002, 487.8225pt x 649.67719pt>
 File: images/dbgUnitLogic.png Graphic file (type png)
 <use images/dbgUnitLogic.png>
-Package pdftex.def Info: images/dbgUnitLogic.png  used on input line 168.
+Package pdftex.def Info: images/dbgUnitLogic.png  used on input line 203.
 (pdftex.def)             Requested size: 207.70512pt x 276.61967pt.
-<src/_Octane_HW-Structure.pdf, id=963, 665.48625pt x 464.73625pt>
+<src/_Octane_HW-Structure.pdf, id=1003, 665.48625pt x 464.73625pt>
 File: src/_Octane_HW-Structure.pdf Graphic file (type pdf)
 <use src/_Octane_HW-Structure.pdf>
-Package pdftex.def Info: src/_Octane_HW-Structure.pdf  used on input line 176.
+Package pdftex.def Info: src/_Octane_HW-Structure.pdf  used on input line 211.
 (pdftex.def)             Requested size: 427.81879pt x 298.75394pt.
 
-Overfull \hbox (12.40854pt too wide) in paragraph at lines 176--177
+Overfull \hbox (12.40854pt too wide) in paragraph at lines 211--212
  [][] 
  []
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[42
+[44
 
-] [43 <./images/dbgUnitLogic.png>] [44 <./src/_Octane_HW-Structure.pdf>]
+] [45 <./images/dbgUnitLogic.png>] [46 <./src/_Octane_HW-Structure.pdf>]
 Chapter 6.
-[45
+[47
 
 ]
 Chapter 7.
-[46
+[48
 
 ]
 \openout2 = `back/appendix_b.aux'.
 
  (back/appendix_b.tex
 Appendix A.
-) [47
+) [49
 
 
 ]
@@ -2162,12 +2182,12 @@ Overfull \hbox (46.0957pt too wide) in paragraph at lines 3--30
 [][] 
  []
 
-) [48
+) [50
 
 
 
 
-] [49
+] [51
 
 
 
@@ -2178,16 +2198,16 @@ Overfull \hbox (46.0957pt too wide) in paragraph at lines 3--30
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 12764811E4883FC7C91EC0786F9AEC47;10330.
+(rerunfilecheck)             Checksum: BF7F851F57AB97F0FEDF3E9D3EB08DDE;10936.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30761 strings out of 479334
- 532310 string characters out of 2871717
- 1470249 words of memory out of 3000000
- 47296 multiletter control sequences out of 15000+200000
+ 30826 strings out of 479334
+ 534118 string characters out of 2871717
+ 1470782 words of memory out of 3000000
+ 47346 multiletter control sequences out of 15000+200000
  471712 words of font info for 71 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
  128i,18n,145p,2085b,2331s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2203,9 +2223,9 @@ e1/public/lm/lmss10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/bin
 /MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/l
 mssbx10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/bin/MiKTeX/font
 s/type1/public/lm/lmsy8.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (57 pages, 3315072 bytes).
+Output written on main.pdf (59 pages, 3427561 bytes).
 PDF statistics:
- 1130 PDF objects out of 1200 (max. 8388607)
- 199 named destinations out of 1000 (max. 500000)
- 704 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1176 PDF objects out of 1200 (max. 8388607)
+ 211 named destinations out of 1000 (max. 500000)
+ 743 words of extra memory for PDF output out of 10000 (max. 10000000)
 
