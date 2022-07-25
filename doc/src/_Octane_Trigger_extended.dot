@@ -1,0 +1,56 @@
+digraph trigext{
+	# splines = false;
+	# splines = ortho;
+	labeldistance = 0.0;
+	 graph [fontname = "helvetica"];
+	 node [fontname = "helvetica"];
+	 edge [fontname = "helvetica"];
+
+ 	node	[shape=record, fontsize  = 10, style= "filled, rounded", fillcolor = lightyellow]
+	edge [fontsize  = 10]
+	PC [shape = box, pos = "5,-2.8!"]
+	Grab[shape = box, label = "Grabber/Camera", pos = "3,-8!"]
+
+	Button1 [shape = box, pos = "6.25,-3.25!"]
+	Button2 [shape = box, pos = "6.25,-5.25!"]
+	Button3 [shape = box, pos = "6.25,-7.25!"]
+	Timer1 [shape = box, pos = "6.5,-4!"]
+	Timer2 [shape = box, pos = "6.5,-6!"]
+	Timer3 [shape = box, pos = "6.5,-8!"]
+	Trigger1 [shape = box, label= Trig_A_Scan, pos = "5,-4!"]
+	Trigger2 [shape = box, label= Trig_B_Scan, pos = "5,-6!"]
+	Trigger3 [shape = box, label= Trig_C_Scan, pos = "5,-8!"]
+	TrigIn1 [shape = point, width=.15, pos = "4.4, -3.5!"]
+	TrigIn2 [shape = point, width=.15, pos = "4.8, -5.3!"]
+	TrigIn3 [shape = point, width=.15, pos = "4.8, -7.3!"]
+	TrigOut1 [shape = point, width=.15, pos = "6.25,-4.5!"]
+	TrigOut2 [shape = point, width=.15, pos = "6.25,-6.5!"]
+	TrigOut3 [shape = point, width=.15, pos = "6.25,-8.5!"]
+	Analog1 [shape = box, pos = "3,-4!"]
+	Analog2 [shape = box, pos = "3,-6!"]
+
+	Trigger1 -> Trigger2 [ dir = "both"]
+	Trigger2 -> Trigger3
+	Trigger1 -> Grab [style="dashed"]
+	Trigger2 -> Grab
+	Trigger3 -> Grab [style="dashed"]
+	PC	-> Trigger1 [label = "USB", fontsize  = 10]
+
+	Timer1	-> Trigger1[dir = both]
+	Timer2	-> Trigger2[dir = both]
+	Timer3	-> Trigger3[dir = both]
+	Trigger1	-> Analog1  
+	Trigger2	-> Analog2
+	TrigIn1 -> Trigger1 [label = "In1", style="dashed"]
+	TrigIn2 -> Trigger2 [label = "In2", style="dashed"]
+	TrigIn3 -> Trigger3 [label = "In3", style="dashed"]
+
+	Trigger1 -> TrigOut1[label = "Out1"]
+	Trigger2 -> TrigOut2[label = "Out2"]
+	Trigger3 -> TrigOut3[label = "Out3"]
+
+	Button1 -> Trigger1 [style="dashed"]
+	Button2 -> Trigger2 [style="dashed"]
+	Button3 -> Trigger3 [style="dashed"]
+
+}

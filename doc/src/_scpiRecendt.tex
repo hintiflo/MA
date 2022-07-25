@@ -1,0 +1,156 @@
+		\begin{longtable}{|l|l|l|l|l|}				\hline
+		Sub-sys				& Parameter		& Value					& Command									& Response 			\\ \hline
+		\redrow	Trigger A	& State			& off|idle|arm|run		& TRIGgerA:STATe	OFF						& <state>|<error>	\\ \hline
+							& State			& 						& TRIGgerA:STATe	IDLE					& <state>|<error>	\\ \hline
+							& State			& 						& TRIGgerA:STATe	ARM						& <state>|<error>	\\ \hline
+							& State			& 						& TRIGgerA:STATe	RUN						& <state>|<error>	\\ \hline
+							& Mode (freerun)& finite				& TRIGgerA:MODE		FINite					& <mode> |<error>	\\ \hline
+							& Mode 			& infinite				& TRIGgerA:MODE		INFinite				& <mode> |<error>	\\ \hline
+							& Input			& USB					& TRIGgerA:INput	USB						& <input>|<error>	\\ \hline
+							& Input			& external input		& TRIGgerA:INput	EXTernal				& <input>|<error>	\\ \hline
+							& Input			& Trigger B				& TRIGgerA:INput	TRIGgerB				& <input>|<error>	\\ \hline
+							& Input			& Trigger C				& TRIGgerA:INput	TRIGgerC				& <input>|<error>	\\ \hline
+							& Input			& Button				& TRIGgerA:INput	BUTTon					& <input>|<error>	\\ \hline
+							& Signal-Rate	& 1.0e-1 ... 125e3		& TRIGgerA:RATE		<freq>					& <time>|<error>	\\ \hline
+							& Signal-Period	& 	8e-6	... 10		& TRIGgerA:PERIod	<time>					& <time>|<error>	\\ \hline
+							& Vector-Size	& 1...250000			& TRIGgerA:SIZE		<size>					& <size>|<error>	\\ \hline
+		%	Sequencer		& -Gener		& 						& TRIGgerA:									& DONE|		\\ \hline
+		\redrow	Trigger B	& State			& off|idle|arm|run		& TRIGgerB:STATe	OFF						& <state>|<error>	\\ \hline
+							& State			& 						& TRIGgerB:STATe	IDLE					& <state>|<error>	\\ \hline
+							& State			& 						& TRIGgerB:STATe	ARM						& <state>|<error>	\\ \hline
+							& State			& 						& TRIGgerB:STATe	RUN						& <state>|<error>	\\ \hline
+							& Mode (freerun)& finite				& TRIGgerB:MODE		FINite					& <mode> |<error>	\\ \hline
+							& Mode 			& infinite				& TRIGgerB:MODE		INFinite				& <mode> |<error>	\\ \hline
+							& Input			& USB					& TRIGgerB:INput	USB						& <input>|<error>	\\ \hline
+							& Input			& External				& TRIGgerB:INput	EXTernal				& <input>|<error>	\\ \hline
+							& Input			& Trigger C				& TRIGgerB:INput	TRIGgerC				& <input>|<error>	\\ \hline
+							& Input			& Button				& TRIGgerB:INput	BUTTon					& <input>|<error>	\\ \hline
+							& Signal-Rate	& 	1.0e-1 ... 125e3	& TRIGgerB:RATE		<freq>					& <time>|<error>	\\ \hline
+							& Signal-Period	& 	8e-6	... 10		& TRIGgerB:PERIod	<time>					& <time>|<error>	\\ \hline
+							& Vector-Size	& 1...250000			& TRIGgerB:SIZE		<size>					& <size>|<error>	\\ \hline
+		%	Sequencer		& -Gener		& 						& TRIGgerB:									& DONE|		\\ \hline
+		\redrow	Trigger C	& State			& off|idle|arm|run		& TRIGgerC:STATe	OFF						& <state>|<error>	\\ \hline
+							& State			& 						& TRIGgerC:STATe	IDLE					& <state>|<error>	\\ \hline
+							& State			& 						& TRIGgerC:STATe	ARM						& <state>|<error>	\\ \hline
+							& State			& 						& TRIGgerC:STATe	RUN						& <state>|<error>	\\ \hline
+							& Mode (freerun)& finite				& TRIGgerC:MODE		FINite					& <mode> |<error>	\\ \hline
+							& Mode 			& infinite				& TRIGgerC:MODE		INFinite				& <mode> |<error>	\\ \hline
+							& Input			& USB					& TRIGgerC:INput	USB						& <input>|<error>	\\ \hline
+							& Input			& External				& TRIGgerC:INput	EXTernal				& <input>|<error>	\\ \hline
+							& Input			& Button				& TRIGgerC:INput	BUTTon					& <input>|<error>	\\ \hline
+							& Signal-Rate	& 	1.0e-1 ... 125e3	& TRIGgerC:RATE		<freq>					& <time>|<error>	\\ \hline
+							& Signal-Period	& 	8e-6	... 10		& TRIGgerC:PERIod	<time>					& <time>|<error>	\\ \hline
+							& Vector-Size	& 1...250000			& TRIGgerC:SIZE		<size>					& <size>|<error>	\\ \hline
+						% 	& Slope			& rising|falling Edge	& TRIGgerC:SLOPe	<POS|NEG>				& DONE|		\\ \hline
+						% 	& Outmode		& pulse|duty			& TRIGgerC:OUTMode	<pulse|duty>			& DONE|		\\ \hline
+						% 	& Outpulse		& pulse|duty			& TRIGgerC:OUTPulse	<time>					& DONE|		\\ \hline
+						% 	& OutSlope		& rising|falling Edge	& TRIGgerC:OUTSLope	<POS|NEG>				& DONE|		\\ \hline
+		%	Sequencer		& -Gener		& 						& TRIGgerC:									& DONE|		\\ \hline
+		\redrow	Source-A	& Mode			& triggered				& SOURceA:MODE			TRIGgered			& <mode>|<error> 	\\ \hline
+							& Mode			& detached				& SOURceA:MODE			DETached			& <mode>|<error> 	\\ \hline
+							& Mode			& singleshot			& SOURceA:MODE			SINGleshot			& <mode>|<error> 	\\ \hline
+							& Function		& Ramp					& SOURceA:FUNCtion:SHAPe 	RAMP	 		& <func>|<error>	\\ \hline
+							& Function		& 		Arbitrary		& SOURceA:FUNCtion:SHAPe 	ARBitrary 		& <func>|<error>	\\ \hline
+							& Symmetry		& 0 ... 100 			& SOURceA:RAMP:RATIO 	<ratio> 			& <ratio>|<error> 	\\ \hline
+							& Arb load		& -						& SOURceA:ARBitrary:LOAD 					& <count>|<error>	\\ \hline
+							& Arb val		& $\pm$10.000			& SOURceA:ARBitrary:VALUe <idx, val>		& <idx, val>|<error>\\ \hline
+							& Amplitude		& 0.000...20.000		& SOURceA:FUNCtion:AMPlitude <ampl>			& <ampl>|<error>	\\ \hline
+							& Offset		& $\pm$10.000			& SOURceA:FUNCtion:OFFset <offs>			& <offs>|<error>	\\ \hline
+							& High			& $\pm$10.000			& SOURceA:FUNCtion:HIgh <high>				& <high>|<error>	\\ \hline
+							& Low			& $\pm$10.000			& SOURceA:FUNCtion:LOw <low>				& <low>|<error> 	\\ \hline
+							& Constant		& $\pm$10.000			& SOURceA:VOLTage:LEVel	<volts>				& <volts>|<error> 	\\ \hline
+							& Timeout		&  1...1000ms		 	& SOURceA:PULSe:WIDth		<time>			& <time>|<error> 	\\ \hline
+						% 	& ReadVec		& -						& SOURceA:ARBitrary:READ					& all vector values \\ \hline
+		\redrow	Source-B	& Mode			& trig|det|single		& SOURceB:MODE			TRIGgered			& <mode>|<error> 	\\ \hline
+							& Mode			& trig|det|single		& SOURceB:MODE			DETached			& <mode>|<error> 	\\ \hline
+							& Mode			& trig|det|single		& SOURceB:MODE			SINGleshot			& <mode>|<error> 	\\ \hline
+							& Function		& Ramp					& SOURceB:FUNCtion:SHAPe 	RAMP	 		& <func>|<error>	\\ \hline
+							& Function		& Arbitrary				& SOURceB:FUNCtion:SHAPe 	ARBitrary 		& <func>|<error>	\\ \hline
+							& Symmetry		& 0 ... 100 			& SOURceB:RAMP:RATIO 	<ratio> 			& <ratio>|<error> 	\\ \hline
+							& Arb load		& -						& SOURceB:ARBitrary:LOAD 					& <count>|<error>	\\ \hline
+							& Arb val		& $\pm$10.000			& SOURceB:ARBitrary:VALUe <idx, val> 		& <idx, val>|<error>\\ \hline
+							& Amplitude		& 0.000...20.000		& SOURceB:FUNCtion:AMPlitude <ampl>			& <ampl>|<error>	\\ \hline
+							& Offset		& $\pm$10.000			& SOURceB:FUNCtion:OFFset <offs>			& <offs>|<error>	\\ \hline
+							& High			& $\pm$10.000			& SOURceB:FUNCtion:HIgh <high>				& <high>|<error>	\\ \hline
+							& Low			& $\pm$10.000			& SOURceB:FUNCtion:LOw <low>				& <low>|<error> 	\\ \hline
+							& Constant		& $\pm$10.000			& SOURceB:VOLTage:LEVel	<volts>				& <volts>|<error> 	\\ \hline
+							& Timeout		&  1...1000ms		 	& SOURceB:PULSe:WIDth		<time>			& <time>|<error> 	\\ \hline
+						% 	& ReadVec		& -						& SOURceB:ARBitrary:READ					& all vector values \\ \hline
+		% \redrow	Misc.		& 				& 						& 											&  					\\ \hline
+			Relays			& Galvo			& close|open|read		& ROUTe:<CLOSe|OPEN|STATE?> GAL				& <state>|<error>	\\ \hline
+							& SLD			& close|open|read		& ROUTe:<CLOSe|OPEN|STATE?> SLD				& <state>|<error>	\\ \hline
+							& AIM			& close|open|read		& ROUTe:<CLOSe|OPEN|STATE?> AIM				& <state>|<error>	\\ \hline
+							& CAM			& close|open|read		& ROUTe:<CLOSe|OPEN|STATE?> CAM				& <state>|<error>	\\ \hline
+						% 	& Sense			& read state			& ROUTe:STATE?	GAL|SLD|AIM|CAM				& <state>|<error>	\\ \hline
+						% 	& close			& close Relay			& ROUTe:CLOSe	GAL|SLD|AIM|CAM				& <state>|<error>	\\ \hline
+						% 	& open			& open Relay			& ROUTe:OPEN	GAL|SLD|AIM|CAM				& <state>|<error>	\\ \hline
+			I2C				& mode			& OFF					& I2C::MODE OFF								& <mode>|<error>	\\ \hline
+							& mode			& USB					& I2C::MODE USB								& <mode>|<error>	\\ \hline
+							& mode			& slave-action			& I2C::MODE SLAVeaction						& <mode>|<error>	\\ \hline
+							& write			& 0 ... 255				& I2C::WRITe <val>							& <val>|<error> 	\\ \hline
+							& read			& 0 ... 255				& I2C::READ									& <val>|<error> 	\\ \hline
+			UART			& mode			& OFF					& UART:MODE OFF								& <mode>|<error> 	\\ \hline
+							& mode			& USB					& UART:MODE USB								& <mode>|<error> 	\\ \hline
+							& mode			& slave-IRQ				& UART:MODE SLAVeaction						& <mode>|<error> 	\\ \hline
+							& write			& 0 ... 255				& UART:WRITe <val>							& <val>|<error>		\\ \hline
+							& read			& 0 ... 255				& UART:READ									& <val>|<error> 	\\ \hline
+			DIO				& mode			& OFF			 		& DIGIO:MODE OFF							& <val>|<error>		\\ \hline
+							& mode			& input			 		& DIGIO:MODE IN								& <val>|<error>		\\ \hline
+							& mode			& output 				& DIGIO:MODE OUT							& <val>|<error>		\\ \hline
+							& write			& 0 .. 65535			& DIGIO:WRIte <val>							& <val>|<error>		\\ \hline
+							& read			& 0 .. 65535			& DIGIO:READ								& <val>|<error>		\\ \hline
+			AnalogIN		& mode			& OFF					& ANAlog0|1|2|3:MODE OFF					& <val>|<error>		\\ \hline
+							& mode			& USB					& ANAlog0|1|2|3:MODE USB					& <val>|<error>		\\ \hline
+							& mode			& triggered				& ANAlog0|1|2|3:MODE TRIGA					& <val>|<error>		\\ \hline
+							& mode			& triggered				& ANAlog0|1|2|3:MODE TRIGB					& <val>|<error>		\\ \hline
+							& mode			& triggered				& ANAlog0|1|2|3:MODE TRIGC					& <val>|<error>		\\ \hline
+							& read			& 0 ... 4095			& ANAlog0|1|2|3:READ						& <val>|<error>		\\ \hline
+		\redrow System		& CRCmode		& OFF					& SYStem:CRC16 OFF							& <state>|<error>	\\ \hline
+							& CRCmode		& on					& SYStem:CRC16 ON							& <state>|<error>	\\ \hline
+							& ShutDown 		& -						& SYStem:POWerdown							& POWD|<error>	\\ \hline
+							& ListSCPI 		& -						& SYStem:LISt								& <list>|<error>	\\ \hline
+							& RESEt 		& -						& SYStem:RESEt								& RESE|<error>		\\ \hline
+							& RESTart 		& -						& SYStem:RESTart							& REST|<error>	\\ \hline
+							& Verbosity		& OFF					& SYStem:VERBose OFF						& <mode>|<error>	\\ \hline
+							& Verbosity		& on					& SYStem:VERBose ON							& <mode>|<error>	\\ \hline
+							& Watchdog		& OFF					& SYStem:WATchdog OFF						& <mode>|<error>	\\ \hline
+							& Watchdog		& on					& SYStem:WATchdog ON						& <mode>|<error>	\\ \hline
+							& Time			& 1...1000ms			& SYStem:WATchdog <time>					& <time>|<error>	\\ \hline
+			% Encoder		& 	opt. 		& 						& 												& 		& 		\\ \hline
+			% Stepper		& 	opt. 		& 						& 												& 		& 		\\ \hline
+		\caption{OCTane USB-Protocol, commands}
+			\end{longtable}
+
+		% \begin{table}[h!]
+			\centering
+			\begin{longtable}{|l|l|l|l|l|l|}
+			% \begin{tabular}{|p{1.6cm}|l|l|l|l|l|}
+			\hline
+
+
+		Sub-sys					&  Parameter	 	& possible messages	& occurence 						& 			&  \\ \hline
+		\redrow	Trigger A|B|C	&  State	 		& TrigX idling|armed|running& sent on every state change 		& 			& 	\\ \hline
+				Trigger A|B|C 	& Input				& -200				& error, if button in use			& 			& 	\\ \hline
+				Trigger A|B|C 	& Signal-Rate		& -200				& error, if out-of-range			& 			& 	\\ \hline
+				Trigger A|B|C 	& Signal-Period		& -200				& error, if out-of-range			& 			& 	\\ \hline
+				Trigger A|B|C 	& Vector-Size		& -200				& error, if out-of-range			& 			& 	\\ \hline
+		\redrow	Source A|B		& Arb load	 		& -200				& error, if not in Arb-mode			& 			& 	\\ \hline
+				Source A|B		& Arb val	 		& VectorX complete	& if sufficient amount of values was sent	& 			& 	\\ \hline
+				Source A|B		& Arb val	 		& -200				& error, if out-of-range			& 			& 	\\ \hline
+				Source A|B		& Arb val	 		& -200				& error, if exeeds vector-size		& 			& 	\\ \hline
+				Source A|B		& Symmetry	 		& -200				& error, if out-of-range			& 			& 	\\ \hline
+				Source A|B		& Amplitude			& -200				& error, if out-of-range			& 			& 	\\ \hline
+				Source A|B		& Offset			& -200				& error, if out-of-range			& 			& 	\\ \hline
+				Source A|B		& High				& -200				& error, if out-of-range			& 			& 	\\ \hline
+				Source A|B		& Low				& -200				& error, if out-of-range			& 			& 	\\ \hline
+				Source A|B		& Constant			& -200				& error, if out-of-range			& 			& 	\\ \hline
+				Source A|B		& Timeout			& -200				& error, if out-of-range			& 			& 	\\ \hline
+
+		\redrow	AIN 			& input value		& AINx: <value>		& sent on every corresp. Trigger	& 			& 	\\ \hline
+				DIN 			& input value		& DIN: <value>		& sent on every DIO:READ-Command	& 			& 	\\ \hline
+				UART 			& input value		& UART: <value>		& sent on every corresp. Trigger	& 			& 	\\ \hline
+				I2C 			& input value		& I2C: <value>		& sent on every corresp. Trigger	& 			& 	\\ \hline
+		\caption{OCTane USB-Protocol, responses}
+		\label{USB-Protocol-responses}
+		\end{longtable}
+		% \end{table}

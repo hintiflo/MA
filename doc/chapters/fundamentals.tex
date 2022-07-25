@@ -3,6 +3,12 @@
 	\section{Motivation}
 The areas of applications for microcontrollers, as well as the complexity of their software continues to grow. Also the demands towards correct and reliable function of those systems increase accordingly. Therefore software development requires significantly more effort than development of the corresponding hardware. As the lifespan of a software surpasses that of the corresponding hardware, these efforts becomes a sensible investment. To obtain the most value from that software-product, it has to fulfil certain quality measures. Neglecting these quality aspects would lead to an unjustifiable amount of work necessary for maintenance, when the product is already in service. Examinations of the dynamics of software development indicate, that, the later in a project lifecycle, changes become necessary, the higher the expenses. The worst case scenario: errors are induced in the implementation, persist unnoticed through testing and verification. Finally, this errors appear as faults in operation at the customer site. Furthermore, if the project suffers from lazy documentation and insufficient structure, identifying these errors and correcting them becomes even more expensive. The increasing complexity of nowadays software further escalates the problem. An even worse phenomenon can arise: Insufficient understanding of a faulty piece of software can lead to introducing even more errors with additional code, that is actually intended to fix a bug. Especially when poor structuring masks hidden dependencies between modules. A general rule of thumb is: The earlier an error originates, for example in the phase of gathering requirements, the more extensive changes are necessary, later on. In other words: The earlier an error is originates and the later it emerges, the more expensive are its consequences. Pursuing a sufficient quality level from the beginning of the project, significantly reduces waste of money, hours and enthusiasm on unnecessary maintenance. It may also substantially increase the customers approval.
 
+\TODO{Beizer-Zitat, citen:	In the significant book Software Testing Techniques [2], which contains the most complete catalog of
+testing techniques, Beizer stated that “the act of designing tests is one of the most effective bug
+preventers known,” which extended the definition of testing to error prevention as well as error
+detection activities. This led to a classic insight into the power of early testing. }
+
+
 The described problems have suitable solutions. Applying the appropriate methods, implemented software can become reliable, easy to change, inexpensive to maintain and allow a more intuitive understanding. Distinguishable into two categories, these methods are either analytical or constructive. \\
 Best practice is to apply a circular combination of constructive and analytical methods. Constructive methods alone assist in preventing errors, but do not guarantee their absence. Analytical methods are capable of demonstrating the absence of errors, but not their prevention. Therefore a large amount of preventable errors might emerge, by exclusively applying analytical methods. The combined use consists of constructive methods during every phase of a development project, and assessing the intermediate results with analytical methods by the end of each phase. This process is called the "principle of integrated quality assurance" \cite{Liggesmeyer2002}. If the intermediate results do not meet the arranged quality criteria, the current state of the project does not reach the next phase, but remains in the extended current phase. This implies, that the current state of the product requires further development, until it fulfils all necessary quality criteria. This phase- and quality driven conduct, supports the development team in detection of errors at an early point and their removal at reasonable effort. Ideally, developers detect and eliminate all errors in the by the end of the same phase, where theses errors originate. This furthermore helps in minimizing the number of errors in a product over several phases. \\
 The described process makes it evident, that testing only a finished product is no sufficient way of ensuring high quality. Already the first intermediate result requires examination for deviations from the quality goals. Upon detection of deviations, measures have to be taken for correction at an early stage. Also an integration of constructive and analytical quality measures significantly improves the development process. While constructive methods are most helpful during the implementation activities of a phase, the corresponding assessment benefits primarily from analytical measures. \\
@@ -16,7 +22,7 @@ While hardware quality assurance often results in quantitative results, this is 
 	
 	\section{Terminology and Definitions of Terms}
 	To clarify regularly used terms, here are definitions in accordance with either \cite{Kopetz1997} or \cite{Liggesmeyer2002}
-	\subsection{Quality, Quality Requirements, Quality Features, Quality Measures}
+	\subsubsection{Quality, Quality Requirements, Quality Features, Quality Measures}
 		\begin{itemize}
 		\item Quality, according to the standard 'DIN 55350 - Concepts for quality management', is defined as: The ability of a unit, or device, to fulfil defined and derived quality requirements.
 		\item Quality requirements describe the aggregate of all single requirements regarding a unit or device.
@@ -26,7 +32,7 @@ While hardware quality assurance often results in quantitative results, this is 
 	
 	\bildGr{b!}{ErrorFaultFailure.pdf}{Causal chain}{ErrorFaultFailure}{0.5\textwidth}
 
-	\subsection{Error, Failure, Fault}
+	\subsubsection{Error, Failure, Fault}
 	\begin{minipage}{\linewidth}
 	\begin{itemize}
 		\item {Error}, the root cause of a device or unit to fail, may originate from operation outside the specification, or from human mistakes in the design.
@@ -37,11 +43,11 @@ While hardware quality assurance often results in quantitative results, this is 
 	\end{itemize}
 	\end{minipage}
 	
-	\subsection{Correctness}
+	\subsubsection{Correctness}
 		{Correctness} is the binary feature of a unit or device, loosely described as 'the absence of failures'. A more specific description would be, that a correct software operates consistent to its specification. This implies, that no conclusion about correctness is possible, without an existing specification.
-	\subsection{Completeness}
+	\subsubsection{Completeness}
 		{Completeness} describes, that all functionalities, given in the specification are implemented. This includes normal intended operation, as well as the handling of error-states. It is a necessary, but not a sufficient criterion for correctness.
-	\subsection{Testability}
+	\subsubsection{Testability}
 	{Testability} describes the property of a unit, to include functionality dedicated only to facilitate the verification of that unit. Supporting concepts include the \\
 	% \begin{minipage}{\linewidth}
 	\begin{itemize}
@@ -53,14 +59,14 @@ While hardware quality assurance often results in quantitative results, this is 
 
 	The aggregate of these concepts is called {\bf design-for-testability}.
 	Generally, time-triggered units support testability to a higher degree, than event-triggered systems.
-	\subsection{Safety and Security}
+	\subsubsection{Safety and Security}
 	% \begin{minipage}{\linewidth}
 	\begin{itemize}
 		\item {\bf Safety} means, that a unit is fit for its intended purpose and provides reliable operation within a specified load- and fault-hypothesis.
 		\item {\bf Security}, though, is the resistance of unit against malicious and deliberate misusage.
 	\end{itemize}
 	% \end{minipage}
-	\subsection{Reliability}
+	\subsubsection{Reliability}
 	{Reliability} is a dynamic property, giving the probability, that a unit is operational after given time {\bf t}.
 		\begin{align*}
 		\textrm{Reliability ...} \quad R(t) & = e^{-\lambda (t-t_o) }\\
@@ -68,18 +74,18 @@ While hardware quality assurance often results in quantitative results, this is 
 		\end{align*}
 	An exponential function, decaying from 100\% at time = t0, where a unit was known to be operating. $\lambda$ is the failure rate with dimension 'failures/h'
 	
-	\subsection{Maintainability}
+	\subsubsection{Maintainability}
 	{Maintainability} is the probability, that a system is repaired and functioning again within a given time after a failure. Note that this includes also the time required to detect the error.
 	A quantified measure for it is the mean-time-to-repair (MTTR).
-	\subsection{Availability}
+	\subsubsection{Availability}
 	{Availability} combines reliability and maintainability into a measure, giving the percentage of time, a unit is operational, providing full functionality.
 		\begin{align*}
 	\textrm{Availability ...} \quad A & = \frac{MTTF}{MTTF + MTTR}
 		\end{align*}
 	It is apparent, that a low time-to-repair and a high time-to-failure leads to high availability.
-	\subsection{Robustness}
+	\subsubsection{Robustness}
 		Robustness is actually a property of the specification and requirements. While correctness rates, how far the implemented software complies with the specification, it correct software still might fail in critical situations, that are not covered in the specification. Therefore, to achieve robustness, the specifications have to be examined and ensured, that all critical situations are covered and the expected behaviour of the device under these conditions is defined.
-	\subsection{Dependability}
+	\subsubsection{Dependability}
 	{Dependability} finally, is composed of sufficiently fulfilled levels of \\
 		% \begin{minipage}{\linewidth}
 		\begin{itemize}
@@ -125,7 +131,7 @@ While hardware quality assurance often results in quantitative results, this is 
 	\end{table}
 	While output classes are much less common in everyday programming, their importance shall not be neglected: Identical inputs might very well result in different outputs, depending on varying side-effects, that have influence on the inspected unit. This has to be accounted in separate equivalence classes for expected outputs.
 	
-	Following this first steps of partitioning, the resulting classes shall further be separated into sub-classes that take into account distinction of cases within a module, where data might travel several different paths or branches of the source code. This step is only possible in a white-box-scenario, as it affords direct inspection of the source-code. While demanding additional effort, this allows to examine also rather hidden corners of the source-code, that otherwise might go unnoticed and possibly mask hidden errors.
+	Following this first steps of partitioning, the resulting classes shall further be separated into sub-classes that take into account distinction of cases within a module, where data might travel several different paths or branches of the source code. This step is only possible in a white-box-scenario, as it requires direct inspection of the source-code. While demanding additional effort, this allows to examine also rather hidden corners of the source-code, that otherwise might go unnoticed and possibly mask hidden errors.
 
 	Some examples demonstrate the correct application of the described method:
 	
@@ -162,50 +168,283 @@ While hardware quality assurance often results in quantitative results, this is 
 		\item	$\rightarrow$ valid classes: +10V, +9.99V, -10V, -9.99V, 0V, +0.01V, -0.01V \\
 		\item	$\rightarrow$ invalid classes: +10.01V, -10.01V \\
 	\end{itemize}
-	Every value has to applied via a separate testcase, to alleviate which values cause problems, in case of failing tests. \\
+	Every value has to be applied via a separate testcase, to alleviate which values cause problems, in case of failing tests. \\
 	Boundary value analysis and equivalence class partitioning are closely related and often mentioned in unison, nevertheless, their separate description in this chapter is intended to specify their different applications.
 		
-	\subsection{State Based Testing}
+	% \subsection{State Based Testing}
 
 	% Darauf hat PlagAware angeschlagen, engl Präs vom Ligges:
 	% technodocbox.com/C_and_CPP/94907983-Software-quality-assurance-dynamic-test.html
 	
 
-	
+\pagebreak	
+	% von Josef abgesegnet
 	\section{Coverage Metrics}
-	Quality metrics concerning the control structure and control flow of a program are vital aspect of software quality. They deliver insight into a piece of software by either, demonstrating correct behaviour, or by revealing errors. Code coverage represents a prominent set of such metrics. The term refers to the amount of source code, the program executes and therefore 'covers', during testing. Covered code delivers results that require assessment of their correctness against a specification, while uncovered code requires additional test cases ensuring coverage of those areas. Code coverage allows the combination with other test techniques, that describe the generation of those test cases, because code coverage does not specify rules for that.
-
-	Code coverage belongs to the group of dynamic test techniques, and concerns itself with the structure of software. Including the mentioned control aspects, code coverage belongs to the class of control-flow-oriented and structure-oriented dynamic test techniques. It primary applies in testing modules and units, thus 'testing on a small scale'. On the level of integration-tests, coverage has valid applications and is rather common among developers. There is contradicting literature, whether or not code coverage is a suitable technique on a system level of testing (see \cite{Tian2005} vs. \cite{Liggesmeyer2002} ) \\
+	Code coverage belongs to the group of dynamic testing techniques, and concerns itself with the structure of software. It is part of the class of control-flow and structure-oriented dynamic testing techniques. The primary application of this white-box technique lies in testing modules and units, thus 'testing on a small scale'. On the level of integration-tests, coverage has valid applications and is rather common among developers. There is contradicting literature, whether or not code coverage is a suitable technique on a system level of testing (see \cite{Tian2005} vs. \cite{Liggesmeyer2002} ) \\
+	The term 'coverage' refers to the amount of source code, a program executes and therefore 'covers', during testing. Covered code delivers results that require assessment of their correctness against a specification. Uncovered code requires additional test cases ensuring coverage of those areas. Code coverage allows the combination with other test techniques, that describe the generation of those test cases, because code coverage does not specify rules for that. \\
  	
-	Several different forms of coverage exist:
+	The following list shows control-flow-oriented techniques, relevant for this thesis:
 	\begin{itemize} \setlength\itemsep{1px}
-	\item statement coverage
-	\item decision coverage (branch coverage)
-	\item condition coverage
-	\item path coverage
-	\item partition coverage
-	\item state and transition coverage
-	\end{itemize}
+		\item Statement coverage
+		\item Branch or decision coverage
+		\item Basic condition coverage
+		\item Condition/decision coverage
+	\item Boundary-interior coverage, structured path test
+		\item Modified condition/decision coverage (MCDC)
+		\item Modified boundary-interior test
+		\item Path coverage
+		\item Multiple condition coverage
+	% \item ( State and transition coverage ) % Tian S.153
+		\item Mutation analysis \\
+	\end{itemize} 
+
+	Fig. ~\ref{SubsumptionHierarchy01} demonstrates the implicative relations of the coverage types in aforementioned list. For example, complete decision coverage implies	full statement. Multi-Condition and path coverage on the other hand have no relevant relation to each other and both constitute the strongest coverage metric in their own aspect. \\
 	
-	Statement coverage refers to single lines of code and the percentage of their execution.
+	\bildGr{h!}{CoverageSubsumption.pdf}{Subsumption Hierarchy  \cite{Liggesmeyer2002}}{SubsumptionHierarchy01}{0.49\textwidth}
+	% \bildGr{h!}{CoverageSubsumption.png}{Subsumption Hierarchy}{SubsumptionHierarchy02}{0.75\textwidth}
+
+	Statement coverage is the most basic metric and only requires to execute every line of code, existing in the code under test. A sufficient amount of test-cases should always achieve 100\% statement coverage, otherwise 'unreachable' code sections indicate design-flaws. \\
 	
+	Branch or decision coverage indicates, if a program executes all branches. It subsumes statement coverage and extends the concept, in that, every decision in the source code must evaluate to true and false. A decision is possibly composed of multiple elementary or atomic conditions. \\
 	
+	Basic condition coverage indicates, if all elementary conditions evaluate to both possibilities. It requires, that in compound decisions, every elementary condition separately results to true and false.  \\
+
+	Condition/decision coverage consists of all requirements from basic condition coverage and branch or decision coverage combined. It is a relevant metric in case of complete evaluation of compound decisions, in contrast to short-circuit evaluation. It subsumes statement, branch or decision and basic condition coverage. \\
 	
+	Boundary-interior coverage is a metric for the sufficient testing of loops, while the structured path test describes, how to design corresponding test-cases. It requires separate test-cases that enter a loop, with (interior) and without (boundary) incrementing it.	Because of these special requirements, it cannot be subsumed by previous metrics. Therefore, it resides in a separate branch of the hierarchy-tree in fig. ~\ref{SubsumptionHierarchy01}. \\
+
+	Modified condition/decision coverage (MC/DC) is a refinement of condition/decision coverage. It requires every elementary condition to result in true and false. Additionally, it  demonstrates the impact on the compound decision, separately for every elementary condition. 	\\
+
+	The modified boundary-interior test is similar to the structured path test, but requires separate test-cases for every loop, especially nested loops. Paths, that execute a loop and vary in the execution of nested loops, count as one path. Paths that only vary outside the examined loop do not require separate consideration. Finally it explicitly requires complete branch coverage, regardless of the previous rules. \\
+
+	Path coverage refers to the execution of all possible paths, present in the code under test. It is the strongest requirement towards evaluation of program-flow and subsumes boundary-interior coverage as well as the modified boundary-interior test.  \\
+
+	% bis hierher von Josef abgesegnet
+
+	Multiple condition coverage extends basic condition coverage, by imposing the strongest requirement towards compound decisions: Every possible result of one elementary condition, true or false, has to be combined with every possible result of every other elementary condition. \\
+
+	% \item Partition coverage
+	% State and transition coverage indicates which states and transitions a given finite state machine executes.  \\ % Tian S.153
+
+	Mutation analysis deliberately manipulates the code under test to demonstrate, whether the present test-cases detect these changes. It is an auxiliary method to assess capabilities of test-cases, though not a type of coverage itself. \\
+
+	The major similarity of all coverage types, is the intention to indicate the completeness of the code under test, albeit with regards to different aspects. Also, they all strive to execute all possible variants of decisions, branches and parameter spaces. This aims to reveal all possible errors, as software under execution will either show the intended or divergent behaviour. In the latter case, measures to eradicate found errors during development are necessary. A lack of coverage indicates insufficient testing, while not every metric allows to achieve 100\% coverage in practicable time. Adding test-cases is a feasible way to improve coverage. Branches, decisions or statements, that no sensible test-case can reach, suggest a flaw in the software design. \\
+
 	% Limitations:
-	The most prominent limitation of any type of coverage lies in the aspect, that it can exclusively test, what is implemented: Coverage can not reveal functionalities, that are part of the Specification, but do not have an Implementation.
+	The most prominent limitation of any type of coverage lies in the aspect, that it can exclusively test, what is implemented: Coverage can not reveal functionalities, that are part of the Specification, but do not have an Implementation. \\	
+	\TODO{06.07.2022}
+	Furthermore, the higher ranking a type of coverage, the more difficult it becomes, to achieve complete coverage. In this context, a higher level in fig. ~\ref{SubsumptionHierarchy01}  indicates a higher ranking coverage. While a complete statement coverage is a minimal criterion for sufficiently testing a program, same is not the case for the more complex types of coverage. \\
+	% \TODO{wo absatz?}
+	In many cases it is neither possible nor necessary, to test every path or combination of conditions. Nonetheless, In these situations, the according coverage metric is useful in pointing out 'unreachable' states of the program. It is then upon the developer to interpret the coverage report. If it indicates a design flaw, changes to the program are necessary. If the report points out states in the program that are reliably unreachable, neither during testing, nor during execution, the responsible developer may decide these states to be 'not worthy of testing'. Nevertheless, this requires to profoundly argue such a decision, communicate it all affected team-members and documented it. Lastly, reports of uncovered states can be useful as hints, to construct complexer test-cases to also cover these states. \\
+
+
+	The basis for all control-flow oriented tests is the control-flow graph. Fig. ~\ref{ctrlFlowExamp} shows an example of a simple function, containing a loop and an if-condition. This graphical representation visualizes, in an intuitive way, which paths can be traversed during execution of a delimited piece of code. To maintain clarity in the resulting image, a single graph should only visualize small parts of a program, typically a single function. Larger amounts of code rapidly lead to overwhelmingly complex control-flow graphs. This type of graph is able to represent any program, written in an imperative programming language. \\
+	% \TODO{gprof, cflow, cally oder egypt konnen da helfen}
 	
-	obsolete:
-	This chapter describes dynamic testing techniques that assess the completeness of the test based on the coverage of the software source code. Coverage describes the amount of source code, that is executed during testing of the examined software. Therefore, they are referred to as structure-oriented testing techniques. The techniques described are based on the control structure or the control flow of the software to be tested. For this reason one speaks of control flow-oriented, structure-oriented test techniques. This group of test techniques is of great practical importance. This applies in particular to their use in module testing, the so-called 'testing on a small scale'. The group of control flow oriented testing techniques is well supported by test tool vendors. In addition, there are accepted minimum criteria in the field of control flow-oriented tests that should be considered in terms of an adequate test. A as minimal, the so-called branch coverage test is a necessary acceptance test procedure. In particularly critical areas of application, relevant standards require more extensive tests, for example a so-called condition coverage test. Certain control-flow-oriented test techniques are of such a fundamental nature that an examination that does not use these techniques, particularly in the module test, must be rated as insufficient.	
+	\bildGr{h!}{ctrlFlowExamp}{exemplary control flow graph of a looped function }{ctrlFlowExamp}{0.35\textwidth}
+	The following sections offer more detailed descriptions of coverage metrics.
+	% \TODO{07.07.2022}
+	\subsection{Statement Coverage Test}
+	The basic control flow oriented test method is the statement coverage, also known by the abbreviation C$_0$. It aims to execute every statement, or line of code, at least once. Regarding the control flow graph, this means to execute every node of the graph. The definition of this metric is the amount of executed code versus the amount of existing code:
+		\begin{align*}
+		C_0 = \frac{\textrm{number of executed statements}}{\textrm{number of statements}}
+		\end{align*}
+	Usually, coverage reports state this and similar metrics in percent. 100\% or complete statement coverage denotes the execution of every line of code at least once. One obvious benefit lies in the immediate detection of non-executable code sections, also known as 'dead code'. Another benefit lies in revealing possible errors, present in the tested code: Incomplete statement coverage encourages a developer to add test-cases, to execute and test also the remaining areas of code. If their execution triggers an existing error, this error becomes apparent by causing either faulty output or even a crash of the program. And only after an error becomes apparent, a developer can apply counter-measures against it. \\
+	This ability of the statement coverage is limited to errors, that are sensitive to execution, regardless of input. This metric only requires to execute code and doe not specify, which input values to apply. \GREY{Furthermore, conditional execution has only minor impact on statement coverage.} \\
+	% The Boundary Value Analysis is a useful method to specify comprehensive sets of input values. \\
+	In general, statement coverage is usually a by-product of other coverage metrics and not determined via an independent test procedure, because many other coverage metrics imply the statement metric. Nevertheless, as basis for most higher-level coverage metrics, statement coverage is still worth studying and understanding. Because of the inherent shortcomings, it is a necessary, but not sufficient metric for adequate software testing. \\
+	\subsection{Branch or Decision Coverage Test}
+	% conditional
+	The branch coverage, also called decision coverage, concerns itself with the conditional execution of code. It is a more advanced method than the statement coverage and represents the minimum criterion in control-flow oriented testing. Again, regarding the control flow graph, this means to traverse every edge of the graph. \\ Obviously, statement coverage does not guarantee the execution of every branch, as nodes may have multiple edges leading to and from them. The example in fig. ~\ref{ctrlFlowExamp} contains an edge to the very right, that would require traversal for branch coverage, but may be ignored by statement coverage. The alternative label 'decision coverage' refers to the inherent requirement, that every decision must at least once result to 'true' or 'false'. \\
+	Branch coverage goes by the abbreviation $C_1$ and measures the amount of executed branches versus the amount of existing branches, again in percent.
+		\begin{align*}
+		C_1 = \frac{\textrm{number of executed branches}}{\textrm{number of branches}}
+		\end{align*} \\
+	% https://www.cs.odu.edu/~zeil/cs333/website-s12/Lectures/wbtesting/pages/gcov-branch.html
+	% gcov flags:
+	  % -b, --branch-probabilities
+	  % -c, --branch-counts	
+	Based on its definition, branch coverage is able to quantify the execution of branches and draw conclusions upon the resulting categories. \\
+	\begin{itemize} \setlength\itemsep{1px}
+	\item not executed branches
+	\item seldom executed branches
+	\item often executed branches \\
+	\end{itemize} 
+
+	On the one hand, not executed branches may turn out to be unnecessary, signify a design error and could be eliminated. On the other hand, it can indicate, that preconditions to reach a branch are difficult to generate via test-cases. The test report may then contain hints towards the design of suitable test-cases. Often executed branches represent candidates for optimization. Speeding up code, that is run very often is, obviously, more beneficial, than optimizing code that executes rather seldom. \\
+
+	Drawbacks of branch coverage contain insufficient assessment of loops, as this metric only requires to execute a loop-body once, regardless of loop-counters. Also not all possible combinations of edges within the control-flow graph have to be traversed. This may hide errors that would emerge only upon traversal of very specific execution paths. These special paths are not necessarily contained in test-cases, that would otherwise suffice for branch coverage. Furthermore, compound decisions are not reviewed in detail.
+	% \TODO{08.07.2022}
+	\subsection{Basic Condition Coverage Test}
+	The next more sophisticated metric is the (Basic) Condition coverage. It extends the concept of branch coverage, by closer examination of compound or composite decisions. Fig. ~\ref{compDecision} gives an example of such a decision. 
 	
-
-	\subsection{Properties and Goals }
-
-	Because control flow-oriented test techniques belong to the group of structure-oriented test techniques, they have their respective advantages and disadvantages. Test completeness is assessed based on coverage of the control structure or control flow. A corresponding specification is required for the assessment of the expenditure. Like all structure-oriented test techniques, control flow-oriented test techniques do not define any rules for the generation of test cases. It is only important that the test cases cause corresponding coverage in the structure. This degree of freedom in test case generation is extremely important, as it allows other test case generation techniques to be combined with structure-oriented testing techniques.
-
-	The most important area of application of the control flow-oriented test techniques is the unit test. Control flow-oriented test techniques can still have a certain importance in integration testing, while they are not used in system testing. Control flow oriented testing techniques look at the structure of the code. In particular, aspects of the processing logic that are represented in the software as instructions, branches, conditions, loops or paths are considered. The disadvantage is that this approach is blind to omission errors in the software. Unrealized but specified functions are only recognized by chance, there is no code to test for these functions.
-
-	The test basis is the so-called control flow graph. The control flow graph can be created for any program implemented in an imperative programming language. For this reason, the control flow-oriented test techniques can be applied equally to all programs created in an imperative language via the representation of a software module to be tested as a control flow graph. Tools to support control flow-oriented testing techniques usually generate control flow graphs, as portrayed in fig. ~\ref{ctrlFlowExamp}, and use them to represent the test results.
+		% \bildGr{h!}{compDecision}{compound decision}{compDecision}{0.75\textwidth}
+		\bildGr{h!}{compDecision01}{compound decision}{compDecision}{0.75\textwidth}
 	
-	\bildGr{h!}{ctrlFlowExamp}{exemplatory control flow graph of a looped function }{ctrlFlowExamp}{0.5\textwidth}
+	Condition coverage requires every separate elementary decision to result in 'true' and 'false', while branch coverage demands this only for the complete decision. In particular, condition coverage demands, that 
+	\begin{itemize} \setlength\itemsep{1px}
+		\item \lstC |	strPtr != NULL 		|
+		\item \lstC | 	isObsolete(strPtr)	| and
+		\item \lstC | 	isValid(strPtr) )	|
+	\end{itemize}
+	have to result to 'true' and 'false', independently. \\
 
+	In the usual case of short-circuit evaluation, the if-condition can possibly leave out execution of second or third arguments at all. In the given case, the subroutine \lstC ! isOsbolete(strPtr) ! is not guaranteed to undergo execution, would it be not deliberately required by condition coverage. The developer might force the compiler to abstain from short-circuit evaluation and therefore achieve the execution of every single argument. Nevertheless, the thorough way, is to design separate test-cases, aiming for the examination of elementary conditions. This is because during debugging, separate test-cases indicate the source of failure within a compound decision more specific, than just one test-case for the whole decision. Furthermore, complete evaluation would prevent condition coverage, to completely subsume branch coverage, according to \TODO{Tian oder Tai oder KALKOV ?}
+	% MIKHAIL KALKOV, DZMITRY PAMAKHA, Code coverage criteria and their effect on test suite qualities
+	
+	Condition coverage, partially, considers the complexity of compound decisions, which is neglected by decision coverage.
+	
+	\subsection{Condition/Decision Coverage Test}
+	Condition/Decision Coverage extends the requirements of the basic condition coverage, by literally demanding the execution of every branch. \GREY{As described earlier, } this is not guaranteed by basic condition coverage, in case, the compiler performs complete evaluation. For reasons, already described, this thesis only considers short-circuit evaluation. In this case, condition/decision coverage and basic condition coverage become identical.
+
+	\TODO{elementary conditions -> elementary decisions, (Compound Condition? laut Jorgensen)}
+	A common weakness of both these metrics lies in only dissecting compound decisions into its elementary conditions. While this addresses problems arising from short-circuit evaluation, it does not regard inter-dependencies between elementary decisions.
+	
+	\subsection{Modified Condition/Decision coverage test MC/DC}
+	The modified condition/decision coverage targets nested logical links between elementary decisions and is abbreviated 'MC/DC'. It achieves this by demanding to demonstrate every single elementary decisions impact on the compound decision, independently. This is not guaranteed by condition/decision coverage. It is a thorough method to examine compound decisions, at reasonable effort. This is due to the linear relation between the complexity of a compound decision and the test effort: According to \cite{ChilenskiMiller1994} MC/DC affords N+1 test-cases to comprehensively assess a compound decision containing N elementary decisions. \\
+
+		\TODO{ \cite{Chilenski2001} }
+	Tab. ~\ref{MCDCtable} demonstrates the possible combinations of four elementary decisions for the compound condition \lstC !(A||B)\&\&(C||D)! .
+
+	% \begin{table}[h!]
+		% \begin{center}
+			% \begin{tabular}{c|c|c|c|c|c|c|c}
+			% Testcase & A 	& B		& C		& D		& A||B	& C||D	& (A||B)\&\&(C||D)	\\ \hline
+		% \BLACK{	1	}	 &false &false	&false	&false	&false	&false	& false	\\ \hline
+		% \RED{	2	}	 &false	&false	&false	&true 	&false	&true	& \RED{false}	\\ \hline
+		% \BLACK{	3	}	 &false	&false	&true	&false	&false	&true	& false	\\ \hline
+		% \BLACK{	4	}	 &false	&false	&true	&true 	&false	&true	& false	\\ \hline
+		% \BLACK{	5	}	 &false	&true	&false	&false	&true	&false	& false	\\ \hline
+		% \RED{	6	}	 &false	&true	&false	&true 	&true	&true	& \RED{true}	\\ \hline
+		% \BLACK{	7	}	 &false	&true	&true	&false	&true	&true	& true	\\ \hline
+		% \BLACK{	8	}	 &false	&true	&true	&true 	&true	&true	& true	\\ \hline
+		% \RED{	9	}	 &true	&false	&false	&false	&true	&false	& \RED{false}	\\ \hline
+		% \RED{	10	}	 &true	&false	&false	&true 	&true	&true	& \RED{true}	\\ \hline
+		% \RED{	11	}	 &true	&false	&true	&false	&true	&true	& \RED{true}	\\ \hline
+		% \BLACK{	12	}	 &true	&false	&true	&true 	&true	&true	& true	\\ \hline
+		% \BLACK{	13	}	 &true	&true	&false	&false	&true	&false	& false	\\ \hline
+		% \BLACK{	14	}	 &true	&true	&false	&true 	&true	&true	& true	\\ \hline
+		% \BLACK{	15	}	 &true	&true	&true	&false	&true	&true	& true	\\ \hline
+		% \BLACK{	16	}	 &true	&true	&true	&true 	&true	&true	& true	\\ \hline
+			% \end{tabular}
+			% \caption{test-cases for MC/DC}
+			% \label{MCDCtable}
+		% \end{center}
+	% \end{table}
+		\begin{table}[h!]
+		\begin{center}
+			\begin{tabular}{c|c|c|c|c|c|c|c}
+			Testcase & A 	& B		& C		& D		& A||B	& C||D	& (A||B)\&\&(C||D)	\\ \hline
+			1		 & 0 & 0	& 0	& 0	& 0	& 0	& 0	\\ \hline
+			2		 & 0	& 0	& 0	& 1 	& 0	& 1	& 0	\\ \hline
+			3		 & 0	& 0	& 1	& 0	& 0	& 1	& 0	\\ \hline
+			4		 & 0	& 0	& 1	& 1 	& 0	& 1	& 0	\\ \hline
+			5		 & 0	& 1	& 0	& 0	& 1	& 0	& 0	\\ \hline
+			6		 & 0	& 1	& 0	& 1 	& 1	& 1	& 1	\\ \hline
+			7		 & 0	& 1	& 1	& 0	& 1	& 1	& 1	\\ \hline
+			8		 & 0	& 1	& 1	& 1 	& 1	& 1	& 1	\\ \hline
+			9		 & 1	& 0	& 0	& 0	& 1	& 0	& 0	\\ \hline
+			10		 & 1	& 0	& 0	& 1 	& 1	& 1	& 1	\\ \hline
+			11		 & 1	& 0	& 1	& 0	& 1	& 1	& 1	\\ \hline
+			12		 & 1	& 0	& 1	& 1 	& 1	& 1	& 1	\\ \hline
+			13		 & 1	& 1	& 0	& 0	& 1	& 0	& 0	\\ \hline
+			14		 & 1	& 1	& 0	& 1 	& 1	& 1	& 1	\\ \hline
+			15		 & 1	& 1	& 1	& 0	& 1	& 1	& 1	\\ \hline
+			16		 & 1	& 1	& 1	& 1 	& 1	& 1	& 1	\\ \hline
+			\end{tabular}
+			\caption{test-cases for MC/DC}
+			\label{MCDCtable}
+		\end{center}
+	\end{table}
+	% \newpage
+	Following the rule, to demonstrate each elementary decisions impact on the compound condition, only the test-cases number 2, 6, 9, 10 and 11 are necessary. This amounts to five test-cases, which equals the number of elementary decisions+1. \\
+	Considering logic dependencies among elementary decisions can reduce the number of test-cases, even more. The decision in fig. ~\ref{compDeciMutualEx} implies a truth-table similar to tab. ~\ref{MCDCtable}, but with $2^{5} = 32$ entries or lines. Obviously, the left input operand is identical in all five elementary conditions. Therefore, those elementary conditions are mutually exclusive, as, for example, col can not be RED and BLUE at the same time. This leads to the conclusion, that only five test-cases with valid input values and one invalid test-case, are necessary. In this case, six test-cases are sufficient for MC/DC coverage instead of 32. The similarity of this example with a 'switch-case' statement \TODO{flappsig formuliert: } suggests to apply MC/DC also to those kinds of constructs. \\
+	\bildGr{h!}{compDeciMutualEx}{compDeciMutualEx}{compDeciMutualEx}{\textwidth}
+	\GREY{Although, this chapter emphasis on the design of suitable test-cases, MC/DC does not specify this. Only the outcome of MC/DC is defined, but free tools are not available, so emphasis on test cases to achive MC/DC in Blindflug are goiven}
+	The advantage of the MC/DC, evidently, lies in the thorough test of compound conditions with feasible effort. For a condition, composed of four elementary decisions, only five of sixteen possible input combinations require test-cases. It implies all aforementioned coverage metrics. \\
+	The described advantages come at the price of higher efforts in identifying suitable stimuli as test-cases. While the test-cases to achieve other coverage metrics are often self-evident from code or fragmentary coverage reports, filtering out the necessary input combinations for MC/DC often require examination of truth-tables for every single compound decision.
+	
+	\TODO{evtl auf Hayhurst verwesien	}
+	\TODO{statement cov -> statement or line coverage}
+	
+	
+	\TODO{ warum keine C-Notation mehr ab C2 ? weil nicht mehr eindeutig, zB C2c = structPath, anderswo: C2 = branch/condition coverage}
+	
+	\subsection{Multiple Condition Coverage Test}
+	Multiple condition coverage is the superior method with respect to conditional execution. It demands to test all possible truth value combinations of all single elementary conditions within a compound decision. This constitutes the most thorough examination of conditions within a program, because, literally, all possible sub-decisions are included. Inherently, this also contains compound conditions to result to 'true' and 'false'. \\
+	Multiple condition coverage shows no regard, whether, short-circuit evaluation takes place or not. Furthermore, it does not consider logical links, like mutual exclusions, between elementary conditions. Therefore, multiple condition coverage subsumes all aforementioned coverage metrics and constitutes a brute-force approach to the examination of conditional execution.\\ \TODO{verweis auf die 16-truth-table}
+	With those strict requirements, comes an exponential effort for actual testing of a program: A compound decision composed of N elementary conditions calls for $ 2^N $ individual test-cases. For small values of N, this is acceptable, but rapidly becomes unfeasible for complex decisions with a large number of elementary conditions. Furthermore, elementary conditions, that mutually exclude each other, do not allow for meaningful sets of input values. Fig. ~\ref{compDeciMutualEx} is an expressive example for that, as the input variable 'col' can not be two different colours at the same time. But this would be an actual requirement of multiple condition coverage. \\
+	The strict demands of multiple condition coverage, resulting in excessive efforts for testing, renders this metric impractical for reasonable examination of software. Furthermore, with MC/DC, there is a practical approach at hand, that allows nearly the same insight into the code under test, as multiple condition coverage. \TODO{Formulierungen? }
+	
+	Conclusio to cond/deci coverages
+	\BLUE{	Ligges-Zitat	The condition coverage tests are particularly interesting as testing techniques when there is complicated processing logic that leads to complicated decisions. In terms of the best compromise between performance and testing effort, the minimum multiple condition coverage test and the modified condition/decision coverage test are recommended.}
+	
+	\subsection{Techniques for Testing Loops}
+	The methods described until now, are not really feasible for programs containing loops: Every single execution of a loop (constitutes a separate path/ demands a separate test-case), according to requirements imposed by, for example, branch coverage. Neither is this practical nor worthwhile for high loop-counts: Though the number of test-cases increases linear with the loop-count, this number can be extremely high in terms of test-case-count. On the other hand, if no structural differences happen inside a loop-body, no additional insight is gained from testing the same body with every single count-value. Only count-values with consequences to the internal control flow of a loop-body justify separate test cases. Examples for that would be if-statement nested in a loop. \\
+	Solutions at hand come in the form of the following test-methods specifically targeting looped programs.
+	\begin{itemize} \setlength\itemsep{1px}
+	\item Boundary Interior Path Test and
+	\item Structured Path Test
+	\item Modified Boundary Interior Test Technique
+	
+	
+	\end{itemize}
+	\TODO{Formulierungen? }
+	\TODO{16.07.2022}
+		\subsubsection{Boundary Interior Path Test}
+		This method inspects the different possible paths through a given program and partitions them into classes, each class affording a separate test-case. Paths form a common class, if they have the same control-flow and differ, for example in numerous different loop-counts. Classes, then again, have different control-flow paths, therefore requiring separate test-cases. These differing control-flow paths, for example, might stem from different loop-counts, which have varying impact on internal control-structures on a loop. This leaves out numerous paths with no, or insignificant differences and groups them into one common class with one representative test-case. \cite{Howden1975MethodologyFT} The boundary-interior path test incorporates ideas from equivalence class partitioning, to identify separate classes of input values, in this case: loop-counts. It distinguishes loop-counts by varying effects on the internal control-flow of a loop. Consequentially, only one representative value of the loop-count, per class, has to be tested. \\
+		These attributes distinguish between different classes:
+		\begin{itemize} \setlength\itemsep{1px}
+		\item a loop is not entered, only code before and after it is executed.
+		\item a loop is entered, but only executed once. (boundary)
+		\item a loop is entered, executed at least twice. (interior)
+		\item a loop is entered and different paths through the loop are possible (e.g.: nested loops, if-statements). This again, needs differentiation regarding boundary- or interior- classes. \TODO{ahem, evtl gehort nested nur zu modified B/I test}
+		\end{itemize}
+		
+		\TODO{baundary/interior, struc path: wrum heissens net coverage ?}
+		
+		\bildGr{h!}{loopBounderyInterior.png}{example code, boundary interior path test}{loopBounderyInterior}{0.5\textwidth}
+		
+		The fragment of code in fig. ~\ref{loopBounderyInterior} requires one test-case where the loop body is not executed, therefore the ptr-variable has to be NULL, from the outset.
+		Boundary interior path test requires also one test-case, that executes the loop-body only once, constituting the boundary-test-case. The ptr-variable has to become NULL after one increment.
+		A third test-case, that executes the loop-body at least twice, is necessary. It constitutes the interior-test-case and requires the ptr-variable to result to NULL, earliest after two increments.
+		
+		\TODO{17.07.2022}
+		\subsubsection{Structured Path Test}
+		The structured path test is a generalization of the boundary interior path test and subsumes it. On the other hand it is a special case, a subset of path coverage. The goal is, to test many different paths, but exclude blocks from further test-cases after a limited number of iterations. This number is a variable by the denomination 'k'. The structured path test attempts to loosen the rigorous requirements of path coverage, resulting in feasible testing effort, while maintaining a valuable depth of analysis of a given piece of code. By choosing $ k = 2 $, the structured path test becomes identical with the boundary interior test. \cite{Howden1978AnEO}
+		\subsubsection{Modified Boundary Interior Test Technique}
+		The introduction of a third, closely related method, the modified boundary interior test, addresses weaknesses of the boundary interior and the structured path test. The most prominent weaknesses are the possibility of not executable paths within loops, rapid increase of test-cases caused by nested control structures and no testing of higher loop-counts. Implicitly, both methods do not subsume any other coverage metric from fig. ~\ref{}
+		The modified requirements, distinguishing path classes, consist of:
+		\begin{itemize} \setlength\itemsep{1px}
+		\item classes, that do not enter a loop, but only only execute code before and after it. These classes strive for path coverage surrounding the loop.
+		\item classes, that enter a loop and execute it once, and do not exclusively differ in the execution of nested loops. Paths executing a loop, that only differ in code surrounding that loop, do not call for a separate class.
+		\item classes, that enter a loop and execute it at least twice, and do not exclusively differ in the execution of nested loops. Paths executing a loop at least twice, that only differ in code surrounding that loop, do not call for a separate class.
+		\item These rules have to be applied separately for every loop, in particular, also for every nested loop.
+		\item classes, that execute branches, if they are not already covered by aforementioned classes.
+		\end{itemize}
+		
+		The first requirement tests the surroundings of loops, while neglecting loops themselves, resulting in rather little effort. The 2nd and 3rd requirement are slight adaptions of the boundary-interior test, incorporating the possibility of nested loops. The last requirement, deliberately, aims for a complete test to subsume decision coverage. Additionally, separate test-cases should cover the maximum number of loop-iterations, as well as exceed them, to demonstrate maximum computation times and detect errors from overflows or exceeding limited resources. 
+		
+		Fig. ~\ref{modBounderyInterior} contains exemplary code to demonstrate the application of these requirements.
+		\TODO{21.07.2022}
+		
+		\bildGr{h!}{modBounderyInterior}{Example code, modified boundary interior test}{modBounderyInterior}{0.75\textwidth}
+		
+		Classes, and therefore separate test-cases, are necessary for both possible results of the if-statement, as well as one that executes the first while-loop once and one that iterates it twice. The second while loop requires a class to test single execution of its body and one for iterating of the loop body twice. As the inner loop has a fixed count of iterations, only one test-case is required in that regard. Best practice suggests to add a test-case for the maximum possible number of increments, as well as one that tests beyond that number.
+
+		The modified boundary interior test delivers significant insight in the tested code, while affording reasonable effort during testing. It has a significance similar to the MC/DC method, but focuses on the verification of program parts containing loops. 
+		
+	\subsection{Path Coverage Test}
+		The path coverage test is a superior method, requiring to execute all possible paths through a programs control-flow graph. This may seem appealing from the viewpoint of gathering as much insight into a program as possible. Alas, with increasing complexity, the efforts to test all those paths, growing exponentially, quickly surpass the gainable advantages. Comparably significant test data arises from modified boundary interior as well, with significantly lower efforts. Therefore, the path coverage test has a rather niche existence, but nevertheless its importance, as related methods are derived from it.
+		
+	\TODO{spec (or scenario) coverage }
+
+
+
+
+
+
+
+	
+	
 	\TODO{ Probekapitel geht bis hier }

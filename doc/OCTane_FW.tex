@@ -1,0 +1,117 @@
+\documentclass{article}
+
+\usepackage[left=15mm,top=25mm,bottom=15mm,right=15mm,headheight=15mm,headsep=10mm,footskip=10mm]{geometry}
+% \usepackage{ngerman}
+\usepackage{scrextend}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+% \usepackage[printwatermark]{xwatermark}							   
+\usepackage{ulem}
+\usepackage{here}
+\usepackage{amsthm}
+\usepackage{gensymb}
+\usepackage{fancyhdr}
+\pagestyle{fancy} 
+\usepackage{longtable}
+\usepackage{hhline}
+\usepackage[table]{xcolor}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathcomp}
+\usepackage{tabularx}
+% \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}} % linksbündig mit Breitenangabe
+\usepackage{multicol}
+\usepackage{footnote}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref} 
+\usepackage[final]{pdfpages}
+\usepackage{floatflt,epsfig}
+\usepackage[export]{adjustbox}
+\usepackage{listings}
+\usepackage[pdf]{graphviz}
+
+% \newwatermark[allpages,color=gray!50,angle=45,scale=2.5,xpos=0,ypos=0]{for internal use only}
+
+\rhead{\includegraphics[width=.3\textwidth,]{src/_recendt}}
+\usepackage{enumitem}
+
+\makesavenoteenv{tabular}
+% \makesavenoteenv{table}
+\definecolor{maroon}{cmyk}{0,0.87,0.68,0.32}
+
+\input{src/_newcommands.tex}
+
+	% \req{ \# }{title}{ H/M/L }{ stat }
+	% { desc }
+	% { in }	{ op }	{ out }	{module}
+
+
+	% \par
+		% \begin{center}	\bf	\huge	OCT-IO-Board 'Octane'	\end{center}
+
+% \include{src/_document_OCTaneFW}
+
+
+\begin{document}
+\pagestyle{empty} 
+	\parindent0pt %Einrücken bei neuer Zeile verhindern
+
+	% Loosely based on \url{https://de.wikipedia.org/wiki/Software_Requirements_Specification}
+	\section{User Requirements}
+	\input{src/_REQS.tex}
+	
+	% \subsection{Non-Functional Requirements}
+	% \newpage
+
+
+	\input{_SPEC.tex}
+
+	\input{src/_IMPL.tex}
+
+
+
+	\pagebreak
+	\section{USB-Protocol for OCTane (SCPI)}
+		\input{src/_scpiRecendt.tex}
+		\input{src/_scpiStd.tex}
+
+	\pagebreak
+	\section{Standard operating procedures}
+		\TODO{update to new protocol}
+		\input{src/_SOPs.tex}
+
+	\section{Constraints, Assumptions}
+
+	
+			Usage of the Processor STM32F407VGT6 imposes following relevant constraints:
+			\begin{itemize}
+				\item max. clock speed 72MHz
+				\item 1MB program memory
+				\item max. 82 IO-channels
+			\end{itemize}
+			
+
+			% Utilization of these ressources:
+			% \begin{itemize}
+			% \item A maximum clock speed of 72MHz and SPI-channels, for the analog outputs, with a datarate of up to 2 Mbyte/s, ensure the required max. frequency for A-scans of 250kHZ to be feasible.
+			
+			% \item An estimate of 300kByte of memory necessary for the FWs algorithms and data, including timetable and SCPI-LUT, as well as 2 vectors within the FW, to hold the analog waveforms of 2x 256kbyte, leave a remainder of \~ 200kByte within the Processors program memory.
+
+			% \item Usage of the available IO-lines follows the following table, ensuring all relevant communication with other components of the OCT-system is represented. 
+			% \end{itemize}
+			
+	% \subsection{Dependencies, Guidelines}
+
+	
+	\subsection{Reference Documents}
+	\subsection{Abbreviations and Acronyms}
+		\input{src/_abbrev.tex}
+	% \includepdf{USB-Protocol.pdf}
+		
+
+\end{document} 

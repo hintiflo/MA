@@ -2387,6 +2387,12 @@
     <bcf:citekey order="6">Kopetz1997</bcf:citekey>
     <bcf:citekey order="7">Tian2005</bcf:citekey>
     <bcf:citekey order="8">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="9">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="10">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="11">ChilenskiMiller1994</bcf:citekey>
+    <bcf:citekey order="12">Chilenski2001</bcf:citekey>
+    <bcf:citekey order="13">Howden1975MethodologyFT</bcf:citekey>
+    <bcf:citekey order="14">Howden1978AnEO</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

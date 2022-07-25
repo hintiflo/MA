@@ -1,0 +1,33 @@
+digraph Layers
+{
+	
+		# splines = ortho
+	# node 		[style = rounded, shape = box]
+	rankdir = LR;
+	graph [fontname = "helvetica"];
+	node [fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+
+	main	[label=<
+		<FONT POINT-SIZE="8">Errohandling </FONT><br/> 
+		MAIN <br/> 
+		<FONT POINT-SIZE="8"> ResourceManager</FONT>>]
+	trig    [label=<Triggers <br/> <FONT POINT-SIZE="8">Timers</FONT>>]
+	sour    [label=<Sources >]
+	dbg     [label=<Debug-Unit>]
+	// syst    [label=<System <br/> <FONT POINT-SIZE="8">WDG,CRC</FONT>>]
+	fsm     [label=<FSM <br/> <FONT POINT-SIZE="8">scpi</FONT>>]
+	usb     [label=<USB>]
+	misc    [label=<Misc <br/> <FONT POINT-SIZE="8">WDG,CRC</FONT>>]
+	hal    [label=<HAL <br/> <FONT POINT-SIZE="8">GPIO, SPI, DIO, UART, I2C, AIN</FONT>>]
+	
+	fsm -> trig [dir=both]
+    trig -> sour
+	// fsm -> syst [dir=both]
+	main->fsm [dir=both]
+	fsm -> usb [dir=both]
+	fsm -> misc [dir=both]
+	fsm -> hal [dir=both]
+	fsm -> dbg  [dir=both]
+
+}

@@ -1,0 +1,62 @@
+digraph{
+	# splines = false;
+	 splines = ortho;
+	labeldistance = 0.0;
+
+	node [style = rounded, style= "filled, rounded", fillcolor = lightyellow]
+	PC [shape = box]
+	Grab[shape = box, label = "Grabber/Camera"]
+
+	AIM_Supply [shape = box]
+	CAM_Supply [shape = box]
+	SLD_Supply [shape = box]
+
+	PC -> uC [label = USB, fontsize = 10.0]
+	Trig_B -> Grab [dir="both"];
+
+	extTrig_1 -> Trig_A [dir="both"];
+	extTrig_2 -> Trig_B [dir="both"];
+	extTrig_3 -> Trig_C [dir="both"];
+
+	extTrig_1 [shape = box];
+	extTrig_2 [shape = box];
+	extTrig_3 [shape = box];
+	
+		Trig_A [shape = box, label = "Trigger A"]
+		Trig_B [shape = box, label = "Trigger B"]
+		Trig_C [shape = box, label = "Trigger C"]
+
+
+	subgraph cluster_p 
+	{	label = "      OCTane";
+
+		# Trig [shape = box, label = "Trigger 1 / 2"]
+		DAC [shape = box, label = "16Bit DAC"]
+		DAC12 [shape = box]
+		ADC12 [shape = box]
+		Relais [shape = box, label = "6 x Relais"]
+		DIO [shape = box, label = "8/16 digital IOs"]
+		# SLD [shape = box, label = "SLD Driver"]
+		uC [shape = box]
+
+		
+		uC -> DIO [label = onboard, style = dashed, fontsize = 10.0]
+		uC -> DAC [label = SPI, fontsize = 10.0]
+		Trig_A -> uC  [dir="both"]
+		Trig_B -> uC  [dir="both"]
+		Trig_C -> uC  [dir="both"]
+		# uC -> SLD [label = onboard, style = dashed, fontsize = 10.0]
+		uC -> Relais [label = GPIOs, fontsize = 10.0]
+		uC -> DAC12 [label = onboard, style = dashed, fontsize = 10.0]
+		DIO -> uC [style = dashed, fontsize = 10.0]
+		ADC12 -> uC [label = onboard, style = dashed, fontsize = 10.0]
+    
+	}
+
+	Relais -> AIM_Supply
+	Relais -> CAM_Supply
+	Relais -> SLD_Supply
+	Relais -> Galvo_Supply
+	SMA [shape = box, label = "Analog out 1 / 2"]
+	DAC ->	SMA [label = "SMAs"]
+}

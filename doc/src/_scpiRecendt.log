@@ -1,0 +1,16 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.8.2)  12 APR 2022 16:14
+entering extended mode
+**./_scpiRecendt.tex
+(_scpiRecendt.tex
+LaTeX2e <2020-10-01> patch level 4
+L3 programming layer <2021-02-18> xparse <2020-03-03>
+
+! LaTeX Error: Environment longtable undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 		\begin{longtable}
+                       {|l|l|l|l|l|}				\hline
+? 

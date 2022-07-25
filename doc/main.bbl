@@ -19,6 +19,112 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{Chilenski2001}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6de8af212ad62f884e49350189201c2f}{%
+           family={Chilenski},
+           familyi={C\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \strng{namehash}{6de8af212ad62f884e49350189201c2f}
+      \strng{fullhash}{6de8af212ad62f884e49350189201c2f}
+      \strng{bibnamehash}{6de8af212ad62f884e49350189201c2f}
+      \strng{authorbibnamehash}{6de8af212ad62f884e49350189201c2f}
+      \strng{authornamehash}{6de8af212ad62f884e49350189201c2f}
+      \strng{authorfullhash}{6de8af212ad62f884e49350189201c2f}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{01}
+      \field{title}{An Investigation of Three Forms of the Modified Condition Decision Coverage (MCDC) Criterion}
+      \field{year}{2001}
+    \endentry
+    \entry{ChilenskiMiller1994}{article}{}
+      \name{author}{2}{}{%
+        {{hash=6de8af212ad62f884e49350189201c2f}{%
+           family={Chilenski},
+           familyi={C\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+        {{hash=ec9380f40652005b58c5be53c31720e7}{%
+           family={Miller},
+           familyi={M\bibinitperiod},
+           given={Steven},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{d4f16794da09ea4ea4e33190d47ac609}
+      \strng{fullhash}{d4f16794da09ea4ea4e33190d47ac609}
+      \strng{bibnamehash}{d4f16794da09ea4ea4e33190d47ac609}
+      \strng{authorbibnamehash}{d4f16794da09ea4ea4e33190d47ac609}
+      \strng{authornamehash}{d4f16794da09ea4ea4e33190d47ac609}
+      \strng{authorfullhash}{d4f16794da09ea4ea4e33190d47ac609}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Software Engineering Journal}
+      \field{month}{10}
+      \field{title}{Applicability of modified condition/decision coverage to software testing}
+      \field{volume}{9}
+      \field{year}{1994}
+      \field{pages}{193\bibrangedash 200}
+      \range{pages}{8}
+      \verb{doi}
+      \verb 10.1049/sej.1994.0025
+      \endverb
+    \endentry
+    \entry{Howden1978AnEO}{article}{}
+      \name{author}{1}{}{%
+        {{hash=731366454496b334e1dae42606c09452}{%
+           family={Howden},
+           familyi={H\bibinitperiod},
+           given={William\bibnamedelima E.},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{731366454496b334e1dae42606c09452}
+      \strng{fullhash}{731366454496b334e1dae42606c09452}
+      \strng{bibnamehash}{731366454496b334e1dae42606c09452}
+      \strng{authorbibnamehash}{731366454496b334e1dae42606c09452}
+      \strng{authornamehash}{731366454496b334e1dae42606c09452}
+      \strng{authorfullhash}{731366454496b334e1dae42606c09452}
+      \field{extraname}{1}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Software: Practice and Experience}
+      \field{title}{An evaluation of the effectiveness of symbolic testing}
+      \field{volume}{8}
+      \field{year}{1978}
+    \endentry
+    \entry{Howden1975MethodologyFT}{article}{}
+      \name{author}{1}{}{%
+        {{hash=731366454496b334e1dae42606c09452}{%
+           family={Howden},
+           familyi={H\bibinitperiod},
+           given={William\bibnamedelima E.},
+           giveni={W\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+      }
+      \strng{namehash}{731366454496b334e1dae42606c09452}
+      \strng{fullhash}{731366454496b334e1dae42606c09452}
+      \strng{bibnamehash}{731366454496b334e1dae42606c09452}
+      \strng{authorbibnamehash}{731366454496b334e1dae42606c09452}
+      \strng{authornamehash}{731366454496b334e1dae42606c09452}
+      \strng{authorfullhash}{731366454496b334e1dae42606c09452}
+      \field{extraname}{2}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Computers}
+      \field{title}{Methodology for the Generation of Program Test Data}
+      \field{volume}{C-24}
+      \field{year}{1975}
+      \field{pages}{554\bibrangedash 560}
+      \range{pages}{7}
+    \endentry
     \entry{keithleyHistory}{book}{}
       \name{author}{1}{}{%
         {{hash=5e70c252d984dbc0023eaafb5870be31}{%

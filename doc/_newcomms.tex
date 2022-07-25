@@ -1,0 +1,49 @@
+\newcommand{\GREY}[1]{\textcolor{gray}{#1}}
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{ToDo:} #1}}
+\newcommand{\RED}[1]{\textcolor{red}{#1}}
+\newcommand{\redrow}[1]{{#1}}
+\newcommand{\BLACK}[1]{\textcolor{black}{#1}}
+\newcommand{\BLUE}[1]{\textcolor{blue}{#1}}
+\newcommand \bild[4]{\begin{figure}[#1]	\centering	\includegraphics[width=\textwidth]{images/#2}	\caption{#3}	\label{#4}	\end{figure}}
+\newcommand \bildGr[5]{\begin{figure}[#1]	\centering	\includegraphics[width=#5]{images/#2}	\caption{#3}	\label{#4}	\end{figure}}
+% \newcommand{\redrow}{\rowcolor{red!70}}
+
+\newcommand{\req}[9]
+{
+		\begin{table}[H]
+		\begin{tabular}{|p{3cm}|p{12cm}|}
+		% \hline
+		\hline 	Tag #1		& \begin{tabular}{p{7.5cm}|l|l} #2 & Module & #9 \end{tabular} \\
+			% \hline Priority				& \begin{tabular}{p{7.5cm}|l|l} #3 & Status & #4 \end{tabular}  \\		% (h)igh/(m)id/(l)ow
+			\hline Description				& #5 \\															% todo/WIP/test/done
+			% \hline Input				& \begin{tabular}{p{7.5cm}|l|l} #6 & Output & #8 \end{tabular} \\
+			% \hline Operation			& #7 \\
+			\hline
+		\end{tabular}
+		\label{#1}
+	\end{table}
+}
+
+
+\lstdefinestyle{Codeschnipsel}{
+language=C,
+basicstyle=\sffamily\small,
+keywordstyle={\color{blue}\bfseries},
+%identifierstyle={\color{DarkRed}},
+commentstyle={\color{green}\slshape},
+stringstyle={\color{orange}},
+backgroundcolor={\color{Cornsilk}},
+%columns=fullflexible,
+frame=shadowbox,
+rulesepcolor=\color{green},
+morekeywords={uint8_t, uint16_t, uint32_t, bool}, % eigene Keywörter
+basewidth={0.4em,0.3em},
+fontadjust=true,
+breaklines=true,
+showspaces=false,
+showtabs=false
+}
+
+
+\newcommand{\lstC}{\lstinline[style=Codeschnipsel]}
+

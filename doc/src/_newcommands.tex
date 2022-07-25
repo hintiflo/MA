@@ -1,0 +1,55 @@
+
+\lstdefinestyle{Codeschnipsel}{
+language=C,
+basicstyle=\sffamily\small,
+keywordstyle={\color{blue}\bfseries},
+%identifierstyle={\color{DarkRed}},
+commentstyle={\color{green}\slshape},
+stringstyle={\color{orange}},
+backgroundcolor={\color{Cornsilk}},
+%columns=fullflexible,
+frame=shadowbox,
+rulesepcolor=\color{green},
+morekeywords={uint8_t, uint16_t, uint32_t, bool}, % eigene Keywörter
+basewidth={0.4em,0.3em},
+fontadjust=true,
+breaklines=true,
+showspaces=false,
+showtabs=false
+}
+
+
+\newcommand{\lstC}{\lstinline[style=Codeschnipsel]}
+
+\newcommand{\spec}[4]
+	{\vspace{1mm}
+			% \begin{table}[H]
+			\begin{tabular}{|p{3cm}|p{15cm}|}
+			\hline
+		\redrow	\hline 	Tag #1		& \begin{tabular}{p{7.5cm}|l|l} #2 & Module & #3 \end{tabular} \\
+				\hline Description				& #4 \\															
+				\hline
+			\end{tabular}
+			% \label{#1}
+		% \end{table}
+	}
+\newcommand{\TODO}[1]{\textcolor{red}{\textbf{ToDo:} #1}}
+\newcommand{\redrow}{\rowcolor{red!70}}
+
+% \newcommand{\ltab}{\raggedright\arraybackslash} % Tabellenabschnitt rechtsbündig
+\newcommand{\req}[9]
+{
+		\begin{table}[H]
+		\begin{tabular}{|p{3cm}|p{15cm}|}
+		% \hline
+	\redrow	\hline 	Tag #1		& \begin{tabular}{p{7.5cm}|l|l} #2 & Module & #9 \end{tabular} \\
+			% \hline Priority				& \begin{tabular}{p{7.5cm}|l|l} #3 & Status & #4 \end{tabular}  \\		% (h)igh/(m)id/(l)ow
+			\hline Description				& #5 \\															% todo/WIP/test/done
+			% \hline Input				& \begin{tabular}{p{7.5cm}|l|l} #6 & Output & #8 \end{tabular} \\
+			% \hline Operation			& #7 \\
+			\hline
+		\end{tabular}
+		\label{#1}
+	\end{table}
+}
+\newcommand{\sol}[1]{ \textbf{Solution for REQ\##1:} }

@@ -1,0 +1,39 @@
+digraph{
+	# splines = false;
+	# splines = ortho;
+	labeldistance = 0.0;
+	graph [fontname = "helvetica"];
+	node [fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+
+	node [style= "filled, rounded", fillcolor = lightyellow, fontsize  = 12]
+	edge [fontsize  = 10]
+	PC [shape = box]
+	Grab[shape = box, label = "Grabber/Camera"]
+
+	Trigger1 [shape = box, label= Trig_A_Scan]
+	Trigger2 [shape = box, label= Trig_B_Scan]
+	Trigger3 [shape = box, label= Trig_C_Scan]
+	# TrigIn1 [shape = point, width=.15]
+	# TrigIn2 [shape = point, width=.15]
+	# TrigIn3 [shape = point, width=.15]
+	TrigOut1 [shape = point, width=.15]
+	TrigOut2 [shape = point, width=.15]
+	TrigOut3 [shape = point, width=.15]
+
+	Trigger1 -> Trigger2 [dir = both]
+	Trigger2 -> Trigger3 
+
+	TrigOut1 -> Grab [style = dashed]
+	TrigOut2 -> Grab
+	TrigOut3 -> Grab [style = dashed]
+	
+	PC	-> Trigger1 [label = "USB", fontsize  = 10]
+	# TrigIn1 -> Trigger1 [label = "In1", style="dashed"]
+	# TrigIn2 -> Trigger2 [label = "In2", style="dashed"]
+	# TrigIn3 -> Trigger3 [label = "In3", style="dashed"]
+	Trigger1 -> TrigOut1[label = "Out1"]
+	Trigger2 -> TrigOut2[label = "Out2"]
+	Trigger3 -> TrigOut3[label = "Out3"]
+	
+}

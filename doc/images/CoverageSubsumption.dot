@@ -1,0 +1,40 @@
+digraph CovSub
+{
+	rankdir = TD;
+	// splines = ortho;
+	node [shape=record, style="rounded, filled", fillcolor=lightyellow]
+	
+	path 					[label = "path coverage"]
+	strucPfad				[label = "boundary interior coverage \nstructured path test"]
+	// LCSAJ					[label = "LCSAJ test"]
+	modifiedBoundInterior	[label = "modified boundary- \n interior test"]
+	deciBranch				[label = "decision or \n branch coverage"]
+	statement				[label = "statement coverage"]
+	multiCondi				[label = "multiple condition coverage"]
+	MCDC					[label = "modified condition \n decision coverage"]
+	// minimalMultiCondi		[label = "minimal multiple condition coverage"]
+	CondiDeci				[label = "condition/decision coverage"]
+	basicCondi				[label = "basic condition coverage"]
+	
+		{rank = same; path; multiCondi;}
+	// {rank = same; minimalMultiCondi; strucPfad; LCSAJ; modifiedBoundInterior;}
+	{rank = same; strucPfad; modifiedBoundInterior;MCDC}
+	// {rank=same; statement; basicCondi}
+	
+	path -> strucPfad
+	// path -> LCSAJ
+	// LCSAJ -> deciBranch
+	path -> modifiedBoundInterior
+	strucPfad
+	modifiedBoundInterior -> deciBranch
+	deciBranch -> statement
+
+	multiCondi -> MCDC
+	// MCDC -> 	minimalMultiCondi
+	// minimalMultiCondi -> CondiDeci
+	MCDC -> 	CondiDeci
+	CondiDeci -> deciBranch
+	CondiDeci -> basicCondi
+	basicCondi -> statement
+	
+}

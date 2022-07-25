@@ -1,0 +1,59 @@
+digraph mainFSM
+{
+	labelloc="t"
+	label = "Main-FSM"
+	node	[shape=record, style= "filled, rounded", fillcolor = lightyellow]
+	# rankdir = BT;
+	splines = true;
+	# splines = false;
+	# splines = ortho;
+	sep = 1;
+
+	graph [fontname = "helvetica"];
+	node [fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+	edge [fontsize  = 7]
+
+	birth	[label = "", shape = point, pos = "0,2!", width=.15, fillcolor = black];
+	init	[label = "init", 			pos = "0,1.1!"]
+	idle	[label = "idling", 			pos = "0,0!"]
+	arm		[label = "armed", 			pos = "0,-1.5!"]
+	run		[label = "running", 		pos = "0,-3!"]
+	param	[label = "param", 			pos = "-2,0!"]
+	rxUSB	[label = "rxUsb", 			pos = "2, .75!"]
+	txUSB	[label = "txUSB", 			pos = "2,-.75!"]
+	death	[label = "", shape = point, pos = "2,-2.0!", width=.15];
+
+	error	[label = "errorState", 		pos = "1.25,2!"]
+	errsrc1	[label = "1", shape = point	pos = "1.0,1.5!", width=0]
+	errsrc2	[label = "2", shape = point	pos = "1.5,1.5!", width=0]
+	errsrc3	[label = "3", shape = point	pos = "2.25,2!", width=0]
+
+	errsrc1 -> error
+	errsrc2 -> error
+	errsrc3 -> error
+	error -> birth
+	
+	# startup
+	birth -> init 	[label = "1", ]
+	init -> idle	[headlabel = "1", taillabel = "reset", labeldistance=1.5, dir=both]
+
+		idle -> idle	[label = "1"]
+		idle -> birth	[label = "restart", ]
+
+		# comm and param
+		idle -> param 	[headlabel = "newParam",  taillabel = "1", labeldistance="2.5", dir = both]	
+		idle -> rxUSB 	[headlabel = "newUSB",  taillabel = "1", labeldistance="2.5", dir = both]	
+		idle -> txUSB 	[headlabel = "msgsEnqueued",  taillabel = "1", labeldistance="2.5", dir = both]	
+
+		
+		# signal-generation
+		idle -> arm	[headlabel = "arm",  taillabel = "idle|off", labeldistance="2.5", dir = both]	
+		arm -> run	[headlabel = "run", labeldistance="2"]
+		run->run	[label = "Triggers busy", ]
+		run->idle	[label = "Triggers Finished| \n idle|off", ]
+
+	# misc
+	idle -> death	[headlabel = "powerdown", labeldistance=2.9]
+	
+}

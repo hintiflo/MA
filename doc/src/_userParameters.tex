@@ -1,0 +1,60 @@
+			\begin{table}[H]
+			\centering
+			\scriptsize
+			\begin{tabular}{l|p{65mm}|l|l|l}
+			% \hline
+			\redrow Parameter 	& Values						& reset value 	& Dim.		& Type 	\\ \hline
+			TriggerA State		& off|idle|arm|run				& idle			& 			& enum	\\ \hline
+			TrigA Input			& USB|ext|TrigB|butt0 			& TrigB			& 			& enum	\\ \hline
+			TrigA Signal-Rate	& 100m ... 125k					& 30.00e3		& Hz		& float	\\ \hline
+			TrigA Signal-Period	& 8u ... 10						& 3.33e-5		& s			& float	\\ \hline
+			TrigA Size			& 0	... 250000	 				& 1000			& samples	& int	\\ \hline
+			TriggerB State		& off|idle|arm|run 				& idle			& 			& enum	\\ \hline
+			TrigB Signal-Rate	& 100m ... 125k					& 30			& Hz		& float	\\ \hline
+			TrigB Input			& USB|ext|TrigC|butt1 			& TrigC			& 			& enum	\\ \hline
+			TrigB Signal-Period	& 8u ... 10						& 3.33e-2		& s			& float	\\ \hline
+			TrigB Size			& 0	... 250000	 				& 1000			& samples	& int	\\ \hline
+			TriggerC State		& off|idle|arm|run				& idle			& 			& enum	\\ \hline
+			TrigC Input			& USB|ext|butt2					& USB			& 			& enum	\\ \hline
+			TrigC Signal-Rate	& 20m ... 125k					& 3e-2			& Hz		& float	\\ \hline
+			TrigC Signal-Period	& 8u ... 50						& 33.33			& s			& float	\\ \hline
+			TrigC Size			& 0 ... 250000					& 1				& samples	& int	\\ \hline
+			SourceA Mode		& triggered|detached|singleshot	& triggered		& -			& enum	\\ \hline
+			SourceA Function	& ramp|arbitrary 				& ramp			& -			& enum	\\ \hline
+			SourceA Symmetry	& 	0 ... 100					& 0				& percent	& float	\\ \hline
+			SourceA Amplitude	& 	0 ... 20					& 20			& volts		& float	\\ \hline
+			SourceA Offset		& -10 ... +10					& 0				& volts		& float	\\ \hline
+			SourceA High-Volt	& -10 ... +10					& +10			& volts		& float	\\ \hline
+			SourceA Low-Volt	& -10 ... +10					& -10			& volts		& float	\\ \hline
+			SourceA Const-Volt	& -10 ... +10					& 0				& volts		& float	\\ \hline
+			SourceA timeout		& 0 ... 1000					& 0				& ms		& float	\\ \hline
+			SourceB Mode		& triggered|detached|singleshot	& triggered		& -			& enum	\\ \hline	
+			SourceB Function	& ramp|arbitrary				& ramp			& -			& enum	\\ \hline	
+			SourceB Symmetry	& 0	... 100						& 0				& percent	& float	\\ \hline
+			SourceB Amplitude	& 0	...  20						& 20			& volts		& float	\\ \hline
+			SourceB Offset		& -10 ... +10					& 0				& volts		& float	\\ \hline
+			SourceB High-Volt	& -10 ... +10					& +10			& volts		& float	\\ \hline
+			SourceB Low-Volt	& -10 ... +10					& -10			& volts		& float	\\ \hline
+			SourceB Const-Volt	& -10 ... +10					& 0				& volts		& float	\\ \hline
+			SourceB timeout		& 0 ... 1000					& 0				& ms		& float	\\ \hline
+			I2C mode    	   	& off|USB|slave 				& off			& -			& enum	\\ \hline
+			UART mode	     	& off|USB|slave 				& off			& -			& enum	\\ \hline
+			Galvo-Relay			& off|on						& off			& -			& bool	\\ \hline
+			SLD-Relay			& off|on						& off			& -			& bool	\\ \hline
+			AIM-Relay			& off|on						& off			& -			& bool	\\ \hline
+			CAM-Relay			& off|on						& off			& -			& bool	\\ \hline
+			Relay5				& off|on						& off			& -			& bool	\\ \hline
+			Relay6				& off|on						& off			& -			& bool	\\ \hline
+			Watchdog			& off|reset|powerdown|keepalive &				& -			& enum	\\ \hline
+			WDGTimeout			& 0 ... 1000					& 1000			& ms		& int	\\ \hline
+			CRCmode				& off|on						& off			& -			& bool	\\ \hline
+			VerboseMode			& off|on						& on			& -			& bool	\\ \hline
+			A-in mode			& off|USB|trig'd 				& -				& -			& enum	\\ \hline
+			A-in value			& 0 ... $2^{12}$				& -				& LSB		& int	\\ \hline
+			D-IO mode			& off|in|out 					& -				& -			& enum	\\ \hline
+			D-IO value			& 0 ... $2^{16}$				& -				& bin-vect	& int	\\ \hline
+					\end{tabular}
+				\caption{user-adjustable parameters}
+			\label{tab:params}
+		\end{table}
+

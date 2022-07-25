@@ -1,0 +1,67 @@
+
+\documentclass[a4paper]{article}
+
+\usepackage[left=10mm,top=25mm,bottom=15mm,right=15mm,headheight=15mm,headsep=10mm,footskip=10mm]{geometry}
+% \usepackage[margin=2.5cm,headheight=26pt,includeheadfoot]{geometry}
+\usepackage{ngerman}
+ % \usepackage[german]{nomencl}
+ % \usepackage[ngerman,naustrian]{babel}
+\usepackage{scrextend}
+\usepackage[utf8]{inputenc}
+% \usepackage{floatflt,epsfig}
+\usepackage{lmodern}
+% \usepackage{antiqua}
+\usepackage[T1]{fontenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{ulem}
+\usepackage{here}
+
+\usepackage{hhline,float}
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsthm}
+\usepackage{gensymb}
+\usepackage{fancyhdr}
+\pagestyle{fancy} 
+\usepackage{longtable}
+\usepackage{hhline}
+\usepackage[table]{xcolor}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathcomp}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{hyperref} 
+\usepackage[final]{pdfpages}
+\usepackage{floatflt,epsfig}
+\usepackage[export]{adjustbox}
+
+% \newcommand{\mypar}{& & \\	}
+% newcommand
+% \idString
+% \footnote[2]{"RECENDT GmbH, OCTane, v001, FWver013"}		
+
+\newcommand{\redrow}{\rowcolor{red!70}}
+\makeatletter
+\renewcommand\@makefntext[1]{\leftskip=2em\hskip-2em\@makefnmark#1}
+\makeatother
+
+\rhead{\includegraphics[width=.3\textwidth,]{src/_recendt}}
+
+\begin{document}
+	% \parindent0pt %Einrücken bei neuer Zeile verhindern
+	% \begin{figure}
+		% \includegraphics[width=.3\textwidth,right]{recendt}
+	% \end{figure}
+		
+	\section{USB-Protocol for OCTane (SCPI)}
+
+	\input{src/_scpiRecendt.tex}
+	\input{src/_scpiStd.tex}
+\end{document}

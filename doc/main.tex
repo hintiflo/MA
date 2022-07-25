@@ -21,6 +21,8 @@
 \logofile{logo}           % Logo file: images/logo.pdf (no logo: \logofile{})
 \bibliography{references} % Biblatex bibliography file (references.bib)
 
+% \usepackage[table]{xcolor}
+\usepackage{longtable}
 
 %%%-----------------------------------------------------------------------------
 % Title page entries
@@ -35,11 +37,8 @@
 \advisor{Langer, Rankl, Zorin} % optional
 %\strictlicense % restrictive license instead of Creative Commons (discouraged!)
 \definecolor{gray}{gray}{.80}
-\newcommand{\GREY}[1]{\textcolor{gray}{#1}}
-\newcommand{\TODO}[1]{\textcolor{red}{\textbf{ToDo:} #1}}
-\newcommand{\BLUE}[1]{\textcolor{blue}{#1}}
-\newcommand \bild[4]{\begin{figure}[#1]	\centering	\includegraphics[width=\textwidth]{images/#2}	\caption{#3}	\label{#4}	\end{figure}}
-\newcommand \bildGr[5]{\begin{figure}[#1]	\centering	\includegraphics[width=#5]{images/#2}	\caption{#3}	\label{#4}	\end{figure}}
+
+\input{_newcomms.tex}
 
 \begin{document}
 \frontmatter                                   % Front part (roman page numbers)
@@ -50,15 +49,8 @@
 % \include{front/preface} % A preface is optional
 \include{front/abstract}		
 \include{front/kurzfassung}			
-
-%%%-----------------------------------------------------------------------------
 \mainmatter                                    % Main part (arabic page numbers)
-%%%-----------------------------------------------------------------------------
-
-
 \include{chapters/introduction}
-% \TODO{"vom Allgemeinen zum Speziellen"}
-% thethesis.tex
 \include{chapters/fundamentals}
 % \include{chapters/_fundamentals}
 
@@ -66,19 +58,110 @@
 	\chapter{Requirements}
 	\label{cha:Requirements}
 		% Allgemeine REQs an FW, RT (und evtl design-for-testability)
+		% \section{Firmware-Requirements}
+		Two meetings, including all stakeholders of the PCTane, resulted in all requirements towards the OCTane and especially the firmware running on it. As these are imposed by the stakeholders, or, in other words, by the users of the OCTane, they are called 'user requirements',
+			\section{User requirements}
+				\input{src/_REQS.tex}
+		\pagebreak
+			\section{USB-Protocol}
+		SCPI Commands can be in 'short form', defined by the capital letters, or in 'long form', defined by the whole string. OCTane accepts both forms as commands and is case-insensitive.
+
+			{	\scriptsize
+				\input{src/_scpiRecendt.tex}
+			}
+			Table ~\ref{USB-Protocol-responses} specifies the responses by the OCTane, if they are not described sufficiently in the previous table.
+
+			{	\scriptsize
+				\input{src/_scpiStd.tex}
+			}
+			
+	\subsection{Analogue outputs Resolution and LSB}
+	mapping 20Vpp Voltage space to a resolution of 16bit
+	\begin{itemize}
+		\item 0 ... 30000 ... 60000
+		\item 1000 ... 31000 ... 61000
+		\item 0 ... 32767 ... 65535
+		\item ???
+	\end{itemize}
+	$\rightarrow$ LSB \^{=} ...mV
+
+			\subsection{Load-Hypothesis, Fault-Hypothesis}
+			\subsection{Traceability-Matrix}
+			Linking Requirements by there tags, to the SW-modules, where they are fulfilled
+			\subsection{TCs}
+			Automated test-cases are the primary method to ensure code-quality, because they allow for the assessment of functionalities against requirements and produce according documentation of conducted tests. Furthermore, they help identifying  errors in case of failures and secure implemented functionalities during future adaptions. To demonstrate a complete assessment of the firmware, for every existing user-requirement, at least one test-case is necessary. For practical reasons, these cases must be implemented as python-scripts, running on a proxy host-device, controlling the device under test via USB. The first practical aspect, being, that the resulting test-data are directly available on a device with capable processing power and high memory capacity, facilitating the automated generation of test-reports. The python programming language provides the package 'pytest-html', allowing for the automated generation of test-reports in HTML-format. Every test-case has to be simple enough, to render verification of the test-code itself unnecessary. A test-case, so complex, that i would require a superordinate test-case, indicates, that said test-case should be split into several cases of lesser respective complexity. Fig. ~\ref{testCaseExample} contains an exemplary test-case, assessing the devices correct reply to an identification query. \TODO{Quelle: scpi document}
+			
+			\bildGr{h!}{testCaseExample}{testCaseExample}{testCaseExample}{0.75\textwidth}
+			The general procedure of this test-case consists of 
+			\begin{itemize} \setlength\itemsep{1px}
+			\item Sending a command to the device under test,
+			\item Gathering resulting test-data and
+			\item Verification of retrieved data against requirements.
+			\end{itemize}
+			Upon execution via 'pytest-html', this test-case either results as 'passed' or 'failed', depending on the contained assertions. Furthermore, it causes an entry in the resulting report-file, likewise to the extract in fig. ~\ref{reportExample}
+			
+			\bildGr{h!}{reportExample}{reportExample}{reportExample}{0.75\textwidth}
+			
+			
+			
+			Apart from this method of fully automated testing, 
+			
+			\subsection{Code coverage}
+			
+			\subsection{Unit-Tests}
+			\subsection{Module-Tests}
+			\subsection{Integration-Tests}
+			\subsection{Load/Fault Tests}
+
+	\chapter{Concept}
+	\label{cha:Concept}
+		\section{FSM}
+
+		\begin{figure}[H]
+			\center
+			\includegraphics[width=0.75\textwidth]{src/_mainFSM_neato.pdf}
+			\caption{overarching Finite state machine}
+			\label{fig:FSM}
+		\end{figure}
+
+
+		\section{Modules of the Firmware}
+		\begin{figure}[H]
+			\center
+			\includegraphics[width=0.75\textwidth]{src/_FW-Modules.pdf}
+			\caption{Modular structure}
+			\label{fig:_FW-Modules}
+		\end{figure}
+	
+
+		\subsubsection{Triggers and Voltage - Outputs}
+		association of Triggers and their analogue outputs
+		\begin{itemize}
+			\item TriggerB $\rightarrow$ SourceB $\rightarrow$ Vout1
+			\item TriggerA $\rightarrow$ SourceA $\rightarrow$ Vout2
+		\end{itemize}
+		\subsection{Standard operation procedures (SOP)}
+		{	\scriptsize
+			\input{src/_SOPs.tex}
+		}
 
 	\chapter{Implementation}
 	\label{cha:Implementation}
-		\subsection{Concept}
-		\subsubsection{FSM}
-		\subsubsection{Trigger-Diagramme}
-		\subsubsection{Timer usage}
+		\section{Trigger-Diagramme}
+		\section{Timer usage}
 			\begin{itemize} \setlength\itemsep{1px}
 			\item 3 capture compare timers for signal-generation
 			\item 1 timer basic for kex debouncing 
 			\item 1 timer basic for reading timeouts
 			\item 1 timer basic for flashing LEDs
 			\end{itemize}
+		\subsubsection{Trigger-Lines and Timers}
+		utilisation of the output compare - timers
+		\begin{itemize}
+			\item TrigA \^{=} $TRIG\_2$  \^{=} PB3 $\leftarrow$ $TIM2_CH2$
+			\item TrigB \^{=} $EN\_3$    \^{=} PC6 $\leftarrow$ $TIM8_CH1$
+			\item TrigC \^{=} $EN\_4$    \^{=} PC7 $\leftarrow$ $TIM3_CH2$
+		\end{itemize}
 			% 3 Timers necessary, old concept: double frequency and on modulo 2 will be decided if PinSet and DACwrite, or PinClear
 			% new conspt: output compare Timer etiher the advanceds from the F4 for TrigB and C with separate ISRs to set and clear
 						% OR three GP-Triggers with dedicated output lines, that are set/reset by Timer itself (PSC, ARR and pulse)
@@ -92,36 +175,43 @@
 		
 		\section{Hardware}
 			\subsection{STM32F4}
+			\begin{figure}[ht]
+				\centering
+				\includegraphics[height=105mm]{src/_Octane_HW-Structure.pdf}
+				\caption{HardWare}
+				\label{_Octane_HW-Structure.pdf}
+			\end{figure}
+			
 			\subsection{Wandler, Level-Shifter, HighSider}
+			\subsection{Connection of Galvos and Triggers}
+				\begin{table}[h!]
+					 \begin{tabular}{|p{5.5cm}|p{6cm}|} \hline
+					Source1	- Galvo y (slow)& Trigger B\\ \hline
+					Source2	- Galvo x (fast)& Trigger A\\ \hline
+					 \end{tabular}
+					 \caption{Assignment of Triggers and according analogue outputs}
+				\end{table}
 
-		\section{Software tools}
-			\subsection{CubeIDE}
-			\subsection{Gcov}
-			\subsection{Valgrind}
-			\subsection{Wavedrom}
-			\subsection{WireShark/USBPcap}
-			\subsection{Gitlab Runner}
-			\subsection{HIL-Setup}
-			
-		\section{Firmware-Requirements}
-			\subsection{FW-REQ}
-			\subsection{Load-Hypothesis, Fault-Hypothesis}
-			\subsection{Traceability-Matrix}
-			Linking Requirements by there tags, to the SW-modules, where they are fulfilled
-			\subsection{TCs}
-			\subsection{Unit-Tests}
-			\subsection{Module-Tests}
-			\subsection{Integration-Tests}
-			\subsection{Load/Fault Tests}
-			
-		
-	\chapter{Measurements}
-		\section{Oszi, Debug-Unit und Opto-Detektoren}
-
+		\section{\GREY{Software tools}}
+			\subsection{\GREY{CubeIDE}}
+			\subsection{\GREY{Gcov}}
+			\subsection{\GREY{python tools, OpenOCD}}
+			% \subsection{\GREY{Valgrind}}
+			% \subsection{\GREY{Wavedrom}}
+			% \subsection{\GREY{WireShark/USBPcap}}
+			% \subsection{\GREY{Gitlab Runner}}
+			% \subsection{\GREY{HIL-Setup}}
+	
 	\chapter{Results}
 	\label{cha:Results}
 		% Results
+	\section{Measurements}
+		Messaufbau, werte, ergebnisse, interpretation
+		\subsection{Oszi, Debug-Unit und Opto-Detektoren}
 		\section{Test-Res}
+		\section{Test-Cases}
+		\section{Code Coverage}
+		\section{Code Review}
 		\section{Coverages}
 		\section{Review Remarks}
 		\section{Gavlo-Performance}

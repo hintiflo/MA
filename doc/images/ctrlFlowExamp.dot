@@ -1,14 +1,14 @@
 digraph ctrlFlowExamp
 {
-
-	in
+	node[shape=record, style="rounded, filled", fillcolor=lightyellow]
+	in		[shape=circle, width=0.1, label=""]
 	assign1	[label = "assign var1"]
 	while
-	out
 	increase	[label = "increase counter"]
 	if
 	assign2	[label = "assign var2"]
 	return
+	out		[shape=circle, width=0.1, label="", style=filled, fillcolor=black]
 
 
 	in -> assign1

@@ -1,0 +1,79 @@
+	% \subsubsection{}
+	{	\begin{table}[h!]
+		\scriptsize
+			 \begin{tabular}{|p{5.5cm}|p{6cm}|} \hline
+			SOURce1:FUNCtion:Amplitude 6	&	\\ \hline
+			SOURce1:FUNCtion:Offset 3		&	\\ \hline
+			SOURce2:FUNCtion:Amplitude 4	&	\\ \hline
+			SOURce2:FUNCtion:Offset -4		&	\\ \hline
+			TRIGgerC:STATe RUN				&	start scan sequence\\ \hline
+			 \end{tabular}
+			 \caption{one Volume-Scan}
+		\end{table}
+	}
+	% \subsubsection{A-Scan in one position}
+		\begin{table}[h!]
+		\scriptsize
+			 \begin{tabular}{|p{5.5cm}|p{6cm}|} \hline
+			SOUR2:VOLT:LEV 4.5		& both Galvos in fixed positions	\\ \hline
+			SOUR1:VOLT:LEV -2.95	& no Triggers	\\ \hline
+			...	& 	\\ \hline
+			SOUR2:VOLT:LEV 0	& Send galvos home afterwards	\\ \hline
+			SOUR1:VOLT:LEV 0	& 	\\ \hline
+			 \end{tabular}
+			 \caption{A-Scan in one position }
+		\end{table}
+
+	% \subsubsection{B-Scan in one position, continuous A-Scans, 'A-Freerun'}
+		\begin{table}[h!]
+		\scriptsize
+			 \begin{tabular}{|p{5.5cm}|p{6cm}|} \hline
+			 % \end{tabular}
+			 % \caption{ }
+		% \end{table}
+		% \begin{table}[h!]
+			 % \begin{tabular}{|p{5.5cm}|p{6cm}|} \hline
+			TRIGgerB:STATe stop	& deactivate	\\ \hline
+			TRIGgerA:STATe stop	& in exactly this order	\\ \hline
+			SOUR1:VOLT:LEV 0	& send Galvo home	\\ \hline
+			SOUR1:mode:trig		& reattach Galvo to TriggerB	\\ \hline
+			TRIGgerB:MODE trigC & reattach TriggerB to TriggerC \\ \hline
+			 \end{tabular}
+			 \caption{ B-Scan in one position, continuous A-Scans, 'A-Freerun'
+			Mode-'infinite'
+			 }
+		\end{table}
+% \newpage		
+	% \subsubsection{Ivan Patch}
+		\begin{table}[h!]
+		\scriptsize
+			 \begin{tabular}{|p{5.5cm}|p{6cm}|} \hline
+			SOUR1:MODE free				& detach Galvo from its Trigger	\\ \hline
+			SOURce2:FUNCtion:Amplitude 3.5	& 	\\ \hline
+			SOURce2:FUNCtion:Offset 1.95	& 	\\ \hline
+			TRIGgerB:Mode CONTinuous	& ...Trigger will run forever	\\ \hline
+			TRIGA:PRE 4	& 	\\ \hline
+			TRIGA:tcou 74	&	...40kHz A-Scans	\\ \hline
+			TRIGB:pre 64	&		....10Hz B-Scans 	\\ \hline
+			TRIGA:cou 1550 	& 1550 samples	\\ \hline
+			TRIGB:tcou 36500 	& 10Hz 	\\ \hline
+			TRIGgerB:STATe RUN	& activate	\\ \hline
+								& 			\\ \hline
+			TRIGgerB:STATe stop	& activate	\\ \hline
+			TRIGA:cou 1250 	& 1250 samples	\\ \hline
+			TRIGB:tcou 14600	& 25Hz 	\\ \hline
+			TRIGgerB:STATe RUN	& activate	\\ \hline
+								& 			\\ \hline
+			TRIGgerB:STATe stop	& deactivate	\\ \hline
+			TRIGA:cou 620 	& 620 samples	\\ \hline
+			TRIGB:tcou 7300	& 50Hz 	\\ \hline
+			TRIGgerB:STATe run	& activate	\\ \hline
+								& 			\\ \hline
+			TRIGgerB:STATe stop	& deactivate in exactly	\\ \hline
+			TRIGgerA:STATe stop	& this order	\\ \hline
+			SOUR1:VOLT:LEV 0	& send Galvo home	\\ \hline
+			SOUR1:mode:trig		& reattach Galvo to TriggerB	\\ \hline
+			TRIGgerB:MODE trigC & reattach TriggerB to TriggerC \\ \hline
+			 \end{tabular}
+			 \caption{Ivan Patch }
+		\end{table}	
