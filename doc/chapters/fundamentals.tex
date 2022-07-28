@@ -1,7 +1,7 @@
 \chapter{Fundamentals - Code Quality and Real-Time}
 \label{cha:Fundamentals}
 	\section{Motivation}
-The areas of applications for microcontrollers, as well as the complexity of their software continues to grow. Also the demands towards correct and reliable function of those systems increase accordingly. Therefore software development requires significantly more effort than development of the corresponding hardware. As the lifespan of a software surpasses that of the corresponding hardware, these efforts becomes a sensible investment. To obtain the most value from that software-product, it has to fulfil certain quality measures. Neglecting these quality aspects would lead to an unjustifiable amount of work necessary for maintenance, when the product is already in service. Examinations of the dynamics of software development indicate, that, the later in a project lifecycle, changes become necessary, the higher the expenses. The worst case scenario: errors are induced in the implementation, persist unnoticed through testing and verification. Finally, this errors appear as faults in operation at the customer site. Furthermore, if the project suffers from lazy documentation and insufficient structure, identifying these errors and correcting them becomes even more expensive. The increasing complexity of nowadays software further escalates the problem. An even worse phenomenon can arise: Insufficient understanding of a faulty piece of software can lead to introducing even more errors with additional code, that is actually intended to fix a bug. Especially when poor structuring masks hidden dependencies between modules. A general rule of thumb is: The earlier an error originates, for example in the phase of gathering requirements, the more extensive changes are necessary, later on. In other words: The earlier an error is originates and the later it emerges, the more expensive are its consequences. Pursuing a sufficient quality level from the beginning of the project, significantly reduces waste of money, hours and enthusiasm on unnecessary maintenance. It may also substantially increase the customers approval.
+The areas of applications for microcontrollers, as well as the complexity of their software continues to grow. Also the demands towards correct and reliable function of those systems increase accordingly. Therefore software development requires significantly more effort than development of the corresponding hardware. As the lifespan of a software surpasses that of the corresponding hardware, these efforts becomes a sensible investment. To obtain the most value from that software-product, it has to fulfil certain quality measures. Neglecting these quality aspects would lead to an unjustifiable amount of work necessary for maintenance, when the product is already in service. Examinations of the dynamics of software development indicate, that, the later in a project lifecycle, changes become necessary, the higher the expenses. The worst case scenario: errors are induced in the implementation, persist unnoticed through testing and verification. Finally, this errors appear as faults in operation at the customer site. Furthermore, if the project suffers from lazy documentation and insufficient structure, identifying these errors and correcting them becomes even more expensive. The increasing complexity of nowadays software further escalates the problem. An even worse phenomenon can arise: Insufficient understanding of a faulty piece of software can lead to introducing even more errors with additional code, that is actually intended to fix a bug. Especially when poor structuring masks hidden dependencies between modules. A general rule of thumb is: The earlier an error originates, for example in the phase of gathering requirements, the more extensive changes are necessary, later on. In other words: The earlier an error is originates and the later it emerges, the more expensive are its consequences. Pursuing a sufficient quality level from the beginning of the project, significantly reduces waste of money, hours and enthusiasm on unnecessary maintenance. It may also substantially increase the customers approval. \cite{Luo2001SoftwareTT}
 
 \TODO{Beizer-Zitat, citen:	In the significant book Software Testing Techniques [2], which contains the most complete catalog of
 testing techniques, Beizer stated that “the act of designing tests is one of the most effective bug
@@ -138,10 +138,10 @@ While hardware quality assurance often results in quantitative results, this is 
 
 	\begin{itemize}
 		\item valid/invalid input classes: \\
-			input is specified as a floating point number between 0 and 20 volts \\
-			$\rightarrow$ valid class: 0.00 $\le$ 'test-value' $\le$ 20.00 \\
-			$\rightarrow$ invalid class: 0.00 > $test-value$ and \\
-			$\rightarrow$ invalid class: <test-value> > 20.00 \\
+			input is specified as an integer number between 1 and 20 volts \\
+			$\rightarrow$ valid class: 1 $\le$ 'test-value' $\le$ 20 \\
+			$\rightarrow$ invalid class: 1 > $test-value$ and \\
+			$\rightarrow$ invalid class: <test-value> > 20 \\
 		\item output class: \\
 			output is specified for given input filenames as: 0 if file exists, -1 if file does not exist. \\
 			$\rightarrow$ valid class: Filename of an existing file\\
@@ -156,18 +156,34 @@ While hardware quality assurance often results in quantitative results, this is 
 			% Aus einer bekannten IF-Schleife werden zwei TCs
 	\end{itemize}
 
-	A visual explanation of the first example is given in Fig. ~\ref{EquivPart01}
+	A visual explanation of the first example is given in Fig. ~\ref{EquivPart01} 
 	\bildGr{h!}{EquivPart01}{basic equivalence partitions}{EquivPart01}{\textwidth}
 	
 	\subsection{Boundary Value Analysis} %  (Grenzwertanalyse, Ligges)
 	Until now it might seem, that test-values can be chosen randomly from gathered classes, which is often a sufficient case. But a closely related method called 'boundary value analysis' refines the selection of test-values. From a set of integers between 10 and 100, with a known code structure to be free from case distinctions, the representative test-value can truly be chosen randomly as 15, 60, or 78. In more complex numerical structures, like floating-point numbers, overarching '0' and negative numbers as input space, a single value becomes insufficient. It is then advisable to deliberately choose values close to the bounding values of a function and in the given case also values close to the '0'.
 	Further explanation of choosing useful values will be given on a slight variation of the first equivalent classes-example: Assumed is a function specified for floating point input values in the range of $\pm$ 10V. 
-			\bildGr{h!}{eqPart02}{equivalent class for composite numerical input}{eqPart02}{0.5\textwidth}
-	The given set, visualized in ~\ref{eqPart02} \TODO{saubere Grafik wie ~\ref{EquivPart01}} , has obvious bounding values of +10 and -10, giving the first to test-values. Small values deviating from $\pm$ 10V are also values to test for. Furthermore, '0' and small values deviating from 0 in positive and negative direction will reveal the units stability, in case, the input is used as a divisor. \\
+			\bildGr{h!}{EquivPart02}{equivalent class for floating-point numerical input}{EquivPart02}{\textwidth}
+	The given set, visualized in Fig. ~\ref{EquivPart02}, has obvious bounding values of +10 and -10, giving the first to test-values. Small values deviating from $\pm$ 10V are also values to test for. Furthermore, '0' and small values deviating from 0 in positive and negative direction will reveal the units stability, in case, the input is used as a divisor. \\
+	This results in the following classes and their according values for test-cases:
+	\begin{align*} % \setlength\itemsep{1px}
+	0.00		& \rightarrow   Test-Case 1		 \\
+	10.00		& \rightarrow   TC2	 \\
+	-10.00		& \rightarrow   TC3	 \\
+	-0.01		& \rightarrow   TC4	 \\
+	0.01		& \rightarrow   TC5	 \\
+	9.99		& \rightarrow   TC6	 \\
+	-9.99		& \rightarrow   TC7	 \\
+	10.01		& \rightarrow   TC8	 \\
+	-10.01		& \rightarrow   TC9	 \\
+	\end{align*}
+	And their categorization into valid/invalid values:
 	\begin{itemize}[label={}]
 		\item	$\rightarrow$ valid classes: +10V, +9.99V, -10V, -9.99V, 0V, +0.01V, -0.01V \\
 		\item	$\rightarrow$ invalid classes: +10.01V, -10.01V \\
 	\end{itemize}
+
+
+	
 	Every value has to be applied via a separate testcase, to alleviate which values cause problems, in case of failing tests. \\
 	Boundary value analysis and equivalence class partitioning are closely related and often mentioned in unison, nevertheless, their separate description in this chapter is intended to specify their different applications.
 		
@@ -230,9 +246,8 @@ While hardware quality assurance often results in quantitative results, this is 
 
 	The major similarity of all coverage types, is the intention to indicate the completeness of the code under test, albeit with regards to different aspects. Also, they all strive to execute all possible variants of decisions, branches and parameter spaces. This aims to reveal all possible errors, as software under execution will either show the intended or divergent behaviour. In the latter case, measures to eradicate found errors during development are necessary. A lack of coverage indicates insufficient testing, while not every metric allows to achieve 100\% coverage in practicable time. Adding test-cases is a feasible way to improve coverage. Branches, decisions or statements, that no sensible test-case can reach, suggest a flaw in the software design. \\
 
-	% Limitations:
+	\subsubsection{Limitations}
 	The most prominent limitation of any type of coverage lies in the aspect, that it can exclusively test, what is implemented: Coverage can not reveal functionalities, that are part of the Specification, but do not have an Implementation. \\	
-	\TODO{06.07.2022}
 	Furthermore, the higher ranking a type of coverage, the more difficult it becomes, to achieve complete coverage. In this context, a higher level in fig. ~\ref{SubsumptionHierarchy01}  indicates a higher ranking coverage. While a complete statement coverage is a minimal criterion for sufficiently testing a program, same is not the case for the more complex types of coverage. \\
 	% \TODO{wo absatz?}
 	In many cases it is neither possible nor necessary, to test every path or combination of conditions. Nonetheless, In these situations, the according coverage metric is useful in pointing out 'unreachable' states of the program. It is then upon the developer to interpret the coverage report. If it indicates a design flaw, changes to the program are necessary. If the report points out states in the program that are reliably unreachable, neither during testing, nor during execution, the responsible developer may decide these states to be 'not worthy of testing'. Nevertheless, this requires to profoundly argue such a decision, communicate it all affected team-members and documented it. Lastly, reports of uncovered states can be useful as hints, to construct complexer test-cases to also cover these states. \\
@@ -243,7 +258,6 @@ While hardware quality assurance often results in quantitative results, this is 
 	
 	\bildGr{h!}{ctrlFlowExamp}{exemplary control flow graph of a looped function }{ctrlFlowExamp}{0.35\textwidth}
 	The following sections offer more detailed descriptions of coverage metrics.
-	% \TODO{07.07.2022}
 	\subsection{Statement Coverage Test}
 	The basic control flow oriented test method is the statement coverage, also known by the abbreviation C$_0$. It aims to execute every statement, or line of code, at least once. Regarding the control flow graph, this means to execute every node of the graph. The definition of this metric is the amount of executed code versus the amount of existing code:
 		\begin{align*}
@@ -274,7 +288,6 @@ While hardware quality assurance often results in quantitative results, this is 
 	On the one hand, not executed branches may turn out to be unnecessary, signify a design error and could be eliminated. On the other hand, it can indicate, that preconditions to reach a branch are difficult to generate via test-cases. The test report may then contain hints towards the design of suitable test-cases. Often executed branches represent candidates for optimization. Speeding up code, that is run very often is, obviously, more beneficial, than optimizing code that executes rather seldom. \\
 
 	Drawbacks of branch coverage contain insufficient assessment of loops, as this metric only requires to execute a loop-body once, regardless of loop-counters. Also not all possible combinations of edges within the control-flow graph have to be traversed. This may hide errors that would emerge only upon traversal of very specific execution paths. These special paths are not necessarily contained in test-cases, that would otherwise suffice for branch coverage. Furthermore, compound decisions are not reviewed in detail.
-	% \TODO{08.07.2022}
 	\subsection{Basic Condition Coverage Test}
 	The next more sophisticated metric is the (Basic) Condition coverage. It extends the concept of branch coverage, by closer examination of compound or composite decisions. Fig. ~\ref{compDecision} gives an example of such a decision. 
 	
@@ -289,8 +302,9 @@ While hardware quality assurance often results in quantitative results, this is 
 	\end{itemize}
 	have to result to 'true' and 'false', independently. \\
 
-	In the usual case of short-circuit evaluation, the if-condition can possibly leave out execution of second or third arguments at all. In the given case, the subroutine \lstC ! isOsbolete(strPtr) ! is not guaranteed to undergo execution, would it be not deliberately required by condition coverage. The developer might force the compiler to abstain from short-circuit evaluation and therefore achieve the execution of every single argument. Nevertheless, the thorough way, is to design separate test-cases, aiming for the examination of elementary conditions. This is because during debugging, separate test-cases indicate the source of failure within a compound decision more specific, than just one test-case for the whole decision. Furthermore, complete evaluation would prevent condition coverage, to completely subsume branch coverage, according to \TODO{Tian oder Tai oder KALKOV ?}
-	% MIKHAIL KALKOV, DZMITRY PAMAKHA, Code coverage criteria and their effect on test suite qualities
+	In the usual case of short-circuit evaluation, the if-condition can possibly leave out execution of second or third arguments at all. In the given case, the subroutine \lstC ! isOsbolete(strPtr) ! is not guaranteed to undergo execution, would it be not deliberately required by condition coverage. The developer might force the compiler to abstain from short-circuit evaluation and therefore achieve the execution of every single argument. Nevertheless, the thorough way, is to design separate test-cases, aiming for the examination of elementary conditions. This is because during debugging, separate test-cases indicate the source of failure within a compound decision more specific, than just one test-case for the whole decision. Furthermore, complete evaluation would prevent condition coverage, to completely subsume branch coverage. \cite{Kalkov2013CodeCC}
+	\TODO{hmm, wohin damit: }	\cite{Tai1980ProgramTC}
+
 	
 	Condition coverage, partially, considers the complexity of compound decisions, which is neglected by decision coverage.
 	
@@ -390,7 +404,6 @@ While hardware quality assurance often results in quantitative results, this is 
 	
 	\end{itemize}
 	\TODO{Formulierungen? }
-	\TODO{16.07.2022}
 		\subsubsection{Boundary Interior Path Test}
 		This method inspects the different possible paths through a given program and partitions them into classes, each class affording a separate test-case. Paths form a common class, if they have the same control-flow and differ, for example in numerous different loop-counts. Classes, then again, have different control-flow paths, therefore requiring separate test-cases. These differing control-flow paths, for example, might stem from different loop-counts, which have varying impact on internal control-structures on a loop. This leaves out numerous paths with no, or insignificant differences and groups them into one common class with one representative test-case. \cite{Howden1975MethodologyFT} The boundary-interior path test incorporates ideas from equivalence class partitioning, to identify separate classes of input values, in this case: loop-counts. It distinguishes loop-counts by varying effects on the internal control-flow of a loop. Consequentially, only one representative value of the loop-count, per class, has to be tested. \\
 		These attributes distinguish between different classes:
@@ -409,7 +422,6 @@ While hardware quality assurance often results in quantitative results, this is 
 		Boundary interior path test requires also one test-case, that executes the loop-body only once, constituting the boundary-test-case. The ptr-variable has to become NULL after one increment.
 		A third test-case, that executes the loop-body at least twice, is necessary. It constitutes the interior-test-case and requires the ptr-variable to result to NULL, earliest after two increments.
 		
-		\TODO{17.07.2022}
 		\subsubsection{Structured Path Test}
 		The structured path test is a generalization of the boundary interior path test and subsumes it. On the other hand it is a special case, a subset of path coverage. The goal is, to test many different paths, but exclude blocks from further test-cases after a limited number of iterations. This number is a variable by the denomination 'k'. The structured path test attempts to loosen the rigorous requirements of path coverage, resulting in feasible testing effort, while maintaining a valuable depth of analysis of a given piece of code. By choosing $ k = 2 $, the structured path test becomes identical with the boundary interior test. \cite{Howden1978AnEO}
 		\subsubsection{Modified Boundary Interior Test Technique}
@@ -426,7 +438,6 @@ While hardware quality assurance often results in quantitative results, this is 
 		The first requirement tests the surroundings of loops, while neglecting loops themselves, resulting in rather little effort. The 2nd and 3rd requirement are slight adaptions of the boundary-interior test, incorporating the possibility of nested loops. The last requirement, deliberately, aims for a complete test to subsume decision coverage. Additionally, separate test-cases should cover the maximum number of loop-iterations, as well as exceed them, to demonstrate maximum computation times and detect errors from overflows or exceeding limited resources. 
 		
 		Fig. ~\ref{modBounderyInterior} contains exemplary code to demonstrate the application of these requirements.
-		\TODO{21.07.2022}
 		
 		\bildGr{h!}{modBounderyInterior}{Example code, modified boundary interior test}{modBounderyInterior}{0.75\textwidth}
 		

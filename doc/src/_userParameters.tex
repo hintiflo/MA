@@ -5,16 +5,19 @@
 			% \hline
 			\redrow Parameter 	& Values						& reset value 	& Dim.		& Type 	\\ \hline
 			TriggerA State		& off|idle|arm|run				& idle			& 			& enum	\\ \hline
+			TrigA Mode			& finite|infinite (freerun)		& finite		& 			& enum	\\ \hline
 			TrigA Input			& USB|ext|TrigB|butt0 			& TrigB			& 			& enum	\\ \hline
 			TrigA Signal-Rate	& 100m ... 125k					& 30.00e3		& Hz		& float	\\ \hline
 			TrigA Signal-Period	& 8u ... 10						& 3.33e-5		& s			& float	\\ \hline
 			TrigA Size			& 0	... 250000	 				& 1000			& samples	& int	\\ \hline
 			TriggerB State		& off|idle|arm|run 				& idle			& 			& enum	\\ \hline
 			TrigB Signal-Rate	& 100m ... 125k					& 30			& Hz		& float	\\ \hline
+			TrigB Mode			& finite|infinite (freerun)		& finite		& 			& enum	\\ \hline
 			TrigB Input			& USB|ext|TrigC|butt1 			& TrigC			& 			& enum	\\ \hline
 			TrigB Signal-Period	& 8u ... 10						& 3.33e-2		& s			& float	\\ \hline
 			TrigB Size			& 0	... 250000	 				& 1000			& samples	& int	\\ \hline
 			TriggerC State		& off|idle|arm|run				& idle			& 			& enum	\\ \hline
+			TrigC Mode			& finite|infinite (freerun)		& finite		& 			& enum	\\ \hline
 			TrigC Input			& USB|ext|butt2					& USB			& 			& enum	\\ \hline
 			TrigC Signal-Rate	& 20m ... 125k					& 3e-2			& Hz		& float	\\ \hline
 			TrigC Signal-Period	& 8u ... 50						& 33.33			& s			& float	\\ \hline

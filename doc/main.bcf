@@ -2380,23 +2380,32 @@
   </bcf:bibdata>
   <bcf:section number="0">
     <bcf:citekey order="1">keithleyHistory</bcf:citekey>
-    <bcf:citekey order="2">Liggesmeyer2002</bcf:citekey>
-    <bcf:citekey order="3">Kopetz1997</bcf:citekey>
-    <bcf:citekey order="4">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="2">Luo2001SoftwareTT</bcf:citekey>
+    <bcf:citekey order="3">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="4">Kopetz1997</bcf:citekey>
     <bcf:citekey order="5">Liggesmeyer2002</bcf:citekey>
-    <bcf:citekey order="6">Kopetz1997</bcf:citekey>
-    <bcf:citekey order="7">Tian2005</bcf:citekey>
-    <bcf:citekey order="8">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="6">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="7">Kopetz1997</bcf:citekey>
+    <bcf:citekey order="8">Tian2005</bcf:citekey>
     <bcf:citekey order="9">Liggesmeyer2002</bcf:citekey>
     <bcf:citekey order="10">Liggesmeyer2002</bcf:citekey>
-    <bcf:citekey order="11">ChilenskiMiller1994</bcf:citekey>
-    <bcf:citekey order="12">Chilenski2001</bcf:citekey>
-    <bcf:citekey order="13">Howden1975MethodologyFT</bcf:citekey>
-    <bcf:citekey order="14">Howden1978AnEO</bcf:citekey>
-    <bcf:citekey order="15">jorgensen13</bcf:citekey>
-    <bcf:citekey order="16">SpilSoft2005</bcf:citekey>
-    <bcf:citekey order="17">Beizer90</bcf:citekey>
-    <bcf:citekey order="18">Beizer95</bcf:citekey>
+    <bcf:citekey order="11">Liggesmeyer2002</bcf:citekey>
+    <bcf:citekey order="12">Kalkov2013CodeCC</bcf:citekey>
+    <bcf:citekey order="13">Tai1980ProgramTC</bcf:citekey>
+    <bcf:citekey order="14">ChilenskiMiller1994</bcf:citekey>
+    <bcf:citekey order="15">Chilenski2001</bcf:citekey>
+    <bcf:citekey order="16">Howden1975MethodologyFT</bcf:citekey>
+    <bcf:citekey order="17">Howden1978AnEO</bcf:citekey>
+    <bcf:citekey order="18">scpi1993</bcf:citekey>
+    <bcf:citekey order="19">BalajiScpi</bcf:citekey>
+    <bcf:citekey order="20">jorgensen13</bcf:citekey>
+    <bcf:citekey order="21">SpilSoft2005</bcf:citekey>
+    <bcf:citekey order="22">Beizer95</bcf:citekey>
+    <bcf:citekey order="23">Beizer90</bcf:citekey>
+    <bcf:citekey order="24">gcov</bcf:citekey>
+    <bcf:citekey order="25">lcov</bcf:citekey>
+    <bcf:citekey order="26">kcov</bcf:citekey>
+    <bcf:citekey order="27">gcovr</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

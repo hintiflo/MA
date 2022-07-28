@@ -2,31 +2,31 @@ digraph coverageFlow
 {
 	rankdir = LR;
 	node[shape = record, style="rounded, filled", fillcolor=lightyellow]
-	gcc [label="gcc5.3 --coverage"]
+	gcc [label="source-code\n instrumented"]
 
 
-	STLink	[label="ST-Link \n with SWD-IF"]
-	// STLink2	[label="ST-Link \n with SWD-IF"]
-	Oct	 	[label="HW with \n STM32F4"]
-	gcov	 [label="gCov \n    .gcda\n    .gcno\n  .c"]
-	gcovr	 [label="gCovr \n    .gcda\n    .gcno\n  .c"]
+	STLink	[label="programmer \n /flash-tool"]
+	STLink2	[label="debug-probe \n SWO-compatible"]
+	Oct	 	[label="target-platform\nwith active ITM"]
+	gcov	 [label="gcov \n    .gcda\n    .gcno\n  .c"]
+	gcovr	 [label="gcovr \n    .gcda\n    .gcno\n  .c"]
+	hex2binPy	 [label="python-script      \n raw binary to gcda-format"]
+	gcdaFile	 [label="gcda-file"]
 
-	Horst [label = "Host-PC with\n SWD-Console"]
+	Horst [label = "host-PC with\n SWO-console"]
 	
 	gcc->STLink	[label="USB"]
 	// [label=""]
 
 	STLink ->Oct
-	Oct -> STLink2	[label="ITM"]
+	Oct -> STLink2	[label="SWO"]
 	STLink2	-> Horst [label = "USB"]
 	Horst -> hex2binPy [label = "copy\npaste"]
 	hex2binPy->gcdaFile
-	gcdaFile -> gcov -> lcov
-	gcdaFile -> gcovr [style = dashed]
-	gcovr -> htmlReport [style = dashed]
-	lcov -> htmlReport
+	gcdaFile -> gcov -> lcov -> htmlReport [style = dashed]
+	gcdaFile -> gcovr 
+	gcovr -> htmlReport
 	
-	{rank = same; gcc; gcdaFile}
-	// rank[same;gcc;gcdaFile];
-}
+	{rank = same; gcc; STLink2; gcdaFile}
 
+}

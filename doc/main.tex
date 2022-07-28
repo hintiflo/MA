@@ -65,7 +65,7 @@
 				\input{src/_REQS.tex}
 		\pagebreak
 			\section{USB-Protocol}
-		SCPI Commands can be in 'short form', defined by the capital letters, or in 'long form', defined by the whole string. OCTane accepts both forms as commands and is case-insensitive.
+		SCPI Commands can be in 'short form', defined by the capital letters, or in 'long form', defined by the whole string. OCTane accepts both forms as commands and is case-insensitive. \cite{scpi1993}
 
 			{	\scriptsize
 				\input{src/_scpiRecendt.tex}
@@ -89,9 +89,10 @@
 			\subsection{Load-Hypothesis, Fault-Hypothesis}
 			\subsection{Traceability-Matrix}
 			Linking Requirements by there tags, to the SW-modules, where they are fulfilled
+			The traceability Matrix establishes the relations between user requirements and test cases. Furthermore it is good practice to also include requirement IDs inside the source code on the exact point of implementation. The convenient layout for a traceability matrix is to list requirement IDs column-wise, while noting the IDs of the test cases row wise. The reason being that one requirement may have multiple test cases and and it is more convenient to note these multiple IDs in rows, rather than columns.
 			\subsection{V-Model}
 			\subsection{Test-cases}
-			Automated test-cases are the primary method to ensure code-quality, because they allow for the assessment of functionalities against requirements and produce according documentation of conducted tests. Furthermore, they help identifying  errors in case of failures and secure implemented functionalities during future adaptions. To demonstrate a complete assessment of the firmware, for every existing user-requirement, at least one test-case is necessary. For practical reasons, these cases must be implemented as python-scripts, running on a proxy host-device, controlling the device under test via USB. The first practical aspect, being, that the resulting test-data are directly available on a device with capable processing power and high memory capacity, facilitating the automated generation of test-reports. The python programming language provides the package 'pytest-html', allowing for the automated generation of test-reports in HTML-format. Every test-case has to be simple enough, to render verification of the test-code itself unnecessary. A test-case, so complex, that i would require a superordinate test-case, indicates, that said test-case should be split into several cases of lesser respective complexity. Fig. ~\ref{testCaseExample} contains an exemplary test-case, assessing the devices correct reply to an identification query. \TODO{Quelle: scpi document}
+			Automated test-cases are the primary method to ensure code-quality, because they allow for the assessment of functionalities against requirements and produce according documentation of conducted tests. Furthermore, they help identifying  errors in case of failures and secure implemented functionalities during future adaptions. To demonstrate a complete assessment of the firmware, for every existing user-requirement, at least one test-case is necessary. For practical reasons, these cases must be implemented as python-scripts, running on a proxy host-device, controlling the device under test via USB. The first practical aspect, being, that the resulting test-data are directly available on a device with capable processing power and high memory capacity, facilitating the automated generation of test-reports. The python programming language provides the package 'pytest-html', allowing for the automated generation of test-reports in HTML-format. Every test-case has to be simple enough, to render verification of the test-code itself unnecessary. A test-case, so complex, that i would require a superordinate test-case, indicates, that said test-case should be split into several cases of lesser respective complexity. Fig. ~\ref{testCaseExample} contains an exemplary test-case, assessing the devices correct reply to an identification query. \cite{BalajiScpi}
 			
 			\bildGr{h!}{testCaseExample}{testCaseExample}{testCaseExample}{0.75\textwidth}
 			The general procedure of this test-case consists of 
@@ -109,18 +110,13 @@
 			\subsection{Unit-Tests}
 			Unit-tests are test-cases that evaluate the correctness of single functions, methods or procedures. A single variable, array or data-set also constitutes such a unit, if the contained data demands deliberate assessment via a test-case. Viable inputs exist in the form of binary values with separate cases for 'true' and 'false'. In case of numerical input, be they of integer or floating-point nature, the boundary-value and equivalence-class methods deliver suitable input values. For inputs in text form, all specified valid texts, and at least one invalid text form a set of useful input values. \cite{jorgensen13}
 			\subsection{Integration-Tests}
-			The next level of tests concern the interactions between units and their correct cooperation to form correctly working modules and sub-systems. A major focus in integration testing lies on the verification of units and modules to ensure their correct interaction. As this aspect is of a lesser concern during unit-testing, integration-testing is an established branch of verification in its own right. Furthermore, side-effects of units, which are hardly a concern during unit-testing, are important aspects during integration-testing. Testing and demonstrating seamless interoperability and collaboration of modules are the prime objectives. \cite{SpilSoft2005} % \TODO{welche inputs? Oder: beschreibung der integrations-Art nach ISTQB S. 56} Similar to a unit-test for text-driven functions, an integration test has to contain all possible valid inputs and at least one invalid. 
-			The strategy of integration, happening during implementation has significant influence on the design of suitable integration-tests. 
+			The next level of tests concern the interactions between units and their correct cooperation to form correctly working modules and sub-systems. A major focus in integration testing lies on the verification of units and modules to ensure their correct interaction. As this aspect is of a lesser concern during unit-testing, integration-testing is an established branch of verification in its own right. Furthermore, side-effects of units, which are hardly a concern during unit-testing, are important aspects during integration-testing. Testing and demonstrating seamless interoperability and collaboration of modules are the prime objectives. \cite{SpilSoft2005} % \TODO{welche inputs? Oder: beschreibung der integrations-Art nach ISTQB S. 56} Similar to a unit-test for text-driven functions, an integration test has to contain all possible valid inputs and at least one invalid. \\
+			The strategy of integration, happening during implementation has significant influence on the design of suitable integration-tests. These are the most common approaches:
 			\begin{itemize} \setlength\itemsep{1px}
-			\item Top-down integration approaches the code under test from its entry point and external interfaces, non-existing sub-systems require replacement through stubs delivering dummy-data.
-			\item Bottom-up integration builds modules and subs-systems based upon existing low-level functions, while non-existing higher-ranking systems require replacement through test-drivers delivering dummy-commands.
-			\item Ad hoc integration is the least formal integration-strategy, where components undergo integration directly after integration, regardless of their level or rank within the complete system. The effort in planning integration is negligible, while non-existing components demand higher effort for their replacements. Furthermore, the lack of a thoroughly planned integration phase might diffuse into the resulting software exhibiting an erratic and patchy structure.
-			\item Backbone integration \cite{Beizer90}
-			\BLUE{
-			A skeleton or backbone is built and components are gradually integrated into it 
-			Advantage: Components can be integrated in any order.
-			Disadvantage: A possibly labor-intensive skeleton or backbone is required.
-			}
+			\item Top-down integration 
+			\item Bottom-up integration 
+			\item Ad-hoc integration 
+			\item Backbone integration 
 			\end{itemize} 
 			
 			\subsection{System-Tests}
@@ -129,19 +125,47 @@
 			\cite{Beizer95}
 			\subsection{Load/Fault Tests}
 			
+			\TODO{cite: IEEE830.pdf, Crowder-REQs, Buttazzo, system-deadlocks (Coffman) und Datenblätter }
+			\subsection{End to end Test}
+			The core concern is if a test is intended and designed as a unit or an end to end test, regardless of additional resources of the system being used.
+			Even though unit tests are not into end-to-end tests they may very well use the outer interfaces of the system under test.
 
 			\subsection{Code Coverage}
-			Code Coverage is an accompanying metric to test-cases, indicating their accuracy of assessment. Fig ~\ref{gcovReportDebugUnit01} depicts an extract of the coverage report of one submodule and ~\ref{gcovReport01} contains a composite report about code coverage over the whole firmware-project.
-			
-			\bildGr{h!}{gcovReportDebugUnit01}{gcovReportDebugUnit01}{gcovReportDebugUnit01}{0.75\textwidth}
-			\bildGr{h!}{gcovReport01}{gcovReport01}{gcovReport01}{0.75\textwidth}
+			Code Coverage is an accompanying metric to test-cases, indicating their accuracy and completeness of assessment. The goal for this project is to achieve complete statement and branch coverage for the original, self-written source-code. Third-party libraries and HAL-modules from the processor-vendor are excluded from this requirement.
 			
 	\chapter{Concept}
 	\label{cha:Concept}
 		\section{ system architecture }
 			Modules-Skizze + HW-Graph und ein meta-graph der diese verbindet.
-		\section{FSM}
+		\subsection{Modules of the Firmware}
+		\begin{figure}[H]
+			\center
+			\includegraphics[width=\textwidth]{src/_FW-Modules.pdf}
+			\caption{Modular structure}
+			\label{fig:_FW-Modules}
+		\end{figure}
 
+		\section{Module Integration Strategy}
+			These strategies constitute the most promising approaches in module integration:
+			\begin{itemize} \setlength\itemsep{1px}
+			\item Top-down integration 
+			\item Bottom-up integration 
+			\item Ad-hoc integration 
+			\item Backbone integration 
+			\end{itemize} 
+
+			Top-down integration approaches the code under test from its entry point and external interfaces, non-existing sub-systems require replacement through stubs delivering dummy-data. \\
+			
+			Bottom-up integration builds modules and subs-systems based upon existing low-level functions, while non-existing higher-ranking systems require replacement through test-drivers delivering dummy-commands. \\
+			
+			Ad-hoc integration is the least formal integration-strategy, where components undergo integration directly after integration, regardless of their level or rank within the complete system. The effort in planning integration is negligible, while non-existing components demand higher effort for their replacements. Furthermore, the lack of a thoroughly planned integration phase might diffuse into the resulting software exhibiting an erratic and patchy structure. \\
+			
+			Backbone integration \cite{Beizer90} is the formal equivalent of ad-hoc integration, where the initial task is, to build an overarching backbone or skeleton for the whole project and afterwards integrate components in arbitrary order. This leaves substantial freedom to the order of developing components, alas requires thorough planning up front and notably effort initially, to implement the backbone. \\
+
+			Backbone integration is the most promising option and consequently the selected choice for the project at hand. The appeal of that strategy stems from the possibility to develop and integrate components in any order. This allows to work on another component, if one imposes seemingly unsolvable problems and come back to that problematic component at a later point. In contrast to the ad-hoc method, backbone integration maintains order and structure over a software project, while leaving mentioned degrees of freedom.
+
+
+		\section{FSM}
 		\begin{figure}[H]
 			\center
 			\includegraphics[width=0.75\textwidth]{src/_mainFSM_neato.pdf}
@@ -150,13 +174,6 @@
 		\end{figure}
 
 
-		\section{Modules of the Firmware}
-		\begin{figure}[H]
-			\center
-			\includegraphics[width=\textwidth]{src/_FW-Modules.pdf}
-			\caption{Modular structure}
-			\label{fig:_FW-Modules}
-		\end{figure}
 	
 
 		\subsubsection{Triggers and Voltage - Outputs}
@@ -170,10 +187,20 @@
 			\input{src/_SOPs.tex}
 		}
 
-		\section{ Measuring code coverage on a bare-metal sys }
-		
-		\bildGr{h!}{coverageFlow}{coverageFlow}{coverageFlow}{0.75\textwidth}
-		
+		\section{Hardware}
+			\subsection{STM32F4}
+			\bildGr{h!}{../src/_Octane_HW-Structure.pdf}{HardWare}{_Octane_HW-Structure.pdf}{0.75\textwidth}
+			
+			\subsection{Wandler, Level-Shifter, HighSider}
+			\subsection{Connection of Galvos and Triggers}
+				\begin{table}[h!]
+					 \begin{tabular}{|p{5.5cm}|p{6cm}|} \hline
+					Source1	- Galvo y (slow)& Trigger B\\ \hline
+					Source2	- Galvo x (fast)& Trigger A\\ \hline
+					 \end{tabular}
+					 \caption{Assignment of Triggers and according analogue outputs}
+				\end{table}
+
 		
 		
 	\chapter{Implementation}
@@ -186,7 +213,7 @@
 			\item 1 timer basic for reading timeouts
 			\item 1 timer basic for flashing LEDs
 			\end{itemize}
-		\subsubsection{Trigger-Lines and Timers}
+		\subsection{Trigger-Lines and Timers}
 		utilisation of the output compare - timers
 		\begin{itemize}
 			\item TrigA \^{=} $TRIG\_2$  \^{=} PB3 $\leftarrow$ $TIM2_CH2$
@@ -197,36 +224,53 @@
 			% new conspt: output compare Timer etiher the advanceds from the F4 for TrigB and C with separate ISRs to set and clear
 						% OR three GP-Triggers with dedicated output lines, that are set/reset by Timer itself (PSC, ARR and pulse)
 						% $\rightarrow$ see schematic wich Trigger has wich line and Graph against according Timers!
-		\subsubsection{Debug-Unit}
+		\subsection{Debug-Unit}
 		A debug-unit, offering eight digital outputs via set.. and rst.. - functions, was established. Fig. ~\ref{dbgUnitLogic} shows a 'ladder' setting and resetting all debug-Pins upon initialization of the module.
 		
-			\bildGr{b!}{dbgUnitLogic.png}{dbgUnitLogic}{dbgUnitLogic}{0.5\textwidth}
+			\bildGr{H}{dbgUnitLogic.png}{dbgUnitLogic}{dbgUnitLogic}{0.5\textwidth}
 
 		
 		
-		\section{Hardware}
-			\subsection{STM32F4}
-			\begin{figure}[ht]
-				\centering
-				\includegraphics[height=105mm]{src/_Octane_HW-Structure.pdf}
-				\caption{HardWare}
-				\label{_Octane_HW-Structure.pdf}
-			\end{figure}
-			
-			\subsection{Wandler, Level-Shifter, HighSider}
-			\subsection{Connection of Galvos and Triggers}
-				\begin{table}[h!]
-					 \begin{tabular}{|p{5.5cm}|p{6cm}|} \hline
-					Source1	- Galvo y (slow)& Trigger B\\ \hline
-					Source2	- Galvo x (fast)& Trigger A\\ \hline
-					 \end{tabular}
-					 \caption{Assignment of Triggers and according analogue outputs}
-				\end{table}
 
 		\section{\GREY{Software tools}}
 			\subsection{\GREY{CubeIDE}}
-			\subsection{\GREY{Gcov}}
-			\subsection{\GREY{python tools, OpenOCD}}
+			\subsection{Gcov}
+				'gcov' is a suitable software tool to measure code coverage. It is part of the gnu compiler collection 'gcc'. It is free of charge, open source and operates on various platforms like Linux, Windows and Mac and supports target platforms ranging from arm microprocessors to x86 processors. It is able to perform statement as well as branch coverage analysis. While the actual GCC compiler produces instrumented code suitable for coverage measurement, gcov merely converts coverage data post factum into human readable reports.
+			\subsubsection{Instrumentation}
+				The production code per se is not suited for coverage measurement, because no data is generated to base coverage analysis on. Therefore it is necessary to insert counter variables into the source code that keep track on how often every block of code was executed and which branches of decisions were taken and which not. Furthermore data management of those counters is necessary as well as exporting generated data onto a host system for further processing. Instrumentation is the process of inserting mentioned counters and the according data management into the original source code. Additionally the compiler generates information about basic blocks, arcs and information to relate them to line numbers in the source code. Basic blocks are sequences of statements without any branching statements and branch targets. Arcs on the other hand are branch operations and their according targets that link basic blocks together. \\
+				
+				The instrumented source code is not identical to production source code! In case of the gcov software tool the instrumentation is done by the actual GCC compiler and not the gcov tool itself. To force the compiler to produce instrumented code, the flags '-fprofile-arcs' and '–ftest-coverage' are necessary. The instrumented code is merely an intermediate by-product, not directly visible to the developer. It is good practice, to generate instrumented code only for one module at a time and not a complete project at once, especially on a bare-metal firmware-project. They binary footprint of the instrumented source-code is substantially larger than the non-instrumented code. Therefore, the demand in memory might overwhelm the limited resources of the embedded processor, if attempting to measure coverage for a complete project at once. Post-processing tools for gcov allow for assembling data-sets of several modules into one report. With the mentioned flags, the compiler measures how often a program reaches a branch instruction and how often it actually performs a branch operation. For this purpose GCC creates a control flow graph and an accompanying spanning tree. Statements not contained in this spanning tree require counting, as they are not executed in every case. \\
+				
+				
+			\subsubsection{Producing Raw Data}
+				Executing instrumented code produces a 'gcda'-file, holding information about control-flow-graph and the spanning tree. By default, the instrumenting instructions rely on syscalls to generate and fill files with the gathered counter-data. This step requires a workaround on bare-metal systems, as there, the mentioned syscalls only exist as dummies. A subsequent chapter describes this workaround. Now it is known which branch operations the program performed and how often it executed  each statement and block of code. This information allows to write to generate a 'gcov' file and a statistical analysis. The 'gcov' file is essentially the original source code, which the gcov-tool prepends with annotations about execution-counts of statements, branching information and omitted statements, retrieved from the binary gcda-file. \\
+
+				The '-g' compiler option might be helpful for measurement of coverage data, even though it is not mandatory. It forces the compiler to generate debug information in the executable binary. This allows for example to perform breaks during execution of an instrumented program. This is a useful option for simulating failed memory allocations. Executing statements that attempt to access memory that was faulty allocated demonstrates how a program handles faulty memory regions. It is an exceptional situation for the program and therefore complicated to provoke during test cycles. Therefore, simulating exceptions via the debuggers break-functionality can be a useful method to test handling of said exceptions. So, to achieve complete branch coverage it, might be necessary to incorporate the GDB-debugger into the process. This thesis omits a detailed explanation of this debugger, as it is not the core topic. \cite{gcov} \\
+				
+				To produce the raw coverage information, at least one execution of the instrumental program is necessary. Repeated execution of the program results in the instrumenting code parts to append additional counter information to the already existing gcda file. This step again requires a certain amount of work around on bare metal systems.
+			\subsubsection{Processing Raw Data}
+				After one or several executions of the instrumented program, gcov is able to link and analyse the information contained in the gcda-file the gcno-file and the original source code. This results in the mentioned gcov-file and statistic data about the source-codes coverage. By applying the '-b' flag upon execution of gcov, branch coverage information is generated as well. Typically gcov states the percentages of executed code lines, of executed branches, of taken branches and of executed function-calls, in one module. The '-c' option allows to retrieve statistics about branching operations in absolute values rather than percentages. The '-f' option delivers statement coverage also for every separate function, additionally to the statement coverage of a whole module.
+				% \TODO{include coverage example laying around somewhere in my system and screenshots of this source code and the report file}
+			\subsubsection{Post-processing}
+				Up to this point the existing analysis data is already of valuable insight for a developer, but scattered among modules and not in a presentable format. This calls for post-processing via tools like 'lcov', 'llvm-cov', 'kcov' or 'gcovr', who are able to generate an aggregate report of several modules in HTML-, JSON-, CSV-, and XML-format. \cite{lcov} \cite{kcov}
+				Fig. ~\ref{gcovReportDebugUnit01} depicts an extract of the coverage report of one submodule and ~\ref{gcovReport01} contains a composite report about code coverage over the whole firmware-project. As the figures originate from an early phase of the project, they contain only one module called 'DebugUnit'. The software tool 'gcovr' produces such expressive reports as HTML-files. The summarizing statistics, the coverage metrics appear on the right side of the header of every report, with a colouring-scheme similar to traffic-lights, to indicate problematic metrics. The total report replicates this concept, itemized for every single module in the body part of the output. Reports of separate modules list the according source-code in the body part, indicating covered code-portions in green and not executed parts in red. This representation provides an intuitive overview of areas, that require further testing.
+			\bildGr{H}{gcovReport01}{gcovReport01}{gcovReport01}{0.75\textwidth}
+			\bildGr{H}{gcovReportDebugUnit01}{gcovReportDebugUnit01}{gcovReportDebugUnit01}{0.75\textwidth}
+			
+			% Although not a direct part of the firmware the basic steps to measure Code coverage on the bear Metal System are described here. 
+			\subsection{Measuring Code Coverage on bare-metal systems}
+			Code coverage imposes a significant challenge on bare metal systems: Measurement-tools assume an underlying operating system, especially a file-system, that receives the measured raw data. This requires a workaround, as 'bare-metal' literally means 'without an operating system'. It is very-well possible to establish a file-system, alas at significant demands in processing power and memory. As these resources require economical utilization, transferring data directly out of the device under test during test-cycles is an appealing alternative. Most ARM-based processors provide ITMs, instrumentation trace macro-cells, coupled with SWO (serial wire output), a dedicated debug-interface. This allows to define debug-informations in firmware and provide them via SWO. Debug-probes, like ST-Link2, support this interface and pass the data on to a host-system. The processors serial interfaces like USB or RS-232 are unaffected by this and remain available for user-application, instead of debugging-purposes. \\
+			
+			Fig. ~\ref{coverageFlow} illustrates the process, applying the described components for coverage measurement: A compiler generates executable binary-code from the instrumented code under test, a programming tool transfers the compiled code to the target platform. As gcov utilises the syscalls \lstC ! _open() ! , \lstC ! _write() ! and  \lstC ! _exit() !, additional code redirects these calls to the processors ITM-functions. During test-cycles, the IT-macrocell provides the emerging coverage information via SWO, while a debug-probe picks up this information. The probe then passes the information on to a host-PC, capable of storing large volumes of data and further processing. An ad-hoc-script, written in python, converts the raw coverag information into gcda-files, compatible with gcov and its derivates. Either a combination of gcov and lcov, or gcovr then leads to a final HTML-report, similar to fig. ~ref{gcovReportDebugUnit01}. \\
+			\bildGr{H}{coverageFlow}{coverageFlow}{coverageFlow}{0.95\textwidth}
+			Special attention regarding versions of the compiler, the coverage tool and the reporting tool is necessary. Report generation easily fails, if the versions of the tools generating gcno-, gcda- and html-files do not match up exactly. Furthermore, only one exact version (v5) of the arm-compiler generates instrumented source code applicable for coverage measurement on STM32 processors. Lcov does not produce any reports containing any coverage metrics at all, at least not with the compiler- and gcov-versions in use. \\
+			\bildGr{h!}{gcvor52}{gcvor52}{gcvor52}{0.5\textwidth}
+			Unfortunately, only versions up to 4.2 of gcovr provides compatibility among compiler, coverage-tool and the platform performing the coverage analysis. While the most recent version 5.2 delivers separate metrics for function-calls and decisions (see fig. ~\ref{gcvor52}), version 4.2 is only capable of providing statement and branch-coverage\cite{gcovr} . \\
+
+			The described process is rather cumbersome, hardly automated and requires some manual intervention. Nevertheless, the resulting reports are of significant value to the developer, which again justifies the efforts. 
+
+			\subsection{\GREY{python tools, pytest-html}}
+			% \subsection{\GREY{OpenOCD}}
 			% \subsection{\GREY{Valgrind}}
 			% \subsection{\GREY{Wavedrom}}
 			% \subsection{\GREY{WireShark/USBPcap}}
@@ -243,7 +287,6 @@
 		\section{Test-Cases}
 		\section{Code Coverage}
 		\section{Code Review}
-		\section{Coverages}
 		\section{Review Remarks}
 		\section{Gavlo-Performance}
 		\section{Project-status}
@@ -251,7 +294,13 @@
 	% thethesis.tex
 	\chapter{Conclusion}
 	\label{cha:Conclusion}
-
+	\section{Test Cases}
+		\bildGr{h!}{exampleHelpfulFailedTest01}{exampleHelpfulFailedTest01}{exampleHelpfulFailedTest01}{0.85\textwidth}
+	Fig. ~\ref{exampleHelpfulFailedTest01} contains an example of a helpful test-case that failed in the beginning. The direct comparison of expected and actual results allows to backtrack the problem via searching for the unexpected result-string. This leads to the accompanying enum-ID of that string, that was misplaced because of a typing error of one single letter. 
+	The Fig. ~\ref{exampleHelpfulFailedTestSrc01} depicts the according place in the source code, with the erroneous ID \lstC !TX_SOURB_VOLT_LEVq! instead of \lstC !TX_SOURB_VOLT_LEV! .
+		\bildGr{h!}{exampleHelpfulFailedTestSrc01}{exampleHelpfulFailedTestSrc01}{exampleHelpfulFailedTestSrc01}{0.55\textwidth}
+	This example highlights the advantages of numerous simple test-cases, already during the debugging and early verification of newly implemented functionalities.
+	
 
 % \include{chapters/figures}
 % \include{chapters/mathematics}

@@ -19,6 +19,68 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{gcovr}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=bf2e339fa0c8d67c6cee8c1e97f210e1}{%
+           family={authors},
+           familyi={a\bibinitperiod},
+           prefix={the\bibnamedelima gcovr},
+           prefixi={t\bibinitperiod\bibinitdelim g\bibinitperiod}}}%
+      }
+      \strng{namehash}{bf2e339fa0c8d67c6cee8c1e97f210e1}
+      \strng{fullhash}{bf2e339fa0c8d67c6cee8c1e97f210e1}
+      \strng{bibnamehash}{bf2e339fa0c8d67c6cee8c1e97f210e1}
+      \strng{authorbibnamehash}{bf2e339fa0c8d67c6cee8c1e97f210e1}
+      \strng{authornamehash}{bf2e339fa0c8d67c6cee8c1e97f210e1}
+      \strng{authorfullhash}{bf2e339fa0c8d67c6cee8c1e97f210e1}
+      \field{sortinit}{a}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{4}
+      \field{month}{7}
+      \field{title}{gcovr Documentation}
+      \field{version}{Release 5.1}
+      \field{year}{2022}
+      \field{dateera}{ce}
+    \endentry
+    \entry{BalajiScpi}{article}{}
+      \name{author}{3}{}{%
+        {{hash=38186ebfc79dcae6472d252b8ff607af}{%
+           family={Balaji},
+           familyi={B\bibinitperiod},
+           given={Aravind},
+           giveni={A\bibinitperiod}}}%
+        {{hash=8b509e5a47c63beb970f28680112d127}{%
+           family={Sasikumar},
+           familyi={S\bibinitperiod},
+           given={S},
+           giveni={S\bibinitperiod}}}%
+        {{hash=98981feee0a118322728ce4e57d636ef}{%
+           family={K},
+           familyi={K\bibinitperiod},
+           given={Dr.\bibnamedelimi Ramesh},
+           giveni={D\bibinitperiod\bibinitdelim R\bibinitperiod}}}%
+      }
+      \strng{namehash}{1999ab244c5dc073afa03d4cf1c8d86a}
+      \strng{fullhash}{1999ab244c5dc073afa03d4cf1c8d86a}
+      \strng{bibnamehash}{1999ab244c5dc073afa03d4cf1c8d86a}
+      \strng{authorbibnamehash}{1999ab244c5dc073afa03d4cf1c8d86a}
+      \strng{authornamehash}{1999ab244c5dc073afa03d4cf1c8d86a}
+      \strng{authorfullhash}{1999ab244c5dc073afa03d4cf1c8d86a}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IOP Conference Series: Materials Science and Engineering}
+      \field{month}{02}
+      \field{title}{SCPI based integrated test and measurement}
+      \field{volume}{1045}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1088/1757-899X/1045/1/012036
+      \endverb
+    \endentry
     \entry{Beizer95}{book}{}
       \name{author}{1}{}{%
         {{hash=40b371da86c2ce0dc19684b2a3d7f3bb}{%
@@ -211,6 +273,58 @@
       \field{year}{2013}
       \keyw{cyclomatic graph.theory programming testing textbook}
     \endentry
+    \entry{kcov}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=2aa99d25b650f5a5149400d9dffd226e}{%
+           family={Kagstrom},
+           familyi={K\bibinitperiod},
+           given={Simon},
+           giveni={S\bibinitperiod}}}%
+      }
+      \strng{namehash}{2aa99d25b650f5a5149400d9dffd226e}
+      \strng{fullhash}{2aa99d25b650f5a5149400d9dffd226e}
+      \strng{bibnamehash}{2aa99d25b650f5a5149400d9dffd226e}
+      \strng{authorbibnamehash}{2aa99d25b650f5a5149400d9dffd226e}
+      \strng{authornamehash}{2aa99d25b650f5a5149400d9dffd226e}
+      \strng{authorfullhash}{2aa99d25b650f5a5149400d9dffd226e}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{21}
+      \field{langid}{english}
+      \field{month}{5}
+      \field{title}{kcov - code coverage for fuzzing}
+      \field{version}{4.00}
+      \field{year}{2020}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Kalkov2013CodeCC}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=559b3b3c788831ee070d76ba96f89faf}{%
+           family={Kalkov},
+           familyi={K\bibinitperiod},
+           given={Mikhail},
+           giveni={M\bibinitperiod}}}%
+        {{hash=f07fbea8777705adca2a2a6cc5b627b2}{%
+           family={Pamakha},
+           familyi={P\bibinitperiod},
+           given={Dzmitry},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{56f9358042dcd7fdbf7a6b1ed3afaa5e}
+      \strng{fullhash}{56f9358042dcd7fdbf7a6b1ed3afaa5e}
+      \strng{bibnamehash}{56f9358042dcd7fdbf7a6b1ed3afaa5e}
+      \strng{authorbibnamehash}{56f9358042dcd7fdbf7a6b1ed3afaa5e}
+      \strng{authornamehash}{56f9358042dcd7fdbf7a6b1ed3afaa5e}
+      \strng{authorfullhash}{56f9358042dcd7fdbf7a6b1ed3afaa5e}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Code coverage criteria and their effect on test suite qualities}
+      \field{year}{2013}
+    \endentry
     \entry{keithleyHistory}{book}{}
       \name{author}{1}{}{%
         {{hash=5e70c252d984dbc0023eaafb5870be31}{%
@@ -239,6 +353,32 @@
       \field{langid}{english}
       \field{title}{The Story of Electrical and Magnetic Measurements From 500 BC to the 1940s}
       \field{year}{1999}
+      \field{dateera}{ce}
+    \endentry
+    \entry{gcov}{manual}{}
+      \name{author}{1}{}{%
+        {{hash=7f32f61adec784489cc0fa2cefa610a3}{%
+           family={Kerrisk},
+           familyi={K\bibinitperiod},
+           given={Michael},
+           giveni={M\bibinitperiod}}}%
+      }
+      \strng{namehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{fullhash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{bibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authorbibnamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authornamehash}{7f32f61adec784489cc0fa2cefa610a3}
+      \strng{authorfullhash}{7f32f61adec784489cc0fa2cefa610a3}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{day}{27}
+      \field{langid}{english}
+      \field{month}{8}
+      \field{title}{gcov manual pdf}
+      \field{version}{1st edition}
+      \field{year}{2021}
       \field{dateera}{ce}
     \endentry
     \entry{Kopetz1997}{book}{}
@@ -293,6 +433,27 @@
       \field{title}{Software-Qualität - testen, analysieren und verifizieren von Software}
       \field{year}{2002}
     \endentry
+    \entry{Luo2001SoftwareTT}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{hash=13fd5c655fc0de6d615af396f19f37b5}{%
+           family={Luo},
+           familyi={L\bibinitperiod},
+           given={Lu},
+           giveni={L\bibinitperiod}}}%
+      }
+      \strng{namehash}{13fd5c655fc0de6d615af396f19f37b5}
+      \strng{fullhash}{13fd5c655fc0de6d615af396f19f37b5}
+      \strng{bibnamehash}{13fd5c655fc0de6d615af396f19f37b5}
+      \strng{authorbibnamehash}{13fd5c655fc0de6d615af396f19f37b5}
+      \strng{authornamehash}{13fd5c655fc0de6d615af396f19f37b5}
+      \strng{authorfullhash}{13fd5c655fc0de6d615af396f19f37b5}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Software Testing Techniques}
+      \field{year}{2001}
+    \endentry
     \entry{SpilSoft2005}{book}{}
       \name{author}{3}{}{%
         {{hash=58e3123e6a8cd02bbdaa0e86c09a9b61}{%
@@ -332,6 +493,48 @@
       \field{year}{2005}
       \keyw{Datenverarbeitung engineering Test Software Testwerkzeuge}
     \endentry
+    \entry{scpi1993}{book}{}
+      \list{publisher}{1}{%
+        {SCPI Consortium}%
+      }
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labeltitlesource}{title}
+      \field{number}{Bd. 2}
+      \field{title}{Standard Commands for Programmable Instruments: (SCPI).. Command reference}
+      \field{year}{1993}
+      \verb{urlraw}
+      \verb https://books.google.at/books?id=mzZpmwEACAAJ
+      \endverb
+      \verb{url}
+      \verb https://books.google.at/books?id=mzZpmwEACAAJ
+      \endverb
+    \endentry
+    \entry{Tai1980ProgramTC}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6986e50408691b630b4e03bb243dcfd3}{%
+           family={Tai},
+           familyi={T\bibinitperiod},
+           given={Kuo-chung},
+           giveni={K\bibinithyphendelim c\bibinitperiod}}}%
+      }
+      \strng{namehash}{6986e50408691b630b4e03bb243dcfd3}
+      \strng{fullhash}{6986e50408691b630b4e03bb243dcfd3}
+      \strng{bibnamehash}{6986e50408691b630b4e03bb243dcfd3}
+      \strng{authorbibnamehash}{6986e50408691b630b4e03bb243dcfd3}
+      \strng{authornamehash}{6986e50408691b630b4e03bb243dcfd3}
+      \strng{authorfullhash}{6986e50408691b630b4e03bb243dcfd3}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Software Engineering}
+      \field{title}{Program Testing Complexity and Test Criteria}
+      \field{volume}{SE-6}
+      \field{year}{1980}
+      \field{pages}{531\bibrangedash 538}
+      \range{pages}{8}
+    \endentry
     \entry{Tian2005}{book}{}
       \name{author}{1}{}{%
         {{hash=55b69da9efba91e7499f0b32772d6651}{%
@@ -356,6 +559,37 @@
       \field{isbn}{978-0-471-71345-6}
       \field{title}{Software quality engineering - testing, quality assurance, and quantifiable improvement}
       \field{year}{2005}
+    \endentry
+    \entry{lcov}{online}{}
+      \name{author}{1}{}{%
+        {{hash=ad656e53233dcce2aded1f6c1b2dcf38}{%
+           family={team},
+           familyi={t\bibinitperiod},
+           given={Linux-Kernel},
+           giveni={L\bibinithyphendelim K\bibinitperiod}}}%
+      }
+      \strng{namehash}{ad656e53233dcce2aded1f6c1b2dcf38}
+      \strng{fullhash}{ad656e53233dcce2aded1f6c1b2dcf38}
+      \strng{bibnamehash}{ad656e53233dcce2aded1f6c1b2dcf38}
+      \strng{authorbibnamehash}{ad656e53233dcce2aded1f6c1b2dcf38}
+      \strng{authornamehash}{ad656e53233dcce2aded1f6c1b2dcf38}
+      \strng{authorfullhash}{ad656e53233dcce2aded1f6c1b2dcf38}
+      \field{sortinit}{t}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{LCOV user Manual}
+      \field{urlday}{27}
+      \field{urlmonth}{7}
+      \field{urlyear}{2022}
+      \field{year}{2019}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb http://ltp.sourceforge.net/coverage/lcov/lcov.1.php
+      \endverb
+      \verb{url}
+      \verb http://ltp.sourceforge.net/coverage/lcov/lcov.1.php
+      \endverb
     \endentry
   \enddatalist
 \endrefsection

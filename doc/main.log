@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.8.2)  26 JUL 2022 00:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.8.2)  29 JUL 2022 01:01
 entering extended mode
 **./main.tex
 (main.tex
@@ -304,7 +304,7 @@ File: pgfcalendar.code.tex 2020/12/27 v3.1.8b (3.1.8b)
 
 Package hagenberg-thesis Warning: 
 **************************************************************** 
-NOTE: 'hagenberg-thesis' is 635 days old - pls. check for updates 
+NOTE: 'hagenberg-thesis' is 638 days old - pls. check for updates 
 at https://github.com/Digital-Media/HagenbergThesis 
 **************************************************************** 
  on input line 100.
@@ -1375,7 +1375,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
 (C:\bin\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images//logo.pdf, id=296, 269.93045pt x 269.93045pt>
+<images//logo.pdf, id=316, 269.93045pt x 269.93045pt>
 File: images//logo.pdf Graphic file (type pdf)
 <use images//logo.pdf>
 Package pdftex.def Info: images//logo.pdf  used on input line 45.
@@ -1400,29 +1400,30 @@ Package hyperref Info: Option `pageanchor' set `true' on input line 45.
 ] (main.toc
 Package tocbasic Info: Using my definition of `\numberline' on input line 7.
 Package tocbasic Info: Using my definition of `\numberline' on input line 10.
-Package tocbasic Info: Using my definition of `\numberline' on input line 12.
 
-Overfull \hbox (0.1675pt too wide) detected at line 12
+Overfull \hbox (0.1675pt too wide) detected at line 10
  []\T1/lmr/bx/n/10.95 viii[]
  []
 
+Package tocbasic Info: Using my definition of `\numberline' on input line 12.
 Package tocbasic Info: Using my definition of `\numberline' on input line 16.
 Package tocbasic Info: Using my definition of `\numberline' on input line 26.
-Package tocbasic Info: Using my definition of `\numberline' on input line 84.
+Package tocbasic Info: Using my definition of `\numberline' on input line 86.
 [5
 
 ]
-Package tocbasic Info: Using my definition of `\numberline' on input line 110.
-Package tocbasic Info: Using my definition of `\numberline' on input line 124.
-Package tocbasic Info: Using my definition of `\numberline' on input line 150.
-Package tocbasic Info: Using my definition of `\numberline' on input line 174.
-Package tocbasic Info: Using my definition of `\numberline' on input line 176.
-Package tocbasic Info: Using my definition of `\numberline' on input line 188.
+Package tocbasic Info: Using my definition of `\numberline' on input line 114.
+Package tocbasic Info: Using my definition of `\numberline' on input line 136.
+Package tocbasic Info: Using my definition of `\numberline' on input line 164.
+Package tocbasic Info: Using my definition of `\numberline' on input line 186.
+Package tocbasic Info: Using my definition of `\numberline' on input line 190.
+ [6]
+Package tocbasic Info: Using my definition of `\numberline' on input line 202.
 )
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
- [6]
+ [7]
 \openout2 = `front/abstract.aux'.
 
  (front/abstract.tex
@@ -1444,7 +1445,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--10
 
  []
 
-) [7
+) [8
 
 
 ]
@@ -1462,7 +1463,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  []
 
-) [8
+) [9
 
 
 
@@ -1472,7 +1473,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
  (chapters/introduction.tex
 Chapter 1.
-<images/OCT_Principles_TD_OCT.JPG, id=422, 752.8125pt x 600.74437pt>
+<images/OCT_Principles_TD_OCT.JPG, id=451, 752.8125pt x 600.74437pt>
 File: images/OCT_Principles_TD_OCT.JPG Graphic file (type jpg)
 <use images/OCT_Principles_TD_OCT.JPG>
 Package pdftex.def Info: images/OCT_Principles_TD_OCT.JPG  used on input line 1
@@ -1485,7 +1486,7 @@ Package pdftex.def Info: images/OCT_Principles_TD_OCT.JPG  used on input line 1
 
 
 ] [2 <./images/OCT_Principles_TD_OCT.JPG>]
-<images/DetailGalvoOn.jpg, id=434, 3276.24pt x 2457.18pt>
+<images/DetailGalvoOn.jpg, id=463, 3276.24pt x 2457.18pt>
 File: images/DetailGalvoOn.jpg Graphic file (type jpg)
 <use images/DetailGalvoOn.jpg>
 Package pdftex.def Info: images/DetailGalvoOn.jpg  used on input line 24.
@@ -1494,7 +1495,7 @@ Package pdftex.def Info: images/DetailGalvoOn.jpg  used on input line 24.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/GalvoRamps01.png, id=435, 741.52031pt x 317.68687pt>
+<images/GalvoRamps01.png, id=464, 741.52031pt x 317.68687pt>
 File: images/GalvoRamps01.png Graphic file (type png)
 <use images/GalvoRamps01.png>
 Package pdftex.def Info: images/GalvoRamps01.png  used on input line 28.
@@ -1502,7 +1503,7 @@ Package pdftex.def Info: images/GalvoRamps01.png  used on input line 28.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<images/blocktane.pdf, id=439, 482.80376pt x 117.43875pt>
+<images/blocktane.pdf, id=468, 482.80376pt x 117.43875pt>
 File: images/blocktane.pdf Graphic file (type pdf)
 <use images/blocktane.pdf>
 Package pdftex.def Info: images/blocktane.pdf  used on input line 31.
@@ -1528,7 +1529,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--15
  []
 
 [7]
-<images/ErrorFaultFailure.pdf, id=480, 315.1775pt x 117.43875pt>
+<images/ErrorFaultFailure.pdf, id=511, 315.1775pt x 117.43875pt>
 File: images/ErrorFaultFailure.pdf Graphic file (type pdf)
 <use images/ErrorFaultFailure.pdf>
 Package pdftex.def Info: images/ErrorFaultFailure.pdf  used on input line 33.
@@ -1558,72 +1559,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--157
 
  []
 
-<images/EquivPart01.pdf, id=521, 462.52798pt x 90.3375pt>
+<images/EquivPart01.pdf, id=552, 462.52798pt x 90.3375pt>
 File: images/EquivPart01.pdf Graphic file (type pdf)
 <use images/EquivPart01.pdf>
 Package pdftex.def Info: images/EquivPart01.pdf  used on input line 160.
 (pdftex.def)             Requested size: 415.41025pt x 81.13895pt.
-<images/eqPart02.png, id=522, 439.4016pt x 125.268pt>
-File: images/eqPart02.png Graphic file (type png)
-<use images/eqPart02.png>
-Package pdftex.def Info: images/eqPart02.png  used on input line 165.
-(pdftex.def)             Requested size: 207.70512pt x 59.21428pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 163--167
-
- []
-
+<images/EquivPart02.pdf, id=553, 462.52798pt x 144.54pt>
+File: images/EquivPart02.pdf Graphic file (type pdf)
+<use images/EquivPart02.pdf>
+Package pdftex.def Info: images/EquivPart02.pdf  used on input line 165.
+(pdftex.def)             Requested size: 415.41025pt x 129.82233pt.
 [12 <./images/EquivPart01.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+Underfull \hbox (badness 10000) in paragraph at lines 181--182
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 169--170
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
-[13 <./images/eqPart02.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 183--185
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 201--202
-
- []
-
-<images/CoverageSubsumption.pdf, id=571, 573.14125pt x 414.54875pt>
-File: images/CoverageSubsumption.pdf Graphic file (type pdf)
-<use images/CoverageSubsumption.pdf>
-Package pdftex.def Info: images/CoverageSubsumption.pdf  used on input line 203
-.
-(pdftex.def)             Requested size: 203.5533pt x 147.23224pt.
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 206--207
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--211
-
- []
-
-[14]
-Underfull \hbox (badness 10000) in paragraph at lines 212--213
+[13 <./images/EquivPart02.pdf>] [14]
+Underfull \hbox (badness 10000) in paragraph at lines 199--201
 
  []
 
@@ -1633,24 +1590,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 214--215
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 216--217
+Underfull \hbox (badness 10000) in paragraph at lines 217--218
 
  []
 
+<images/CoverageSubsumption.pdf, id=635, 573.14125pt x 414.54875pt>
+File: images/CoverageSubsumption.pdf Graphic file (type pdf)
+<use images/CoverageSubsumption.pdf>
+Package pdftex.def Info: images/CoverageSubsumption.pdf  used on input line 219
+.
+(pdftex.def)             Requested size: 203.5533pt x 147.23224pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
-
- []
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
- []
-
-
-Overfull \hbox (12.30707pt too wide) in paragraph at lines 224--225
-[]\T1/lmr/m/n/10.95 Multiple con-di-tion cov-er-age ex-tends ba-sic con-di-tion
- cov-er-age, by im-pos-ing the strongest
  []
 
 
@@ -1658,59 +1613,98 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
-[15 <./images/CoverageSubsumption.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 229--230
+
+Underfull \hbox (badness 10000) in paragraph at lines 226--227
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 228--229
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--239
+Underfull \hbox (badness 10000) in paragraph at lines 232--233
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 241--243
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
 
  []
 
-<images/ctrlFlowExamp.pdf, id=596, 296.10625pt x 496.85625pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 236--237
+
+ []
+
+
+Overfull \hbox (12.30707pt too wide) in paragraph at lines 240--241
+[]\T1/lmr/m/n/10.95 Multiple con-di-tion cov-er-age ex-tends ba-sic con-di-tion
+ cov-er-age, by im-pos-ing the strongest
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+
+ []
+
+[16 <./images/CoverageSubsumption.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 250--254
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 256--258
+
+ []
+
+[17]
+<images/ctrlFlowExamp.pdf, id=666, 296.10625pt x 496.85625pt>
 File: images/ctrlFlowExamp.pdf Graphic file (type pdf)
 <use images/ctrlFlowExamp.pdf>
-Package pdftex.def Info: images/ctrlFlowExamp.pdf  used on input line 244.
+Package pdftex.def Info: images/ctrlFlowExamp.pdf  used on input line 259.
 (pdftex.def)             Requested size: 145.39612pt x 243.97722pt.
 
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[16]
-Underfull \hbox (badness 10000) in paragraph at lines 251--256
+Underfull \hbox (badness 10000) in paragraph at lines 265--270
 
  []
 
-[17 <./images/ctrlFlowExamp.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 262--268
+[18 <./images/ctrlFlowExamp.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 276--282
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 271--272
+Underfull \hbox (badness 10000) in paragraph at lines 285--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 274--275
+Underfull \hbox (badness 10000) in paragraph at lines 288--289
 
  []
 
-[18]
-<images/compDecision01.png, id=622, 641.39626pt x 130.98938pt>
+[19]
+<images/compDecision01.png, id=686, 641.39626pt x 130.98938pt>
 File: images/compDecision01.png Graphic file (type png)
 <use images/compDecision01.png>
-Package pdftex.def Info: images/compDecision01.png  used on input line 282.
+Package pdftex.def Info: images/compDecision01.png  used on input line 295.
 (pdftex.def)             Requested size: 311.55768pt x 63.6297pt.
  (C:\bin\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
@@ -1718,51 +1712,55 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 (C:\bin\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
 )
-Underfull \hbox (badness 10000) in paragraph at lines 290--291
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 
  []
 
-[19 <./images/compDecision01.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+[20 <./images/compDecision01.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 318--319
 
  []
 
-<images/compDeciMutualEx.png, id=634, 1466.47874pt x 48.18pt>
+<images/compDeciMutualEx.png, id=702, 1466.47874pt x 48.18pt>
 File: images/compDeciMutualEx.png Graphic file (type png)
 <use images/compDeciMutualEx.png>
-Package pdftex.def Info: images/compDeciMutualEx.png  used on input line 362.
+Package pdftex.def Info: images/compDeciMutualEx.png  used on input line 376.
 (pdftex.def)             Requested size: 415.41025pt x 13.64761pt.
-[20] [21 <./images/compDeciMutualEx.png>] [22]
-<images/loopBounderyInterior.png, id=655, 227.34938pt x 164.86594pt>
+[21] [22 <./images/compDeciMutualEx.png>] [23]
+<images/loopBounderyInterior.png, id=724, 227.34938pt x 164.86594pt>
 File: images/loopBounderyInterior.png Graphic file (type png)
 <use images/loopBounderyInterior.png>
-Package pdftex.def Info: images/loopBounderyInterior.png  used on input line 40
-6.
+Package pdftex.def Info: images/loopBounderyInterior.png  used on input line 41
+9.
 (pdftex.def)             Requested size: 207.70512pt x 150.6219pt.
 
 
-LaTeX Warning: Reference `' on page 23 undefined on input line 416.
+LaTeX Warning: Reference `' on page 24 undefined on input line 428.
 
-[23 <./images/loopBounderyInterior.png>]
-<images/modBounderyInterior.png, id=667, 471.26062pt x 371.13657pt>
+[24 <./images/loopBounderyInterior.png>]
+<images/modBounderyInterior.png, id=735, 471.26062pt x 371.13657pt>
 File: images/modBounderyInterior.png Graphic file (type png)
 <use images/modBounderyInterior.png>
-Package pdftex.def Info: images/modBounderyInterior.png  used on input line 431
+Package pdftex.def Info: images/modBounderyInterior.png  used on input line 442
 .
 (pdftex.def)             Requested size: 311.55768pt x 245.36429pt.
- [24 <./images/modBounderyInterior.png>]) [25]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [25] [26 <./images/modBounderyInterior.png>]
 Chapter 3.
 (src/_REQS.tex
 Overfull \hbox (35.38107pt too wide) in paragraph at lines 13--13
 [][]
  []
 
-<src/_rampProperties.pdf, id=677, 722.7pt x 433.62pt>
+<src/_rampProperties.pdf, id=745, 722.7pt x 433.62pt>
 File: src/_rampProperties.pdf Graphic file (type pdf)
 <use src/_rampProperties.pdf>
 Package pdftex.def Info: src/_rampProperties.pdf  used on input line 15.
 (pdftex.def)             Requested size: 411.25842pt x 196.56256pt.
-[26
+[27
 
 
 
@@ -1781,7 +1779,7 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 50--50
 [][]
  []
 
-[27 <./src/_rampProperties.pdf>] (src/_userParameters.tex
+[28 <./src/_rampProperties.pdf>] (src/_userParameters.tex
 LaTeX Font Info:    External font `cmex7' loaded for size
 (Font)              <5> on input line 4.
 )
@@ -1800,7 +1798,7 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 66--66
 [][]
  []
 
-[28]
+[29]
 Overfull \hbox (35.38107pt too wide) in paragraph at lines 69--69
 [][]
  []
@@ -1845,7 +1843,7 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 98--98
 [][]
  []
 
-[29]
+[30]
 Underfull \hbox (badness 1789) in paragraph at lines 106--106
 []\T1/lmr/m/n/10.95 Signal gen-er-a-tion must con-tain the fol-low-ing op-er-a-
 tional modes:
@@ -1881,18 +1879,18 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 121--121
 [][]
  []
 
-[30]
-<src/_rampAssymetry0perc.pdf, id=772, 722.7pt x 216.81pt>
+[31]
+<src/_rampAssymetry0perc.pdf, id=840, 722.7pt x 216.81pt>
 File: src/_rampAssymetry0perc.pdf Graphic file (type pdf)
 <use src/_rampAssymetry0perc.pdf>
 Package pdftex.def Info: src/_rampAssymetry0perc.pdf  used on input line 123.
 (pdftex.def)             Requested size: 394.63846pt x 118.39233pt.
-<src/_rampAssymetry50perc.pdf, id=773, 722.7pt x 216.81pt>
+<src/_rampAssymetry50perc.pdf, id=841, 722.7pt x 216.81pt>
 File: src/_rampAssymetry50perc.pdf Graphic file (type pdf)
 <use src/_rampAssymetry50perc.pdf>
 Package pdftex.def Info: src/_rampAssymetry50perc.pdf  used on input line 126.
 (pdftex.def)             Requested size: 394.63846pt x 118.39233pt.
-<src/_rampAssymetry100perc.pdf, id=774, 722.7pt x 216.81pt>
+<src/_rampAssymetry100perc.pdf, id=842, 722.7pt x 216.81pt>
 File: src/_rampAssymetry100perc.pdf Graphic file (type pdf)
 <use src/_rampAssymetry100perc.pdf>
 Package pdftex.def Info: src/_rampAssymetry100perc.pdf  used on input line 129.
@@ -1918,7 +1916,7 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 144--144
 [][]
  []
 
-[31 <./src/_rampAssymetry0perc.pdf> <./src/_rampAssymetry50perc.pdf
+[32 <./src/_rampAssymetry0perc.pdf> <./src/_rampAssymetry50perc.pdf
 
 pdfTeX warning: pdflatex.exe (file ./src/_rampAssymetry50perc.pdf): PDF inclusi
 on: multiple pdfs with page group included in a single page
@@ -1931,7 +1929,7 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 147--147
 [][]
  []
 
-<src/_TrigSequence.jpg, id=870, 1702.36pt x 1220.56pt>
+<src/_TrigSequence.jpg, id=938, 1702.36pt x 1220.56pt>
 File: src/_TrigSequence.jpg Graphic file (type jpg)
 <use src/_TrigSequence.jpg>
 Package pdftex.def Info: src/_TrigSequence.jpg  used on input line 149.
@@ -1996,7 +1994,7 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 170--170
 [][]
  []
 
-[32 <./src/_TrigSequence.jpg>]
+[33 <./src/_TrigSequence.jpg>]
 Overfull \hbox (9.3724pt too wide) in paragraph at lines 174--174
 [][]| 
  []
@@ -2032,7 +2030,7 @@ Overfull \hbox (35.38107pt too wide) in paragraph at lines 180--180
 [][]
  []
 
-) [33] (src/_scpiRecendt.tex
+) [34] (src/_scpiRecendt.tex
 Overfull \hbox (26.01765pt too wide) in alignment at lines 1--22
  [] [] [] [] [] 
  []
@@ -2056,7 +2054,7 @@ Overfull \hbox (26.01765pt too wide) in alignment at lines 69--94
  [] [] [] [] [] 
  []
 
-[34]
+[35]
 Overfull \hbox (26.01765pt too wide) in alignment at lines 94--114
  [] [] [] [] [] 
  []
@@ -2080,50 +2078,66 @@ Overfull \hbox (2.46953pt too wide) in alignment at lines 151--155
  [] [] [] [] [] [] 
  []
 
-[35]) (src/_scpiStd.tex
+[36]) (src/_scpiStd.tex
 Underfull \vbox (badness 10000) detected at line 17
  []
 
-) [36]
-<images/testCaseExample.png, id=909, 656.4525pt x 119.69719pt>
+) [37]
+<images/testCaseExample.png, id=980, 656.4525pt x 119.69719pt>
 File: images/testCaseExample.png Graphic file (type png)
 <use images/testCaseExample.png>
-Package pdftex.def Info: images/testCaseExample.png  used on input line 96.
+Package pdftex.def Info: images/testCaseExample.png  used on input line 97.
 (pdftex.def)             Requested size: 311.55768pt x 56.80925pt.
-<images/reportExample.png, id=911, 732.48656pt x 134.75343pt>
+<images/reportExample.png, id=982, 732.48656pt x 134.75343pt>
 File: images/reportExample.png Graphic file (type png)
 <use images/reportExample.png>
-Package pdftex.def Info: images/reportExample.png  used on input line 105.
+Package pdftex.def Info: images/reportExample.png  used on input line 106.
 (pdftex.def)             Requested size: 311.55768pt x 57.3157pt.
- [37 <./images/testCaseExample.png> <./images/reportExample.png>]
-[38]
-<images/gcovReportDebugUnit01.png, id=932, 804.75656pt x 692.5875pt>
-File: images/gcovReportDebugUnit01.png Graphic file (type png)
-<use images/gcovReportDebugUnit01.png>
-Package pdftex.def Info: images/gcovReportDebugUnit01.png  used on input line 1
-36.
-(pdftex.def)             Requested size: 311.55768pt x 268.1318pt.
-<images/gcovReport01.png, id=933, 676.02562pt x 189.70876pt>
-File: images/gcovReport01.png Graphic file (type png)
-<use images/gcovReport01.png>
-Package pdftex.def Info: images/gcovReport01.png  used on input line 137.
-(pdftex.def)             Requested size: 311.55768pt x 87.43207pt.
- [39 <./images/gcovReportDebugUnit01.png> <./images/gcovReport01.png>]
-Chapter 4.
-<src/_mainFSM_neato.pdf, id=941, 425.59pt x 501.875pt>
-File: src/_mainFSM_neato.pdf Graphic file (type pdf)
-<use src/_mainFSM_neato.pdf>
-Package pdftex.def Info: src/_mainFSM_neato.pdf  used on input line 147.
-(pdftex.def)             Requested size: 311.55768pt x 367.4225pt.
-[40
 
-]
-<src/_FW-Modules.pdf, id=946, 668.4975pt x 377.41pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[38 <./images/testCaseExample.png>] [39 <./images/reportExample.png>] [40]
+Chapter 4.
+<src/_FW-Modules.pdf, id=1006, 668.4975pt x 377.41pt>
 File: src/_FW-Modules.pdf Graphic file (type pdf)
 <use src/_FW-Modules.pdf>
-Package pdftex.def Info: src/_FW-Modules.pdf  used on input line 156.
+Package pdftex.def Info: src/_FW-Modules.pdf  used on input line 143.
 (pdftex.def)             Requested size: 415.41025pt x 234.5331pt.
- [41 <./src/_mainFSM_neato.pdf>] (src/_SOPs.tex
+[41
+
+ <./src/_FW-Modules.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--160
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--162
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--164
+
+ []
+
+<src/_mainFSM_neato.pdf, id=1029, 425.59pt x 501.875pt>
+File: src/_mainFSM_neato.pdf Graphic file (type pdf)
+<use src/_mainFSM_neato.pdf>
+Package pdftex.def Info: src/_mainFSM_neato.pdf  used on input line 171.
+(pdftex.def)             Requested size: 311.55768pt x 367.4225pt.
+[42] (src/_SOPs.tex
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -2131,47 +2145,114 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 )
-<images/coverageFlow.png, id=969, 1211.52625pt x 310.15875pt>
-File: images/coverageFlow.png Graphic file (type png)
-<use images/coverageFlow.png>
-Package pdftex.def Info: images/coverageFlow.png  used on input line 175.
-(pdftex.def)             Requested size: 311.55768pt x 79.7591pt.
- [42 <./src/_FW-Modules.pdf>] [43 <./images/coverageFlow.png>]
-Chapter 5.
-<images/dbgUnitLogic.png, id=1002, 487.8225pt x 649.67719pt>
-File: images/dbgUnitLogic.png Graphic file (type png)
-<use images/dbgUnitLogic.png>
-Package pdftex.def Info: images/dbgUnitLogic.png  used on input line 203.
-(pdftex.def)             Requested size: 207.70512pt x 276.61967pt.
-<src/_Octane_HW-Structure.pdf, id=1003, 665.48625pt x 464.73625pt>
-File: src/_Octane_HW-Structure.pdf Graphic file (type pdf)
-<use src/_Octane_HW-Structure.pdf>
-Package pdftex.def Info: src/_Octane_HW-Structure.pdf  used on input line 211.
-(pdftex.def)             Requested size: 427.81879pt x 298.75394pt.
-
-Overfull \hbox (12.40854pt too wide) in paragraph at lines 211--212
- [][] 
- []
+<images/../src/_Octane_HW-Structure.pdf, id=1035, 665.48625pt x 464.73625pt>
+File: images/../src/_Octane_HW-Structure.pdf Graphic file (type pdf)
+<use images/../src/_Octane_HW-Structure.pdf>
+Package pdftex.def Info: images/../src/_Octane_HW-Structure.pdf  used on input 
+line 192.
+(pdftex.def)             Requested size: 311.55768pt x 217.5751pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[44
+[43 <./src/_mainFSM_neato.pdf>]
 
-] [45 <./images/dbgUnitLogic.png>] [46 <./src/_Octane_HW-Structure.pdf>]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[44] [45 <./images/../src/_Octane_HW-Structure.pdf>]
+Chapter 5.
+<images/dbgUnitLogic.png, id=1088, 487.8225pt x 649.67719pt>
+File: images/dbgUnitLogic.png Graphic file (type png)
+<use images/dbgUnitLogic.png>
+Package pdftex.def Info: images/dbgUnitLogic.png  used on input line 230.
+(pdftex.def)             Requested size: 207.70512pt x 276.61967pt.
+[46
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
+
+ []
+
+[47 <./images/dbgUnitLogic.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 248--249
+
+ []
+
+[48]
+<images/gcovReport01.png, id=1109, 676.02562pt x 189.70876pt>
+File: images/gcovReport01.png Graphic file (type png)
+<use images/gcovReport01.png>
+Package pdftex.def Info: images/gcovReport01.png  used on input line 257.
+(pdftex.def)             Requested size: 311.55768pt x 87.43207pt.
+<images/gcovReportDebugUnit01.png, id=1110, 804.75656pt x 692.5875pt>
+File: images/gcovReportDebugUnit01.png Graphic file (type png)
+<use images/gcovReportDebugUnit01.png>
+Package pdftex.def Info: images/gcovReportDebugUnit01.png  used on input line 2
+58.
+(pdftex.def)             Requested size: 311.55768pt x 268.1318pt.
+ [49 <./images/gcovReport01.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 262--263
+
+ []
+
+<images/coverageFlow.pdf, id=1120, 739.76375pt x 414.54875pt>
+File: images/coverageFlow.pdf Graphic file (type pdf)
+<use images/coverageFlow.pdf>
+Package pdftex.def Info: images/coverageFlow.pdf  used on input line 265.
+(pdftex.def)             Requested size: 394.63846pt x 221.14568pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 264--265
+
+ []
+
+[50 <./images/gcovReportDebugUnit01.png>]
+<images/gcvor52.png, id=1126, 389.20406pt x 249.93375pt>
+File: images/gcvor52.png Graphic file (type png)
+<use images/gcvor52.png>
+Package pdftex.def Info: images/gcvor52.png  used on input line 267.
+(pdftex.def)             Requested size: 207.70512pt x 133.38335pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 266--269
+
+ []
+
+[51 <./images/coverageFlow.pdf> <./images/gcvor52.png>] [52]
 Chapter 6.
-[47
+[53
 
 ]
 Chapter 7.
-[48
+<images/exampleHelpfulFailedTest01.png, id=1153, 1186.4325pt x 408.77719pt>
+File: images/exampleHelpfulFailedTest01.png Graphic file (type png)
+<use images/exampleHelpfulFailedTest01.png>
+Package pdftex.def Info: images/exampleHelpfulFailedTest01.png  used on input l
+ine 298.
+(pdftex.def)             Requested size: 353.10124pt x 121.65482pt.
+<images/exampleHelpfulFailedTestSrc01.png, id=1156, 526.21594pt x 36.88782pt>
+File: images/exampleHelpfulFailedTestSrc01.png Graphic file (type png)
+<use images/exampleHelpfulFailedTestSrc01.png>
+Package pdftex.def Info: images/exampleHelpfulFailedTestSrc01.png  used on inpu
+t line 301.
+(pdftex.def)             Requested size: 228.4769pt x 16.01622pt.
+[54
 
-]
+ <./images/exampleHelpfulFailedTest01.png> <./images/exampleHelpfulFailedTestSr
+c01.png>]
 \openout2 = `back/appendix_b.aux'.
 
  (back/appendix_b.tex
 Appendix A.
-) [49
+) [55
 
 
 ]
@@ -2182,50 +2263,51 @@ Overfull \hbox (46.0957pt too wide) in paragraph at lines 3--30
 [][] 
  []
 
-) [50
+) [56
 
 
 
 
-] [51
+] [57
 
 
 
-] (main.aux (front/abstract.aux) (front/kurzfassung.aux)
+] [58] (main.aux (front/abstract.aux) (front/kurzfassung.aux)
 (chapters/introduction.aux) (chapters/fundamentals.aux) (back/appendix_b.aux)
 (back/_abbrev.aux))
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: BF7F851F57AB97F0FEDF3E9D3EB08DDE;10936.
+(rerunfilecheck)             Checksum: 53303A5CAF83BEBB87C446BECB231966;11742.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 30826 strings out of 479334
- 534118 string characters out of 2871717
- 1470782 words of memory out of 3000000
- 47346 multiletter control sequences out of 15000+200000
- 471712 words of font info for 71 fonts, out of 3000000 for 9000
+ 30945 strings out of 479334
+ 537375 string characters out of 2871717
+ 1471814 words of memory out of 3000000
+ 47434 multiletter control sequences out of 15000+200000
+ 474507 words of font info for 72 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 128i,18n,145p,2085b,2331s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 128i,18n,145p,2164b,2331s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/bin/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/bin/MiKTeX/fonts/enc/dvips/lm
 /lm-rm.enc}{C:/bin/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/bin/MiKTeX/fonts
 /enc/dvips/lm/lm-mathsy.enc}{C:/bin/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/bi
 n/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/
-lmmi10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmmi6.pfb><C:/bin/MiKTeX/fonts/
-type1/public/lm/lmmi8.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/bi
-n/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lm
-r8.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/bin/MiKTeX/fonts/typ
-e1/public/lm/lmss10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/bin
-/MiKTeX/fonts/type1/public/lm/lmss17.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/l
-mssbx10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/bin/MiKTeX/font
-s/type1/public/lm/lmsy8.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
-Output written on main.pdf (59 pages, 3427561 bytes).
+lmcsc10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/bin/MiKTeX/font
+s/type1/public/lm/lmmi6.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/
+bin/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm
+/lmr6.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/bin/MiKTeX/fonts/ty
+pe1/public/lm/lmri10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmss10.pfb><C:/bi
+n/MiKTeX/fonts/type1/public/lm/lmss12.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/
+lmss17.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmssbx10.pfb><C:/bin/MiKTeX/fon
+ts/type1/public/lm/lmsy10.pfb><C:/bin/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C
+:/bin/MiKTeX/fonts/type1/public/lm/lmtt10.pfb>
+Output written on main.pdf (67 pages, 3182631 bytes).
 PDF statistics:
- 1176 PDF objects out of 1200 (max. 8388607)
- 211 named destinations out of 1000 (max. 500000)
- 743 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1325 PDF objects out of 1440 (max. 8388607)
+ 236 named destinations out of 1000 (max. 500000)
+ 798 words of extra memory for PDF output out of 10000 (max. 10000000)
 
