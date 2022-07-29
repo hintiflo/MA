@@ -2402,10 +2402,11 @@
     <bcf:citekey order="21">SpilSoft2005</bcf:citekey>
     <bcf:citekey order="22">Beizer95</bcf:citekey>
     <bcf:citekey order="23">Beizer90</bcf:citekey>
-    <bcf:citekey order="24">gcov</bcf:citekey>
-    <bcf:citekey order="25">lcov</bcf:citekey>
-    <bcf:citekey order="26">kcov</bcf:citekey>
-    <bcf:citekey order="27">gcovr</bcf:citekey>
+    <bcf:citekey order="24">Wang2009AvoidingTB</bcf:citekey>
+    <bcf:citekey order="25">gcov</bcf:citekey>
+    <bcf:citekey order="26">lcov</bcf:citekey>
+    <bcf:citekey order="27">kcov</bcf:citekey>
+    <bcf:citekey order="28">gcovr</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nty">

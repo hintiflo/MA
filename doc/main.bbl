@@ -560,6 +560,40 @@
       \field{title}{Software quality engineering - testing, quality assurance, and quantifiable improvement}
       \field{year}{2005}
     \endentry
+    \entry{Wang2009AvoidingTB}{article}{}
+      \name{author}{3}{}{%
+        {{hash=b7567123ad8063ff975519a285490851}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Kai},
+           giveni={K\bibinitperiod}}}%
+        {{hash=c5a83898cdc9cb1f00727931f78f83d5}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Aidong},
+           giveni={A\bibinitperiod}}}%
+        {{hash=6b170f4c37010a14987a849eab01fe7b}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Hong},
+           giveni={H\bibinitperiod}}}%
+      }
+      \strng{namehash}{5f18b66ef8dd330e22fbf44fe9cd34f6}
+      \strng{fullhash}{5f18b66ef8dd330e22fbf44fe9cd34f6}
+      \strng{bibnamehash}{5f18b66ef8dd330e22fbf44fe9cd34f6}
+      \strng{authorbibnamehash}{5f18b66ef8dd330e22fbf44fe9cd34f6}
+      \strng{authornamehash}{5f18b66ef8dd330e22fbf44fe9cd34f6}
+      \strng{authorfullhash}{5f18b66ef8dd330e22fbf44fe9cd34f6}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2009 IEEE International Symposium on Industrial Electronics}
+      \field{title}{Avoiding the babbling idiot failure in a communication system based on flexible time division multiple access: A bus guardian solution}
+      \field{year}{2009}
+      \field{pages}{1292\bibrangedash 1297}
+      \range{pages}{6}
+    \endentry
     \entry{lcov}{online}{}
       \name{author}{1}{}{%
         {{hash=ad656e53233dcce2aded1f6c1b2dcf38}{%

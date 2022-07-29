@@ -1,6 +1,5 @@
 digraph Layers
 {
-	
 	# splines = ortho
 	# node 		[style = rounded, shape = box]
 	# rankdir = TB;
@@ -10,13 +9,15 @@ digraph Layers
 	edge [fontname = "helvetica"];
 
 	main	[label=	MAIN]
-	trig    [label=<Triggers <br/> <FONT POINT-SIZE="8">Timers</FONT>>]
+	trig    [label=Triggers]
+	tim    [label=Timers]
 	sour    [label=<Sources >]
 	fsm     [label=<FSM <br/> <FONT POINT-SIZE="8">scpi</FONT>>]
 	usb     [label=<USB>]
 	hal    [label=HAL]
 	
 	fsm -> trig [dir=both]
+    trig -> tim
     trig -> sour
 	// fsm -> syst [dir=both]
 	main->fsm [dir=both]

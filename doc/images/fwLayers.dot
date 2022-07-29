@@ -1,0 +1,36 @@
+digraph fwLayers
+{
+			# splines = ortho
+	node 		[style = rounded, shape = box]
+	rankdir = TB;
+	graph [fontname = "helvetica"];
+	node [fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+
+	main	[label=<
+		<FONT POINT-SIZE="8">Errohandling </FONT><br/> 
+		MAIN <br/> 
+		<FONT POINT-SIZE="8"> ResourceManager</FONT>>, width=7, height=1]
+	fsm     [label=FSM, width=4]
+	usb     [label=<USB>, width=3]
+	trig    [label=Triggers]
+	tim 	[label=Timers]
+	sour    [label=<Sources >]
+	dbg     [label=<Debug-Unit>]
+	scpi     [label=scpi]
+	misc    [label=<Misc <br/> <FONT POINT-SIZE="8">WDG,CRC</FONT>>]
+	hal    [label=<HAL <br/> <FONT POINT-SIZE="8">GPIO, SPI, DIO, UART, I2C, AIN</FONT>>]
+
+	main -> fsm [style=invis]
+
+	fsm -> trig [style=invis]
+	# fsm -> sour [style=invis]
+	# fsm -> scpi [style=invis]
+	trig -> hal  [style=invis]
+	trig -> tim  [style=invis]
+	
+	{rank = same; fsm; usb }
+	{rank = same; hal; misc }
+	{rank = same; trig; sour; dbg; scpi}
+
+}

@@ -29,8 +29,8 @@ digraph trigext{
 	Analog1 [shape = box, pos = "3,-4!"]
 	Analog2 [shape = box, pos = "3,-6!"]
 
-	Trigger1 -> Trigger2 [ dir = "both"]
-	Trigger2 -> Trigger3
+	Trigger1 -> Trigger2 [ dir = "both", style="dashed"]
+	Trigger2 -> Trigger3 [style="dashed"]
 	Trigger1 -> Grab [style="dashed"]
 	Trigger2 -> Grab
 	Trigger3 -> Grab [style="dashed"]

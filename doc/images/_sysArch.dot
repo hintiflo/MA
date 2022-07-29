@@ -1,0 +1,48 @@
+digraph Layers
+{
+	
+	# splines = ortho
+	node 		[style = "rounded, filled", shape = box, fillcolor=lightyellow]
+	rankdir = TB;
+	# rankdir = LR;
+	graph [fontname = "helvetica"];
+	node [fontname = "helvetica"];
+	edge [fontname = "helvetica"];
+
+	main	[label=<
+		<FONT POINT-SIZE="8">Errohandling </FONT><br/> 
+		MAIN <br/> 
+		<FONT POINT-SIZE="8"> ResourceManager</FONT>>]
+	trig    [label=Triggers]
+	tim    [label=Timers]
+	sour    [label=<Sources >]
+	dbg     [label=<Debug-Unit>]
+	fsm     [label=FSM]
+	scpi     [label=scpi]
+	usb     [label=<USB>]
+	misc    [label=<Misc <br/> <FONT POINT-SIZE="8">WDG,CRC</FONT>>]
+	hal    [label=HAL, width = 3]
+	# hal -> GPIO
+	hal -> SPI
+	hal -> DIO
+	hal -> UART
+	hal -> I2C
+	hal -> AIN
+	
+	fsm -> trig [dir=both]
+    trig -> tim -> sour
+	trig -> hal
+	// fsm -> syst [dir=both]
+	main->fsm [dir=both]
+	fsm -> scpi  [dir=both]
+	fsm -> usb [dir=both]
+	fsm -> misc [dir=both]
+	fsm -> dbg  [style=invis]
+	sour -> hal
+	dbg -> hal
+	misc -> hal
+#	{rank = same; tim; dbg }
+	{rank = same; fsm; scpi;  }
+	{rank = same; trig; usb; misc; dbg }
+
+}

@@ -92,7 +92,9 @@
 			The traceability Matrix establishes the relations between user requirements and test cases. Furthermore it is good practice to also include requirement IDs inside the source code on the exact point of implementation. The convenient layout for a traceability matrix is to list requirement IDs column-wise, while noting the IDs of the test cases row wise. The reason being that one requirement may have multiple test cases and and it is more convenient to note these multiple IDs in rows, rather than columns.
 			\subsection{V-Model}
 			\subsection{Test-cases}
-			Automated test-cases are the primary method to ensure code-quality, because they allow for the assessment of functionalities against requirements and produce according documentation of conducted tests. Furthermore, they help identifying  errors in case of failures and secure implemented functionalities during future adaptions. To demonstrate a complete assessment of the firmware, for every existing user-requirement, at least one test-case is necessary. For practical reasons, these cases must be implemented as python-scripts, running on a proxy host-device, controlling the device under test via USB. The first practical aspect, being, that the resulting test-data are directly available on a device with capable processing power and high memory capacity, facilitating the automated generation of test-reports. The python programming language provides the package 'pytest-html', allowing for the automated generation of test-reports in HTML-format. Every test-case has to be simple enough, to render verification of the test-code itself unnecessary. A test-case, so complex, that i would require a superordinate test-case, indicates, that said test-case should be split into several cases of lesser respective complexity. Fig. ~\ref{testCaseExample} contains an exemplary test-case, assessing the devices correct reply to an identification query. \cite{BalajiScpi}
+			Automated test-cases are the primary method to ensure code-quality, because they allow for the assessment of functionalities against requirements and produce according documentation of conducted tests. Furthermore, they help identifying  errors in case of failures and secure implemented functionalities during future adaptions. To demonstrate a complete assessment of the firmware, for every existing user-requirement, at least one test-case is necessary. Depending on the depth of examination through the layers of a firmware, test-cases can either be external or internal. External test-cases denote code running on a separate device, controlling and probing the device under test, most useful for a behavioural and user-oriented verification. Internal test-cases are part of the firmware itself, allowing inspection of hardly accessible areas of code. Though running on the target-hardware, these tests also need to transfer test-data onto an external device, capable of storing and report-generation. Best-practice is to apply both approaches according to necessity and even combine them into hybrid test-cases: External code providing input and capturing output, while calling internal test-cases, that can access and deliver information of the device usually inaccessible via production code.
+			
+			For practical reasons, python-scripts, running on a proxy host-device, controlling the device under test via USB implement these test-cases. The first practical aspect, being, that the resulting test-data are directly available on a device with capable processing power and high memory capacity, facilitating the automated generation of test-reports. The python programming language provides the package 'pytest-html', allowing for the automated generation of test-reports in HTML-format. Every test-case has to be simple enough, to render verification of the test-code itself unnecessary. A test-case, so complex, that i would require a superordinate test-case, indicates, that said test-case should be split into several cases of lesser respective complexity. Fig. ~\ref{testCaseExample} contains an exemplary test-case, assessing the devices correct reply to an identification query. \cite{BalajiScpi}
 			
 			\bildGr{h!}{testCaseExample}{testCaseExample}{testCaseExample}{0.75\textwidth}
 			The general procedure of this test-case consists of 
@@ -105,7 +107,7 @@
 			
 			\bildGr{h!}{reportExample}{reportExample}{reportExample}{0.75\textwidth}
 			
-			In case of commands resulting in digital, analogue or serial output-signals, these signals shall be automatically measured as part of a test-case. Automated measurement is required if performable with justifiable effort and available measurement instruments. Apart from this method of fully automated testing, few requirements demand assessment in a manual fashion. For example, oscillograms of the resulting analogue signals require evaluation buy the eye of a skilled engineer. Automation of this process via spectral analysis or automated comparison with reference signals would require unjustifiable effort, compared to an evaluation via visual inspection. \\
+			In case of commands resulting in digital, analogue or serial output-signals, these signals shall be automatically measured as part of a test-case. Automated measurement is required if performable with justifiable effort and available measurement instruments. Apart from this method of fully automated testing, few requirements demand assessment in a manual fashion. For example, oscillograms of the resulting analogue signals require evaluation by the eye of a skilled engineer. Automation of this process via spectral analysis or automated comparison with reference signals would require unjustifiable effort, compared to an evaluation via visual inspection. \\
 			Test-cases, usually, belong to one of the following classes, \TODO{according to the V-Model}:
 			\subsection{Unit-Tests}
 			Unit-tests are test-cases that evaluate the correctness of single functions, methods or procedures. A single variable, array or data-set also constitutes such a unit, if the contained data demands deliberate assessment via a test-case. Viable inputs exist in the form of binary values with separate cases for 'true' and 'false'. In case of numerical input, be they of integer or floating-point nature, the boundary-value and equivalence-class methods deliver suitable input values. For inputs in text form, all specified valid texts, and at least one invalid text form a set of useful input values. \cite{jorgensen13}
@@ -135,23 +137,18 @@
 			
 	\chapter{Concept}
 	\label{cha:Concept}
-		\section{ system architecture }
-			Modules-Skizze + HW-Graph und ein meta-graph der diese verbindet.
-		\subsection{Modules of the Firmware}
-		\begin{figure}[H]
-			\center
-			\includegraphics[width=\textwidth]{src/_FW-Modules.pdf}
-			\caption{Modular structure}
-			\label{fig:_FW-Modules}
-		\end{figure}
+		\section{ System Architecture }
+		% \subsection{Modules of the Firmware}
+		\bildGr{h!}{_FW-Modules}{Basic Modular concept}{_FW-Modules}{\textwidth}
+		The modular concept for the firmware in fig. \ref{_FW-Modules} contains all major modules and there dependencies. the 'MAIN'-module merely performs initializations and starts up the finite state machine contained in the 'FSM'-module. This component handles the domain-logic, incoming scpi-messages, generates scpi-replies and programs instances of the 'Trigger'-module to generate signal-sequences. Furthermore, the 'FSM'-module receives and transmits scpi-messages via the 'USB'-component, a set of library function provided by the vendor of the microprocessor. Also, interactions with low-level-functions, contained in the 'HAL'-module, are managed by the 'FSM'-module. The 'Trigger'-module has control over the analogue output-sources to produce the actual signal-voltages and the 'Timers'-module for correct frequencies and synchronization. This image contains a basic architecture and acts as a 'big picture', an overview of the whole firmware. Further details would create an indistinct image, or are not yet decided during this design phase.
 
 		\section{Module Integration Strategy}
-			These strategies constitute the most promising approaches in module integration:
+			To ensure an order for the development of the modules and provide an organizational frame, a suitable integration strategy is necessary. These strategies constitute the most promising approaches in module integration: \\
 			\begin{itemize} \setlength\itemsep{1px}
 			\item Top-down integration 
 			\item Bottom-up integration 
 			\item Ad-hoc integration 
-			\item Backbone integration 
+			\item Backbone integration \\
 			\end{itemize} 
 
 			Top-down integration approaches the code under test from its entry point and external interfaces, non-existing sub-systems require replacement through stubs delivering dummy-data. \\
@@ -162,26 +159,66 @@
 			
 			Backbone integration \cite{Beizer90} is the formal equivalent of ad-hoc integration, where the initial task is, to build an overarching backbone or skeleton for the whole project and afterwards integrate components in arbitrary order. This leaves substantial freedom to the order of developing components, alas requires thorough planning up front and notably effort initially, to implement the backbone. \\
 
-			Backbone integration is the most promising option and consequently the selected choice for the project at hand. The appeal of that strategy stems from the possibility to develop and integrate components in any order. This allows to work on another component, if one imposes seemingly unsolvable problems and come back to that problematic component at a later point. In contrast to the ad-hoc method, backbone integration maintains order and structure over a software project, while leaving mentioned degrees of freedom.
+			Backbone integration is the most promising option and consequently the selected choice for the project at hand. The appeal of that strategy stems from the possibility to develop and integrate components in any order. This allows to work on another component, if one imposes seemingly unsolvable problems and come back to that problematic component at a later point. In contrast to the ad-hoc method, backbone integration maintains order and structure over a software project, while leaving mentioned degrees of freedom. \\
 
+		\section{Layer Structure}
+		Combining the chosen strategy with the modular concept from fig. \ref{_FW-Modules} and taking more detailed requirements into account, leads to the refined layer-structure in fig. \ref{_sysArch}.
+		\bildGr{h!}{_sysArch}{layer structure}{_sysArch}{\textwidth}
+
+		It extends the basic system-architecture and adds further sub-modules. The 'Main'-module incorporates the handling of Errors and Resource-Management. As this module is already responsible with the initialization of the system, adding Resource-Management to the same module is a sensible decision. The finite state machine sits at the heart of the architecture, as it handles commands and responses, performs parametrization of other components and request the start of signal-sequences from the triggers. Therefore, the separate graphic ~\ref{FSMbig} contains the even more detailed implications of the state machine. \\
+		
+		The necessity to measure timings and synchronization between modules with external instruments, suggests to introduce a Debug-Unit. This module allows control over eight separate digital outputs, to signal activity of up to eight functions, events or exceptions. All dependencies with other modules are ad-hoc and temporary, except for calls to the 'HAL'-module to access the digital outputs. Therefore the figure depicts no further dependencies of the debug-unit, as they are entirely optional. \\
+		
+		The 'Triggers'-module exists in three instances for three separate signal-sequences, that perform either individually, or inter-dependent. Fig. ~\ref{_Octane_Trigger_extended_neato.pdf} illustrates this matter in detail. the core matter of triggers is to parametrize and start timer-instances and therefore initiate signal-sequences. Per default, timers deactivate themselves after certain counts, but in a so-called 'infinite'-mode, it is also upon the superior trigger to stop signal-generation. Further responsibilities are to establish inter-dependencies between timers and reception of trigger-events via digital inputs, buttons or from the state-machine. \\
+		
+		Timers accept instructions by their respective triggers and in turn have control over their outputs. Two timers control analogue output sources and use trigger-outputs to signal their respective states. While the third timer has only a trigger-output, but no analogue source. Upon activation, a timer performs a given number of trigger-events at certain frequency and causes its signal-source to output the correct voltage according to the counter-index, while generating a rectangular pulse on the according trigger-output. After completion of one such sequence, the timer deactivates itself, unless the 'infinite'-mode is active, where it performs the described sequence on repeat. \\
+		
+		Two instances of the 'Sources'-module control analogue output voltages via a serial peripheral interface (SPI) and access these via the HAL. Source-instances handle the signal-vectors holding the digital representation of the analogue signals, so, the samples to be issued via SPI. Aside from access to the vectors samples, sources also provide functionality to load a default-signal into vectors, manipulate the vectors by scaling or shifting, or completely overwrite them with arbitrary signals. Additionally, enabling of the analogue outputs is under control of the corresponding source-module, again, via HAL. Triggers have primary control over the source-instances. A reach-through from the state machine to the sources happens for certain operational modes, but is not part of the figure, because of minor significance and to preserve a transparent layer structure. \\
+		
+		The original parts of the USB-module wrap the according components from the vendor and manage message-strings between the FSM and the USB-port. \\
+		
+		A Miscellaneous-module provides cyclic-redundancy-checking (CRC) for secure transfer of commands and replies. The microprocessor contains an onboard CRC-peripheral and the Misc-module makes use of this resource. A second responsibility of this module is to handle built-in watchdog functionality. \\
+		
+		The hardware abstraction layer (HAL) utilises the following resources provided by the processor:
+		\begin{itemize} \setlength\itemsep{1px}
+		% \item general purpose inputs/outputs (GPIO) as digital 
+		\item serial peripheral interface (SPI)
+		\item digital inputs/outputs (DIO)
+		\item universal asynchronous receiver transmitter (UART)
+		\item inter-integrated communication (I2C)
+		\item analogue inputs (AIN)
+		\end{itemize}
+		It provides functionalities to write and read mentioned resources as well as initialize and de-initialize them. 
+		
+			Modules-Skizze + HW-Graph und ein meta-graph der diese verbindet.
 
 		\section{FSM}
-		\begin{figure}[H]
-			\center
-			\includegraphics[width=0.75\textwidth]{src/_mainFSM_neato.pdf}
-			\caption{overarching Finite state machine}
-			\label{fig:FSM}
-		\end{figure}
-
-
-	
-
+		\bildGr{h!}{../src/_mainFSM_neato.pdf}{Overarching Finite state machine}{FSMbig}{0.75\textwidth}
+		The overarching finite state machine of the firmware adheres to the state chart in fig.	~\ref{FSMbig}. It contains states as yellow boxes and arrowheads indicating possible transitions. Nest to arrows are the according conditions for every transition, while a '1' denotes an unconditional transition. \\
+		
+		Beginning from the entry point, the state-machine enters an 'init'-state, performing high-level initializations, mostly, setting the default parameters for signal-generation. \\
+		
+		It further proceeds to an 'idling'-state, where it is ready to receive scpi-commands by the USB-module. In this case, the 'rxUsb'-state takes over, buffering the incoming messages and returns to the 'idling'-state. In case of new parameters, the 'param'-state handles the correct application of parameters to the according sub-modules. A possible reply, in form of an outgoing USB-message, causes activation of the 'txUSB'-state, as long as messages are enqueued for transmission via the USB-module. \\
+		
+		In case of an 'arm'-command, the according 'armed'-state becomes active, if all preconditions are met. This requires, that all resources for signal-generation are available and hold valid parameters, otherwise the FSM falls back into the 'idling'-state and reports the denial of the 'arm'-command. \\
+		
+		Upon successfully reaching the arm command, only the commands 'idle', 'off' or 'run' are accepted. While the first two send the FSM back into 'idling'-state, the latter causes the start of signal-generation. This suspends USB-connectivity, unless 'infinite'-mode is active and, most important starts all necessary triggers. The subsequent 'running'-state is active, during the actual signal-generation and per default, accepts no USB-commands. As soon as all triggers are finished and inactive again, or, in 'infinite'-mode, via an 'idle'- or 'off'-command, the FSM lands in 'idling'-mode. It also resumes full USB-connectivity. \\
+		
+		The FSM enters an 'errorState' upon detection of serious failures, requiring a restart of the complete device. The errorState deactivates the USB-connection completely and initiates the actual restart. The reason for the USB-disconnect is, to allow a smooth re-connection after the restart. The errorState does not send any final message, to prevent babbling idiot failures \cite{Wang2009AvoidingTB}. \\
+		
+		A 'restart'-command, received via USB, also causes a complete restart of the device. A 'reset'-command sends the FSM into the 'init'-state, merely resetting all parameters for signal-generation and return to 'idling'-state afterwards. \\
+		
 		\subsubsection{Triggers and Voltage - Outputs}
 		association of Triggers and their analogue outputs
 		\begin{itemize}
 			\item TriggerB $\rightarrow$ SourceB $\rightarrow$ Vout1
 			\item TriggerA $\rightarrow$ SourceA $\rightarrow$ Vout2
 		\end{itemize}
+
+		\bildGr{h!}{../src/_Octane_Trigger_basic.pdf}{basic Trigger-concept}{_Octane_Trigger_extended_neato}{0.35\textwidth}
+		\bildGr{h!}{../src/_Octane_Trigger_extended_neato.pdf}{extended Trigger-concept}{_Octane_Trigger_extended_neato}{0.75\textwidth}
+
+
 		\subsection{Standard operation procedures (SOP)}
 		{	\scriptsize
 			\input{src/_SOPs.tex}
@@ -231,11 +268,27 @@
 
 		
 		
-
-		\section{\GREY{Software tools}}
-			\subsection{\GREY{CubeIDE}}
-			\subsection{Gcov}
-				'gcov' is a suitable software tool to measure code coverage. It is part of the gnu compiler collection 'gcc'. It is free of charge, open source and operates on various platforms like Linux, Windows and Mac and supports target platforms ranging from arm microprocessors to x86 processors. It is able to perform statement as well as branch coverage analysis. While the actual GCC compiler produces instrumented code suitable for coverage measurement, gcov merely converts coverage data post factum into human readable reports.
+		\section{Verification}
+				Regarding verification of the firmware, the decision fell on behavioural assessment via external tests on the one hand and internal tests on the other hand. A controlling host-computer performs external tests by issuing commands to the device under test via USB and reading back replies and measuring results on according outputs, as far as feasible. Internal tests are part of the firmware itself and support verification of code-parts not accessible to external/behavioural tests.
+			\subsection{External Testing with pytest-html}
+				'pytest-html' is a practical python-package to verify python-code. The ability to send and receive data via USB, automatically execute test-cases and generate according reports as html-file, also renders it an ideal tool to examine the device under test at hand. Every test-case focusses on a set of commands from the devices complete USB-protocol, sends a sequence of these commands to the device under test and reads back the replies. The comparison of sent sequence and the according replies and assessment against the devices requirements leads to the decision, if a test-case passes or fails. In particular, assertions in the testing python-code state, which command should cause which reply, causing tests to pass or fail. Every single result of a test-case is an entry in a html-report including result, a meaningful name for every case and excerpt records of the communication between host and device. In case of a failing test, an outline of the failing assertion is part of the report as well. \\
+				If a USB-command causes a measurable physical output on the device under test, the according test-case should measure that output and take it into account the test result. Efforts in programming according tests and limited availability in suitable instruments might render certain automated test-cases unfeasible time-consuming. In these cases, human intervention by manual inspection of measurement instruments and documentation of the results would be more feasible. The core purpose of this project is developing a firmware and not an elaborate test-setup. \\
+				\TODO{Bilder und FW-Bezug aus den REQs hierher holen und nur den simplesten test-case dort beschreiben} The primary intention of pytest-html is to examine python code, therefore, some adaptions are necessary for the examination of an external device: \\
+				\begin{itemize} \setlength\itemsep{1px}
+				\item establishing a USB-connection with the device under test
+				\item instructing the device under test for correct level of verbosity
+				\item formatting incoming replies 
+					\begin{itemize} \setlength\itemsep{1px}
+						\item encoding byte-streams into strings
+						\item removing line-breaks
+						\item trimming of surplus spaces, tabs and indention-symbols
+					\end{itemize}
+				\item correct opposition of excitation-commands and expected results for assertions \\
+				\end{itemize}
+			Especially, the last task is of interest: On a desktop-system, the assertion of a test typically compares equality of the output of a unit under test with expected results. In the actual situation, the assertion examines, if a certain input provokes the correct corresponding output, instead of just comparing two values for equality. 
+			
+			\subsection{Coverage Measurement with Gcov}
+				'gcov' is a suitable software tool to measure code coverage and part of the gnu compiler collection 'gcc'. It is free of charge, open source and operates on various platforms like Linux, Windows and Mac and supports target platforms ranging from arm microprocessors to x86 processors. It is able to perform statement as well as branch coverage analysis. While the actual GCC compiler produces instrumented code suitable for coverage measurement, gcov merely converts coverage data post factum into human readable reports.
 			\subsubsection{Instrumentation}
 				The production code per se is not suited for coverage measurement, because no data is generated to base coverage analysis on. Therefore it is necessary to insert counter variables into the source code that keep track on how often every block of code was executed and which branches of decisions were taken and which not. Furthermore data management of those counters is necessary as well as exporting generated data onto a host system for further processing. Instrumentation is the process of inserting mentioned counters and the according data management into the original source code. Additionally the compiler generates information about basic blocks, arcs and information to relate them to line numbers in the source code. Basic blocks are sequences of statements without any branching statements and branch targets. Arcs on the other hand are branch operations and their according targets that link basic blocks together. \\
 				
@@ -269,7 +322,10 @@
 
 			The described process is rather cumbersome, hardly automated and requires some manual intervention. Nevertheless, the resulting reports are of significant value to the developer, which again justifies the efforts. 
 
+		\section{\GREY{Software tools}}
+			\subsection{\GREY{CubeIDE}}
 			\subsection{\GREY{python tools, pytest-html}}
+
 			% \subsection{\GREY{OpenOCD}}
 			% \subsection{\GREY{Valgrind}}
 			% \subsection{\GREY{Wavedrom}}
