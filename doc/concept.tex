@@ -1,0 +1,132 @@
+	\chapter{Concept}
+	\label{cha:Concept}
+	\section{ System Architecture }
+	% \subsection{Modules of the Firmware}
+	\bildGr{h!}{_FW-Modules}{Basic modular concept.}{_FW-Modules}{\textwidth}
+	The modular concept for the firmware in fig. \ref{_FW-Modules} contains all major modules and there dependencies. the 'MAIN'-module merely performs initializations and starts up the finite state machine contained in the 'FSM'-module. This component handles the domain-logic, incoming scpi-messages, generates scpi-replies and programs instances of the 'Trigger'-module to generate signal-sequences. Furthermore, the 'FSM'-module receives and transmits scpi-messages via the 'USB'-component, a set of library function provided by the vendor of the microprocessor. Also, interactions with low-level-functions, contained in the 'HAL'-module, are managed by the 'FSM'-module. The 'Trigger'-module has control over the analogue output-sources to produce the actual signal-voltages and the 'Timers'-module for correct frequencies and synchronization. This image contains a basic architecture and acts as a 'big picture', an overview of the whole firmware. Further details would create an indistinct image, or are not yet decided during this design phase.
+
+	\section{Module Integration Strategy}
+		To ensure an order for the development of the modules and provide an organizational frame, a suitable integration strategy is necessary. These strategies constitute the most promising approaches in module integration: \\
+		\begin{itemize} \setlength\itemsep{1px}
+		\item Top-down integration 
+		\item Bottom-up integration 
+		\item Ad-hoc integration 
+		\item Backbone integration \\
+		\end{itemize} 
+
+		Top-down integration approaches the code under test from its entry point and external interfaces, non-existing sub-systems require replacement through stubs delivering dummy-data. \\
+		
+		Bottom-up integration builds modules and subs-systems based upon existing low-level functions, while non-existing higher-ranking systems require replacement through test-drivers delivering dummy-commands. \\
+		
+		Ad-hoc integration is the least formal integration-strategy, where components undergo integration directly after integration, regardless of their level or rank within the complete system. The effort in planning integration is negligible, while non-existing components demand higher effort for their replacements. Furthermore, the lack of a thoroughly planned integration phase might diffuse into the resulting software exhibiting an erratic and patchy structure. \\
+		
+		Backbone integration \cite{Beizer90} is the formal equivalent of ad-hoc integration, where the initial task is, to build an overarching backbone or skeleton for the whole project and afterwards integrate components in arbitrary order. This leaves substantial freedom to the order of developing components, alas requires thorough planning up front and notably effort initially, to implement the backbone. \\
+
+		Backbone integration is the most promising option and consequently the selected choice for the project at hand. The appeal of that strategy stems from the possibility to develop and integrate components in any order. This allows to work on another component, if one imposes seemingly unsolvable problems and come back to that problematic component at a later point. In contrast to the ad-hoc method, backbone integration maintains order and structure over a software project, while leaving mentioned degrees of freedom. \\
+
+	\section{Layer Structure}
+	Combining the chosen strategy with the modular concept from fig. \ref{_FW-Modules} and taking more detailed requirements into account, leads to the refined layer-structure in fig. \ref{_sysArch}.
+	\bildGr{h!}{_sysArch}{Layer structure of the firmware.}{_sysArch}{\textwidth}
+
+	It extends the basic system-architecture and adds further sub-modules. The 'Main'-module incorporates the handling of Errors and Resource-Management. As this module is already responsible with the initialization of the system, adding Resource-Management to the same module is a sensible decision. The finite state machine sits at the heart of the architecture, as it handles commands and responses, performs parametrization of other components and request the start of signal-sequences from the triggers. Therefore, the separate graphic ~\ref{FSMbig} contains the even more detailed implications of the state machine. \\
+	
+	The necessity to measure timings and synchronization between modules with external instruments, suggests to introduce a Debug-Unit. This module allows control over eight separate digital outputs, to signal activity of up to eight functions, events or exceptions. All dependencies with other modules are ad-hoc and temporary, except for calls to the 'HAL'-module to access the digital outputs. Therefore the figure depicts no further dependencies of the debug-unit, as they are entirely optional. \\
+	
+	The 'Triggers'-module exists in three instances for three separate signal-sequences, that perform either individually, or inter-dependent. Fig. ~\ref{_Octane_Trigger_extended_neato.pdf} illustrates this matter in detail. the core matter of triggers is to parametrize and start timer-instances and therefore initiate signal-sequences. Per default, timers deactivate themselves after certain counts, but in a so-called 'infinite'-mode, it is also upon the superior trigger to stop signal-generation. Further responsibilities are to establish inter-dependencies between timers and reception of trigger-events via digital inputs, buttons or from the state-machine. \\
+	
+	Timers accept instructions by their respective triggers and in turn have control over their outputs. Two timers control analogue output sources and use trigger-outputs to signal their respective states. While the third timer has only a trigger-output, but no analogue source. Upon activation, a timer performs a given number of trigger-events at certain frequency and causes its signal-source to output the correct voltage according to the counter-index, while generating a rectangular pulse on the according trigger-output. After completion of one such sequence, the timer deactivates itself, unless the 'infinite'-mode is active, where it performs the described sequence on repeat. \\
+	
+	Two instances of the 'Sources'-module control analogue output voltages via a serial peripheral interface (SPI) and access these via the HAL. Source-instances handle the signal-vectors holding the digital representation of the analogue signals, so, the samples to be issued via SPI. Aside from access to the vectors samples, sources also provide functionality to load a default-signal into vectors, manipulate the vectors by scaling or shifting, or completely overwrite them with arbitrary signals. Additionally, enabling of the analogue outputs is under control of the corresponding source-module, again, via HAL. Triggers have primary control over the source-instances. A reach-through from the state machine to the sources happens for certain operational modes, but is not part of the figure, because of minor significance and to preserve a transparent layer structure. \\
+	
+	The original parts of the USB-module wrap the according components from the vendor and manage message-strings between the FSM and the USB-port. \\
+	
+	A Miscellaneous-module provides cyclic-redundancy-checking (CRC) for secure transfer of commands and replies. The microprocessor contains an onboard CRC-peripheral and the Misc-module makes use of this resource. A second responsibility of this module is to handle built-in watchdog functionality. \\
+	
+	The hardware abstraction layer (HAL) utilises the following resources provided by the processor:
+	\begin{itemize} \setlength\itemsep{1px}
+	% \item general purpose inputs/outputs (GPIO) as digital 
+	\item serial peripheral interface (SPI)
+	\item digital inputs/outputs (DIO)
+	\item universal asynchronous receiver transmitter (UART)
+	\item inter-integrated communication (I2C)
+	\item analogue inputs (AIN)
+	\end{itemize}
+	It provides functionalities to write and read mentioned resources as well as initialize and de-initialize them. 
+	
+	\TODO{	Modules-Skizze + HW-Graph und ein meta-graph der diese verbindet. }
+
+	\section{FSM}
+	\bildGr{h!}{../src/_mainFSM_neato.pdf}{Overarching finite-state-machine.}{FSMbig}{0.75\textwidth}
+	The overarching finite state machine of the firmware adheres to the state chart in fig.	~\ref{FSMbig}. It contains states as yellow boxes and arrowheads indicating possible transitions. Nest to arrows are the according conditions for every transition, while a '1' denotes an unconditional transition. \\
+	
+	Beginning from the entry point, the state-machine enters an 'init'-state, performing high-level initializations, mostly, setting the default parameters for signal-generation. \\
+	
+	It further proceeds to an 'idling'-state, where it is ready to receive scpi-commands by the USB-module. In this case, the 'rxUsb'-state takes over, buffering the incoming messages and returns to the 'idling'-state. In case of new parameters, the 'param'-state handles the correct application of parameters to the according sub-modules. A possible reply, in form of an outgoing USB-message, causes activation of the 'txUSB'-state, as long as messages are enqueued for transmission via the USB-module. \\
+	
+	In case of an 'arm'-command, the according 'armed'-state becomes active, if all preconditions are met. This requires, that all resources for signal-generation are available and hold valid parameters, otherwise the FSM falls back into the 'idling'-state and reports the denial of the 'arm'-command. \\
+	
+	Upon successfully reaching the arm command, only the commands 'idle', 'off' or 'run' are accepted. While the first two send the FSM back into 'idling'-state, the latter causes the start of signal-generation. This suspends USB-connectivity, unless 'infinite'-mode is active and, most important starts all necessary triggers. The subsequent 'running'-state is active, during the actual signal-generation and per default, accepts no USB-commands. As soon as all triggers are finished and inactive again, or, in 'infinite'-mode, via an 'idle'- or 'off'-command, the FSM lands in 'idling'-mode. It also resumes full USB-connectivity. \\
+	
+	The FSM enters an 'errorState' upon detection of serious failures, requiring a restart of the complete device. The errorState deactivates the USB-connection completely and initiates the actual restart. The reason for the USB-disconnect is, to allow a smooth re-connection after the restart. The errorState does not send any final message, to prevent babbling idiot failures \cite{Wang2009AvoidingTB}. \\
+	
+	A 'restart'-command, received via USB, also causes a complete restart of the device. A 'reset'-command sends the FSM into the 'init'-state, merely resetting all parameters for signal-generation and return to 'idling'-state afterwards. \\
+	
+	\subsubsection{Triggers and Voltage - Outputs}
+	association of Triggers and their analogue outputs
+	\begin{itemize}
+		\item TriggerB $\rightarrow$ SourceB $\rightarrow$ Vout1
+		\item TriggerA $\rightarrow$ SourceA $\rightarrow$ Vout2
+	\end{itemize}
+
+	\bildGr{h!}{../src/_Octane_Trigger_basic.pdf}{Basic trigger-concept.}{_Octane_Trigger_extended_neato}{0.35\textwidth}
+	\bildGr{h!}{../src/_Octane_Trigger_extended_neato.pdf}{Extended trigger-concept.}{_Octane_Trigger_extended_neato}{0.75\textwidth}
+
+
+	\subsection{Standard operation procedures (SOP)}
+	{	\scriptsize
+		% \include{src/_SOPs.tex}
+		\input{src/_SOPs.tex}
+	}
+
+	\subsection{Testing with pytest-html}
+		For practical reasons, pytest-html, running on a proxy host-device, controlling the device under test via USB performs the majority of tests. The resulting test-data is directly available on a device with capable processing power and high memory capacity, facilitating the automated generation of test-reports. The python programming language provides the package 'pytest-html', allowing for the automated generation of test-reports in HTML-format \cite{Pajankar2021pytest}.
+
+		% \subsubsection{pytest - example}
+			The following script contains a multiplication-function, according test-cases and a test-fixture:
+		\lstinputlisting[numbers=none]{./src/pytest/pytestExample_test.py}
+		Although, this is a pure python example, running on a laptop, the core principle also applies to the verification of a remote device. The general procedure of these test-cases consists of 
+		\begin{itemize} \setlength\itemsep{1px}
+		\item Executing the unit under test with varying inputs,
+		\item Storing the result,
+		\item Comparing the result against reference values.
+		\end{itemize}
+		
+		Upon execution via 'pytest-html', these test-cases either result in 'passed' or 'failed', depending on the contained assertions. Furthermore, they cause entries in the resulting report-file, likewise to the extract in fig. ~\ref{pytestExampleReport}. The following shell-command produces the test-report: \\
+		\lstinline[language=bash]{pytest -s --capture sys -rP --capture sys -rF --disable-pytest-warnings --html=report.html} \\
+			
+		\bildGr{h!}{pytestExampleReport}{Pytest example report.}{pytestExampleReport}{0.75\textwidth}
+
+		Additionally, the decorator \lstinline{@pytest} allows to execute functions before and after a complete session, as well as before and after every test-case. The test-script contains this under the section 'test-fixture'. This is useful, for example, to open a serial port to the device under test before all test cases and close the same port after all cases have finished. Case-wise routines could be, for example, resetting the device under test before every test case to guarantee deterministic preconditions.
+
+		The filename of a python script containing tests must end with the suffix \lstinline{_test}, while the test-cases must begin with the prefix \lstinline{test_}, otherwise pytest would not execute them. % pytest-Loggers are your friend
+
+	\section{Hardware}
+		\subsection{STM32F4}
+		\bildGr{h!}{../src/_Octane_HW-Structure.pdf}{Structure of the Hardware.}{_Octane_HW-Structure}{0.75\textwidth}
+		
+		\bildGr{h!}{OCTane01.jpg}{OCTane-board.}{OCTane01}{0.75\textwidth}
+		
+		~\ref{OCTane01}
+		~\ref{_Octane_HW-Structure}
+		
+		% \subsection{Wandler, Level-Shifter, HighSider}
+		\subsection{Connection of Galvos and Triggers}
+			\begin{table}[h!]
+				 \begin{tabular}{|p{5.5cm}|p{6cm}|} \hline
+				Source1	- Galvo y (slow)& Trigger B\\ \hline
+				Source2	- Galvo x (fast)& Trigger A\\ \hline
+				 \end{tabular}
+				 \caption{Assignment of triggers and according analogue outputs.}
+			\end{table}
+
+	

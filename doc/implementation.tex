@@ -1,0 +1,109 @@
+	\chapter{Implementation}
+	\label{cha:Implementation}
+		% \section{Trigger-Diagramme}
+		\section{Timer usage}
+			\begin{itemize} \setlength\itemsep{1px}
+			\item 3 capture compare timers for signal-generation
+			\item 1 timer basic for key debouncing 
+			\item 1 timer basic for reading timeouts
+			\item 1 timer basic for flashing LEDs
+			\end{itemize}
+		\subsection{Trigger-Lines and Timers}
+		utilisation of the output compare - timers
+		\begin{itemize}
+			\item TrigA \^{=} $TRIG\_2$  \^{=} PB3 $\leftarrow$ $TIM2_CH2$
+			\item TrigB \^{=} $EN\_3$    \^{=} PC6 $\leftarrow$ $TIM8_CH1$
+			\item TrigC \^{=} $EN\_4$    \^{=} PC7 $\leftarrow$ $TIM3_CH2$
+		\end{itemize}
+			% 3 Timers necessary, old concept: double frequency and on modulo 2 will be decided if PinSet and DACwrite, or PinClear
+			% new conspt: output compare Timer etiher the advanceds from the F4 for TrigB and C with separate ISRs to set and clear
+						% OR three GP-Triggers with dedicated output lines, that are set/reset by Timer itself (PSC, ARR and pulse)
+						% $\rightarrow$ see schematic wich Trigger has wich line and Graph against according Timers!
+		\subsection{Debug-Unit}
+		A debug-unit, offering eight digital outputs via set.. and rst.. - functions, was established. Fig. ~\ref{dbgUnitLogic} shows a 'ladder' setting and resetting all debug-Pins upon initialization of the module. \TODO{rauswerfen?}
+		
+			% \bildGr{H}{dbgUnitLogic.png}{dbgUnitLogic}{dbgUnitLogic}{0.5\textwidth}
+
+
+		\section{Verification}
+				Regarding verification of the firmware, the decision fell on behavioural assessment via external tests on the one hand and internal tests on the other hand. A controlling host-computer performs external tests by issuing commands to the device under test via USB and reading back replies and measuring results on according outputs, as far as feasible. Internal tests are part of the firmware itself and support verification of code-parts not accessible to external/behavioural tests.
+			\subsection{External Testing}
+				'pytest-html' is a practical python-package to verify python-code. The ability to send and receive data via USB, automatically execute test-cases and generate according reports as html-file, also renders it an ideal tool to examine the device under test at hand. Every test-case focusses on a set of commands from the devices complete USB-protocol, sends a sequence of these commands to the device under test and reads back the replies. The comparison of sent sequence and the according replies and assessment against the devices requirements leads to the decision, if a test-case passes or fails. In particular, assertions in the testing python-code state, which command should cause which reply, causing tests to pass or fail. Every single result of a test-case is an entry in a html-report including result, a meaningful name for every case and excerpt records of the communication between host and device. In case of a failing test, an outline of the failing assertion is part of the report as well \cite{Hunt2019}. \\
+				
+				Fig. ~\ref{testCaseIDN} depicts an exemplary test-case, assessing the devices correct reply to an identification query \cite{BalajiScpi}.
+			
+			\bildGr{h!}{testCaseIDN}{Source-code of one test-case.}{testCaseIDN}{0.75\textwidth}
+			The sequence of a single test-case consists of:
+			\begin{itemize} \setlength\itemsep{1px}
+			\item Sending a command to the device under test,
+			\item Gathering resulting test-data and
+			\item Verification of retrieved data against requirements.
+			\end{itemize}
+			Fig. ~\ref{reportExampleIDN} contains the report, after applying the test-code directly to an OCTane-device.
+			
+			\bildGr{h!}{reportExampleIDN}{Test report of one test-case.}{reportExampleIDN}{0.75\textwidth}
+			The primary intention of pytest-html is to examine python code, therefore, some adaptions are necessary for the examination of an external device: \\
+				\begin{itemize} \setlength\itemsep{1px}
+				\item establishing a USB-connection with the device under test
+				\item instructing the device under test for correct level of verbosity
+				\item formatting incoming replies 
+					\begin{itemize} \setlength\itemsep{1px}
+						\item encoding byte-streams into strings
+						\item removing line-breaks
+						\item trimming of surplus spaces, tabs and indention-symbols
+					\end{itemize}
+				\item correct opposition of excitation-commands and expected results for assertions \\
+				\end{itemize}
+			Especially, the last task is of interest: On a desktop-system, the assertion of a test typically compares equality of the output of a unit under test with expected results. In the actual situation, the assertion examines, if a certain input provokes the correct corresponding output, instead of just comparing two values for equality. \\
+			
+			
+			\newcommand{\ARR}{auto-reload register }
+			\subsection{Internal and Hybrid Testing}
+			An example requiring an internal test-case is the calculation of  the timer-parameters prescaler and \ARR. These values are based upon the input time period which is a floating Point number. \BLUE{This value to a prescaler in teacher based upon the lookup table}. Then a formula leads to the \ARR value based upon period and prescaler. As this is of no interest for the user of the device, no access to prescaler and \ARR exists in production code. Therefore, an internal test case, only part of the debug code, provides access to these values from a deeper layer of the firmware. Together with an external test-case, this forms a hybrid test case. Figure ~\ref{} contains the surplus code to access prescaler and \ARR, while ~\ref{} figure depicts the according external test case. The results in figure ~\ref{} show the correct interaction of both parts of the hybrid test case. Though the test case fails, it works correctly, by indicating an error inside the function under test. 
+			% \TODO{: programmiere einen scpi case if debug der prescaler und \ARR  retourniert und einen passenden externer case der drauf zugreift}
+			
+			
+			\subsection{Coverage Measurement with Gcov}
+				'gcov' is a suitable software tool to measure code coverage and part of the gnu compiler collection 'gcc'. It is free of charge, open source and operates on various platforms like Linux, Windows and Mac and supports target platforms ranging from arm microprocessors to x86 processors. It is able to perform statement as well as branch coverage analysis. While the actual GCC compiler produces instrumented code suitable for coverage measurement, gcov merely converts coverage data post factum into human readable reports.
+			\subsubsection{Instrumentation}
+				The production code per se is not suited for coverage measurement, because no data is generated to base coverage analysis on. Therefore it is necessary to insert counter variables into the source code that keep track on how often every block of code was executed and which branches of decisions were taken and which not. Furthermore data management of those counters is necessary as well as exporting generated data onto a host system for further processing. Instrumentation is the process of inserting mentioned counters and the according data management into the original source code. Additionally the compiler generates information about basic blocks, arcs and information to relate them to line numbers in the source code. Basic blocks are sequences of statements without any branching statements and branch targets. Arcs on the other hand are branch operations and their according targets that link basic blocks together. \\
+				
+				The instrumented source code is not identical to production source code! In case of the gcov software tool the instrumentation is done by the actual GCC compiler and not the gcov tool itself. To force the compiler to produce instrumented code, the flags '-fprofile-arcs' and '–ftest-coverage' are necessary. The instrumented code is merely an intermediate by-product, not directly visible to the developer. It is good practice, to generate instrumented code only for one module at a time and not a complete project at once, especially on a bare-metal firmware-project. They binary footprint of the instrumented source-code is substantially larger than the non-instrumented code. Therefore, the demand in memory might overwhelm the limited resources of the embedded processor, if attempting to measure coverage for a complete project at once. Post-processing tools for gcov allow for assembling data-sets of several modules into one report. With the mentioned flags, the compiler measures how often a program reaches a branch instruction and how often it actually performs a branch operation. For this purpose GCC creates a control flow graph and an accompanying spanning tree. Statements not contained in this spanning tree require counting, as they are not executed in every case. \\
+				
+				
+			\subsubsection{Producing Raw Data}
+				Executing instrumented code produces a 'gcda'-file, holding information about control-flow-graph and the spanning tree. By default, the instrumenting instructions rely on syscalls to generate and fill files with the gathered counter-data. This step requires a workaround on bare-metal systems, as there, the mentioned syscalls only exist as dummies. A subsequent chapter describes this workaround. Now it is known which branch operations the program performed and how often it executed  each statement and block of code. This information allows to write to generate a 'gcov' file and a statistical analysis. The 'gcov' file is essentially the original source code, which the gcov-tool prepends with annotations about execution-counts of statements, branching information and omitted statements, retrieved from the binary gcda-file. \\
+
+				The '-g' compiler option might be helpful for measurement of coverage data, even though it is not mandatory. It forces the compiler to generate debug information in the executable binary. This allows for example to perform breaks during execution of an instrumented program. This is a useful option for simulating failed memory allocations. Executing statements that attempt to access memory that was faulty allocated demonstrates how a program handles faulty memory regions. It is an exceptional situation for the program and therefore complicated to provoke during test cycles. Therefore, simulating exceptions via the debuggers break-functionality can be a useful method to test handling of said exceptions. So, to achieve complete branch coverage it, might be necessary to incorporate the GDB-debugger into the process. This thesis omits a detailed explanation of this debugger, as it is not the core topic. \cite{gcov} \\
+				
+				To produce the raw coverage information, at least one execution of the instrumental program is necessary. Repeated execution of the program results in the instrumenting code parts to append additional counter information to the already existing gcda file. This step again requires a certain amount of work around on bare metal systems.
+			\subsubsection{Processing Raw Data}
+				After one or several executions of the instrumented program, gcov is able to link and analyse the information contained in the gcda-file the gcno-file and the original source code. This results in the mentioned gcov-file and statistic data about the source-codes coverage. By applying the '-b' flag upon execution of gcov, branch coverage information is generated as well. Typically gcov states the percentages of executed code lines, of executed branches, of taken branches and of executed function-calls, in one module. The '-c' option allows to retrieve statistics about branching operations in absolute values rather than percentages. The '-f' option delivers statement coverage also for every separate function, additionally to the statement coverage of a whole module.
+				% \TODO{include coverage example laying around somewhere in my system and screenshots of this source code and the report file}
+			\subsubsection{Post-processing}
+				Up to this point the existing analysis data is already of valuable insight for a developer, but scattered among modules and not in a presentable format. This calls for post-processing via tools like 'lcov', 'llvm-cov', 'kcov' or 'gcovr', who are able to generate an aggregate report of several modules in HTML-, JSON-, CSV-, and XML-format. \cite{lcov} \cite{kcov}
+				Fig. ~\ref{gcovReportDebugUnit01} depicts an extract of the coverage report of one submodule and ~\ref{gcovReport01} contains a composite report about code coverage over the whole firmware-project. As the figures originate from an early phase of the project, they contain only one module called 'DebugUnit'. The software tool 'gcovr' produces such expressive reports as HTML-files. The summarizing statistics, the coverage metrics appear on the right side of the header of every report, with a colouring-scheme similar to traffic-lights, to indicate problematic metrics. The total report replicates this concept, itemized for every single module in the body part of the output. Reports of separate modules list the according source-code in the body part, indicating covered code-portions in green and not executed parts in red. This representation provides an intuitive overview of areas, that require further testing.
+			\bildGr{H}{gcovReport01}{Coverage report of a project.}{gcovReport01}{0.75\textwidth}
+			\bildGr{H}{gcovReportDebugUnit01}{Coverage report of one module.}{gcovReportDebugUnit01}{0.75\textwidth}
+			
+			% Although not a direct part of the firmware the basic steps to measure Code coverage on the bear Metal System are described here. 
+			\subsection{Measuring Code Coverage on bare-metal systems}
+			Code coverage imposes a significant challenge on bare metal systems: Measurement-tools assume an underlying operating system, especially a file-system, that receives the measured raw data. This requires a workaround, as 'bare-metal' literally means 'without an operating system'. It is very-well possible to establish a file-system, alas at significant demands in processing power and memory. As these resources require economical utilization, transferring data directly out of the device under test during test-cycles is an appealing alternative. Most ARM-based processors provide ITMs, instrumentation trace macro-cells, coupled with SWO (serial wire output), a dedicated debug-interface. This allows to define debug-informations in firmware and provide them via SWO. Debug-probes, like ST-Link2, support this interface and pass the data on to a host-system. The processors serial interfaces like USB or RS-232 are unaffected by this and remain available for user-application, instead of debugging-purposes. \\
+			
+			Fig. ~\ref{coverageFlow} illustrates the process, applying the described components for coverage measurement: A compiler generates executable binary-code from the instrumented code under test, a programming tool transfers the compiled code to the target platform. As gcov utilises the syscalls \lstC ! _open() ! , \lstC ! _write() ! and  \lstC ! _exit() !, additional code redirects these calls to the processors ITM-functions\footnote{Instrumentation trace macro-cell.}. During test-cycles, the IT-macro-cell provides the emerging coverage information via SWO, while a debug-probe picks up this information. The probe then passes the information on to a host-PC, capable of storing large volumes of data and further processing. An ad-hoc-script, written in python, converts the raw coverage information into gcda-files, compatible with gcov and its derivates. Either a combination of gcov and lcov, or gcovr then leads to a final HTML-report, similar to fig. ~ref{gcovReportDebugUnit01}. \\
+			\bildGr{H}{coverageFlow}{Process to obtain coverage data.}{coverageFlow}{0.95\textwidth}
+			Special attention regarding versions of the compiler, the coverage tool and the reporting tool is necessary. Report generation easily fails, if the versions of the tools generating gcno-, gcda- and html-files do not match up exactly. Furthermore, only one exact version (v5) of the arm-compiler generates instrumented source code applicable for coverage measurement on STM32 processors. Lcov does not produce any reports containing any coverage metrics at all, at least not with the compiler- and gcov-versions in use. \\
+			\bildGr{h!}{gcvor52}{Report-form of gcovr v5.2.}{gcvor52}{0.5\textwidth}
+			Unfortunately, only versions up to 4.2 of gcovr provides compatibility among compiler, coverage-tool and the platform performing the coverage analysis. While the most recent version 5.2 delivers separate metrics for function-calls and decisions (see fig. ~\ref{gcvor52}), version 4.2 is only capable of providing statement and branch-coverage\cite{gcovr} . \\
+
+			The described process is rather cumbersome, hardly automated and requires some manual intervention. Nevertheless, the resulting reports are of significant value to the developer, which again justifies the efforts. 
+
+		% \section{\GREY{Software tools}}
+			% \subsection{\GREY{CubeIDE}}
+			% \subsection{\GREY{python tools, pytest-html}}
+			% \subsection{\GREY{OpenOCD}}
+			% \subsection{\GREY{Valgrind}}
+			% \subsection{\GREY{Wavedrom}}
+			% \subsection{\GREY{WireShark/USBPcap}}
+			% \subsection{\GREY{Gitlab Runner}}
+			% \subsection{\GREY{HIL-Setup}}

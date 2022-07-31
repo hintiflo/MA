@@ -81,36 +81,6 @@
       \verb 10.1088/1757-899X/1045/1/012036
       \endverb
     \endentry
-    \entry{Beizer95}{book}{}
-      \name{author}{1}{}{%
-        {{hash=40b371da86c2ce0dc19684b2a3d7f3bb}{%
-           family={Beizer},
-           familyi={B\bibinitperiod},
-           given={Boris},
-           giveni={B\bibinitperiod}}}%
-      }
-      \list{publisher}{2}{%
-        {Verlag John Wiley}%
-        {Sons, Inc}%
-      }
-      \strng{namehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
-      \strng{fullhash}{40b371da86c2ce0dc19684b2a3d7f3bb}
-      \strng{bibnamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
-      \strng{authorbibnamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
-      \strng{authornamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
-      \strng{authorfullhash}{40b371da86c2ce0dc19684b2a3d7f3bb}
-      \field{extraname}{1}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{edition}{1}
-      \field{isbn}{0471120944}
-      \field{note}{MR: referenziert aus Binder1999 (u.a. im Hinblick auf data flow testing strategies)}
-      \field{title}{Black-Box Testing: Techniques for Functional Testing of Software and Systems}
-      \field{year}{1995}
-      \keyw{black-box functional testing}
-    \endentry
     \entry{Beizer90}{book}{}
       \name{author}{1}{}{%
         {{hash=40b371da86c2ce0dc19684b2a3d7f3bb}{%
@@ -131,7 +101,6 @@
       \strng{authorbibnamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
       \strng{authornamehash}{40b371da86c2ce0dc19684b2a3d7f3bb}
       \strng{authorfullhash}{40b371da86c2ce0dc19684b2a3d7f3bb}
-      \field{extraname}{2}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
       \field{labelnamesource}{author}
@@ -139,6 +108,47 @@
       \field{isbn}{0442206720}
       \field{title}{Software Testing Techniques (2nd Ed.)}
       \field{year}{1990}
+    \endentry
+    \entry{Butool2019ImprovingRC}{article}{}
+      \name{author}{4}{}{%
+        {{hash=47249808554c83639ed01bb11c490215}{%
+           family={Butool},
+           familyi={B\bibinitperiod},
+           given={Rimsha},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ba2ccde48c3f149c44f8c0af7fad5d9e}{%
+           family={Nadeem},
+           familyi={N\bibinitperiod},
+           given={Aamer},
+           giveni={A\bibinitperiod}}}%
+        {{hash=a0afe86889041a0339d759f50c31418c}{%
+           family={Sindhu},
+           familyi={S\bibinitperiod},
+           given={Muddassar\bibnamedelima Azam},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=97459f7fecd4332f7a0296430444d6d2}{%
+           family={Zaman},
+           familyi={Z\bibinitperiod},
+           given={Oamar},
+           giveni={O\bibinitperiod},
+           prefix={uz},
+           prefixi={u\bibinitperiod}}}%
+      }
+      \strng{namehash}{78444a01ff9539f3901ae915c90e2d7f}
+      \strng{fullhash}{8cc4e5a82ef2453b0082b5ce17d35899}
+      \strng{bibnamehash}{78444a01ff9539f3901ae915c90e2d7f}
+      \strng{authorbibnamehash}{78444a01ff9539f3901ae915c90e2d7f}
+      \strng{authornamehash}{78444a01ff9539f3901ae915c90e2d7f}
+      \strng{authorfullhash}{8cc4e5a82ef2453b0082b5ce17d35899}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{2019 22nd International Multitopic Conference (INMIC)}
+      \field{title}{Improving Requirements Coverage in Test Case Prioritization for Regression Testing}
+      \field{year}{2019}
+      \field{pages}{1\bibrangedash 6}
+      \range{pages}{6}
     \endentry
     \entry{Chilenski2001}{article}{}
       \name{author}{1}{}{%
@@ -196,6 +206,37 @@
       \verb 10.1049/sej.1994.0025
       \endverb
     \endentry
+    \entry{Hayhurst2001APT}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{hash=fe0367cde6c3179d2a6913927f9f7fe7}{%
+           family={Hayhurst},
+           familyi={H\bibinitperiod},
+           given={Kelly\bibnamedelima J.},
+           giveni={K\bibinitperiod\bibinitdelim J\bibinitperiod}}}%
+        {{hash=e41b2cf98f873b3b82fab0d80bb448dc}{%
+           family={Veerhusen},
+           familyi={V\bibinitperiod},
+           given={Dan\bibnamedelima S.},
+           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod}}}%
+        {{hash=1810cfbb5a5100f416dc431f1a152869}{%
+           family={Rapids},
+           familyi={R\bibinitperiod},
+           given={Cedar},
+           giveni={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{593b3f64a259b753ec12a8f7f7a0e88e}
+      \strng{fullhash}{593b3f64a259b753ec12a8f7f7a0e88e}
+      \strng{bibnamehash}{593b3f64a259b753ec12a8f7f7a0e88e}
+      \strng{authorbibnamehash}{593b3f64a259b753ec12a8f7f7a0e88e}
+      \strng{authornamehash}{593b3f64a259b753ec12a8f7f7a0e88e}
+      \strng{authorfullhash}{593b3f64a259b753ec12a8f7f7a0e88e}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Practical Tutorial Decision Coverage on Modified Condition}
+      \field{year}{2001}
+    \endentry
     \entry{Howden1978AnEO}{article}{}
       \name{author}{1}{}{%
         {{hash=731366454496b334e1dae42606c09452}{%
@@ -245,6 +286,47 @@
       \field{year}{1975}
       \field{pages}{554\bibrangedash 560}
       \range{pages}{7}
+    \endentry
+    \entry{Hunt2019}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=7d9273fa2a92b56a830259d34dfda8fd}{%
+           family={Hunt},
+           familyi={H\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{7d9273fa2a92b56a830259d34dfda8fd}
+      \strng{fullhash}{7d9273fa2a92b56a830259d34dfda8fd}
+      \strng{bibnamehash}{7d9273fa2a92b56a830259d34dfda8fd}
+      \strng{authorbibnamehash}{7d9273fa2a92b56a830259d34dfda8fd}
+      \strng{authornamehash}{7d9273fa2a92b56a830259d34dfda8fd}
+      \strng{authorfullhash}{7d9273fa2a92b56a830259d34dfda8fd}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{There are several testing frameworks available for Python, although only one, unittest comes as part of the typical Python installation. Typical libraries include unittest (which is available within the Python distribution by default) and PyTest. This chapter introduces the PyTest testing framework.}
+      \field{booktitle}{Advanced Guide to Python 3 Programming}
+      \field{isbn}{978-3-030-25943-3}
+      \field{title}{PyTest Testing Framework}
+      \field{year}{2019}
+      \field{pages}{175\bibrangedash 186}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/978-3-030-25943-3_15
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-030-25943-3_15
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-030-25943-3_15
+      \endverb
     \endentry
     \entry{jorgensen13}{book}{}
       \name{author}{1}{}{%
@@ -453,6 +535,63 @@
       \field{labeltitlesource}{title}
       \field{title}{Software Testing Techniques}
       \field{year}{2001}
+    \endentry
+    \entry{Marchetto2019CombiningCA}{article}{}
+      \name{author}{3}{}{%
+        {{hash=1b8da73397bd47ba9328204ed4d79ca5}{%
+           family={Marchetto},
+           familyi={M\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod}}}%
+        {{hash=db8d4b97e04358fd261bf8a79cbccf53}{%
+           family={Scanniello},
+           familyi={S\bibinitperiod},
+           given={Giuseppe},
+           giveni={G\bibinitperiod}}}%
+        {{hash=fa2fc50ff83a90a4cc12f1f7d300afb6}{%
+           family={Susi},
+           familyi={S\bibinitperiod},
+           given={Angelo},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{7bcf9df684634e6bef1b9a427b2bf9f5}
+      \strng{fullhash}{7bcf9df684634e6bef1b9a427b2bf9f5}
+      \strng{bibnamehash}{7bcf9df684634e6bef1b9a427b2bf9f5}
+      \strng{authorbibnamehash}{7bcf9df684634e6bef1b9a427b2bf9f5}
+      \strng{authornamehash}{7bcf9df684634e6bef1b9a427b2bf9f5}
+      \strng{authorfullhash}{7bcf9df684634e6bef1b9a427b2bf9f5}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Software Engineering}
+      \field{title}{Combining Code and Requirements Coverage with Execution Cost for Test Suite Reduction}
+      \field{volume}{45}
+      \field{year}{2019}
+      \field{pages}{363\bibrangedash 390}
+      \range{pages}{28}
+    \endentry
+    \entry{Pajankar2021pytest}{article}{}
+      \name{author}{1}{}{%
+        {{hash=6d3ce3ecc43cc7eb77e25ac7c954503f}{%
+           family={Pajankar},
+           familyi={P\bibinitperiod},
+           given={Ashwin},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{6d3ce3ecc43cc7eb77e25ac7c954503f}
+      \strng{fullhash}{6d3ce3ecc43cc7eb77e25ac7c954503f}
+      \strng{bibnamehash}{6d3ce3ecc43cc7eb77e25ac7c954503f}
+      \strng{authorbibnamehash}{6d3ce3ecc43cc7eb77e25ac7c954503f}
+      \strng{authornamehash}{6d3ce3ecc43cc7eb77e25ac7c954503f}
+      \strng{authorfullhash}{6d3ce3ecc43cc7eb77e25ac7c954503f}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Python Unit Test Automation}
+      \field{title}{pytest}
+      \field{year}{2021}
     \endentry
     \entry{SpilSoft2005}{book}{}
       \name{author}{3}{}{%

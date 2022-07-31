@@ -1,0 +1,8 @@
+	\chapter{Conclusion}
+	\label{cha:Conclusion}
+	\section{Test Cases}
+		\bildGr{h!}{exampleHelpfulFailedTest01}{Failed test-case.}{exampleHelpfulFailedTest01}{0.85\textwidth}
+	Fig. ~\ref{exampleHelpfulFailedTest01} contains an example of a helpful test-case that failed in the beginning. The direct comparison of expected and actual results allows to backtrack the problem via searching for the unexpected result-string. This leads to the accompanying enum-ID of that string, that was misplaced because of a typing error of one single letter. 
+	The Fig. ~\ref{exampleHelpfulFailedTestSrc01} depicts the according place in the source code, with the erroneous ID \lstC !TX_SOURB_VOLT_LEVq! instead of \lstC !TX_SOURB_VOLT_LEV! .
+		\bildGr{h!}{exampleHelpfulFailedTestSrc01}{Faulty source-code.}{exampleHelpfulFailedTestSrc01}{0.55\textwidth}
+	This example highlights the advantages of numerous simple test-cases, already during the debugging and early verification of newly implemented functionalities.

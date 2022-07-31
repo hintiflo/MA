@@ -1,0 +1,97 @@
+	\chapter{Requirements}
+	\label{cha:Requirements}
+		% Allgemeine REQs an FW, RT (und evtl design-for-testability)
+		% \section{Firmware-Requirements}
+		All stakeholders of the OCTane decided in two meetings the requirements towards the OCTane and especially the firmware running on it. The fact, that the stakeholders, or, in other words, the users of the OCTane agreed on these, leads to the label 'user requirements'. Accompanying tags in the form 'RU-xx' allow for tracing relations between a requirement and according test-cases or points of implementation inside the source-code. %, as well as a traceability matrix
+		\section{User requirements}
+				\input{src/_REQS.tex}
+		\pagebreak
+			\subsection{USB-Protocol}
+		A direct consequence of the user-requirements is the list of scpi-commands and according replies, forming the USB-protocol.	Scpi-commands can be in 'short form', defined by the capital letters, or in 'long form', defined by the whole string. OCTane accepts both forms as commands and is case-insensitive. \cite{scpi1993}
+		{	\scriptsize
+			\input{src/_scpiRecendt.tex}
+		}
+		Table ~\ref{USB-Protocol-responses} specifies the responses by the OCTane, if they are not described sufficiently in the previous table.
+		{	\scriptsize
+			\input{src/_scpiStd.tex}
+		}
+			
+		\subsection{Analogue Output Resolution}
+		The analogue voltage outputs provide a voltage range of $\pm$10volts, or 20 volts peak-to-peak at a resolution of 16Bit, or $2^{16}$ LSBs \footnote{'least significant bit', the smallest digital value, corresponding with the smallest voltage step}. This requires to decide on a mapping of digital to analogue values. The most obvious mapping would be, to equate -10V with 0 LSB and +10V with 65535 LSB, providing the following resolution:
+		\begin{align*}
+			\rightarrow 1 LSB \overset{\wedge}{=} U_{LSB} &= \frac{20Vpp}{2^{16}} = 305.17 \mu V \\
+		\end{align*}
+		Nevertheless, a viable alternative is, to only use 60000 LSB and shift the range towards the centre of the outputs response curve, leading to the following resolution:
+		\begin{align*}
+			\rightarrow 1 LSB \overset{\wedge}{=} U_{LSB} &= \frac{20Vpp}{60000} = 333.33 \mu V = \frac{1}{3}mV \\
+		\end{align*}
+		This provides the advantage to cover every exact milli-volt value, which is not possible for the first option, due to quantization. Also, a shift of 3000 LSBs results in considerable headroom in regards to the possible output. This is allows to slightly exceed the required output swing of $\pm$10volts. Therefore, the concluded mapping results to:
+		\begin{align*}
+			% \textrm{LSB} & \textrm{Voltage} \\
+			% 0     &\rightarrow ... \\
+			3000LSBs	&\rightarrow -10.000 volts \\
+			33000LSBs	&\rightarrow 0.000 volts \\
+			63000LSBs	&\rightarrow	10.000 volts \\
+			% 65535 &\rightarrow ... \\
+		\end{align*}
+		% \TODO{Ivan: wie nennt man 1 LSB in digital? HEX-werte?, außerdem wie schreibt man Volt-werte auf English}
+		% With the transfer formulas:
+		% \begin{align*}
+			% \rightarrow 1 LSB \overset{\wedge}{=} U_{LSB} &= \frac{20Vpp}{60000} = 333.33 \mu V = \frac{1}{3}mV \\
+			% \rightarrow 1 LSB \overset{\wedge}{=} U_{LSB} &= \frac{20Vpp}{60000} = 333.33 \mu V = \frac{1}{3}mV \\
+		% \end{align*}
+	% \begin{itemize}
+		% \item 0 ... 30000 ... 60000
+		% \item 1000 ... 31000 ... 61000
+		% \item 2000 ... 32000 ... 62000
+		% \item 3000 ... 33000 ... 63000
+		% \item 2500 ... 32500 ... 62500
+		% \item 0 ... 32767 ... 65535
+	% \end{itemize}
+	
+
+
+	\section{Load-Hypothesis, Fault-Hypothesis}
+	\section{Traceability-Matrix}
+	Linking Requirements by there tags, to the SW-modules, where they are fulfilled
+	The traceability Matrix establishes the relations between user requirements and test cases. Furthermore it is good practice to also include requirement IDs inside the source code on the exact point of implementation. The convenient layout for a traceability matrix is to list requirement IDs column-wise, while noting the IDs of the test cases row wise. The reason being that one requirement may have multiple test cases and and it is more convenient to note these multiple IDs in rows, rather than columns.
+	\section{V-Model}
+
+	\section{Verification}
+	\subsection{Test-cases}
+	Automated test-cases are the primary method to ensure code-quality, because they allow for the assessment of functionalities against requirements and produce according documentation of conducted tests. Furthermore, they help identifying  errors in case of failures and secure implemented functionalities during future adaptions. To demonstrate a complete assessment of the firmware, for every existing user-requirement, at least one test-case is necessary. Depending on the depth of examination through the layers of a firmware, test-cases can either be external or internal. \\
+	
+	External test-cases denote code running on a separate device, controlling and probing the device under test, most useful for a behavioural and user-oriented verification. Internal test-cases are part of the firmware itself, allowing inspection of hardly accessible areas of code. Though running on the target-hardware, these tests also need to transfer test-data onto an external device, capable of storing and report-generation. Best-practice is to apply both approaches according to necessity and even combine them into hybrid test-cases: External code providing input and capturing output, while calling internal test-cases, that can access and deliver information of the device usually inaccessible via production code. \\
+	
+	Every test-case has to be simple enough, to render verification of the test-code itself unnecessary. First off, to prevent the effort to verify test-code, but also, because explaining test-cases to a customer, who is possibly no programmer, becomes more feasible. A test-case, so complex, that i would require a superordinate test-case, suggests to be split into several cases of lesser respective complexity. \\
+			
+	In case of commands resulting in digital, analogue or serial output-signals, the according test-case should measure that output and take it into account for the test result. Automated measurement is required if performable with justifiable effort and available measurement instruments. Apart from this method of fully automated testing, few requirements demand assessment in a manual fashion. For example, oscillograms of the resulting analogue signals require evaluation by the eye of a skilled engineer. Automation of this process via spectral analysis or automated comparison with reference signals would require unjustifiable effort, compared to an evaluation via visual inspection. 
+	The core purpose of this project is to develop a firmware and not an elaborate test-setup. \\
+
+	Test-cases, usually, belong to one of the following classes: % , \TODO{according to the V-Model}:
+	\subsection{Unit-Tests}
+		Unit-tests are test-cases that evaluate the correctness of single functions, methods or procedures. A single variable, array or data-set also constitutes such a unit, if the contained data demands deliberate assessment via a test-case. Viable inputs exist in the form of binary values with separate cases for 'true' and 'false'. In case of numerical input, be they of integer or floating-point nature, the boundary-value and equivalence-class methods deliver suitable input values. For inputs in text form, all specified valid texts, and at least one invalid text form a set of useful input values. \cite{jorgensen13}
+	\subsection{Integration-Tests}
+		The next level of tests concern the interactions between units and their correct cooperation to form correctly working modules and sub-systems. A major focus in integration testing lies on the verification of units and modules to ensure their correct interaction. As this aspect is of a lesser concern during unit-testing, integration-testing is an established branch of verification in its own right. Furthermore, side-effects of units, which are hardly a concern during unit-testing, are important aspects during integration-testing. Testing and demonstrating seamless interoperability and collaboration of modules are the prime objectives. \cite{SpilSoft2005} % \TODO{welche inputs? Oder: beschreibung der integrations-Art nach ISTQB S. 56} Similar to a unit-test for text-driven functions, an integration test has to contain all possible valid inputs and at least one invalid. \\
+		The strategy of integration, happening during implementation has significant influence on the design of suitable integration-tests. These are the most common approaches:
+		\begin{itemize} \setlength\itemsep{1px}
+		\item Top-down integration 
+		\item Bottom-up integration 
+		\item Ad-hoc integration 
+		\item Backbone integration 
+	\end{itemize} 
+
+
+	\subsection{System-Tests}
+	% https://de.wikipedia.org/wiki/Heisenbug
+	% \TODO{kann ma den da reinschummeln?}	\cite{Beizer95}
+	% \subsection{Load/Fault Tests}
+	
+	% \TODO{cite: IEEE830.pdf, Crowder-REQs, Buttazzo, system-deadlocks (Coffman) und Datenblätter }
+	% \subsection{End to end Test}
+	% The core concern is if a test is intended and designed as a unit or an end to end test, regardless of additional resources of the system being used.
+	% Even though unit tests are not into end-to-end tests they may very well use the outer interfaces of the system under test.
+
+	\subsection{Code Coverage}
+	Code Coverage is an accompanying metric to test-cases, indicating their accuracy and completeness of assessment. The goal for this project is to achieve complete statement and branch coverage for the original, self-written source-code. Third-party libraries and HAL-modules from the processor-vendor are excluded from this requirement.
+	
